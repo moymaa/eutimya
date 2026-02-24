@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Eutimya | Salud Mental · Psiquiatría en CDMX · Dr. Moya &amp; Dra. Sharon Venecia</title>
+<meta name="description" content="Eutimya — práctica psiquiátrica privada en Col. Del Valle, CDMX. Atención de adultos, adolescentes y niños con base en evidencia. Diagnóstico, farmacoterapia y neuromodulación. Consulta presencial y en línea."/>
+<meta name="keywords" content="psiquiatría CDMX, salud mental Ciudad de México, Eutimya, psiquiatra Del Valle, ansiedad depresión TDAH, neuromodulación TMS, consulta psiquiátrica en línea México"/>
+<meta name="author" content="Eutimya"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+<link rel="canonical" href="https://mental.eutimya.org/"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://mental.eutimya.org/"/>
+<meta property="og:title" content="Eutimya | Salud Mental · Psiquiatría CDMX"/>
+<meta property="og:description" content="Práctica psiquiátrica privada. Dr. Moya Sánchez y Dra. Sharon Venecia. Adultos, niños y adolescentes. Del Valle CDMX y en línea."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link rel="icon" type="image/png" href="https://github.com/moymaa/drmoyapsiq/blob/main/logos%20acceso%20directos%20mac%20iconos.png?raw=true"/>
+<link rel="apple-touch-icon" href="https://github.com/moymaa/drmoyapsiq/blob/main/logos%20acceso%20directos%20mac%20iconos.png?raw=true"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["MedicalOrganization","LocalBusiness"],
+  "@id":"https://mental.eutimya.org/#organization",
+  "name":"Eutimya",
+  "description":"Práctica psiquiátrica privada en Ciudad de México. Atención de adultos, adolescentes y niños con base en evidencia científica. Diagnóstico, farmacoterapia y neuromodulación.",
+  "url":"https://mental.eutimya.org/",
+  "telephone":"+52-673-120-5121",
+  "email":"contacto@eutimya.org",
+  "medicalSpecialty":["Psychiatry","Child and Adolescent Psychiatry","Consultation-Liaison Psychiatry"],
+  "address":{"@type":"PostalAddress","streetAddress":"Calle Moras 619","addressLocality":"Colonia Del Valle Sur","addressRegion":"Ciudad de México","postalCode":"03104","addressCountry":"MX"},
+  "geo":{"@type":"GeoCoordinates","latitude":19.3905,"longitude":-99.1649},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"21:00"}],
+  "sameAs":["https://www.eutimya.org/","https://psiquiatra-cdmx.eutimya.org/","https://paido.eutimya.org/"]
+}
+</script>
+
+<style>
+/* ═══ TOKENS ═══ */
+:root{
+  --ink:#0d1b2a;
+  --ink-mid:#334155;
+  --ink-light:#64748b;
+  --gold:#b8893a;
+  --gold-pale:#f5ecd7;
+  --teal:#2d7d76;
+  --teal-light:#e8f5f4;
+  --white:#ffffff;
+  --canvas:#fafaf8;
+  --rule:#e8e6e1;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans','Helvetica Neue',sans-serif;
+  --r:10px;
+  --shadow:0 2px 12px rgba(13,27,42,.07);
+  --shadow-lg:0 8px 40px rgba(13,27,42,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ═══ NAV ═══ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(10px);
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 2rem;
+  gap:1rem;
+}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo img{height:32px;width:auto}
+.nav-links{
+  display:flex;gap:1.6rem;list-style:none;
+  flex:1;justify-content:center;
+}
+.nav-links a{
+  font-size:.78rem;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-mid);
+  transition:color .2s;white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:.8rem;flex-shrink:0}
+.nav-extras{font-size:1.05rem;letter-spacing:.08em;opacity:.85}
+.nav-btn{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--ink);color:var(--white);
+  padding:.5rem 1.2rem;border-radius:6px;
+  font-size:.75rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;white-space:nowrap;
+  transition:background .2s;
+}
+.nav-btn:hover{background:#1e3a5f}
+.nav-search{
+  background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;padding:.3rem;color:var(--ink-mid);
+  transition:color .2s;
+}
+.nav-search:hover{color:var(--ink)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.mobile-nav{
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:#fff;border-bottom:1px solid var(--rule);
+  padding:1.2rem 2rem;z-index:99;box-shadow:var(--shadow-lg);
+}
+.mobile-nav.open{display:block}
+.mobile-nav ul{list-style:none}
+.mobile-nav li{padding:.65rem 0;border-bottom:1px solid var(--rule)}
+.mobile-nav li:last-child{border:none}
+.mobile-nav a{font-size:.95rem;font-weight:500;color:var(--ink)}
+
+/* ═══ HERO ═══ */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  padding-top:60px;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 6rem;
+  background:var(--white);
+  position:relative;
+}
+.hero-left::after{
+  content:'';
+  position:absolute;right:0;top:15%;bottom:15%;
+  width:1px;background:linear-gradient(180deg,transparent,var(--rule) 30%,var(--rule) 70%,transparent);
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.4rem;
+}
+.hero-tag span{display:block;width:28px;height:1px;background:var(--gold)}
+.hero-wordmark{
+  font-family:var(--serif);
+  font-size:clamp(2.8rem,4.5vw,4rem);
+  font-weight:700;line-height:1;
+  color:var(--ink);margin-bottom:.4rem;
+  letter-spacing:-.01em;
+}
+.hero-tagline{
+  font-family:var(--serif);
+  font-size:clamp(1rem,1.5vw,1.2rem);
+  font-weight:400;font-style:italic;
+  color:var(--gold);margin-bottom:1.8rem;
+}
+.hero-desc{
+  font-size:.95rem;line-height:1.8;color:var(--ink-mid);
+  max-width:440px;margin-bottom:2rem;
+}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-main{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--ink);color:#fff;
+  padding:.85rem 2rem;border-radius:8px;
+  font-size:.88rem;font-weight:600;
+  transition:background .2s,transform .15s;
+  box-shadow:0 4px 16px rgba(13,27,42,.18);
+}
+.btn-main:hover{background:#1e3a5f;transform:translateY(-1px)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1.5px solid var(--rule);color:var(--ink);
+  padding:.85rem 1.8rem;border-radius:8px;
+  font-size:.88rem;font-weight:500;
+  transition:all .2s;
+}
+.btn-outline:hover{border-color:var(--ink);background:var(--canvas)}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:#25d366;color:#fff;
+  padding:.85rem 1.8rem;border-radius:8px;
+  font-size:.88rem;font-weight:600;
+  transition:filter .2s,transform .15s;
+}
+.btn-wa:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hero-chips{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  padding-top:1.8rem;
+  border-top:1px solid var(--rule);
+}
+.chip-hero{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.73rem;font-weight:500;
+  border:1px solid var(--rule);border-radius:100px;
+  padding:.25rem .75rem;color:var(--ink-mid);background:#fff;
+}
+.chip-hero .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ═══ HERO RIGHT ═══ */
+.hero-right{position:relative;overflow:hidden;min-height:600px}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center center}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(13,27,42,.35) 0%,rgba(13,27,42,.05) 60%,transparent 100%);
+}
+.hero-badge{
+  position:absolute;bottom:2rem;left:2rem;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(12px);
+  color:#fff;padding:.65rem 1.2rem;border-radius:8px;
+  font-size:.78rem;font-weight:500;letter-spacing:.04em;
+}
+.hero-badge-en{
+  position:absolute;top:2rem;right:2rem;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(12px);
+  color:#fff;padding:.5rem 1rem;border-radius:6px;
+  font-size:.73rem;font-weight:500;letter-spacing:.04em;
+}
+
+/* ═══ STATS BAR ═══ */
+.stats-bar{background:var(--ink);padding:2.8rem 2rem}
+.stats-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1.5rem;text-align:center;
+}
+.stat-n{
+  font-family:var(--serif);font-size:2rem;font-weight:700;
+  color:var(--gold);display:block;line-height:1;margin-bottom:.3rem;
+}
+.stat-l{
+  font-size:.72rem;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;color:rgba(255,255,255,.55);
+}
+
+/* ═══ SECTION BASE ═══ */
+.section{padding:5.5rem 2rem}
+.section-alt{background:var(--canvas)}
+.wrap{max-width:1200px;margin:0 auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.8rem;
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--gold)}
+.section-h{
+  font-family:var(--serif);
+  font-size:clamp(1.7rem,3vw,2.3rem);
+  font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:1rem;
+}
+.section-sub{font-size:.95rem;color:var(--ink-mid);max-width:560px;line-height:1.75}
+
+/* ═══ SERVICIOS ═══ */
+.services-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:start;margin-bottom:3.5rem;
+}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+}
+.svc{
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:1.8rem;background:#fff;
+  position:relative;overflow:hidden;
+  transition:box-shadow .25s,transform .2s;
+}
+.svc:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.svc::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--ink),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.svc:hover::after{transform:scaleX(1)}
+.svc-icon{
+  width:44px;height:44px;border-radius:8px;
+  background:var(--canvas);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:1rem;
+}
+.svc h3{font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:.45rem}
+.svc p{font-size:.83rem;color:var(--ink-mid);line-height:1.65}
+
+/* ═══ PADECIMIENTOS ═══ */
+.cond-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:.7rem;margin-top:2.5rem;
+}
+.cond{
+  display:flex;align-items:center;gap:.6rem;
+  border:1px solid var(--rule);border-radius:8px;
+  padding:.75rem 1rem;background:#fff;
+  font-size:.83rem;font-weight:500;color:var(--ink);
+  transition:all .2s;cursor:default;
+}
+.cond:hover{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-1px)}
+.cond-bullet{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;transition:background .2s}
+
+/* ═══ PROFESIONALES ═══ */
+.pros-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;margin-top:3rem;
+}
+.pro-card{
+  border:1px solid var(--rule);border-radius:var(--r);
+  overflow:hidden;background:#fff;
+  transition:box-shadow .25s,transform .2s;
+}
+.pro-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.pro-img{height:340px;overflow:hidden;position:relative}
+.pro-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s}
+.pro-card:hover .pro-img img{transform:scale(1.03)}
+.pro-img-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(13,27,42,.6) 0%,transparent 50%);
+  padding:1.5rem;
+}
+.pro-specialty-badge{
+  display:inline-block;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(8px);color:#fff;
+  padding:.35rem .8rem;border-radius:5px;
+  font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+}
+.pro-body{padding:1.8rem}
+.pro-name{
+  font-family:var(--serif);font-size:1.4rem;font-weight:700;
+  color:var(--ink);margin-bottom:.2rem;line-height:1.2;
+}
+.pro-role{font-size:.82rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.5}
+.pro-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
+.pro-chip{
+  display:inline-flex;align-items:center;gap:.25rem;
+  font-size:.7rem;font-weight:500;
+  border:1px solid var(--rule);border-radius:100px;
+  padding:.2rem .65rem;color:var(--ink-mid);
+}
+.pro-ctas{display:flex;gap:.6rem;flex-wrap:wrap}
+.pro-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.78rem;font-weight:600;
+  padding:.55rem 1.1rem;border-radius:6px;
+  transition:all .2s;
+}
+.pro-cta-dark{background:var(--ink);color:#fff}
+.pro-cta-dark:hover{background:#1e3a5f}
+.pro-cta-light{border:1.5px solid var(--rule);color:var(--ink)}
+.pro-cta-light:hover{border-color:var(--ink);background:var(--canvas)}
+
+/* ═══ NEUROMODULACIÓN ═══ */
+.neuro-band{
+  background:var(--ink);padding:5rem 2rem;
+  position:relative;overflow:hidden;
+}
+.neuro-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(184,137,58,.12) 0%,transparent 70%);
+}
+.neuro-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:4rem;align-items:center;
+  position:relative;
+}
+.neuro-eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem;
+}
+.neuro-eyebrow::before{content:'';width:22px;height:1px;background:var(--gold)}
+.neuro-h{
+  font-family:var(--serif);font-size:clamp(1.7rem,2.5vw,2.2rem);
+  font-weight:700;color:#fff;line-height:1.2;margin-bottom:1rem;
+}
+.neuro-p{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:1.8rem}
+.neuro-list{list-style:none;margin-bottom:2rem}
+.neuro-list li{
+  display:flex;align-items:flex-start;gap:.7rem;
+  font-size:.87rem;color:rgba(255,255,255,.75);
+  margin-bottom:.7rem;line-height:1.5;
+}
+.neuro-list li::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;margin-top:.45rem;
+}
+.neuro-img{border-radius:var(--r);overflow:hidden;height:380px}
+.neuro-img img{width:100%;height:100%;object-fit:cover}
+
+/* ═══ CUANDO / SEÑALES ═══ */
+.cuando-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;margin-top:2.5rem;
+}
+.cuando-card{
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:1.8rem;background:#fff;
+  transition:box-shadow .2s;
+}
+.cuando-card:hover{box-shadow:var(--shadow)}
+.cuando-ic{
+  font-size:1.6rem;margin-bottom:1rem;
+  display:block;
+}
+.cuando-card h3{font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+.cuando-card p{font-size:.82rem;color:var(--ink-mid);line-height:1.65}
+
+/* ═══ PROCESO ═══ */
+.proceso-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;margin-top:3rem;
+  position:relative;
+}
+.proceso-steps::before{
+  content:'';position:absolute;top:28px;left:10%;right:10%;
+  height:1px;background:linear-gradient(90deg,transparent,var(--rule) 20%,var(--rule) 80%,transparent);
+}
+.step{text-align:center;padding:0 .5rem;position:relative}
+.step-n{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.2rem;font-weight:700;
+  margin:0 auto 1.2rem;
+  box-shadow:0 4px 16px rgba(13,27,42,.18);
+}
+.step h3{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+.step p{font-size:.8rem;color:var(--ink-mid);line-height:1.6}
+
+/* ═══ BLOG ═══ */
+.blog-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-top:3rem;
+}
+.blog-card{
+  border:1px solid var(--rule);border-radius:var(--r);
+  overflow:hidden;background:#fff;
+  transition:box-shadow .25s,transform .2s;
+}
+.blog-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.blog-img{height:200px;overflow:hidden}
+.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.blog-card:hover .blog-img img{transform:scale(1.04)}
+.blog-body{padding:1.4rem}
+.blog-tag{
+  font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.5rem;display:block;
+}
+.blog-card h3{
+  font-family:var(--serif);font-size:1rem;font-weight:600;
+  color:var(--ink);line-height:1.35;margin-bottom:.5rem;
+}
+.blog-card p{font-size:.8rem;color:var(--ink-mid);line-height:1.6}
+.blog-more{margin-top:3rem;text-align:center}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1.5px solid var(--rule);color:var(--ink);
+  padding:.75rem 2rem;border-radius:8px;
+  font-size:.85rem;font-weight:600;
+  transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--ink);background:var(--canvas)}
+
+/* ═══ ENGLISH ═══ */
+.english-band{
+  background:var(--canvas);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:3rem 2rem;text-align:center;
+}
+.english-inner{max-width:640px;margin:0 auto}
+.english-inner p{font-size:.95rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.4rem}
+.english-inner strong{color:var(--ink)}
+
+/* ═══ FAQ ═══ */
+.faq-list{max-width:780px;margin-top:2rem}
+.faq-item{border-bottom:1px solid var(--rule)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem 0;font-size:.95rem;font-weight:600;color:var(--ink);
+  background:none;border:none;cursor:pointer;text-align:left;
+}
+.faq-q:hover{color:var(--gold)}
+.faq-icon{
+  width:24px;height:24px;flex-shrink:0;
+  border-radius:50%;border:1.5px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;color:var(--ink-mid);
+  transition:.25s;
+}
+.faq-item.open .faq-icon{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(45deg)}
+.faq-a{display:none;font-size:.88rem;color:var(--ink-mid);line-height:1.8;padding-bottom:1.1rem}
+.faq-item.open .faq-a{display:block}
+
+/* ═══ CTA BAND ═══ */
+.cta-band{
+  background:var(--ink);padding:5.5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at center,rgba(184,137,58,.1) 0%,transparent 70%);
+}
+.cta-inner{position:relative;max-width:640px;margin:0 auto}
+.cta-inner h2{
+  font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.5rem);
+  font-weight:700;color:#fff;margin-bottom:.9rem;
+}
+.cta-inner p{font-size:.97rem;color:rgba(255,255,255,.65);margin-bottom:2rem;line-height:1.7}
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--gold);color:#fff;
+  padding:1rem 2.5rem;border-radius:8px;
+  font-size:.95rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(184,137,58,.35);
+  transition:filter .2s,transform .15s;
+}
+.btn-gold:hover{filter:brightness(1.1);transform:translateY(-1px)}
+
+/* ═══ NOSOTROS / CONTACTO ═══ */
+.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contacto-item{
+  display:flex;gap:.9rem;align-items:flex-start;margin-bottom:1.3rem;
+}
+.contacto-ic{
+  width:38px;height:38px;flex-shrink:0;
+  background:var(--canvas);border:1px solid var(--rule);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;
+}
+.contacto-k{font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.1rem}
+.contacto-v{font-size:.9rem;font-weight:500;color:var(--ink);transition:color .2s}
+.contacto-v:hover{color:var(--gold)}
+.map-wrap{border-radius:var(--r);overflow:hidden;border:1px solid var(--rule);height:320px;box-shadow:var(--shadow)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+
+/* ═══ VALIDAR ═══ */
+.validar-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1rem;margin-top:2.5rem;
+}
+.val-card{
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:1.4rem;background:#fff;
+  text-align:center;transition:box-shadow .2s;
+}
+.val-card:hover{box-shadow:var(--shadow)}
+.val-k{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.3rem}
+.val-v{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+.val-link{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.73rem;color:var(--gold);font-weight:500;
+  transition:color .2s;
+}
+.val-link:hover{color:var(--ink)}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--ink);padding:3.5rem 2rem 2rem}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:2.5rem;margin-bottom:2.5rem;
+}
+.footer-brand img{margin-bottom:.9rem;filter:brightness(0) invert(1);opacity:.85}
+.footer-brand p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:240px}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:.9rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.4rem}
+.footer-col a{font-size:.8rem;color:rgba(255,255,255,.45);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.5rem;
+  font-size:.72rem;color:rgba(255,255,255,.3);
+}
+.footer-ceds{display:flex;flex-wrap:wrap;gap:.8rem}
+
+/* ═══ WA FLOAT ═══ */
+.wa-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:90;
+  display:flex;align-items:center;gap:.6rem;
+  background:#25d366;color:#fff;
+  padding:.75rem 1.4rem;border-radius:100px;
+  font-size:.85rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  transition:filter .2s,transform .15s;
+}
+.wa-float:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.wa-float svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr 1fr}
+  .hero-left{padding:4rem 2.5rem 4rem 3.5rem}
+  .services-intro{grid-template-columns:1fr;gap:2rem}
+  .stats-inner{grid-template-columns:repeat(3,1fr)}
+  .cond-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:3rem 1.5rem;order:1}
+  .hero-left::after{display:none}
+  .hero-right{height:60vw;min-height:280px;order:0}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-btn{display:none}
+  .nav-extras{display:none}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .cond-grid{grid-template-columns:1fr 1fr}
+  .pros-grid{grid-template-columns:1fr}
+  .proceso-steps{grid-template-columns:1fr 1fr}
+  .proceso-steps::before{display:none}
+  .blog-grid{grid-template-columns:1fr}
+  .cuando-grid{grid-template-columns:1fr}
+  .neuro-inner{grid-template-columns:1fr}
+  .neuro-img{display:none}
+  .contacto-grid{grid-template-columns:1fr}
+  .validar-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .wa-float span{display:none}
+  .wa-float{padding:.75rem 1rem}
+}
+@media(max-width:480px){
+  .services-grid{grid-template-columns:1fr}
+  .cond-grid{grid-template-columns:1fr}
+  .validar-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Eutimya — Inicio">
+      <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png"
+           alt="Eutimya" height="32" loading="eager"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#inicio" class="active">Inicio</a></li>
+      <li><a href="https://eutimya.org/agenda" target="_blank" rel="noopener">Agendar</a></li>
+      <li><a href="https://eutimya.org/pagos" target="_blank" rel="noopener">Pagos</a></li>
+      <li><a href="https://eutimya.org/factura" target="_blank" rel="noopener">Facturación</a></li>
+      <li><a href="#profesionales">Profesionales</a></li>
+      <li><a href="#blog">Blogs</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#validar">Validar</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-extras">🐶✈️💜</span>
+      <a href="https://eutimya.org/agenda" class="nav-btn" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Agendar
+      </a>
+      <button class="nav-search" aria-label="Buscar">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="hamburger" type="button" id="hbg" aria-label="Menú"
+              onclick="document.getElementById('mnav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mnav">
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="https://eutimya.org/agenda" target="_blank">Agendar cita</a></li>
+    <li><a href="https://eutimya.org/pagos" target="_blank">Pagos</a></li>
+    <li><a href="https://eutimya.org/factura" target="_blank">Facturación</a></li>
+    <li><a href="#profesionales">Profesionales</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#validar">Validar cédulas</a></li>
+    <li style="border:none;padding-top:.9rem">
+      <a href="https://eutimya.org/agenda" target="_blank" style="font-weight:700;color:#0d1b2a">→ Agendar ahora</a>
+    </li>
+  </ul>
+</div>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta%20en%20Eutimya."
+   class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp Eutimya">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <span></span>
+      Salud Mental · CDMX · En línea
+    </div>
+    <h1 class="hero-wordmark">Eutimya</h1>
+    <p class="hero-tagline">resiliencia en cada paso.</p>
+    <p class="hero-desc">
+      Práctica psiquiátrica privada en Col. Del Valle, Ciudad de México. Evaluación diagnóstica integral,
+      farmacoterapia basada en evidencia y neuromodulación. Atendemos adultos, adolescentes y niños
+      de forma presencial y en línea.
+    </p>
+    <div class="hero-actions">
+      <a href="https://eutimya.org/agenda" class="btn-main" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Agendar primera cita
+      </a>
+      <a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta." class="btn-wa" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip-hero"><span class="dot"></span>Diagnóstico integral</span>
+      <span class="chip-hero"><span class="dot"></span>Farmacoterapia</span>
+      <span class="chip-hero"><span class="dot"></span>TMS · tDCS</span>
+      <span class="chip-hero"><span class="dot"></span>Psiquiatría de enlace</span>
+      <span class="chip-hero"><span class="dot"></span>En línea disponible</span>
+      <span class="chip-hero"><span class="dot"></span>English consultations</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://github.com/moymaa/eutimya/blob/main/APaQ0SRt6KgJ0y-OzxoatATYkqBvyyUzMewTygLyoDb6vurPGhcgJzz2Dp1Eaa0Kb9WlOTZ0lgwUtWdYrWlNJmELu8Oonr9CeXyTyhOnTI40vFQjHX53kCgrtpO8ymK7JgeyGdXNqPHL_vAijtEH8uEzf_UyVWMVnM13mPtqW8OoCnGxIvE1rckLbM0jzME=w16383.jpg?raw=true"
+         alt="Consultorio Eutimya CDMX" loading="eager"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">📍 Col. Del Valle Sur · CDMX</div>
+    <div class="hero-badge-en">🌐 English consultations available</div>
+  </div>
+</section>
+
+<!-- ═══ ACCESOS RÁPIDOS ═══ -->
+<div class="stats-bar">
+  <div class="stats-inner" style="grid-template-columns:repeat(5,1fr)">
+    <a href="https://eutimya.org/agenda" target="_blank" rel="noopener" style="text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+      <span class="stat-n" style="font-size:1.4rem">📅</span>
+      <span class="stat-l">Agendar cita</span>
+    </a>
+    <a href="https://eutimya.org/emt" target="_blank" rel="noopener" style="text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+      <span class="stat-n" style="font-size:1.4rem">⚡</span>
+      <span class="stat-l">Neuromodulación</span>
+    </a>
+    <a href="https://www.eutimya.org/certificado-mascota-viaje" target="_blank" rel="noopener" style="text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+      <span class="stat-n" style="font-size:1.4rem">🐾</span>
+      <span class="stat-l">Certificado mascota ESA</span>
+    </a>
+    <a href="https://eutimya.org/factura" target="_blank" rel="noopener" style="text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+      <span class="stat-n" style="font-size:1.4rem">🧾</span>
+      <span class="stat-l">Facturación</span>
+    </a>
+    <a href="#profesionales" style="text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+      <span class="stat-n" style="font-size:1.4rem">👨‍⚕️</span>
+      <span class="stat-l">Nuestros especialistas</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ MISIÓN / NOSOTROS ═══ -->
+<section class="section section-alt" id="nosotros">
+  <div class="wrap">
+    <div class="services-intro">
+      <div>
+        <p class="eyebrow">Nosotros</p>
+        <h2 class="section-h">Nuestra misión</h2>
+        <p class="section-sub">
+          En Eutimya, nos enfocamos en brindar información confiable sobre salud mental y facilitar
+          el acceso a la atención psiquiátrica de manera clara y accesible. Creemos que el bienestar
+          mental es un derecho fundamental y buscamos ofrecer recursos basados en evidencia para
+          quienes necesitan orientación.
+        </p>
+        <p style="font-size:.75rem;color:var(--ink-light);margin-top:1.2rem;line-height:1.6;
+                  border-top:1px solid var(--rule);padding-top:1rem;font-style:italic">
+          Este sitio tiene un propósito informativo y permite a los pacientes agendar citas de manera
+          sencilla. No realizamos promoción ni publicidad de servicios médicos. La atención se brinda
+          de acuerdo con las necesidades de cada persona y bajo criterios profesionales.
+          ARCO/revocación: contacto@eutimya.org
+        </p>
+      </div>
+      <div>
+        <div class="cuando-grid" style="grid-template-columns:1fr;gap:1rem">
+          <div class="cuando-card">
+            <span class="cuando-ic">🔬</span>
+            <h3>Información clara y basada en ciencia</h3>
+            <p>Todo el contenido de este sitio se fundamenta en estudios clínicos y recomendaciones de organismos internacionales como la OMS y la APA.</p>
+          </div>
+          <div class="cuando-card">
+            <span class="cuando-ic">🚪</span>
+            <h3>Acceso a la salud mental sin barreras</h3>
+            <p>Buscamos que las personas interesadas en recibir atención psiquiátrica puedan agendar citas de manera sencilla y directa.</p>
+          </div>
+          <div class="cuando-card">
+            <span class="cuando-ic">🔒</span>
+            <h3>Ética y confidencialidad</h3>
+            <p>Respetamos la privacidad de quienes buscan información y seguimos principios éticos en la atención de la salud mental.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CUÁNDO CONSULTAR ═══ -->
+<section class="section" id="cuando">
+  <div class="wrap">
+    <p class="eyebrow">¿Cuándo acudir?</p>
+    <h2 class="section-h">Señales de que podrías necesitar apoyo psiquiátrico</h2>
+    <p class="section-sub">Buscar ayuda no es sinónimo de debilidad. Es un paso hacia el cuidado integral de tu salud.</p>
+    <div class="cuando-grid" style="margin-top:2.5rem">
+      <div class="cuando-card">
+        <span class="cuando-ic">😰</span>
+        <h3>Ansiedad persistente</h3>
+        <p>Preocupación constante, tensión muscular, dificultad para relajarse o ataques de pánico que interfieren con tu vida diaria.</p>
+      </div>
+      <div class="cuando-card">
+        <span class="cuando-ic">🌧️</span>
+        <h3>Tristeza o vacío prolongados</h3>
+        <p>Estado de ánimo deprimido por más de dos semanas, pérdida de interés, fatiga extrema o pensamientos negativos recurrentes.</p>
+      </div>
+      <div class="cuando-card">
+        <span class="cuando-ic">😴</span>
+        <h3>Problemas de sueño</h3>
+        <p>Insomnio crónico, hipersomnia, despertares frecuentes o sueño que no es reparador y afecta tu rendimiento.</p>
+      </div>
+      <div class="cuando-card">
+        <span class="cuando-ic">🧠</span>
+        <h3>Dificultad de atención</h3>
+        <p>Problemas para concentrarte, organizar tareas o controlar impulsos que no resuelves con fuerza de voluntad.</p>
+      </div>
+      <div class="cuando-card">
+        <span class="cuando-ic">🔄</span>
+        <h3>Cambios abruptos de ánimo</h3>
+        <p>Oscilaciones marcadas entre euforia o irritabilidad intensa y periodos de baja energía sin causa aparente.</p>
+      </div>
+      <div class="cuando-card">
+        <span class="cuando-ic">🏥</span>
+        <h3>Síntomas físicos sin causa médica</h3>
+        <p>Cefaleas, dolor crónico, síntomas gastrointestinales u otras molestias físicas relacionadas con el estrés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICIOS ═══ -->
+<section class="section section-alt" id="servicios">
+  <div class="wrap">
+    <div class="services-intro">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <h2 class="section-h">Atención psiquiátrica integral para adultos, adolescentes y niños</h2>
+      </div>
+      <div>
+        <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.8">
+          Cada persona recibe una evaluación individualizada. Nuestros servicios abarcan el diagnóstico,
+          el tratamiento farmacológico y las intervenciones de neuromodulación disponibles en la práctica.
+        </p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="svc">
+        <div class="svc-icon">🩺</div>
+        <h3>Primera consulta psiquiátrica</h3>
+        <p>Historia clínica completa, exploración del estado mental, hipótesis diagnóstica con diagnóstico diferencial y plan de tratamiento. Duración aprox. 60 min.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">💊</div>
+        <h3>Seguimiento farmacológico</h3>
+        <p>Ajuste y monitoreo de psicofármacos. Consultas de seguimiento de 30–45 min con revisión de respuesta, tolerabilidad y adherencia.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">⚡</div>
+        <h3>Neuromodulación (TMS · tDCS)</h3>
+        <p>Estimulación magnética transcraneal y estimulación de corriente directa para depresión resistente y otras indicaciones basadas en evidencia.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">🔗</div>
+        <h3>Psiquiatría de enlace</h3>
+        <p>Interconsulta psiquiátrica para pacientes con enfermedades médicas. Delirium, depresión perioperatoria, ansiedad en enfermedades crónicas.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">⚖️</div>
+        <h3>Evaluación bariátrica</h3>
+        <p>Protocolo psiquiátrico pre y posoperatorio para cirugía bariátrica con instrumentos validados e informe para el equipo quirúrgico.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">👶</div>
+        <h3>Psiquiatría infanto-juvenil</h3>
+        <p>Diagnóstico y seguimiento de TDAH, TEA, ansiedad y trastornos del ánimo en niños y adolescentes a cargo de la Dra. Sharon Venecia.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-icon">🐾</div>
+        <h3>Certificado de Mascota de Apoyo Emocional</h3>
+        <p>Evaluación psiquiátrica y emisión del certificado ESA (Emotional Support Animal) para vuelos y viajes. Proceso disponible en línea.</p>
+        <a href="https://www.eutimya.org/certificado-mascota-viaje" target="_blank" rel="noopener" style="font-size:.78rem;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:.3rem;margin-top:.8rem">Ver requisitos →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PADECIMIENTOS ═══ -->
+<section class="section" id="padecimientos">
+  <div class="wrap">
+    <p class="eyebrow">Condiciones que atendemos</p>
+    <h2 class="section-h">Atención especializada para una amplia gama de trastornos</h2>
+    <p class="section-sub">Lista no exhaustiva. Si tu condición no aparece aquí, contáctanos.</p>
+    <div class="cond-grid">
+      <div class="cond"><span class="cond-bullet"></span>Trastorno de ansiedad generalizada</div>
+      <div class="cond"><span class="cond-bullet"></span>Trastorno de pánico</div>
+      <div class="cond"><span class="cond-bullet"></span>Depresión mayor</div>
+      <div class="cond"><span class="cond-bullet"></span>Trastorno bipolar</div>
+      <div class="cond"><span class="cond-bullet"></span>TDAH en adultos</div>
+      <div class="cond"><span class="cond-bullet"></span>TDAH en niños y adolescentes</div>
+      <div class="cond"><span class="cond-bullet"></span>Trastorno del espectro autista</div>
+      <div class="cond"><span class="cond-bullet"></span>TOC</div>
+      <div class="cond"><span class="cond-bullet"></span>Insomnio crónico</div>
+      <div class="cond"><span class="cond-bullet"></span>Trastorno de estrés postraumático</div>
+      <div class="cond"><span class="cond-bullet"></span>Burnout / estrés crónico</div>
+      <div class="cond"><span class="cond-bullet"></span>Duelo complicado</div>
+      <div class="cond"><span class="cond-bullet"></span>Consumo de sustancias</div>
+      <div class="cond"><span class="cond-bullet"></span>Depresión resistente a tratamiento</div>
+      <div class="cond"><span class="cond-bullet"></span>Síntomas somáticos</div>
+      <div class="cond"><span class="cond-bullet"></span>Trastornos de alimentación</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEUROMODULACIÓN ═══ -->
+<div class="neuro-band" id="neuromodulacion">
+  <div class="neuro-inner">
+    <div>
+      <p class="neuro-eyebrow">Neuromodulación</p>
+      <h2 class="neuro-h">TMS y tDCS para depresión resistente</h2>
+      <p class="neuro-p">
+        La actividad cerebral alterada subyace a muchos trastornos mentales. Las técnicas de
+        neuromodulación no invasiva permiten modular circuitos específicos para mejorar síntomas
+        cuando la farmacoterapia no es suficiente o genera efectos adversos intolerables.
+      </p>
+      <ul class="neuro-list">
+        <li>Estimulación Magnética Transcraneal (TMS) — indicada en depresión mayor</li>
+        <li>Estimulación por Corriente Directa (tDCS) — complementaria a tratamiento farmacológico</li>
+        <li>Protocolo individualizado según diagnóstico y respuesta previa</li>
+        <li>Sin sedación, ambulatorio y con mínimos efectos secundarios</li>
+        <li>Supervisión médica psiquiátrica en cada sesión</li>
+      </ul>
+      <a href="https://www.eutimya.org/emt" class="btn-gold" target="_blank" rel="noopener">
+        Más sobre neuromodulación →
+      </a>
+    </div>
+    <div class="neuro-img">
+      <!-- Unsplash – brain/neuroscience free image -->
+      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=85&auto=format&fit=crop"
+           alt="Neuromodulación TMS tDCS Eutimya"/>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROCESO ═══ -->
+<section class="section section-alt" id="proceso">
+  <div class="wrap">
+    <p class="eyebrow">¿Cómo funciona?</p>
+    <h2 class="section-h">Tu primera cita en 4 pasos</h2>
+    <p class="section-sub">Un proceso claro, sin complicaciones.</p>
+    <div class="proceso-steps" style="grid-template-columns:repeat(3,1fr)">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Elige tu profesional</h3>
+        <p>Selecciona al especialista que mejor se adapte a tu necesidad.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Pago de honorarios</h3>
+        <p>Realiza el pago y envía tu comprobante al médico. Se acepta transferencia, tarjeta y efectivo.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Registro de expediente</h3>
+        <p>Completa tu expediente con la información necesaria para brindarte atención personalizada desde la primera cita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROFESIONALES ═══ -->
+<section class="section" id="profesionales">
+  <div class="wrap">
+    <p class="eyebrow">Profesionales</p>
+    <h2 class="section-h">Conoce a tu equipo de atención</h2>
+    <p class="section-sub">
+      Elegir un especialista en salud mental es un paso importante. Nuestros profesionales están
+      comprometidos con la atención ética, personalizada y basada en evidencia científica.
+    </p>
+    <div class="pros-grid" style="grid-template-columns:repeat(2,1fr)">
+      <!-- Dr. Moya -->
+      <div class="pro-card">
+        <div class="pro-img">
+          <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w800-h800-s-no-gm"
+               alt="Dr. Deldhy Nicolás Moya Sánchez — Psiquiatra CDMX"/>
+          <div class="pro-img-overlay">
+            <span class="pro-specialty-badge">Psiquiatra Adultos · Enlace</span>
+          </div>
+        </div>
+        <div class="pro-body">
+          <h3 class="pro-name">Dr. Moya Sánchez D. Nicolás</h3>
+          <p class="pro-role">Psiquiatra y Psiquiatría de Enlace, UNAM · Médico psiquiatra egresado con Mención Honorífica del CMN 20 de Noviembre (UNAM), ex Jefe de Médicos Residentes. Maestría en administración de clínicas y hospitales. Certificado en TCC. Fellow de la Alta Especialidad en Psiquiatría de Enlace.</p>
+          <div class="pro-chips">
+            <span class="pro-chip">UNAM Mención Honorífica</span>
+            <span class="pro-chip">CMP Certificado</span>
+            <span class="pro-chip">+9 publicaciones</span>
+            <span class="pro-chip">TMS · tDCS</span>
+            <span class="pro-chip">TDAH adultos</span>
+            <span class="pro-chip">Bariátrica</span>
+          </div>
+          <p style="font-size:.68rem;color:var(--ink-light);margin-bottom:1.2rem;line-height:1.6">
+            CE 14788885 · CP 12152669 · CMP 24803862 · COFEPRIS 2609142002A00043
+          </p>
+          <div class="pro-ctas">
+            <a href="https://psiquiatra-cdmx.eutimya.org/" class="pro-cta pro-cta-dark" target="_blank" rel="noopener">Ver perfil completo</a>
+            <a href="https://psiquiatra-cdmx.eutimya.org/cita" class="pro-cta pro-cta-light" target="_blank" rel="noopener">Agendar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dra. Sharon -->
+      <div class="pro-card">
+        <div class="pro-img">
+          <img src="https://lh3.googleusercontent.com/pw/AP1GczNYvyBY1oTzY7OMDQNQQHYI6SWPuz7kbezu5G9xzZiK27dxZpRwdCmIXgzihzTED7bz3QVImHThtKI6K1G9Q7oqWn5Yz7L288TVvzKbtO6SAKpGH0sPDdrYVjxQD5HyJRp-1-IxmsuJoGGfQGSBGvR0Kw=w800-h800-s-no-gm"
+               alt="Dra. Sharon Venecia Núñez Pichardo — Paidopsiquiatra CDMX"/>
+          <div class="pro-img-overlay">
+            <span class="pro-specialty-badge">Paidopsiquiatra · Psiquiatra Adultos</span>
+          </div>
+        </div>
+        <div class="pro-body">
+          <h3 class="pro-name">Dra. Sharon Venecia N. Pichardo</h3>
+          <p class="pro-role">Psiquiatra, UNAM · Médico psiquiatra egresada con Mención Honorífica de la UNAM. En formación como Paidopsiquiatra. Diplomado en TCC y experiencia en Neuroestimulación. Atención de trastornos psiquiátricos en niños, adolescentes y adultos.</p>
+          <div class="pro-chips">
+            <span class="pro-chip">UNAM Mención Honorífica</span>
+            <span class="pro-chip">CMP Certificada</span>
+            <span class="pro-chip">Paidopsiquiatría</span>
+            <span class="pro-chip">TDAH infantil · TEA</span>
+            <span class="pro-chip">Adolescentes</span>
+            <span class="pro-chip">TCC</span>
+          </div>
+          <p style="font-size:.68rem;color:var(--ink-light);margin-bottom:1.2rem;line-height:1.6">
+            CE 14788927 · CP 12045376 · CMP 24803869
+          </p>
+          <div class="pro-ctas">
+            <a href="https://paido.eutimya.org/" class="pro-cta pro-cta-dark" target="_blank" rel="noopener">Ver perfil completo</a>
+            <a href="https://paido.eutimya.org/cita" class="pro-cta pro-cta-light" target="_blank" rel="noopener">Agendar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dra. Doris -->
+      <div class="pro-card">
+        <div class="pro-img">
+          <img src="https://github.com/moymaa/eutimya/blob/main/image%20(1).png?raw=true"
+               alt="Dra. Doris Darlene Carmona H. — Psiquiatra CDMX"/>
+          <div class="pro-img-overlay">
+            <span class="pro-specialty-badge">Psiquiatra · Género y Sexualidad</span>
+          </div>
+        </div>
+        <div class="pro-body">
+          <h3 class="pro-name">Dra. Doris Darlene Carmona H.</h3>
+          <p class="pro-role">Psiquiatra, UNAM · Graduada de la UNAM, en proceso de formación en la Alta Especialidad en Género y Sexualidad (INPRF Ramón de la Fuente Muñiz). Certificada por el CMP. Diplomado en Terapia Cognitivo-Conductual (TCC).</p>
+          <div class="pro-chips">
+            <span class="pro-chip">UNAM</span>
+            <span class="pro-chip">CMP Certificada</span>
+            <span class="pro-chip">Género y Sexualidad</span>
+            <span class="pro-chip">TCC</span>
+          </div>
+          <p style="font-size:.68rem;color:var(--ink-light);margin-bottom:1.2rem;line-height:1.6">
+            CE 14789179 · CP 10364179 · CMP 24803742
+          </p>
+          <div class="pro-ctas">
+            <a href="https://wa.me/525539940527?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta%20con%20la%20Dra.%20Doris." class="pro-cta pro-cta-dark" target="_blank" rel="noopener">Agendar con Dra. Doris</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Psic. Johanna -->
+      <div class="pro-card">
+        <div class="pro-img">
+          <img src="https://i.imgur.com/avg6bg3.jpeg"
+               alt="Psic. Johanna Ivonne Pichardo Cárdenas — Psicóloga clínica TCC"/>
+          <div class="pro-img-overlay">
+            <span class="pro-specialty-badge">Psicóloga Clínica · TCC · Solo en línea</span>
+          </div>
+        </div>
+        <div class="pro-body">
+          <h3 class="pro-name">Psic. Johanna Ivonne P. Cárdenas</h3>
+          <p class="pro-role">Psicóloga clínica, UVM · Nueve años de experiencia en práctica terapéutica. Maestra en Terapia Cognitivo-Conductual (TCC), una de las intervenciones con mayor respaldo científico para el tratamiento de trastornos del estado de ánimo y ansiedad. <strong>Atención únicamente en línea.</strong></p>
+          <div class="pro-chips">
+            <span class="pro-chip">TCC — Maestría</span>
+            <span class="pro-chip">9 años de experiencia</span>
+            <span class="pro-chip">Solo en línea</span>
+            <span class="pro-chip">Adultos</span>
+          </div>
+          <p style="font-size:.68rem;color:var(--ink-light);margin-bottom:1.2rem;line-height:1.6">
+            Cédula Profesional: 10039603
+          </p>
+          <div class="pro-ctas">
+            <a href="https://www.eutimya.org/joys" class="pro-cta pro-cta-dark" target="_blank" rel="noopener">Ver perfil completo</a>
+            <a href="https://wa.me/525549835710?text=Hola%2C%20quisiera%20información%20sobre%20una%20consulta%20con%20la%20Psic.%20Johanna." class="pro-cta pro-cta-light" target="_blank" rel="noopener">Agendar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOG ═══ -->
+<section class="section section-alt" id="blog">
+  <div class="wrap">
+    <p class="eyebrow">Blog de salud mental</p>
+    <h2 class="section-h">Información confiable y basada en evidencia</h2>
+    <p class="section-sub">Artículos sobre ansiedad, depresión, tratamientos psiquiátricos y más, escritos por nuestros especialistas.</p>
+    <div class="blog-grid">
+      <a href="https://www.eutimya.org/blog" class="blog-card" target="_blank" rel="noopener">
+        <div class="blog-img">
+          <!-- Unsplash – loneliness/mental health -->
+          <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=600&q=80&auto=format&fit=crop"
+               alt="Soledad y depresión" loading="lazy"/>
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Depresión · Bienestar</span>
+          <h3>La relación entre la soledad y la depresión: cómo romper el ciclo</h3>
+          <p>Sentirse solo puede aumentar el riesgo de depresión, pero existen estrategias para prevenirlo. Descubre cómo mejorar tu bienestar emocional.</p>
+        </div>
+      </a>
+      <a href="https://www.eutimya.org/blog" class="blog-card" target="_blank" rel="noopener">
+        <div class="blog-img">
+          <!-- Unsplash – psychiatry/brain -->
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop"
+               alt="¿Qué es la psiquiatría?" loading="lazy"/>
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Psiquiatría · Educación</span>
+          <h3>¿Qué es la psiquiatría y por qué es importante la salud mental?</h3>
+          <p>Una guía clara sobre qué hace un psiquiatra, cuándo consultar uno y cuál es la diferencia con el psicólogo.</p>
+        </div>
+      </a>
+      <a href="https://www.eutimya.org/blog" class="blog-card" target="_blank" rel="noopener">
+        <div class="blog-img">
+          <!-- Unsplash – anxiety/stress management -->
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80&auto=format&fit=crop"
+               alt="Manejo del estrés y burnout" loading="lazy"/>
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Ansiedad · Estrés</span>
+          <h3>Burnout: más allá del cansancio. Cuándo el estrés laboral se convierte en diagnóstico</h3>
+          <p>El síndrome de burnout tiene criterios clínicos específicos y tratamiento. Aprende a identificarlo y buscar ayuda a tiempo.</p>
+        </div>
+      </a>
+    </div>
+    <div class="blog-more">
+      <a href="https://www.eutimya.org/blog" class="btn-ghost" target="_blank" rel="noopener">
+        Ver todos los artículos →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ENGLISH ═══ -->
+<div class="english-band">
+  <div class="english-inner">
+    <p class="eyebrow" style="justify-content:center">🌐 English services</p>
+    <h2 class="section-h" style="text-align:center;margin-bottom:.8rem">Looking for psychiatric care in English?</h2>
+    <p>We offer <strong>online and in-person psychiatric consultations in English</strong>. Dr. Moya Sánchez provides bilingual care for expats, international patients and English speakers in Mexico City.</p>
+    <a href="https://wa.me/526731205121?text=Hello%2C%20I%20would%20like%20information%20about%20a%20psychiatric%20consultation%20in%20English."
+       class="btn-main" target="_blank" rel="noopener" style="margin:0 auto">
+      Contact us via WhatsApp →
+    </a>
+  </div>
+</div>
+
+<!-- ═══ FAQ ═══ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Preguntas frecuentes</p>
+    <h2 class="section-h">Lo que más nos preguntan</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button" onclick="this.parentElement.classList.toggle('open')">
+          ¿Qué pasa en la primera consulta psiquiátrica?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Se revisa la historia clínica completa, síntomas actuales, antecedentes familiares y personales. Se construye una hipótesis diagnóstica con diagnóstico diferencial y se diseña un plan de tratamiento con indicaciones claras. La primera cita dura aproximadamente 60 minutos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" onclick="this.parentElement.classList.toggle('open')">
+          ¿Cuánto cuesta la consulta?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Consulta en línea desde $1,400 MXN. Consulta presencial en Col. del Valle, CDMX desde $1,600 MXN. El costo incluye evaluación completa, nota médica y plan de tratamiento. Se emite factura si la solicitas.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" onclick="this.parentElement.classList.toggle('open')">
+          ¿Se atiende en línea con la misma calidad?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Sí. La consulta en línea se realiza por videoconferencia (Google Meet) con la misma calidad clínica que la presencial. Disponible para toda la República Mexicana y el extranjero.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" onclick="this.parentElement.classList.toggle('open')">
+          ¿Cuándo necesito psiquiatra y no solo psicólogo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Cuando los síntomas afectan significativamente el funcionamiento diario (trabajo, sueño, relaciones), cuando se considera tratamiento farmacológico, o cuando el psicólogo lo recomienda. El psiquiatra es el especialista indicado si necesitas diagnóstico médico formal o prescripción de medicamentos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" onclick="this.parentElement.classList.toggle('open')">
+          ¿Los médicos están certificados? ¿Cómo los valido?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Sí. Ambos especialistas cuentan con cédula profesional, cédula de especialidad y certificación por el Consejo Mexicano de Psiquiatría. Puedes validar sus cédulas en el apartado "Validar" de este sitio o directamente en la Cédula Electrónica de la SEP (cedulaprofesional.sep.gob.mx).</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" onclick="this.parentElement.classList.toggle('open')">
+          ¿Hacen protocolo psiquiátrico para cirugía bariátrica?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Sí. Existe un protocolo específico con instrumentos validados e informe para el equipo quirúrgico. Disponible para evaluación pre y posoperatoria. Para más información, escríbenos por WhatsApp o visita eutimya.org/bariatrica.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BAND ═══ -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2>Da el primer paso hacia tu bienestar mental</h2>
+    <p>Agenda tu primera consulta hoy. Atendemos de lunes a viernes, de forma presencial en Col. Del Valle o en línea desde donde estés.</p>
+    <a href="https://eutimya.org/agenda" class="btn-gold" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agendar primera cita →
+    </a>
+  </div>
+</div>
+
+<!-- ═══ CONTACTO / NOSOTROS ═══ -->
+<section class="section section-alt" id="contacto">
+  <div class="wrap">
+    <p class="eyebrow">Contacto</p>
+    <h2 class="section-h">Encuéntranos</h2>
+    <div class="contacto-grid">
+      <div>
+        <div class="contacto-item">
+          <span class="contacto-ic">📍</span>
+          <div>
+            <p class="contacto-k">Consultorio</p>
+            <p class="contacto-v">Calle Moras 619, Col. Del Valle Sur, Alcaldía Benito Juárez, CDMX, C.P. 03104</p>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <span class="contacto-ic">🕐</span>
+          <div>
+            <p class="contacto-k">Horario</p>
+            <p class="contacto-v">Lunes a viernes · 9:00 – 21:00 h</p>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <span class="contacto-ic">💬</span>
+          <div>
+            <p class="contacto-k">WhatsApp · Dr. Moya</p>
+            <a href="https://wa.me/526731205121" class="contacto-v" target="_blank" rel="noopener">+52 673 120 5121</a>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <span class="contacto-ic">💬</span>
+          <div>
+            <p class="contacto-k">WhatsApp · Dra. Sharon</p>
+            <a href="https://wa.me/525513580092" class="contacto-v" target="_blank" rel="noopener">+52 55 1358 0092</a>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <span class="contacto-ic">🌐</span>
+          <div>
+            <p class="contacto-k">Consulta en línea</p>
+            <p class="contacto-v">Disponible para toda la República Mexicana y el extranjero</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.1!2d-99.1649!3d19.3905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDIzJzI1LjgiTiA5OcKwMDknNTMuNiJX!5e0!3m2!1ses!2smx!4v1"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Eutimya — Calle Moras 619, Col. Del Valle Sur, CDMX"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FACTURACIÓN ═══ -->
+<section class="section" id="facturacion">
+  <div class="wrap">
+    <p class="eyebrow">Facturación</p>
+    <h2 class="section-h">Solicita tu factura electrónica</h2>
+    <p class="section-sub" style="margin-bottom:2rem">
+      Emitimos CFDI 4.0 por los servicios de consulta. Accede al portal de facturación o escríbenos con tus datos fiscales (RFC, razón social, régimen fiscal, CP, correo y folio de pago).
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="https://eutimya.org/factura" class="btn-main" target="_blank" rel="noopener">
+        Portal de facturación →
+      </a>
+      <a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20solicitar%20mi%20factura%20electrónica." class="btn-outline" target="_blank" rel="noopener">
+        Solicitar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VALIDAR ═══ -->
+<section class="section section-alt" id="validar">
+  <div class="wrap">
+    <p class="eyebrow">Validar</p>
+    <h2 class="section-h">Cédulas profesionales</h2>
+    <p class="section-sub" style="margin-bottom:2rem">
+      Verifica la autenticidad de nuestros especialistas en la
+      <a href="https://cedulaprofesional.sep.gob.mx/actor/consultaCedulaCert.action" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">Cédula Electrónica SEP</a>
+      o en el <a href="https://consejopsiquiatria.org.mx/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">Consejo Mexicano de Psiquiatría</a>.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px">
+      <div style="border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.4rem;background:#fff">
+        <p style="font-size:.75rem;font-weight:700;color:var(--ink);margin-bottom:.5rem">Dr. Moya Sánchez D. Nicolás</p>
+        <p style="font-size:.8rem;color:var(--ink-mid);line-height:1.8">
+          CE 14788885 · CP 12152669 · CMP 24803862 · COFEPRIS 2609142002A00043
+        </p>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.4rem;background:#fff">
+        <p style="font-size:.75rem;font-weight:700;color:var(--ink);margin-bottom:.5rem">Dra. Sharon Venecia N. Pichardo</p>
+        <p style="font-size:.8rem;color:var(--ink-mid);line-height:1.8">
+          CE 14788927 · CP 12045376 · CMP 24803869
+        </p>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.4rem;background:#fff">
+        <p style="font-size:.75rem;font-weight:700;color:var(--ink);margin-bottom:.5rem">Dra. Doris Darlene Carmona H.</p>
+        <p style="font-size:.8rem;color:var(--ink-mid);line-height:1.8">
+          CE 14789179 · CP 10364179 · CMP 24803742
+        </p>
+      </div>
+      <div style="border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.4rem;background:#fff">
+        <p style="font-size:.75rem;font-weight:700;color:var(--ink);margin-bottom:.5rem">Psic. Johanna Ivonne P. Cárdenas</p>
+        <p style="font-size:.8rem;color:var(--ink-mid);line-height:1.8">
+          CP 10039603
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png"
+           alt="Eutimya" height="30" loading="lazy"/>
+      <p>Práctica psiquiátrica privada en Ciudad de México. Atención de adultos, adolescentes y niños con base en evidencia.</p>
+      <p style="margin-top:.6rem;font-size:.75rem;color:rgba(255,255,255,.3)">
+        Calle Moras 619 · Col. Del Valle Sur · CDMX
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#servicios">Primera consulta</a></li>
+        <li><a href="#servicios">Seguimiento farmacológico</a></li>
+        <li><a href="#neuromodulacion">Neuromodulación TMS/tDCS</a></li>
+        <li><a href="#servicios">Psiquiatría de enlace</a></li>
+        <li><a href="#servicios">Evaluación bariátrica</a></li>
+        <li><a href="#servicios">Psiquiatría infanto-juvenil</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Profesionales</h4>
+      <ul>
+        <li><a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank">Dr. Moya Sánchez</a></li>
+        <li><a href="https://paido.eutimya.org/" target="_blank">Dra. Sharon Venecia</a></li>
+        <li><a href="#validar">Cédulas profesionales</a></li>
+        <li><a href="#blog">Blog de salud mental</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Acceso rápido</h4>
+      <ul>
+        <li><a href="https://eutimya.org/agenda" target="_blank">Agendar cita</a></li>
+        <li><a href="https://eutimya.org/reagendar" target="_blank">Reagendar</a></li>
+        <li><a href="https://eutimya.org/pagos" target="_blank">Pagos</a></li>
+        <li><a href="https://eutimya.org/factura" target="_blank">Facturación</a></li>
+        <li><a href="https://www.eutimya.org/certificado-mascota-viaje" target="_blank">Certificado ESA</a></li>
+        <li><a href="https://wa.me/526731205121" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Eutimya · Todos los derechos reservados</span>
+    <div class="footer-ceds">
+      <span>Dr. Moya: CE 14788885 · CP 12152669</span>
+      <span>Dra. Sharon: CE 14788927 · CP 12045376</span>
+      <span>Dra. Doris: CE 14789179 · CP 10364179</span>
+      <span>Psic. Johanna: CP 10039603</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav active on scroll
+(function(){
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  const onScroll = () => {
+    const y = window.scrollY + 80;
+    sections.forEach(s => {
+      if(s.offsetTop <= y && s.offsetTop + s.offsetHeight > y){
+        links.forEach(l => {
+          l.classList.remove('active');
+          if(l.getAttribute('href') === '#' + s.id) l.classList.add('active');
+        });
+      }
+    });
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
+
+</body>
+</html>
