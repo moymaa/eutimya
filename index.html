@@ -1763,44 +1763,86 @@ a{color:inherit;text-decoration:none}
 <!-- ═══════════════════════════════════════════════════ -->
 <script>
 (function(){
-  // ── ROUTER ──────────────────────────────────────────
-  var params = new URLSearchParams(window.location.search);
-  var hash   = window.location.hash.replace('#','');
 
-  function getRoute(){
-    if(params.has('validar') || hash === 'validar') return 'validar';
-    if(params.has('agendar') || hash === 'agendar') return 'agendar';
-    if(params.has('pagos')   || hash === 'pagos')   return 'pagos';
-    if(params.has('mascota') || hash === 'mascota' || params.has('certificados') || hash === 'certificados') return 'certificados';
-    if(params.has('emt')     || hash === 'emt')     return 'emt';
-    return null;
+  // ── RUTAS VIRTUALES (no son anchors de sección) ──────
+  var ROUTES = {
+    'agendar':      'Agendar cita · Eutimya',
+    'pagos':        'Formas de pago · Eutimya',
+    'certificados': 'Certificado ESA · Eutimya',
+    'mascota':      'Certificado ESA · Eutimya',
+    'emt':          'Estimulación Magnética Transcraneal · Eutimya',
+    'validar':      null
+  };
+
+  function normalizeRoute(key){
+    if(key === 'mascota') return 'certificados';
+    return key;
   }
 
-  var route = getRoute();
+  function applyRoute(){
+    var params = new URLSearchParams(window.location.search);
+    var hash   = window.location.hash.replace('#','');
+    var mainEl = document.getElementById('main-content');
 
-  if(route === 'validar'){
-    window.location.replace('https://www.eutimya.org/validar');
-    return;
-  }
+    // Determinar ruta activa (query param tiene prioridad)
+    var routeKey = null;
+    for(var k in ROUTES){
+      if(params.has(k) || hash === k){ routeKey = k; break; }
+    }
 
-  if(route){
-    var mainEl  = document.getElementById('main-content');
+    // Ocultar todas las rutas
+    document.querySelectorAll('.route-page').forEach(function(el){
+      el.style.display = 'none';
+    });
+
+    if(!routeKey){
+      // Vista principal
+      if(mainEl) mainEl.style.display = '';
+      return;
+    }
+
+    if(routeKey === 'validar'){
+      window.location.replace('https://www.eutimya.org/validar');
+      return;
+    }
+
+    var route   = normalizeRoute(routeKey);
     var routeEl = document.getElementById('route-' + route);
+
     if(mainEl)  mainEl.style.display  = 'none';
-    if(routeEl) routeEl.style.display = 'block';
-    document.title = {
-      agendar:      'Agendar cita · Eutimya',
-      pagos:        'Formas de pago · Eutimya',
-      certificados: 'Certificado ESA · Eutimya',
-      emt:          'Estimulación Magnética Transcraneal · Eutimya'
-    }[route] || document.title;
+    if(routeEl){ routeEl.style.display = 'block'; window.scrollTo(0,0); }
+    document.title = ROUTES[routeKey] || document.title;
   }
 
-  // ── NAV SCROLL ACTIVE ────────────────────────────────
-  var sections = document.querySelectorAll('section[id], div[id]');
+  // Correr al cargar y en cada cambio de hash
+  applyRoute();
+  window.addEventListener('hashchange', applyRoute);
+
+  // ── INTERCEPTAR CLICKS EN ANCHORS DE RUTA ───────────
+  // Para que /?pagos etc. desde dentro de una ruta también funcionen
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if(!a) return;
+    var href = a.getAttribute('href') || '';
+
+    // /?ruta o /#ruta o #ruta → manejar sin reload si es ruta virtual
+    var routeMatch = href.match(/^(?:\/)?[#?]([a-z]+)$/);
+    if(!routeMatch) return;
+    var key = routeMatch[1];
+    if(!(key in ROUTES)) return;
+
+    e.preventDefault();
+    window.history.pushState(null, '', '/#' + key);
+    window.dispatchEvent(new Event('hashchange'));
+  });
+
+  // ── NAV SCROLL ACTIVE (solo en vista principal) ──────
+  var sections = document.querySelectorAll('section[id]');
   var links    = document.querySelectorAll('.nav-links a');
   function onScroll(){
-    var y = window.scrollY + 80;
+    var mainEl = document.getElementById('main-content');
+    if(!mainEl || mainEl.style.display === 'none') return;
+    var y = window.scrollY + 100;
     sections.forEach(function(s){
       if(s.offsetTop <= y && s.offsetTop + s.offsetHeight > y){
         links.forEach(function(l){
@@ -1819,6 +1861,7 @@ a{color:inherit;text-decoration:none}
       mnav.classList.toggle('open');
     });
   }
+
 })();
 </script>
 </body>
