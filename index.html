@@ -698,6 +698,9 @@ a{color:inherit;text-decoration:none}
   <span>WhatsApp</span>
 </a>
 
+<!-- ═══ MAIN CONTENT (default view) ═══ -->
+<div id="main-content">
+
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="inicio">
   <div class="hero-left">
@@ -784,7 +787,7 @@ a{color:inherit;text-decoration:none}
           Este sitio tiene un propósito informativo y permite a los pacientes agendar citas de manera
           sencilla. No realizamos promoción ni publicidad de servicios médicos. La atención se brinda
           de acuerdo con las necesidades de cada persona y bajo criterios profesionales.
-          ARCO/revocación: contacto@eutimya.org
+          ARCO/revocación: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88ebe7e6fce9ebfce7c8edfdfce1e5f1e9a6e7faef">[email&#160;protected]</a>
         </p>
       </div>
       <div>
@@ -1417,25 +1420,405 @@ a{color:inherit;text-decoration:none}
   </div>
 </footer>
 
+</div><!-- /main-content -->
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ROUTE: /?agendar  /#agendar                        -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="route-agendar" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
+  <div class="wrap" style="max-width:760px;padding:4rem 2rem">
+    <p class="eyebrow">Reservar cita</p>
+    <h1 class="section-h">Tu primera cita en 3 pasos</h1>
+    <p class="section-sub" style="margin-bottom:3rem">Un proceso claro, sin complicaciones.</p>
+
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+
+      <!-- Paso 1 -->
+      <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow)">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">1</div>
+        <div>
+          <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.4rem">Elige tu profesional</h3>
+          <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7">Selecciona al especialista que mejor se adapte a tu necesidad.</p>
+          <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem">
+            <a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank" class="btn-outline" style="font-size:.8rem;padding:.55rem 1.2rem">Dr. Moya Sánchez →</a>
+            <a href="https://paido.eutimya.org/" target="_blank" class="btn-outline" style="font-size:.8rem;padding:.55rem 1.2rem">Dra. Sharon Venecia →</a>
+            <a href="/?pagos" class="btn-outline" style="font-size:.8rem;padding:.55rem 1.2rem">Ver todos →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow)">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">2</div>
+        <div>
+          <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.4rem">Pago de honorarios</h3>
+          <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7">Realiza el pago y envía tu comprobante al médico. Se acepta transferencia, tarjeta y efectivo.</p>
+          <a href="/?pagos" class="btn-main" style="font-size:.8rem;padding:.55rem 1.2rem;margin-top:1rem;display:inline-flex">Ver formas de pago →</a>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow)">
+        <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">3</div>
+        <div>
+          <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.4rem">Registro de expediente</h3>
+          <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7">Completa tu expediente con la información necesaria para brindarte atención personalizada desde la primera cita.</p>
+          <a href="https://eutimya.org/agenda" target="_blank" class="btn-main" style="font-size:.8rem;padding:.55rem 1.2rem;margin-top:1rem;display:inline-flex">Completar registro →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2.5rem;padding:1.4rem 1.8rem;background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal)">
+      <p style="font-size:.88rem;color:var(--teal);font-weight:600">¿Dudas? Escríbenos</p>
+      <p style="font-size:.85rem;color:var(--ink-mid);margin-top:.3rem">WhatsApp Dr. Moya: <a href="https://wa.me/526731205121" target="_blank" style="color:var(--teal);font-weight:600">+52 673 120 5121</a> &nbsp;·&nbsp; Dra. Sharon: <a href="https://wa.me/525513580092" target="_blank" style="color:var(--teal);font-weight:600">+52 55 1358 0092</a></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ROUTE: /?pagos                                     -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="route-pagos" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
+  <div class="wrap" style="max-width:860px;padding:4rem 2rem">
+    <p class="eyebrow">Honorarios</p>
+    <h1 class="section-h">Formas de pago</h1>
+    <p class="section-sub" style="margin-bottom:.8rem">Para programar su sesión, realice el pago correspondiente y envíe el comprobante en PDF o imagen al médico o terapeuta vía WhatsApp. Posteriormente elija la fecha disponible.</p>
+
+    <!-- Tarifa -->
+    <div style="display:inline-flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;padding:1.2rem 1.8rem;background:#fff;border-radius:var(--r);border:1px solid var(--rule);box-shadow:var(--shadow)">
+      <div style="text-align:center;padding:.5rem 1.2rem;border-right:1px solid var(--rule)">
+        <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-light);margin-bottom:.2rem">Sesión Online</p>
+        <p style="font-size:1.6rem;font-weight:700;font-family:var(--serif);color:var(--ink)">$1,400 <span style="font-size:.85rem;font-weight:400">MXN</span></p>
+      </div>
+      <div style="text-align:center;padding:.5rem 1.2rem;border-right:1px solid var(--rule)">
+        <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-light);margin-bottom:.2rem">Sesión Presencial</p>
+        <p style="font-size:1.6rem;font-weight:700;font-family:var(--serif);color:var(--ink)">$1,600 <span style="font-size:.85rem;font-weight:400">MXN</span></p>
+      </div>
+      <div style="text-align:center;padding:.5rem 1.2rem">
+        <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-light);margin-bottom:.2rem">Domiciliaria / Hospitalaria</p>
+        <p style="font-size:.9rem;color:var(--ink-mid);padding-top:.3rem">Consultar con el especialista</p>
+      </div>
+    </div>
+    <p style="font-size:.83rem;color:var(--ink-light);margin-bottom:2.5rem">En caso de requerir factura, informe al especialista y <a href="https://eutimya.org/factura" target="_blank" style="color:var(--gold);font-weight:600">solicítela aquí</a>.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.2rem">
+
+      <!-- Dr. Moya -->
+      <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">DM</div>
+          <div>
+            <p style="font-weight:700;font-size:.9rem;color:var(--ink)">Dr. Moya Sánchez D. Nicolás</p>
+            <p style="font-size:.75rem;color:var(--ink-light)">Psiquiatra y Psiquiatría de Enlace, UNAM</p>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--ink-light);line-height:1.8;margin-bottom:1rem">CE 14788885 · CP 12152669 · CMP 24803862 · COFEPRIS 2609142002A00043</p>
+        <a href="https://eutimya.org/pagos" target="_blank" class="btn-main" style="font-size:.82rem;padding:.6rem 1.3rem;display:inline-flex;width:100%;justify-content:center">Plataforma de pago →</a>
+        <p style="font-size:.75rem;color:var(--ink-light);margin-top:.7rem;text-align:center"><a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank" style="color:var(--gold)">Más sobre el Dr. Moya</a></p>
+      </div>
+
+      <!-- Dra. Sharon -->
+      <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">SV</div>
+          <div>
+            <p style="font-weight:700;font-size:.9rem;color:var(--ink)">Dra. Sharon Venecia N. Pichardo</p>
+            <p style="font-size:.75rem;color:var(--ink-light)">Psiquiatra, UNAM</p>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--ink-light);line-height:1.8;margin-bottom:1rem">CE 14788927 · CP 12045376 · CMP 24803869</p>
+        <a href="https://eutimya.org/cita-venecia" target="_blank" class="btn-main" style="font-size:.82rem;padding:.6rem 1.3rem;display:inline-flex;width:100%;justify-content:center;background:var(--teal)">Plataforma de pago →</a>
+        <p style="font-size:.75rem;color:var(--ink-light);margin-top:.7rem;text-align:center"><a href="https://paido.eutimya.org/" target="_blank" style="color:var(--gold)">Más sobre la Dra. Venecia</a></p>
+      </div>
+
+      <!-- Dra. Doris -->
+      <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">DC</div>
+          <div>
+            <p style="font-weight:700;font-size:.9rem;color:var(--ink)">Dra. Doris Darlene Carmona H.</p>
+            <p style="font-size:.75rem;color:var(--ink-light)">Psiquiatra, UNAM</p>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--ink-light);line-height:1.8;margin-bottom:1rem">CE 14789179 · CP 10364179 · CMP 24803742</p>
+        <div style="background:var(--canvas);border-radius:8px;padding:1rem;font-size:.8rem;color:var(--ink-mid);line-height:1.9;margin-bottom:.5rem">
+          <p><strong>Santander</strong></p>
+          <p>CLABE: 014180567343289827</p>
+          <p>Cuenta: 56734328982</p>
+        </div>
+      </div>
+
+      <!-- Psic. Johanna -->
+      <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
+          <div style="width:40px;height:40px;border-radius:50%;background:#6b7280;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">JP</div>
+          <div>
+            <p style="font-weight:700;font-size:.9rem;color:var(--ink)">Psic. Johanna Ivonne P. Cárdenas</p>
+            <p style="font-size:.75rem;color:var(--ink-light)">Psicóloga, UVM</p>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--ink-light);line-height:1.8;margin-bottom:1rem">CP 10039603</p>
+        <div style="background:var(--canvas);border-radius:8px;padding:1rem;font-size:.8rem;color:var(--ink-mid);line-height:2;margin-bottom:.5rem">
+          <p><strong>Banorte</strong> — CLABE: 072180003629949594 · Cta: 0362994959</p>
+          <p>Johanna Ivonne Pichardo Cárdenas</p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+            <a href="https://www.paypal.com/paypalme/jpcblanco" target="_blank" style="background:#0070ba;color:#fff;padding:.35rem .8rem;border-radius:6px;font-size:.75rem;font-weight:600">PayPal</a>
+            <a href="https://link.mercadopago.com.mx/jpcblanco" target="_blank" style="background:#00b1ea;color:#fff;padding:.35rem .8rem;border-radius:6px;font-size:.75rem;font-weight:600">Mercado Pago</a>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--ink-light);margin-top:.4rem;text-align:center"><a href="https://eutimya.org/joys" target="_blank" style="color:var(--gold)">Más sobre ella</a></p>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2rem;text-align:center">
+      <a href="/?agendar" class="btn-main" style="font-size:.85rem">← Volver a agendar</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ROUTE: /?mascota                                   -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="route-mascota" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
+  <div class="wrap" style="max-width:860px;padding:4rem 2rem">
+    <p class="eyebrow">Certificado ESA</p>
+    <h1 class="section-h">Certificado para mascota de apoyo emocional ✈️</h1>
+    <p class="section-sub" style="margin-bottom:2rem">Documentación médica para animales de soporte emocional (ESA) en vuelos nacionales e internacionales.</p>
+
+    <div style="display:grid;gap:1.4rem">
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">¿Qué es un animal de apoyo emocional (ESA)?</h3>
+        <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.8">Un ESA es una mascota que brinda apoyo emocional o psicológico a su dueño por indicación de un profesional de salud mental. A diferencia de los animales de servicio, los ESA no requieren entrenamiento especializado, pero sí requieren documentación médica válida emitida por un psiquiatra o psicólogo certificado.</p>
+      </div>
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">Requisitos para viajar con tu ESA</h3>
+        <div style="font-size:.9rem;color:var(--ink-mid);line-height:2">
+          <p>• Carta médica de salud mental emitida por psiquiatra o psicólogo con cédula profesional vigente</p>
+          <p>• La carta debe especificar diagnóstico, necesidad del ESA y datos del profesional (nombre, cédula, COFEPRIS)</p>
+          <p>• Documentación veterinaria al día de la mascota (vacunas, desparasitación)</p>
+          <p>• Notificar a la aerolínea con mínimo 48 h de anticipación</p>
+          <p>• Normativa aplicable en México: <strong>NOM-EM-121-SCT3-2017</strong></p>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">¿Qué incluye el certificado de Eutimya?</h3>
+        <div style="font-size:.9rem;color:var(--ink-mid);line-height:2">
+          <p>• Evaluación psiquiátrica presencial u online (1 sesión)</p>
+          <p>• Carta oficial en papel membretado con firma y sello del médico</p>
+          <p>• Datos del psiquiatra: nombre, cédula profesional, especialidad, COFEPRIS</p>
+          <p>• Versión digital con código de verificación (QR)</p>
+          <p>• Validez reconocida en aerolíneas nacionales e internacionales con operación en México</p>
+        </div>
+      </div>
+
+      <div style="background:var(--gold-pale);border-radius:var(--r);border:1px solid var(--gold);padding:2rem">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.8rem;color:var(--ink)">Solicitar certificado ESA</h3>
+        <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">Escríbenos por WhatsApp para información y disponibilidad de cita. El proceso es rápido: evaluación + emisión del documento en la misma sesión (sujeto a criterio clínico).</p>
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+          <a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20información%20sobre%20el%20certificado%20para%20mascota%20ESA." target="_blank" class="btn-main">WhatsApp Dr. Moya →</a>
+          <a href="https://wa.me/525513580092?text=Hola%2C%20quisiera%20información%20sobre%20el%20certificado%20para%20mascota%20ESA." target="_blank" class="btn-outline">WhatsApp Dra. Sharon →</a>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">Preguntas frecuentes</h3>
+        <div style="font-size:.88rem;color:var(--ink-mid);line-height:1.8;display:flex;flex-direction:column;gap:1rem">
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿Cualquier mascota puede ser ESA?</p>
+            <p>Perros y gatos son los más aceptados. Algunas aerolíneas tienen restricciones por especie, peso o raza. Verificar con la aerolínea antes.</p>
+          </div>
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿El certificado tiene vigencia?</p>
+            <p>Generalmente 12 meses. Algunas aerolíneas internacionales solicitan documentos con antigüedad no mayor a 1 año.</p>
+          </div>
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿Aplica para vuelos internacionales?</p>
+            <p>Depende de la aerolínea. La regulación estadounidense (DOT/FAA) cambió en 2021: solo reconocen perros de servicio entrenados. Para vuelos a EE.UU., consultar política específica de la aerolínea.</p>
+          </div>
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿Se puede tramitar en línea?</p>
+            <p>Sí, la evaluación se puede realizar por videoconsulta. El documento físico se envía por mensajería o se recoge en consultorio.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ROUTE: /?emt                                       -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="route-emt" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
+  <div class="wrap" style="max-width:860px;padding:4rem 2rem">
+    <p class="eyebrow">Neuromodulación</p>
+    <h1 class="section-h">Estimulación Magnética Transcraneal (EMT / TMS)</h1>
+    <p class="section-sub" style="margin-bottom:2rem">Tratamiento no invasivo, basado en evidencia, para trastornos del estado de ánimo, ansiedad y más.</p>
+
+    <div style="display:grid;gap:1.4rem">
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">¿Qué es la EMT?</h3>
+        <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.8">La Estimulación Magnética Transcraneal (EMT o TMS por sus siglas en inglés) es un procedimiento no invasivo que utiliza campos magnéticos para estimular células nerviosas específicas del cerebro. Está aprobada por la FDA para el tratamiento de la depresión mayor resistente y otros trastornos psiquiátricos.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
+          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ No invasivo</p>
+          <p style="font-size:.85rem;color:var(--ink-mid)">Sin anestesia, sin cirugía, sin hospitalización</p>
+        </div>
+        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
+          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ Aprobado FDA</p>
+          <p style="font-size:.85rem;color:var(--ink-mid)">Evidencia robusta en depresión mayor resistente</p>
+        </div>
+        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
+          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ Ambulatorio</p>
+          <p style="font-size:.85rem;color:var(--ink-mid)">Sesiones de 20–40 min, se retoma actividad normal</p>
+        </div>
+        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
+          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ Pocos efectos secundarios</p>
+          <p style="font-size:.85rem;color:var(--ink-mid)">Sin los efectos sistémicos de fármacos</p>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">Indicaciones clínicas</h3>
+        <div style="font-size:.9rem;color:var(--ink-mid);line-height:2">
+          <p>• Depresión mayor (TDM) resistente a tratamiento farmacológico</p>
+          <p>• Trastorno obsesivo-compulsivo (TOC)</p>
+          <p>• Trastorno de ansiedad generalizada (TAG)</p>
+          <p>• Depresión en el contexto de trastorno bipolar (bajo protocolo)</p>
+          <p>• TEPT y síntomas disociativos refractarios</p>
+          <p>• Síntomas negativos en esquizofrenia (protocolo específico)</p>
+          <p>• Rehabilitación cognitiva post-ACV (uso compasivo)</p>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">¿Cómo es el proceso?</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem;font-size:.9rem;color:var(--ink-mid)">
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <span style="background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">1</span>
+            <p><strong>Evaluación inicial:</strong> Consulta psiquiátrica para determinar indicación, descartar contraindicaciones (implantes metálicos, epilepsia activa) y diseñar protocolo.</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <span style="background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">2</span>
+            <p><strong>Protocolo de sesiones:</strong> Ciclo estándar de 20–30 sesiones (5 días/semana por 4–6 semanas). Cada sesión dura 20–40 minutos.</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <span style="background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">3</span>
+            <p><strong>Seguimiento:</strong> Evaluación de respuesta clínica cada 2 semanas. Ajuste de protocolo según evolución. Sesiones de mantenimiento si es necesario.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--gold-pale);border-radius:var(--r);border:1px solid var(--gold);padding:2rem">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.8rem;color:var(--ink)">¿Es candidato para EMT?</h3>
+        <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">La indicación de EMT requiere evaluación psiquiátrica. Si has tenido depresión u otro trastorno resistente a medicamentos, escríbenos para agendar una valoración.</p>
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+          <a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20información%20sobre%20estimulación%20magnética%20transcraneal." target="_blank" class="btn-main">Consultar por WhatsApp →</a>
+          <a href="/?agendar" class="btn-outline">Agendar valoración</a>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">Preguntas frecuentes</h3>
+        <div style="font-size:.88rem;color:var(--ink-mid);line-height:1.8;display:flex;flex-direction:column;gap:1rem">
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿Duele el procedimiento?</p>
+            <p>Puede sentirse un leve golpeteo en el cuero cabelludo durante la sesión. La mayoría de pacientes lo tolera bien sin necesidad de analgesia.</p>
+          </div>
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿Puedo seguir con mis medicamentos?</p>
+            <p>En la mayoría de los casos sí. El psiquiatra evaluará posibles interacciones y ajustará el esquema si es necesario.</p>
+          </div>
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿Cuándo se ven los resultados?</p>
+            <p>Algunos pacientes reportan mejoría desde la segunda semana. La respuesta completa suele observarse al finalizar el ciclo (4–6 semanas).</p>
+          </div>
+          <div>
+            <p style="font-weight:600;color:var(--ink)">¿Tiene cobertura de seguro?</p>
+            <p>Varía por aseguradora. Algunos planes de gastos médicos mayores cubren EMT con diagnóstico de depresión resistente. Consultar directamente con su aseguradora.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SCRIPTS: Router + Nav scroll                       -->
+<!-- ═══════════════════════════════════════════════════ -->
 <script>
-// Nav active on scroll
 (function(){
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const links = document.querySelectorAll('.nav-links a');
-  const onScroll = () => {
-    const y = window.scrollY + 80;
-    sections.forEach(s => {
+  // ── ROUTER ──────────────────────────────────────────
+  var params = new URLSearchParams(window.location.search);
+  var hash   = window.location.hash.replace('#','');
+
+  function getRoute(){
+    if(params.has('validar')) return 'validar';
+    if(params.has('agendar') || hash === 'agendar') return 'agendar';
+    if(params.has('pagos'))   return 'pagos';
+    if(params.has('mascota')) return 'mascota';
+    if(params.has('emt'))     return 'emt';
+    return null;
+  }
+
+  var route = getRoute();
+
+  if(route === 'validar'){
+    window.location.replace('https://www.eutimya.org/validar');
+    return;
+  }
+
+  if(route){
+    var mainEl  = document.getElementById('main-content');
+    var routeEl = document.getElementById('route-' + route);
+    if(mainEl)  mainEl.style.display  = 'none';
+    if(routeEl) routeEl.style.display = 'block';
+    document.title = {
+      agendar: 'Agendar cita · Eutimya',
+      pagos:   'Formas de pago · Eutimya',
+      mascota: 'Certificado ESA · Eutimya',
+      emt:     'Estimulación Magnética Transcraneal · Eutimya'
+    }[route] || document.title;
+  }
+
+  // ── NAV SCROLL ACTIVE ────────────────────────────────
+  var sections = document.querySelectorAll('section[id], div[id]');
+  var links    = document.querySelectorAll('.nav-links a');
+  function onScroll(){
+    var y = window.scrollY + 80;
+    sections.forEach(function(s){
       if(s.offsetTop <= y && s.offsetTop + s.offsetHeight > y){
-        links.forEach(l => {
-          l.classList.remove('active');
-          if(l.getAttribute('href') === '#' + s.id) l.classList.add('active');
+        links.forEach(function(l){
+          l.classList.toggle('active', l.getAttribute('href') === '#' + s.id);
         });
       }
     });
-  };
+  }
   window.addEventListener('scroll', onScroll, {passive:true});
+
+  // ── HAMBURGER ────────────────────────────────────────
+  var hbg  = document.getElementById('hbg');
+  var mnav = document.getElementById('mnav');
+  if(hbg && mnav){
+    hbg.addEventListener('click', function(){
+      mnav.classList.toggle('open');
+    });
+  }
 })();
 </script>
-
 </body>
 </html>
