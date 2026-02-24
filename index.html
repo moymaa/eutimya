@@ -650,8 +650,8 @@ a{color:inherit;text-decoration:none}
     </a>
     <ul class="nav-links">
       <li><a href="#inicio" class="active">Inicio</a></li>
-      <li><a href="https://eutimya.org/agenda" target="_blank" rel="noopener">Agendar</a></li>
-      <li><a href="https://eutimya.org/pagos" target="_blank" rel="noopener">Pagos</a></li>
+      <li><a href="/#agendar">Agendar</a></li>
+      <li><a href="/?pagos">Pagos</a></li>
       <li><a href="https://eutimya.org/factura" target="_blank" rel="noopener">Facturación</a></li>
       <li><a href="#profesionales">Profesionales</a></li>
       <li><a href="#blog">Blogs</a></li>
@@ -659,8 +659,8 @@ a{color:inherit;text-decoration:none}
       <li><a href="#validar">Validar</a></li>
     </ul>
     <div class="nav-right">
-      <span class="nav-extras">🐶✈️💜</span>
-      <a href="https://eutimya.org/agenda" class="nav-btn" target="_blank" rel="noopener">
+      <a href="/#certificados" class="nav-extras" style="text-decoration:none;cursor:pointer" title="Certificado ESA mascota">🐶✈️💜</a>
+      <a href="/#agendar" class="nav-btn">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Agendar
       </a>
@@ -678,15 +678,16 @@ a{color:inherit;text-decoration:none}
 <div class="mobile-nav" id="mnav">
   <ul>
     <li><a href="#inicio">Inicio</a></li>
-    <li><a href="https://eutimya.org/agenda" target="_blank">Agendar cita</a></li>
-    <li><a href="https://eutimya.org/pagos" target="_blank">Pagos</a></li>
+    <li><a href="/#agendar">Agendar cita</a></li>
+    <li><a href="/?pagos">Pagos</a></li>
     <li><a href="https://eutimya.org/factura" target="_blank">Facturación</a></li>
     <li><a href="#profesionales">Profesionales</a></li>
     <li><a href="#blog">Blog</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#validar">Validar cédulas</a></li>
+    <li><a href="/#certificados">🐶✈️💜 Certificado ESA</a></li>
     <li style="border:none;padding-top:.9rem">
-      <a href="https://eutimya.org/agenda" target="_blank" style="font-weight:700;color:#0d1b2a">→ Agendar ahora</a>
+      <a href="/#agendar" style="font-weight:700;color:#0d1b2a">→ Agendar ahora</a>
     </li>
   </ul>
 </div>
@@ -1584,7 +1585,7 @@ a{color:inherit;text-decoration:none}
 <!-- ═══════════════════════════════════════════════════ -->
 <!-- ROUTE: /?mascota                                   -->
 <!-- ═══════════════════════════════════════════════════ -->
-<div id="route-mascota" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
+<div id="route-certificados" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
   <div class="wrap" style="max-width:860px;padding:4rem 2rem">
     <p class="eyebrow">Certificado ESA</p>
     <h1 class="section-h">Certificado para mascota de apoyo emocional ✈️</h1>
@@ -1767,11 +1768,11 @@ a{color:inherit;text-decoration:none}
   var hash   = window.location.hash.replace('#','');
 
   function getRoute(){
-    if(params.has('validar')) return 'validar';
+    if(params.has('validar') || hash === 'validar') return 'validar';
     if(params.has('agendar') || hash === 'agendar') return 'agendar';
-    if(params.has('pagos'))   return 'pagos';
-    if(params.has('mascota')) return 'mascota';
-    if(params.has('emt'))     return 'emt';
+    if(params.has('pagos')   || hash === 'pagos')   return 'pagos';
+    if(params.has('mascota') || hash === 'mascota' || params.has('certificados') || hash === 'certificados') return 'certificados';
+    if(params.has('emt')     || hash === 'emt')     return 'emt';
     return null;
   }
 
@@ -1788,10 +1789,10 @@ a{color:inherit;text-decoration:none}
     if(mainEl)  mainEl.style.display  = 'none';
     if(routeEl) routeEl.style.display = 'block';
     document.title = {
-      agendar: 'Agendar cita · Eutimya',
-      pagos:   'Formas de pago · Eutimya',
-      mascota: 'Certificado ESA · Eutimya',
-      emt:     'Estimulación Magnética Transcraneal · Eutimya'
+      agendar:      'Agendar cita · Eutimya',
+      pagos:        'Formas de pago · Eutimya',
+      certificados: 'Certificado ESA · Eutimya',
+      emt:          'Estimulación Magnética Transcraneal · Eutimya'
     }[route] || document.title;
   }
 
