@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eutimya | Salud Mental - Neuroestimulación EMT</title>
+<meta name="description" content="Estimulación Magnética Transcraneal (EMT/TMS) — tratamiento no invasivo, aprobado por FDA, para depresión resistente, ansiedad y más. Eutimya, CDMX."/>
+<meta property="og:title" content="Eutimya | Neuroestimulación EMT"/>
+<meta property="og:description" content="Estimulación Magnética Transcraneal 🧠 — tratamiento seguro, efectivo y no invasivo."/>
+<meta property="og:url" content="https://www.eutimya.org/emt"/>
+<meta name="robots" content="index,follow"/>
+<link rel="icon" href="https://github.com/moymaa/drmoyapsiq/blob/main/logos%20acceso%20directos%20mac%20iconos.png?raw=true"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --muted:rgba(0,0,0,.62);
+  --line:rgba(0,0,0,.10);
+  --shadow:0 12px 30px rgba(0,0,0,.10);
+  --teal:#2d7d76;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Google Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── TOPBAR ── */
+.topbar{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.topbar-in{
+  max-width:1180px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1.2rem;gap:1rem;
+}
+.tb-logo img{height:28px;width:auto}
+.tb-links{
+  display:flex;gap:1.4rem;list-style:none;flex:1;justify-content:center;
+  flex-wrap:wrap;
+}
+.tb-links a{
+  font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(0,0,0,.55);transition:color .15s;white-space:nowrap;
+}
+.tb-links a:hover,.tb-links a.active{color:#111}
+.tb-right{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.tb-esa{font-size:1rem;cursor:pointer;text-decoration:none}
+.tb-btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  background:#111;color:#fff;
+  padding:.45rem 1rem;border-radius:8px;
+  font-size:.73rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  transition:background .18s;white-space:nowrap;
+}
+.tb-btn:hover{background:#333}
+.tb-hbg{display:none;background:none;border:none;cursor:pointer;padding:.3rem;flex-direction:column;gap:4px}
+.tb-hbg span{display:block;width:20px;height:2px;background:#111;border-radius:2px;transition:.2s}
+.mobile-nav{display:none;border-bottom:1px solid var(--line);background:#fff}
+.mobile-nav.open{display:block}
+.mobile-nav ul{list-style:none;padding:.6rem 1.2rem 1rem}
+.mobile-nav li{border-bottom:1px solid var(--line)}
+.mobile-nav li:last-child{border:none}
+.mobile-nav a{display:block;padding:.65rem 0;font-size:.92rem;font-weight:600;color:#111}
+@media(max-width:860px){
+  .tb-links{display:none}
+  .tb-hbg{display:flex}
+}
+
+/* ── WRAP ── */
+.e3,.e3 *{box-sizing:border-box}
+.e3{
+  font-family:"Google Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  color:var(--text);background:var(--bg);
+  width:100%;
+  padding:14px 12px 120px;
+}
+.e3-wrap{width:100%;max-width:1180px;margin:0 auto}
+
+/* ── HERO ── */
+.hero{
+  border-radius:22px;border:1px solid rgba(255,255,255,.10);
+  overflow:hidden;position:relative;background:#000;
+  min-height:300px;
+}
+.hero-img{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1400&auto=format&fit=crop&q=80') center/cover no-repeat;
+  opacity:.28;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(900px 420px at 10% 30%,rgba(255,255,255,.10),transparent 60%),
+    radial-gradient(900px 420px at 85% 25%,rgba(45,125,118,.18),transparent 62%);
+  pointer-events:none;
+}
+.hero-in{
+  position:relative;z-index:2;
+  padding:30px 20px 26px;
+  display:flex;align-items:flex-end;min-height:300px;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:11px;
+  color:rgba(255,255,255,.80);margin:0 0 10px;
+}
+.hero-title{
+  margin:0 0 10px;font-size:clamp(32px,5vw,52px);
+  line-height:1.04;font-weight:900;color:#fff;
+}
+.hero-sub{
+  margin:0 0 4px;max-width:780px;font-size:15px;line-height:1.6;
+  font-weight:500;color:rgba(255,255,255,.85);
+}
+.hero-badges{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:7px 12px;border-radius:999px;
+  font-size:12.5px;font-weight:700;
+  border:1px solid rgba(255,255,255,.20);
+  color:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(6px);
+}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.hero-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 16px;border-radius:14px;
+  font-weight:900;font-size:14px;
+  border:1px solid rgba(255,255,255,.22);color:#fff;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(6px);
+  transition:transform .10s,box-shadow .18s,background .18s;
+  cursor:pointer;
+}
+.hero-btn:hover{box-shadow:var(--shadow);transform:translateY(-1px);background:rgba(255,255,255,.18)}
+.hero-btn.hero-btn-teal{background:rgba(45,125,118,.55);border-color:rgba(45,125,118,.5)}
+.hero-btn.hero-btn-teal:hover{background:rgba(45,125,118,.75)}
+
+/* ── CARDS ── */
+.card{
+  margin-top:14px;background:#fff;
+  border:1px solid var(--line);border-radius:18px;padding:18px;
+}
+.h2{margin:0 0 8px;font-size:20px;font-weight:900;line-height:1.2}
+.h3{margin:0 0 8px;font-size:16px;font-weight:900;line-height:1.3}
+.lead{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55}
+
+/* ── GRID ── */
+.grid2{
+  margin-top:14px;display:grid;
+  grid-template-columns:1.1fr .9fr;gap:12px;
+}
+.grid3{
+  margin-top:14px;display:grid;
+  grid-template-columns:repeat(3,1fr);gap:12px;
+}
+.grid2b{
+  margin-top:14px;display:grid;
+  grid-template-columns:1fr 1fr;gap:12px;
+}
+@media(max-width:920px){
+  .grid2,.grid2b,.grid3{grid-template-columns:1fr}
+}
+
+/* ── STEPS ── */
+.steps{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.step{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px;border-radius:14px;
+  background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);
+}
+.dot{
+  width:28px;height:28px;border-radius:999px;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  background:#111;color:#fff;font-weight:900;font-size:13px;margin-top:1px;
+}
+.dot.teal{background:var(--teal)}
+.step b{display:block;font-size:14.5px;font-weight:900}
+.step span{display:block;color:#555;font-size:13.5px;line-height:1.45;margin-top:2px}
+
+/* ── FEATURE PILLS ── */
+.feat{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;
+}
+.feat-item{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 12px;border-radius:12px;
+  background:rgba(45,125,118,.06);border:1px solid rgba(45,125,118,.15);
+  font-size:13px;font-weight:700;color:#1a5c57;
+}
+
+/* ── INFO CARDS ── */
+.info-card{
+  border-radius:14px;padding:14px;
+  background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);
+  height:100%;
+}
+.info-card .icon{font-size:22px;margin-bottom:8px}
+.info-card b{display:block;font-size:14px;font-weight:900;margin-bottom:4px}
+.info-card p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* ── IMAGE BLOCK ── */
+.img-card{
+  border-radius:14px;overflow:hidden;
+  border:1px solid var(--line);
+  height:220px;background:#f0f0f0;
+}
+.img-card img{width:100%;height:100%;object-fit:cover}
+
+/* ── FAQ ── */
+.faq{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.faq-item{
+  border-radius:14px;overflow:hidden;
+  border:1px solid var(--line);
+}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;
+  padding:13px 14px;background:none;border:none;cursor:pointer;text-align:left;
+  font-family:inherit;font-size:14.5px;font-weight:900;color:#111;gap:10px;
+}
+.faq-q:hover{background:rgba(0,0,0,.02)}
+.faq-q svg{flex-shrink:0;transition:transform .22s;stroke:#555;fill:none;stroke-width:2.5;stroke-linecap:round}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 14px 13px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.faq-item.open .faq-a{display:block}
+
+/* ── VIDEOS ── */
+.video-wrap{
+  position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;
+  border:1px solid var(--line);
+}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* ── CONTACT ── */
+.contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.contact-item{
+  display:flex;align-items:flex-start;gap:10px;flex:1 1 240px;
+  padding:14px;border-radius:14px;
+  background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);
+}
+.contact-item .ik{font-size:18px;flex-shrink:0;margin-top:1px}
+.contact-item b{display:block;font-size:13px;font-weight:900;margin-bottom:2px}
+.contact-item span,.contact-item a{font-size:13.5px;color:var(--muted);line-height:1.5}
+.contact-item a{color:#111;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+
+/* ── LINKS PILLS ── */
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 12px;border-radius:999px;
+  border:1px solid rgba(0,0,0,.14);background:#fff;
+  font-weight:900;font-size:13.5px;color:#111;cursor:pointer;
+  transition:box-shadow .18s,transform .10s;
+}
+.pill:hover{box-shadow:0 10px 20px rgba(0,0,0,.08);transform:translateY(-1px)}
+
+/* ── CTA BAND ── */
+.cta-band{
+  margin-top:14px;background:#000;border-radius:18px;
+  padding:22px 20px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+}
+.cta-band h3{font-size:18px;font-weight:900;color:#fff;margin:0 0 4px}
+.cta-band p{font-size:13.5px;color:rgba(255,255,255,.70);margin:0}
+.cta-btns{display:flex;gap:8px;flex-wrap:wrap}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:11px 16px;border-radius:12px;font-size:13.5px;font-weight:900;
+  border:1px solid rgba(255,255,255,.20);color:#fff;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(6px);
+  transition:transform .10s,background .18s;cursor:pointer;
+}
+.cta-btn:hover{background:rgba(255,255,255,.20);transform:translateY(-1px)}
+.cta-btn.teal{background:rgba(45,125,118,.60);border-color:rgba(45,125,118,.5)}
+.cta-btn.teal:hover{background:rgba(45,125,118,.80)}
+
+/* ── FOOTER ── */
+.ft{margin-top:18px;border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden}
+.ft-in{padding:18px 16px 16px;display:grid;grid-template-columns:1fr;gap:16px}
+.ft-col h4{
+  margin:0 0 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:900;color:rgba(0,0,0,.45);
+}
+.ft-links{display:flex;flex-direction:column;gap:9px}
+.ft-links a{
+  width:fit-content;text-decoration:underline;text-underline-offset:5px;
+  text-decoration-thickness:1px;color:rgba(0,0,0,.62);
+  font-weight:600;font-size:17px;line-height:1.15;
+}
+.ft-links a:hover{color:rgba(0,0,0,.85)}
+.ft-social{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.ico{
+  width:42px;height:42px;border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;
+  background:#fff;transition:transform .10s,box-shadow .18s;cursor:pointer;
+}
+.ico svg{width:20px;height:20px;fill:none;stroke:rgba(0,0,0,.72);stroke-width:2;stroke-linecap:round}
+.ico:hover{box-shadow:0 10px 20px rgba(0,0,0,.10);transform:translateY(-1px)}
+.ft-bottom{padding:14px 16px 18px;border-top:1px solid rgba(0,0,0,.06);color:rgba(0,0,0,.50);font-size:13px;font-weight:600}
+.ft-bottom a{color:rgba(0,0,0,.65);text-decoration:underline;text-underline-offset:4px}
+@media(min-width:820px){
+  .ft-in{grid-template-columns:1fr 1fr;gap:22px;padding:20px 18px 18px}
+}
+
+/* ── WA FLOAT ── */
+.wa-float{
+  position:fixed;bottom:22px;right:18px;z-index:300;
+  display:flex;align-items:center;gap:8px;
+  background:#25d366;color:#fff;
+  padding:11px 16px;border-radius:999px;
+  font-weight:700;font-size:13.5px;
+  box-shadow:0 6px 24px rgba(37,211,102,.38);
+  transition:transform .15s,box-shadow .18s;
+}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.45)}
+.wa-float svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+
+@media(max-width:600px){
+  .e3{padding:10px 8px 100px}
+  .hero-in{min-height:260px;padding:22px 16px 20px}
+  .cta-band{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topbar">
+  <div class="topbar-in">
+    <a href="/" class="tb-logo" aria-label="Eutimya">
+      <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png" alt="Eutimya" height="28"/>
+    </a>
+    <ul class="tb-links">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/#agendar">Agendar</a></li>
+      <li><a href="/?pagos">Pagos</a></li>
+      <li><a href="https://eutimya.org/factura">Facturación</a></li>
+      <li><a href="/#profesionales">Profesionales</a></li>
+      <li><a href="/#blog">Blogs</a></li>
+      <li><a href="/#nosotros">Nosotros</a></li>
+      <li><a href="/#validar">Validar</a></li>
+    </ul>
+    <div class="tb-right">
+      <a href="/#certificados" class="tb-esa" title="Certificado ESA mascota">🐶✈️💞</a>
+      <a href="/#agendar" class="tb-btn">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Agendar
+      </a>
+      <button class="tb-hbg" id="hbg" aria-label="Menú" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mnav">
+  <ul>
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/#agendar">Agendar cita</a></li>
+    <li><a href="/?pagos">Pagos</a></li>
+    <li><a href="https://eutimya.org/factura">Facturación</a></li>
+    <li><a href="/#profesionales">Profesionales</a></li>
+    <li><a href="/#blog">Blog</a></li>
+    <li><a href="/#nosotros">Nosotros</a></li>
+    <li><a href="/#validar">Validar cédulas</a></li>
+    <li><a href="/#certificados">🐶✈️💞 Certificado ESA</a></li>
+    <li><a href="/#agendar" style="font-weight:900">→ Agendar ahora</a></li>
+  </ul>
+</div>
+
+<!-- CONTENIDO -->
+<div class="e3">
+  <div class="e3-wrap">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Neuroestimulación EMT">
+      <div class="hero-img"></div>
+      <div class="hero-in">
+        <div>
+          <div class="hero-kicker">🧠 NEUROESTIMULACIÓN · EUTIMYA</div>
+          <h1 class="hero-title">Estimulación Magnética<br>Transcraneal</h1>
+          <p class="hero-sub">Tratamiento no invasivo y seguro que favorece la neuroplasticidad y el equilibrio cerebral. Una alternativa efectiva para la depresión resistente, ansiedad, dolor crónico y más.</p>
+          <div class="hero-badges">
+            <span class="badge">✅ Aprobado FDA</span>
+            <span class="badge">✅ COFEPRIS Nº 07330060130238</span>
+            <span class="badge">💊 Solo o con medicación</span>
+            <span class="badge">🔒 Sin efectos secundarios sistémicos</span>
+          </div>
+          <div class="hero-actions">
+            <a class="hero-btn hero-btn-teal" href="https://wa.me/525559665649?text=Hola%2C%20quisiera%20información%20sobre%20la%20Estimulación%20Magnética%20Transcraneal.">
+              💬 Consultar por WhatsApp
+            </a>
+            <a class="hero-btn" href="/#agendar">Agendar valoración</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ ES — grid imagen + texto -->
+    <div class="grid2">
+      <!-- Texto -->
+      <div class="card" style="margin:0">
+        <p class="h2">¿Qué es la EMT?</p>
+        <p class="lead" style="margin-bottom:12px">La EMT utiliza pulsos magnéticos dirigidos a áreas específicas del cerebro para modular la actividad neuronal, promoviendo el equilibrio y la neuroplasticidad.</p>
+        <div class="feat">
+          <span class="feat-item">⚡ No es terapia electroconvulsiva</span>
+          <span class="feat-item">🌿 Mejora calidad de vida</span>
+          <span class="feat-item">🏥 Ambulatorio</span>
+          <span class="feat-item">🧬 Neuroplasticidad</span>
+        </div>
+        <div class="steps" style="margin-top:14px">
+          <div class="step">
+            <div class="dot teal">🔹</div>
+            <div><b>Emisión de pulsos magnéticos</b><span>Un dispositivo especial genera campos magnéticos breves y controlados sobre áreas cerebrales específicas.</span></div>
+          </div>
+          <div class="step">
+            <div class="dot teal">🔹</div>
+            <div><b>Estimulación cerebral</b><span>Los pulsos activan o regulan áreas relacionadas con el estado de ánimo y la cognición.</span></div>
+          </div>
+          <div class="step">
+            <div class="dot teal">🔹</div>
+            <div><b>Neuroplasticidad</b><span>Mejora la comunicación entre neuronas, ayudando en la recuperación de depresión, ansiedad y dolor crónico.</span></div>
+          </div>
+          <div class="step">
+            <div class="dot teal">🔹</div>
+            <div><b>No invasivo</b><span>Sin cirugía, sin dolor y sin efectos secundarios sistémicos.</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Imagen -->
+      <div style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div class="img-card" style="height:260px">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&auto=format&fit=crop&q=80"
+               alt="Neuronas y actividad cerebral" loading="lazy"/>
+        </div>
+        <div class="img-card" style="height:180px">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80"
+               alt="Equipo médico en clínica" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- INDICACIONES CLÍNICAS -->
+    <div class="card">
+      <p class="h2">Indicaciones clínicas</p>
+      <p class="lead" style="margin-bottom:14px">La EMT tiene evidencia científica sólida para los siguientes trastornos:</p>
+      <div class="grid3" style="margin-top:0">
+        <div class="info-card"><div class="icon">😔</div><b>Depresión mayor resistente</b><p>TDM refractario a tratamiento farmacológico. Indicación principal aprobada por FDA.</p></div>
+        <div class="info-card"><div class="icon">🔄</div><b>Trastorno obsesivo-compulsivo</b><p>TOC — protocolo específico, aprobado FDA en 2018 (protocolo DLFPC-SMA).</p></div>
+        <div class="info-card"><div class="icon">😰</div><b>Ansiedad generalizada</b><p>TAG y trastornos de ansiedad refractarios a primera línea farmacológica.</p></div>
+        <div class="info-card"><div class="icon">🌪️</div><b>TEPT</b><p>Síntomas disociativos y reexperimentación refractarios a tratamiento convencional.</p></div>
+        <div class="info-card"><div class="icon">🧠</div><b>Depresión bipolar</b><p>Depresión en el contexto de trastorno bipolar, bajo protocolo psiquiátrico específico.</p></div>
+        <div class="info-card"><div class="icon">💢</div><b>Dolor crónico</b><p>Rehabilitación cognitiva y manejo de dolor refractario post-ACV y otras causas.</p></div>
+      </div>
+    </div>
+
+    <!-- PROCESO — imagen + pasos -->
+    <div class="grid2" style="align-items:start">
+      <!-- Imagen -->
+      <div class="img-card" style="margin:0;height:320px">
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&auto=format&fit=crop&q=80"
+             alt="Paciente en tratamiento neurológico" loading="lazy"/>
+      </div>
+      <!-- Proceso -->
+      <div class="card" style="margin:0">
+        <p class="h2">¿Cómo es el proceso?</p>
+        <p class="lead" style="margin-bottom:12px">La EMT se realiza en sesiones diarias, sin interrupciones, para lograr los mejores resultados.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="dot">1</div>
+            <div><b>Evaluación inicial</b><span>Consulta psiquiátrica para determinar indicación, descartar contraindicaciones (implantes metálicos, epilepsia activa) y diseñar protocolo.</span></div>
+          </div>
+          <div class="step">
+            <div class="dot">2</div>
+            <div><b>Ciclo de sesiones</b><span>~20 sesiones diarias. Cada sesión dura 30 a 50 minutos, dependiendo del protocolo indicado.</span></div>
+          </div>
+          <div class="step">
+            <div class="dot">3</div>
+            <div><b>Colocación del equipo</b><span>Se posiciona una bobina electromagnética sobre el área cerebral a estimular. No es doloroso; algunos sienten leve cosquilleo o contracción.</span></div>
+          </div>
+          <div class="step">
+            <div class="dot">4</div>
+            <div><b>Vida normal</b><span>Al terminar cada sesión puedes retomar actividades diarias sin efectos secundarios incapacitantes.</span></div>
+          </div>
+          <div class="step">
+            <div class="dot">5</div>
+            <div><b>Seguimiento</b><span>Evaluación clínica cada 2 semanas. Ajuste de protocolo según evolución. Sesiones de mantenimiento si es necesario.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEOS -->
+    <div class="card">
+      <p class="h2">Videos informativos sobre la EMT ▶️</p>
+      <p class="lead" style="margin-bottom:14px">Material educativo sobre el procedimiento y sus resultados clínicos.</p>
+      <div class="grid2b">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/R72wHCmH5s0" title="Qué es la TMS" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/B6xNmO6Q42U" title="TMS para depresión" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+      <p class="h2">Preguntas frecuentes 🤔</p>
+      <div class="faq" id="faq">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Duele el procedimiento?
+            <svg width="16" height="16" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">No. Puede sentirse un leve golpeteo o cosquilleo en el cuero cabelludo durante la sesión. La mayoría de pacientes lo tolera bien sin necesidad de analgesia. No se requiere anestesia.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Puedo seguir con mis medicamentos durante el tratamiento?
+            <svg width="16" height="16" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">En la mayoría de los casos sí. El psiquiatra evaluará posibles interacciones y ajustará el esquema farmacológico si es necesario antes de iniciar el protocolo.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Cuándo se ven los resultados?
+            <svg width="16" height="16" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">Algunos pacientes reportan mejoría desde la segunda semana. La respuesta completa suele observarse al finalizar el ciclo de 4–6 semanas. Las tasas de respuesta en depresión resistente son del 50–60% y remisión del 30–35% (Carpenter et al., 2012).</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Es lo mismo que la terapia electroconvulsiva (TEC/ECT)?
+            <svg width="16" height="16" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">No. La EMT utiliza campos magnéticos focalizados sin inducir convulsiones, sin anestesia y sin los efectos cognitivos de la TEC. Son procedimientos completamente distintos en mecanismo, indicación y perfil de efectos adversos.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Tiene cobertura de seguro?
+            <svg width="16" height="16" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">Varía por aseguradora. Algunos planes de gastos médicos mayores cubren EMT con diagnóstico de depresión mayor resistente documentado. Se recomienda verificar directamente con su aseguradora antes de iniciar.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Quiénes NO son candidatos?
+            <svg width="16" height="16" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-a">Contraindicaciones absolutas: implantes metálicos intracraneales, marcapasos cardíaco, epilepsia no controlada. El psiquiatra evalúa cada caso individualmente en la consulta inicial.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="card" id="contacto-emt">
+      <p class="h2">📞 Contacto</p>
+      <p class="lead" style="margin-bottom:0">Para recibir más información sobre la EMT, contáctanos directamente.</p>
+      <div class="contact-row">
+        <div class="contact-item">
+          <span class="ik">📍</span>
+          <div>
+            <b>Ubicación</b>
+            <span>Av. Universidad 512, 2° piso, entre Eje 6 e Ixcateopan, Col. Vértiz Narvarte, CDMX</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ik">🗺️</span>
+          <div>
+            <b>Google Maps</b>
+            <a href="https://maps.google.com/?q=Av.+Universidad+512+Col.+Narvarte+CDMX">Ver ubicación →</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ik">📞</span>
+          <div>
+            <b>Teléfono</b>
+            <a href="tel:+525559665649">+52 55 5966 5649</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="ik">📩</span>
+          <div>
+            <b>Correo</b>
+            <a href="mailto:eutimya.mental@gmail.com">eutimya.mental@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-band">
+      <div>
+        <h3>¿Es candidato para la EMT?</h3>
+        <p>Agende una valoración psiquiátrica. La indicación requiere evaluación clínica.</p>
+      </div>
+      <div class="cta-btns">
+        <a class="cta-btn teal" href="https://wa.me/525559665649?text=Hola%2C%20quisiera%20información%20sobre%20la%20estimulación%20magnética%20transcraneal.">💬 WhatsApp</a>
+        <a class="cta-btn" href="/#agendar">Agendar valoración</a>
+        <a class="cta-btn" href="/?pagos">Ver honorarios</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="ft">
+      <div class="ft-in">
+        <div class="ft-col">
+          <h4>ENLACES</h4>
+          <div class="ft-links">
+            <a href="/">Inicio</a>
+            <a href="/#agendar">Agendar</a>
+            <a href="/#profesionales">Profesionales</a>
+            <a href="/#blog">Blog</a>
+            <a href="/#nosotros">Nosotros</a>
+            <a href="/#validar">Validar</a>
+            <a href="https://eutimya.org/factura">Facturación</a>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>RECURSOS PARA PACIENTES</h4>
+          <div class="ft-links">
+            <a href="https://eutimya.org/exp">Registro de expediente</a>
+            <a href="/?pagos">Formas de pago</a>
+            <a href="https://eutimya.org/reagendar">Horarios / Reagendar</a>
+          </div>
+          <div class="ft-social" aria-label="Redes sociales" style="margin-top:14px">
+            <a class="ico" href="https://tiktok.com/@eutimya.mental" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M14 3v10.1a4.1 4.1 0 1 1-3-3.95"/><path d="M14 3c1.2 2.2 3 3.8 6 4v3c-2.4-.1-4.3-1-6-2.5"/></svg>
+            </a>
+            <a class="ico" href="mailto:contacto@eutimya.org" aria-label="Correo">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+            </a>
+            <a class="ico" href="https://instagram.com/eutimya.mental" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M17.5 6.5h.01"/></svg>
+            </a>
+            <a class="ico" href="https://facebook.com/eutimya.mental" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M14 8h3V5h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        © Eutimya 2025 &nbsp;·&nbsp;
+        Al usar este sitio usted acepta el <a href="https://eutimya.org/privacidad">Aviso de Privacidad y el Consentimiento Informado</a>.
+        ARCO/revocación: <a href="mailto:contacto@eutimya.org">contacto@eutimya.org</a>
+      </div>
+    </footer>
+
+  </div><!-- /e3-wrap -->
+</div><!-- /e3 -->
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/525559665649?text=Hola%2C%20quisiera%20información%20sobre%20la%20Estimulación%20Magnética%20Transcraneal." class="wa-float" aria-label="WhatsApp Eutimya">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+// ── HAMBURGER
+document.getElementById('hbg').addEventListener('click',function(){
+  document.getElementById('mnav').classList.toggle('open');
+});
+
+// ── FAQ TOGGLE
+function toggleFaq(btn){
+  var item = btn.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if(!wasOpen) item.classList.add('open');
+}
+
+// ── NAV ACTIVE (si regresa a /)
+document.querySelectorAll('.tb-links a').forEach(function(a){
+  if(a.getAttribute('href') === window.location.pathname) a.classList.add('active');
+});
+</script>
+</body>
+</html>
