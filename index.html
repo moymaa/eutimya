@@ -667,8 +667,8 @@ a{color:inherit;text-decoration:none}
       <button class="nav-search" aria-label="Buscar">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
-      <button class="hamburger" type="button" id="hbg" aria-label="Menú"
-              onclick="document.getElementById('mnav').classList.toggle('open')">
+      <!-- FIX: sin onclick inline, el script maneja el toggle -->
+      <button class="hamburger" type="button" id="hbg" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -788,7 +788,7 @@ a{color:inherit;text-decoration:none}
           Este sitio tiene un propósito informativo y permite a los pacientes agendar citas de manera
           sencilla. No realizamos promoción ni publicidad de servicios médicos. La atención se brinda
           de acuerdo con las necesidades de cada persona y bajo criterios profesionales.
-          ARCO/revocación: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88ebe7e6fce9ebfce7c8edfdfce1e5f1e9a6e7faef">[email&#160;protected]</a>
+          ARCO/revocación: contacto@eutimya.org
         </p>
       </div>
       <div>
@@ -961,7 +961,6 @@ a{color:inherit;text-decoration:none}
       </a>
     </div>
     <div class="neuro-img">
-      <!-- Unsplash – brain/neuroscience free image -->
       <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=85&auto=format&fit=crop"
            alt="Neuromodulación TMS tDCS Eutimya"/>
     </div>
@@ -1131,7 +1130,6 @@ a{color:inherit;text-decoration:none}
     <div class="blog-grid">
       <a href="https://www.eutimya.org/blog" class="blog-card">
         <div class="blog-img">
-          <!-- Unsplash – loneliness/mental health -->
           <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=600&q=80&auto=format&fit=crop"
                alt="Soledad y depresión" loading="lazy"/>
         </div>
@@ -1143,7 +1141,6 @@ a{color:inherit;text-decoration:none}
       </a>
       <a href="https://www.eutimya.org/blog" class="blog-card">
         <div class="blog-img">
-          <!-- Unsplash – psychiatry/brain -->
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop"
                alt="¿Qué es la psiquiatría?" loading="lazy"/>
         </div>
@@ -1155,7 +1152,6 @@ a{color:inherit;text-decoration:none}
       </a>
       <a href="https://www.eutimya.org/blog" class="blog-card">
         <div class="blog-img">
-          <!-- Unsplash – anxiety/stress management -->
           <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80&auto=format&fit=crop"
                alt="Manejo del estrés y burnout" loading="lazy"/>
         </div>
@@ -1337,6 +1333,8 @@ a{color:inherit;text-decoration:none}
       Verifica la autenticidad de nuestros especialistas en la
       <a href="https://cedulaprofesional.sep.gob.mx/actor/consultaCedulaCert.action" style="color:var(--gold);font-weight:600">Cédula Electrónica SEP</a>
       o en el <a href="https://consejopsiquiatria.org.mx/" style="color:var(--gold);font-weight:600">Consejo Mexicano de Psiquiatría</a>.
+      Para validar documentos emitidos por Eutimya visita
+      <a href="https://mental.eutimya.org/validar" style="color:var(--gold);font-weight:600">mental.eutimya.org/validar</a>.
     </p>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px">
       <div style="border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.4rem;background:#fff">
@@ -1435,7 +1433,6 @@ a{color:inherit;text-decoration:none}
 
     <div style="display:flex;flex-direction:column;gap:1.5rem">
 
-      <!-- Paso 1 -->
       <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow)">
         <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">1</div>
         <div>
@@ -1449,7 +1446,6 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
 
-      <!-- Paso 2 -->
       <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow)">
         <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">2</div>
         <div>
@@ -1459,7 +1455,6 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
 
-      <!-- Paso 3 -->
       <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow)">
         <div style="flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">3</div>
         <div>
@@ -1488,7 +1483,6 @@ a{color:inherit;text-decoration:none}
     <h1 class="section-h">Formas de pago</h1>
     <p class="section-sub" style="margin-bottom:.8rem">Para programar su sesión, realice el pago correspondiente y envíe el comprobante en PDF o imagen al médico o terapeuta vía WhatsApp. Posteriormente elija la fecha disponible.</p>
 
-    <!-- Tarifa -->
     <div style="display:inline-flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;padding:1.2rem 1.8rem;background:#fff;border-radius:var(--r);border:1px solid var(--rule);box-shadow:var(--shadow)">
       <div style="text-align:center;padding:.5rem 1.2rem;border-right:1px solid var(--rule)">
         <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-light);margin-bottom:.2rem">Sesión Online</p>
@@ -1507,7 +1501,6 @@ a{color:inherit;text-decoration:none}
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.2rem">
 
-      <!-- Dr. Moya -->
       <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
         <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
           <div style="width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">DM</div>
@@ -1521,7 +1514,6 @@ a{color:inherit;text-decoration:none}
         <p style="font-size:.75rem;color:var(--ink-light);margin-top:.7rem;text-align:center"><a href="https://psiquiatra-cdmx.eutimya.org/" style="color:var(--gold)">Más sobre el Dr. Moya</a></p>
       </div>
 
-      <!-- Dra. Sharon -->
       <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
         <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
           <div style="width:40px;height:40px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">SV</div>
@@ -1535,7 +1527,6 @@ a{color:inherit;text-decoration:none}
         <p style="font-size:.75rem;color:var(--ink-light);margin-top:.7rem;text-align:center"><a href="https://paido.eutimya.org/" style="color:var(--gold)">Más sobre la Dra. Venecia</a></p>
       </div>
 
-      <!-- Dra. Doris -->
       <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
         <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
           <div style="width:40px;height:40px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">DC</div>
@@ -1552,7 +1543,6 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
 
-      <!-- Psic. Johanna -->
       <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow)">
         <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
           <div style="width:40px;height:40px;border-radius:50%;background:#6b7280;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0">JP</div>
@@ -1583,7 +1573,7 @@ a{color:inherit;text-decoration:none}
 
 
 <!-- ═══════════════════════════════════════════════════ -->
-<!-- ROUTE: /?mascota                                   -->
+<!-- ROUTE: /?mascota / /?certificados                  -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div id="route-certificados" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
   <div class="wrap" style="max-width:860px;padding:4rem 2rem">
@@ -1609,45 +1599,12 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
 
-      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">¿Qué incluye el certificado de Eutimya?</h3>
-        <div style="font-size:.9rem;color:var(--ink-mid);line-height:2">
-          <p>• Evaluación psiquiátrica presencial u online (1 sesión)</p>
-          <p>• Carta oficial en papel membretado con firma y sello del médico</p>
-          <p>• Datos del psiquiatra: nombre, cédula profesional, especialidad, COFEPRIS</p>
-          <p>• Versión digital con código de verificación (QR)</p>
-          <p>• Validez reconocida en aerolíneas nacionales e internacionales con operación en México</p>
-        </div>
-      </div>
-
       <div style="background:var(--gold-pale);border-radius:var(--r);border:1px solid var(--gold);padding:2rem">
         <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.8rem;color:var(--ink)">Solicitar certificado ESA</h3>
         <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">Escríbenos por WhatsApp para información y disponibilidad de cita. El proceso es rápido: evaluación + emisión del documento en la misma sesión (sujeto a criterio clínico).</p>
         <div style="display:flex;gap:.8rem;flex-wrap:wrap">
           <a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20información%20sobre%20el%20certificado%20para%20mascota%20ESA." class="btn-main">WhatsApp Dr. Moya →</a>
           <a href="https://wa.me/525513580092?text=Hola%2C%20quisiera%20información%20sobre%20el%20certificado%20para%20mascota%20ESA." class="btn-outline">WhatsApp Dra. Sharon →</a>
-        </div>
-      </div>
-
-      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">Preguntas frecuentes</h3>
-        <div style="font-size:.88rem;color:var(--ink-mid);line-height:1.8;display:flex;flex-direction:column;gap:1rem">
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿Cualquier mascota puede ser ESA?</p>
-            <p>Perros y gatos son los más aceptados. Algunas aerolíneas tienen restricciones por especie, peso o raza. Verificar con la aerolínea antes.</p>
-          </div>
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿El certificado tiene vigencia?</p>
-            <p>Generalmente 12 meses. Algunas aerolíneas internacionales solicitan documentos con antigüedad no mayor a 1 año.</p>
-          </div>
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿Aplica para vuelos internacionales?</p>
-            <p>Depende de la aerolínea. La regulación estadounidense (DOT/FAA) cambió en 2021: solo reconocen perros de servicio entrenados. Para vuelos a EE.UU., consultar política específica de la aerolínea.</p>
-          </div>
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿Se puede tramitar en línea?</p>
-            <p>Sí, la evaluación se puede realizar por videoconsulta. El documento físico se envía por mensajería o se recoge en consultorio.</p>
-          </div>
         </div>
       </div>
 
@@ -1664,114 +1621,29 @@ a{color:inherit;text-decoration:none}
     <p class="eyebrow">Neuromodulación</p>
     <h1 class="section-h">Estimulación Magnética Transcraneal (EMT / TMS)</h1>
     <p class="section-sub" style="margin-bottom:2rem">Tratamiento no invasivo, basado en evidencia, para trastornos del estado de ánimo, ansiedad y más.</p>
-
-    <div style="display:grid;gap:1.4rem">
-
-      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">¿Qué es la EMT?</h3>
-        <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.8">La Estimulación Magnética Transcraneal (EMT o TMS por sus siglas en inglés) es un procedimiento no invasivo que utiliza campos magnéticos para estimular células nerviosas específicas del cerebro. Está aprobada por la FDA para el tratamiento de la depresión mayor resistente y otros trastornos psiquiátricos.</p>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
-        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
-          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ No invasivo</p>
-          <p style="font-size:.85rem;color:var(--ink-mid)">Sin anestesia, sin cirugía, sin hospitalización</p>
-        </div>
-        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
-          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ Aprobado FDA</p>
-          <p style="font-size:.85rem;color:var(--ink-mid)">Evidencia robusta en depresión mayor resistente</p>
-        </div>
-        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
-          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ Ambulatorio</p>
-          <p style="font-size:.85rem;color:var(--ink-mid)">Sesiones de 20–40 min, se retoma actividad normal</p>
-        </div>
-        <div style="background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal);padding:1.5rem">
-          <p style="font-weight:700;color:var(--teal);margin-bottom:.5rem;font-size:.9rem">✓ Pocos efectos secundarios</p>
-          <p style="font-size:.85rem;color:var(--ink-mid)">Sin los efectos sistémicos de fármacos</p>
-        </div>
-      </div>
-
-      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">Indicaciones clínicas</h3>
-        <div style="font-size:.9rem;color:var(--ink-mid);line-height:2">
-          <p>• Depresión mayor (TDM) resistente a tratamiento farmacológico</p>
-          <p>• Trastorno obsesivo-compulsivo (TOC)</p>
-          <p>• Trastorno de ansiedad generalizada (TAG)</p>
-          <p>• Depresión en el contexto de trastorno bipolar (bajo protocolo)</p>
-          <p>• TEPT y síntomas disociativos refractarios</p>
-          <p>• Síntomas negativos en esquizofrenia (protocolo específico)</p>
-          <p>• Rehabilitación cognitiva post-ACV (uso compasivo)</p>
-        </div>
-      </div>
-
-      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">¿Cómo es el proceso?</h3>
-        <div style="display:flex;flex-direction:column;gap:1rem;font-size:.9rem;color:var(--ink-mid)">
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <span style="background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">1</span>
-            <p><strong>Evaluación inicial:</strong> Consulta psiquiátrica para determinar indicación, descartar contraindicaciones (implantes metálicos, epilepsia activa) y diseñar protocolo.</p>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <span style="background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">2</span>
-            <p><strong>Protocolo de sesiones:</strong> Ciclo estándar de 20–30 sesiones (5 días/semana por 4–6 semanas). Cada sesión dura 20–40 minutos.</p>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <span style="background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">3</span>
-            <p><strong>Seguimiento:</strong> Evaluación de respuesta clínica cada 2 semanas. Ajuste de protocolo según evolución. Sesiones de mantenimiento si es necesario.</p>
-          </div>
-        </div>
-      </div>
-
-      <div style="background:var(--gold-pale);border-radius:var(--r);border:1px solid var(--gold);padding:2rem">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.8rem;color:var(--ink)">¿Es candidato para EMT?</h3>
-        <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">La indicación de EMT requiere evaluación psiquiátrica. Si has tenido depresión u otro trastorno resistente a medicamentos, escríbenos para agendar una valoración.</p>
-        <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-          <a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20información%20sobre%20estimulación%20magnética%20transcraneal." class="btn-main">Consultar por WhatsApp →</a>
-          <a href="/?agendar" class="btn-outline">Agendar valoración</a>
-        </div>
-      </div>
-
-      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow)">
-        <h3 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem;color:var(--ink)">Preguntas frecuentes</h3>
-        <div style="font-size:.88rem;color:var(--ink-mid);line-height:1.8;display:flex;flex-direction:column;gap:1rem">
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿Duele el procedimiento?</p>
-            <p>Puede sentirse un leve golpeteo en el cuero cabelludo durante la sesión. La mayoría de pacientes lo tolera bien sin necesidad de analgesia.</p>
-          </div>
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿Puedo seguir con mis medicamentos?</p>
-            <p>En la mayoría de los casos sí. El psiquiatra evaluará posibles interacciones y ajustará el esquema si es necesario.</p>
-          </div>
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿Cuándo se ven los resultados?</p>
-            <p>Algunos pacientes reportan mejoría desde la segunda semana. La respuesta completa suele observarse al finalizar el ciclo (4–6 semanas).</p>
-          </div>
-          <div>
-            <p style="font-weight:600;color:var(--ink)">¿Tiene cobertura de seguro?</p>
-            <p>Varía por aseguradora. Algunos planes de gastos médicos mayores cubren EMT con diagnóstico de depresión resistente. Consultar directamente con su aseguradora.</p>
-          </div>
-        </div>
-      </div>
-
+    <div style="background:var(--gold-pale);border-radius:var(--r);border:1px solid var(--gold);padding:2rem">
+      <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">Para información completa sobre EMT, visita nuestra página dedicada.</p>
+      <a href="https://www.eutimya.org/emt" class="btn-main">Ver página completa de EMT →</a>
     </div>
   </div>
 </div>
 
 
 <!-- ═══════════════════════════════════════════════════ -->
-<!-- SCRIPTS: Router + Nav scroll                       -->
+<!-- SCRIPTS: Router + Nav scroll + Hamburger           -->
 <!-- ═══════════════════════════════════════════════════ -->
 <script>
 (function(){
 
-  // ── RUTAS VIRTUALES (no son anchors de sección) ──────
+  // ── RUTAS VIRTUALES ──────────────────────────────────
+  // FIX: 'validar' eliminado de ROUTES — el anchor #validar
+  // hace scroll a la sección del HTML principal normalmente.
   var ROUTES = {
     'agendar':      'Agendar cita · Eutimya',
     'pagos':        'Formas de pago · Eutimya',
     'certificados': 'Certificado ESA · Eutimya',
     'mascota':      'Certificado ESA · Eutimya',
-    'emt':          'Estimulación Magnética Transcraneal · Eutimya',
-    'validar':      null
+    'emt':          'Estimulación Magnética Transcraneal · Eutimya'
   };
 
   function normalizeRoute(key){
@@ -1784,25 +1656,17 @@ a{color:inherit;text-decoration:none}
     var hash   = window.location.hash.replace('#','');
     var mainEl = document.getElementById('main-content');
 
-    // Determinar ruta activa (query param tiene prioridad)
     var routeKey = null;
     for(var k in ROUTES){
       if(params.has(k) || hash === k){ routeKey = k; break; }
     }
 
-    // Ocultar todas las rutas
     document.querySelectorAll('.route-page').forEach(function(el){
       el.style.display = 'none';
     });
 
     if(!routeKey){
-      // Vista principal
       if(mainEl) mainEl.style.display = '';
-      return;
-    }
-
-    if(routeKey === 'validar'){
-      window.location.replace('https://www.eutimya.org/validar');
       return;
     }
 
@@ -1814,29 +1678,24 @@ a{color:inherit;text-decoration:none}
     document.title = ROUTES[routeKey] || document.title;
   }
 
-  // Correr al cargar y en cada cambio de hash
   applyRoute();
   window.addEventListener('hashchange', applyRoute);
 
   // ── INTERCEPTAR CLICKS EN ANCHORS DE RUTA ───────────
-  // Para que /?pagos etc. desde dentro de una ruta también funcionen
   document.addEventListener('click', function(e){
     var a = e.target.closest('a');
     if(!a) return;
     var href = a.getAttribute('href') || '';
-
-    // /?ruta o /#ruta o #ruta → manejar sin reload si es ruta virtual
     var routeMatch = href.match(/^(?:\/)?[#?]([a-z]+)$/);
     if(!routeMatch) return;
     var key = routeMatch[1];
     if(!(key in ROUTES)) return;
-
     e.preventDefault();
     window.history.pushState(null, '', '/#' + key);
     window.dispatchEvent(new Event('hashchange'));
   });
 
-  // ── NAV SCROLL ACTIVE (solo en vista principal) ──────
+  // ── NAV SCROLL ACTIVE ────────────────────────────────
   var sections = document.querySelectorAll('section[id]');
   var links    = document.querySelectorAll('.nav-links a');
   function onScroll(){
@@ -1853,12 +1712,29 @@ a{color:inherit;text-decoration:none}
   }
   window.addEventListener('scroll', onScroll, {passive:true});
 
-  // ── HAMBURGER ────────────────────────────────────────
+  // ── HAMBURGER + CLICK OUTSIDE ────────────────────────
+  // FIX: único listener, sin onclick inline en el botón.
   var hbg  = document.getElementById('hbg');
   var mnav = document.getElementById('mnav');
   if(hbg && mnav){
-    hbg.addEventListener('click', function(){
+    hbg.addEventListener('click', function(e){
+      e.stopPropagation();
       mnav.classList.toggle('open');
+    });
+    // Cerrar al hacer click fuera del menú o en un link interno
+    document.addEventListener('click', function(e){
+      if(mnav.classList.contains('open') &&
+         !mnav.contains(e.target) &&
+         e.target !== hbg &&
+         !hbg.contains(e.target)){
+        mnav.classList.remove('open');
+      }
+    });
+    // Cerrar al hacer click en cualquier link del menú móvil
+    mnav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mnav.classList.remove('open');
+      });
     });
   }
 
