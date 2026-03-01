@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Validación de documento | Eutimya</title>
+<meta name="description" content="Verifica la autenticidad de documentos emitidos por Eutimya mediante el folio único asociado."/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="canonical" href="https://mente.eutimya.org/validar"/>
+<link rel="icon" type="image/png" href="https://github.com/moymaa/drmoyapsiq/blob/main/logos%20acceso%20directos%20mac%20iconos.png?raw=true"/>
+<link rel="apple-touch-icon" href="https://github.com/moymaa/drmoyapsiq/blob/main/logos%20acceso%20directos%20mac%20iconos.png?raw=true"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══ TOKENS — idénticos al sitio principal ═══ */
+:root{
+  --ink:#0d1b2a;
+  --ink-mid:#334155;
+  --ink-light:#64748b;
+  --gold:#b8893a;
+  --gold-pale:#f5ecd7;
+  --teal:#2d7d76;
+  --teal-light:#e8f5f4;
+  --white:#ffffff;
+  --canvas:#fafaf8;
+  --rule:#e8e6e1;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans','Helvetica Neue',sans-serif;
+  --r:10px;
+  --shadow:0 2px 12px rgba(13,27,42,.07);
+  --shadow-lg:0 8px 40px rgba(13,27,42,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ═══ NAV ═══ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(10px);
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 2rem;gap:1rem;
+}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo img{height:32px;width:auto}
+.nav-links{display:flex;gap:1.6rem;list-style:none;flex:1;justify-content:center}
+.nav-links a{
+  font-size:.78rem;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-mid);transition:color .2s;white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:.8rem;flex-shrink:0}
+.nav-btn{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--ink);color:var(--white);
+  padding:.5rem 1.2rem;border-radius:6px;
+  font-size:.75rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;white-space:nowrap;transition:background .2s;
+}
+.nav-btn:hover{background:#1e3a5f}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-nav{
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:#fff;border-bottom:1px solid var(--rule);
+  padding:1.2rem 2rem;z-index:99;box-shadow:var(--shadow-lg);
+}
+.mobile-nav.open{display:block}
+.mobile-nav ul{list-style:none}
+.mobile-nav li{padding:.65rem 0;border-bottom:1px solid var(--rule)}
+.mobile-nav li:last-child{border:none}
+.mobile-nav a{font-size:.95rem;font-weight:500;color:var(--ink)}
+
+/* ═══ HERO ═══ */
+.hero{
+  padding-top:60px;
+  background:
+    linear-gradient(160deg,rgba(13,27,42,.72) 0%,rgba(13,27,42,.48) 100%),
+    url("https://i.imgur.com/gOSzF7w.jpeg") center/cover no-repeat;
+}
+.hero-inner{max-width:1280px;margin:0 auto;padding:5rem 2rem 3.5rem}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.8rem;
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4vw,2.9rem);
+  font-weight:700;color:#fff;line-height:1.1;margin-bottom:.7rem;
+  letter-spacing:-.01em;
+}
+.hero p{font-size:.97rem;color:rgba(255,255,255,.78);max-width:520px;line-height:1.7}
+
+/* ═══ MAIN ═══ */
+main{background:var(--canvas);padding:3rem 2rem 5rem}
+.wrap{max-width:1280px;margin:0 auto}
+.content-grid{
+  display:grid;
+  grid-template-columns:1fr 1.35fr;
+  gap:2.2rem;
+  align-items:start;
+  max-width:920px;
+}
+
+/* ═══ CARD VALIDAR ═══ */
+.val-card{
+  background:#fff;border:1px solid var(--rule);
+  border-radius:var(--r);box-shadow:var(--shadow-lg);padding:2rem;
+}
+.val-card-title{
+  font-family:var(--serif);font-size:1.15rem;font-weight:600;
+  color:var(--ink);margin-bottom:.25rem;
+}
+.val-card-sub{font-size:.84rem;color:var(--ink-mid);margin-bottom:1.5rem;line-height:1.6}
+
+.field{display:flex;flex-direction:column;gap:.7rem}
+.folio-input{
+  width:100%;padding:1rem 1.1rem;
+  border-radius:8px;border:1.5px solid var(--rule);
+  font-size:.95rem;font-family:var(--sans);color:var(--ink);
+  background:#fff;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  letter-spacing:.05em;
+}
+.folio-input:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(13,27,42,.06)}
+.folio-input::placeholder{color:var(--ink-light);letter-spacing:.02em}
+
+.btn-val{
+  width:100%;padding:1rem;border-radius:8px;border:none;
+  background:var(--ink);color:#fff;
+  font-family:var(--sans);font-size:.88rem;font-weight:600;
+  cursor:pointer;transition:background .2s,transform .15s;
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+}
+.btn-val:hover:not(:disabled){background:#1e3a5f;transform:translateY(-1px)}
+.btn-val:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ═══ RESULTADOS ═══ */
+.out{margin-top:1.1rem}
+.msg{border-radius:8px;padding:1.2rem 1.4rem;border:1px solid}
+.msg-loading{background:#f8f8f6;border-color:var(--rule);color:var(--ink-mid);font-size:.86rem;display:flex;align-items:center;gap:.5rem}
+.msg-ok{background:#eef7f0;border-color:#b9dfc2}
+.msg-bad{background:#fbefef;border-color:#f0b9b9}
+.msg-label{
+  font-weight:700;font-size:.88rem;
+  display:flex;align-items:center;gap:.45rem;margin-bottom:.8rem;
+}
+.msg-ok .msg-label{color:#1a6b35}
+.msg-bad .msg-label{color:#9b2a2a}
+.result-rows{display:flex;flex-direction:column}
+.result-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:1rem;padding:.55rem 0;
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.result-row:last-child{border:none}
+.result-k{font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-light);flex-shrink:0}
+.result-v{font-size:.86rem;font-weight:600;color:var(--ink);text-align:right;word-break:break-word}
+
+/* ═══ INFO LATERAL ═══ */
+.info-block{display:flex;flex-direction:column;gap:1rem}
+.info-card{
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:1.4rem 1.6rem;background:#fff;transition:box-shadow .2s;
+}
+.info-card:hover{box-shadow:var(--shadow)}
+.info-card-eyebrow{
+  font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.55rem;
+}
+.info-card p{font-size:.83rem;color:var(--ink-mid);line-height:1.7;margin-bottom:.4rem}
+.info-card p:last-child{margin-bottom:0}
+.ced-grid{display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem}
+.ced-item{
+  font-size:.77rem;color:var(--ink-mid);line-height:1.7;
+  padding:.45rem .75rem;background:var(--canvas);
+  border-radius:6px;border:1px solid var(--rule);
+}
+.ced-item strong{color:var(--ink);font-size:.78rem;display:block}
+.ext-link{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.77rem;font-weight:600;color:var(--gold);
+  margin-top:.6rem;transition:color .2s;
+}
+.ext-link:hover{color:var(--ink)}
+
+/* ═══ WA FLOAT ═══ */
+.wa-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:90;
+  display:flex;align-items:center;gap:.6rem;
+  background:#25d366;color:#fff;
+  padding:.75rem 1.4rem;border-radius:100px;
+  font-size:.85rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  transition:filter .2s,transform .15s;
+}
+.wa-float:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.wa-float svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--ink);padding:3.5rem 2rem 2rem}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:2.5rem;margin-bottom:2.5rem;
+}
+.footer-brand img{margin-bottom:.9rem;filter:brightness(0) invert(1);opacity:.85}
+.footer-brand p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:240px}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:.9rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.4rem}
+.footer-col a{font-size:.8rem;color:rgba(255,255,255,.45);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.5rem;font-size:.72rem;color:rgba(255,255,255,.3);
+}
+.footer-ceds{display:flex;flex-wrap:wrap;gap:.8rem}
+
+/* ═══ SPIN ═══ */
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.spin{animation:spin .9s linear infinite;display:inline-block}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:768px){
+  .nav-links,.nav-btn{display:none}
+  .hamburger{display:flex}
+  .hero-inner{padding:4rem 1.5rem 2.5rem}
+  main{padding:2rem 1.2rem 4rem}
+  .content-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .wa-float span{display:none}
+  .wa-float{padding:.75rem 1rem}
+}
+@media(max-width:480px){
+  .footer-inner{grid-template-columns:1fr}
+  .result-row{flex-direction:column;gap:.15rem}
+  .result-v{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="https://mental.eutimya.org/" class="nav-logo" aria-label="Eutimya — Inicio">
+      <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png" alt="Eutimya" height="32" loading="eager"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://mental.eutimya.org/#inicio">Inicio</a></li>
+      <li><a href="https://mental.eutimya.org/#agendar">Agendar</a></li>
+      <li><a href="https://mental.eutimya.org/?pagos">Pagos</a></li>
+      <li><a href="https://eutimya.org/factura">Facturación</a></li>
+      <li><a href="https://mental.eutimya.org/#profesionales">Profesionales</a></li>
+      <li><a href="https://mental.eutimya.org/#blog">Blog</a></li>
+      <li><a href="https://mental.eutimya.org/#nosotros">Nosotros</a></li>
+      <li><a href="https://mente.eutimya.org/validar" class="active">Validar</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://mental.eutimya.org/#agendar" class="nav-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Agendar
+      </a>
+      <button class="hamburger" type="button" id="hbg" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mnav">
+  <ul>
+    <li><a href="https://mental.eutimya.org/#inicio">Inicio</a></li>
+    <li><a href="https://mental.eutimya.org/#agendar">Agendar cita</a></li>
+    <li><a href="https://mental.eutimya.org/?pagos">Pagos</a></li>
+    <li><a href="https://eutimya.org/factura">Facturación</a></li>
+    <li><a href="https://mental.eutimya.org/#profesionales">Profesionales</a></li>
+    <li><a href="https://mental.eutimya.org/#blog">Blog</a></li>
+    <li><a href="https://mente.eutimya.org/validar" style="color:var(--gold);font-weight:700">Validar documentos</a></li>
+    <li style="border:none;padding-top:.9rem">
+      <a href="https://mental.eutimya.org/#agendar" style="font-weight:700;color:#0d1b2a">→ Agendar ahora</a>
+    </li>
+  </ul>
+</div>
+
+<!-- WA float -->
+<a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta%20en%20Eutimya." class="wa-float" aria-label="WhatsApp Eutimya">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Verificación de documentos</p>
+    <h1>Validación de documento</h1>
+    <p>Confirma la autenticidad de documentos emitidos por Eutimya mediante el folio único asociado al expediente.</p>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main>
+  <div class="wrap">
+    <div class="content-grid">
+
+      <!-- Formulario -->
+      <div class="val-card">
+        <h2 class="val-card-title">Verificar folio</h2>
+        <p class="val-card-sub">Ingresa el folio impreso en tu documento o escanea el código QR para que se complete automáticamente.</p>
+        <div class="field">
+          <input
+            id="folio"
+            class="folio-input"
+            type="text"
+            placeholder="Ej: ABCDE-FGHIJ-KLMNO"
+            inputmode="text"
+            autocapitalize="characters"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="btn-val" id="btn" onclick="validar()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            Validar documento
+          </button>
+        </div>
+        <div id="out" class="out"></div>
+      </div>
+
+      <!-- Info lateral -->
+      <div class="info-block">
+
+        <div class="info-card">
+          <p class="info-card-eyebrow">¿Qué puedo verificar?</p>
+          <p>Este portal confirma la autenticidad de resúmenes clínicos, notas médicas, certificados psiquiátricos y otros documentos emitidos por los profesionales de Eutimya.</p>
+          <p>El folio es único por documento y está vinculado al expediente del paciente.</p>
+        </div>
+
+        <div class="info-card">
+          <p class="info-card-eyebrow">Cédulas profesionales</p>
+          <p>Verifica directamente en el registro oficial de la SEP o el Consejo Mexicano de Psiquiatría.</p>
+          <div class="ced-grid">
+            <div class="ced-item">
+              <strong>Dr. Moya Sánchez D. Nicolás</strong>
+              CE 14788885 · CP 12152669 · CMP 24803862
+            </div>
+            <div class="ced-item">
+              <strong>Dra. Sharon Venecia N. Pichardo</strong>
+              CE 14788927 · CP 12045376 · CMP 24803869
+            </div>
+            <div class="ced-item">
+              <strong>Dra. Doris Darlene Carmona H.</strong>
+              CE 14789179 · CP 10364179 · CMP 24803742
+            </div>
+            <div class="ced-item">
+              <strong>Psic. Johanna Ivonne P. Cárdenas</strong>
+              CP 10039603
+            </div>
+          </div>
+          <a href="https://cedulaprofesional.sep.gob.mx/actor/consultaCedulaCert.action" target="_blank" rel="noopener" class="ext-link">
+            Consultar en SEP →
+          </a>
+        </div>
+
+        <div class="info-card">
+          <p class="info-card-eyebrow">¿Dudas sobre un documento?</p>
+          <p>Si tienes alguna duda sobre la autenticidad de un documento o necesitas apoyo, contáctanos directamente.</p>
+          <a href="https://wa.me/526731205121?text=Hola%2C%20tengo%20una%20duda%20sobre%20la%20validación%20de%20un%20documento." class="ext-link">
+            Escribir por WhatsApp →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png" alt="Eutimya" height="30" loading="lazy"/>
+      <p>Práctica psiquiátrica privada en Ciudad de México. Atención de adultos, adolescentes y niños con base en evidencia.</p>
+      <p style="margin-top:.6rem;font-size:.75rem;color:rgba(255,255,255,.3)">Calle Moras 619 · Col. Del Valle Sur · CDMX</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="https://mental.eutimya.org/#servicios">Primera consulta</a></li>
+        <li><a href="https://mental.eutimya.org/#servicios">Seguimiento farmacológico</a></li>
+        <li><a href="https://mental.eutimya.org/#neuromodulacion">Neuromodulación TMS/tDCS</a></li>
+        <li><a href="https://mental.eutimya.org/#servicios">Evaluación bariátrica</a></li>
+        <li><a href="https://mental.eutimya.org/#servicios">Psiquiatría infanto-juvenil</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Profesionales</h4>
+      <ul>
+        <li><a href="https://psiquiatra-cdmx.eutimya.org/">Dr. Moya Sánchez</a></li>
+        <li><a href="https://paido.eutimya.org/">Dra. Sharon Venecia</a></li>
+        <li><a href="https://mente.eutimya.org/validar">Validar documentos</a></li>
+        <li><a href="https://mental.eutimya.org/#blog">Blog de salud mental</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Acceso rápido</h4>
+      <ul>
+        <li><a href="https://mental.eutimya.org/#agendar">Agendar cita</a></li>
+        <li><a href="https://eutimya.org/factura">Facturación</a></li>
+        <li><a href="https://www.eutimya.org/certificado-mascota-viaje">Certificado ESA</a></li>
+        <li><a href="https://wa.me/526731205121">WhatsApp Dr. Moya</a></li>
+        <li><a href="https://wa.me/525513580092">WhatsApp Dra. Sharon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Eutimya · Todos los derechos reservados</span>
+    <div class="footer-ceds">
+      <span>Dr. Moya: CE 14788885 · CP 12152669</span>
+      <span>Dra. Sharon: CE 14788927 · CP 12045376</span>
+      <span>Dra. Doris: CE 14789179</span>
+      <span>Psic. Johanna: CP 10039603</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+// ⚠️  Los QR ya generados NO se alteran: siguen apuntando
+//     directamente al GAS y lo seguirán haciendo.
+//     Los QR nuevos apuntarán a mente.eutimya.org/validar?folio=XXX
+//     y este fetch conecta con el mismo GAS vía api=1.
+// ─────────────────────────────────────────────────────────────
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbz9mWcve6mLYmKwxgfe5EVVoXIdyQXv-ioBZE5q3_ZQCDy2tagdyn80xj8ngJyhdCo/exec';
+
+async function validar() {
+  const folio = document.getElementById('folio').value.trim().toUpperCase();
+  const out   = document.getElementById('out');
+  const btn   = document.getElementById('btn');
+
+  if (!folio) {
+    out.innerHTML = `<div class="msg msg-bad">
+      <div class="msg-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        No verificable
+      </div>
+      <div style="font-size:.83rem;color:#9b2a2a">Ingresa un folio para continuar.</div>
+    </div>`;
+    return;
+  }
+
+  out.innerHTML = `<div class="msg msg-loading">
+    <svg class="spin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+    Validando folio…
+  </div>`;
+  btn.disabled = true;
+
+  try {
+    const resp = await fetch(`${GAS_URL}?api=1&folio=${encodeURIComponent(folio)}`);
+    if (!resp.ok) throw new Error('Error de red: ' + resp.status);
+    const res = await resp.json();
+
+    if (!res || !res.ok) {
+      out.innerHTML = `<div class="msg msg-bad">
+        <div class="msg-label">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          No verificable
+        </div>
+        <div style="font-size:.83rem;color:#9b2a2a">${res?.reason || 'El folio no fue encontrado en el registro.'}</div>
+      </div>`;
+      return;
+    }
+
+    out.innerHTML = `<div class="msg msg-ok">
+      <div class="msg-label">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Documento verificado ✓
+      </div>
+      <div class="result-rows">
+        <div class="result-row"><span class="result-k">Folio</span><span class="result-v">${res.folio||'—'}</span></div>
+        <div class="result-row"><span class="result-k">Iniciales px</span><span class="result-v">${res.iniciales||'—'}</span></div>
+        <div class="result-row"><span class="result-k">Fecha nacimiento</span><span class="result-v">${res.fechaNacimiento||'—'}</span></div>
+        <div class="result-row"><span class="result-k">Fecha documento</span><span class="result-v">${res.fechaDocumento||'—'}</span></div>
+        <div class="result-row"><span class="result-k">Médico</span><span class="result-v">${res.medico||'—'}</span></div>
+        <div class="result-row"><span class="result-k">Cédula</span><span class="result-v">${res.cedula||'—'}</span></div>
+        <div class="result-row"><span class="result-k">Tipo de documento</span><span class="result-v">${res.tipoDocumento||'—'}</span></div>
+      </div>
+    </div>`;
+
+  } catch (err) {
+    out.innerHTML = `<div class="msg msg-bad">
+      <div class="msg-label">Error de conexión</div>
+      <div style="font-size:.83rem;color:#9b2a2a">${err?.message || 'No fue posible conectar con el servidor.'}</div>
+    </div>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Auto-validar si el QR ya viene con ?folio=XXX en la URL
+  const folio = new URLSearchParams(window.location.search).get('folio') || '';
+  if (folio) {
+    document.getElementById('folio').value = folio;
+    validar();
+  }
+  // Enter en el input
+  document.getElementById('folio').addEventListener('keydown', e => {
+    if (e.key === 'Enter') validar();
+  });
+});
+
+// Hamburger
+document.getElementById('hbg').addEventListener('click', () => {
+  document.getElementById('mnav').classList.toggle('open');
+});
+</script>
+</body>
+</html>
