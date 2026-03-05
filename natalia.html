@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dra. Natalia Brochet Castilla · Psiquiatra | Colega de Confianza Eutimya</title>
+<meta name="description" content="Dra. Natalia Brochet Castilla — Psiquiatra egresada del CMN 20 de Noviembre (UNAM), actualmente en formación como paidopsiquiatra. Referida por el Dr. Moya Sánchez · Eutimya."/>
+<meta name="robots" content="noindex,nofollow"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#0d1b2a;
+  --ink-mid:#334155;
+  --ink-light:#64748b;
+  --gold:#b8893a;
+  --gold-pale:#f5ecd7;
+  --sage:#3d6b5a;
+  --sage-mid:#4e8a72;
+  --sage-pale:#e8f2ee;
+  --sage-border:#c2ddd5;
+  --white:#fff;
+  --canvas:#fafaf8;
+  --rule:#e8e6e1;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans','Helvetica Neue',sans-serif;
+  --r:10px;
+  --shadow:0 2px 12px rgba(13,27,42,.07);
+  --shadow-lg:0 8px 40px rgba(13,27,42,.12);
+  --nav-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ═══ NAV ═══ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(10px);
+  height:var(--nav-h);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;height:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;gap:1rem;
+}
+.nav-logo{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.nav-logo img{height:30px;width:auto}
+.nav-logo-sep{width:1px;height:22px;background:var(--rule)}
+.nav-logo-name{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink);white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.nav-back{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.75rem;font-weight:500;color:var(--ink-light);
+  border:1px solid var(--rule);border-radius:6px;
+  padding:.4rem .85rem;transition:all .2s;white-space:nowrap;
+}
+.nav-back:hover{color:var(--ink);border-color:var(--ink-mid)}
+.nav-back svg{width:13px;height:13px;flex-shrink:0}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:#25d366;color:#fff;
+  padding:.45rem 1.1rem;border-radius:6px;
+  font-size:.75rem;font-weight:700;white-space:nowrap;
+  transition:filter .2s;
+}
+.nav-cta:hover{filter:brightness(1.08)}
+.nav-cta svg{width:14px;height:14px;fill:#fff;flex-shrink:0}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:21px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.mobile-nav{
+  display:none;position:fixed;top:var(--nav-h);left:0;right:0;
+  background:#fff;border-bottom:1px solid var(--rule);
+  padding:1.2rem 2rem;z-index:99;box-shadow:var(--shadow-lg);
+}
+.mobile-nav.open{display:block}
+.mobile-nav ul{list-style:none}
+.mobile-nav li{padding:.65rem 0;border-bottom:1px solid var(--rule)}
+.mobile-nav li:last-child{border:none}
+.mobile-nav a{font-size:.92rem;font-weight:500;color:var(--ink)}
+
+/* ═══ HERO ═══ */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:100vh;
+  padding-top:var(--nav-h);
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 6rem;
+  background:var(--white);
+  position:relative;
+}
+.hero-left::after{
+  content:'';position:absolute;right:0;top:12%;bottom:12%;
+  width:1px;background:linear-gradient(180deg,transparent,var(--rule) 30%,var(--rule) 70%,transparent);
+}
+/* Stagger animations */
+.hero-left > *{opacity:0;transform:translateY(20px);animation:fadeUp .65s ease forwards}
+.hero-left > *:nth-child(1){animation-delay:.05s}
+.hero-left > *:nth-child(2){animation-delay:.15s}
+.hero-left > *:nth-child(3){animation-delay:.25s}
+.hero-left > *:nth-child(4){animation-delay:.35s}
+.hero-left > *:nth-child(5){animation-delay:.42s}
+.hero-left > *:nth-child(6){animation-delay:.5s}
+.hero-left > *:nth-child(7){animation-delay:.57s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:1.4rem;
+}
+.hero-tag span{display:block;width:28px;height:1px;background:var(--sage)}
+.hero-name{
+  font-family:var(--serif);
+  font-size:clamp(2.2rem,3.5vw,3.2rem);
+  font-weight:700;line-height:1.1;
+  color:var(--ink);margin-bottom:.5rem;
+}
+.hero-role{
+  font-size:.92rem;color:var(--ink-mid);line-height:1.6;
+  margin-bottom:1.8rem;max-width:420px;
+}
+.hero-referral{
+  display:flex;align-items:flex-start;gap:.75rem;
+  background:var(--sage-pale);
+  border:1px solid var(--sage-border);
+  border-radius:var(--r);padding:1rem 1.2rem;
+  margin-bottom:2rem;
+}
+.hero-referral-ic{font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
+.hero-referral p{font-size:.83rem;color:var(--sage);line-height:1.6}
+.hero-referral p strong{color:var(--ink);display:block;font-size:.85rem;margin-bottom:.2rem}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:#25d366;color:#fff;
+  padding:.9rem 2rem;border-radius:8px;
+  font-size:.9rem;font-weight:700;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+  transition:filter .2s,transform .15s;
+  width:fit-content;margin-bottom:2rem;
+}
+.hero-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hero-cta svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.hero-creds{
+  display:flex;flex-wrap:wrap;gap:.55rem 1.1rem;
+  font-size:.72rem;color:var(--ink-light);
+  padding-top:1.6rem;border-top:1px solid var(--rule);
+}
+.cred{display:flex;align-items:center;gap:.3rem}
+.cred-dot{width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0}
+
+/* ═══ HERO RIGHT ═══ */
+.hero-right{
+  position:relative;overflow:hidden;min-height:580px;
+  clip-path:inset(100% 0 0 0);
+  animation:revealDown .85s cubic-bezier(.25,.8,.25,1) .08s forwards;
+}
+@keyframes revealDown{to{clip-path:inset(0% 0 0 0)}}
+.hero-right img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 15%;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(13,27,42,.25) 0%,rgba(13,27,42,.04) 60%,transparent 100%);
+}
+.hero-badge{
+  position:absolute;bottom:2rem;left:2rem;
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(12px);
+  color:#fff;padding:.6rem 1.1rem;border-radius:8px;
+  font-size:.76rem;font-weight:500;letter-spacing:.03em;
+}
+.hero-badge-top{
+  position:absolute;top:2rem;right:2rem;
+  background:rgba(61,107,90,.75);
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(8px);
+  color:#fff;padding:.45rem .9rem;border-radius:6px;
+  font-size:.72rem;font-weight:600;letter-spacing:.04em;
+}
+
+/* ═══ SECTION ═══ */
+.section{padding:4.5rem 2rem}
+.section-alt{background:var(--canvas)}
+.wrap{max-width:1100px;margin:0 auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:.8rem;
+}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--sage)}
+.section-h{
+  font-family:var(--serif);
+  font-size:clamp(1.6rem,2.5vw,2.1rem);
+  font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:.9rem;
+}
+.section-sub{font-size:.92rem;color:var(--ink-mid);max-width:540px;line-height:1.75}
+
+/* ═══ ÁREAS ═══ */
+.areas-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1rem;margin-top:2.5rem;
+}
+.area{
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:1.5rem;background:#fff;
+  position:relative;overflow:hidden;
+  transition:box-shadow .25s,transform .2s;
+}
+.area:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.area::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--sage),var(--sage-mid));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.area:hover::after{transform:scaleX(1)}
+.area-ic{font-size:1.4rem;margin-bottom:.75rem}
+.area h3{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.35rem}
+.area p{font-size:.8rem;color:var(--ink-mid);line-height:1.6}
+
+/* ═══ PUBLICACIONES ═══ */
+.pubs-list{margin-top:1.8rem;display:flex;flex-direction:column;gap:.75rem}
+.pub{
+  display:grid;grid-template-columns:28px 1fr;gap:.8rem;
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:1.1rem 1.3rem;background:#fff;
+  transition:border-color .2s;
+}
+.pub:hover{border-color:var(--sage-border)}
+.pub-n{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--rule);line-height:1}
+.pub-title{font-size:.85rem;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:.2rem}
+.pub-journal{font-size:.75rem;color:var(--ink-light);font-style:italic}
+.pub-doi{font-size:.68rem;color:var(--sage);font-family:monospace;margin-top:.1rem}
+
+/* ═══ CERTS ═══ */
+.cert-wrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.cert{
+  font-size:.73rem;font-weight:600;
+  border:1px solid var(--rule);border-radius:100px;
+  padding:.25rem .75rem;color:var(--ink-mid);background:#fff;
+  transition:all .2s;
+}
+.cert:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ═══ CTA BAND ═══ */
+.cta-band{
+  background:var(--ink);padding:4.5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at center,rgba(61,107,90,.18) 0%,transparent 70%);
+}
+.cta-inner{position:relative;max-width:560px;margin:0 auto}
+.cta-inner h2{
+  font-family:var(--serif);font-size:clamp(1.7rem,2.5vw,2.3rem);
+  font-weight:700;color:#fff;margin-bottom:.8rem;
+}
+.cta-inner p{font-size:.92rem;color:rgba(255,255,255,.65);margin-bottom:1.8rem;line-height:1.7}
+.btn-sage{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:#25d366;color:#fff;
+  padding:.95rem 2.4rem;border-radius:8px;
+  font-size:.93rem;font-weight:700;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+  transition:filter .2s,transform .15s;
+}
+.btn-sage:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-sage svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--ink);padding:2.5rem 2rem}
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding-bottom:1.8rem;margin-bottom:1.5rem;
+}
+.footer-brand{display:flex;align-items:center;gap:.9rem}
+.footer-brand img{height:28px;filter:brightness(0) invert(1);opacity:.8}
+.footer-brand-text{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.5}
+.footer-brand-text strong{display:block;font-size:.85rem;color:rgba(255,255,255,.7)}
+.footer-back{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-size:.78rem;font-weight:600;color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.15);border-radius:6px;
+  padding:.45rem 1rem;transition:all .2s;
+}
+.footer-back:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.footer-bottom{
+  max-width:1100px;margin:0 auto;
+  font-size:.7rem;color:rgba(255,255,255,.28);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+}
+
+/* ═══ WA FLOAT ═══ */
+.wa-float{
+  position:fixed;bottom:1.8rem;right:1.8rem;z-index:90;
+  width:52px;height:52px;border-radius:50%;
+  background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.45);
+  transition:transform .15s,filter .2s;
+}
+.wa-float:hover{transform:scale(1.1);filter:brightness(1.08)}
+.wa-float svg{width:22px;height:22px;fill:#fff}
+
+/* ═══ MOBILE HERO ═══ */
+.hero-mobile-overlay{display:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .areas-grid{grid-template-columns:1fr 1fr}
+  .hero-left{padding:4rem 2.5rem 4rem 3.5rem}
+}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{display:none}
+  .hero-left::after{display:none}
+  .hero-right{
+    height:100svh;min-height:520px;order:0;
+    clip-path:none;animation:none;
+  }
+  .hero-right img{transform:scale(1.04)}
+  .hero-right::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(13,27,42,.95) 0%,rgba(13,27,42,.7) 45%,transparent 75%);
+    z-index:1;
+  }
+  .hero-overlay{display:none}
+  .hero-badge{display:none}
+  .hero-badge-top{top:1.2rem;right:1.2rem;z-index:2}
+  .hero-mobile-overlay{
+    display:flex;flex-direction:column;justify-content:flex-end;
+    position:absolute;inset:0;z-index:2;
+    padding:0 1.5rem 2rem;
+  }
+  .hmo-tag{
+    font-size:.67rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+    color:rgba(255,255,255,.75);margin-bottom:.7rem;
+    display:flex;align-items:center;gap:.4rem;
+    opacity:0;animation:hmoUp .6s ease .15s forwards;
+  }
+  .hmo-tag::before{content:'';width:18px;height:1px;background:rgba(255,255,255,.5)}
+  .hmo-name{margin-bottom:.8rem;opacity:0;animation:hmoUp .65s ease .28s forwards}
+  .hmo-name span{display:block;font-family:var(--serif);font-weight:700;color:#fff;line-height:1.05}
+  .hmo-name .n1{font-size:clamp(2rem,8vw,2.8rem)}
+  .hmo-name .n2{font-size:clamp(1.5rem,6vw,2.2rem);font-style:italic;color:rgba(255,255,255,.75);font-weight:400}
+  .hmo-role{font-size:.77rem;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:.9rem;opacity:0;animation:hmoUp .6s ease .42s forwards}
+  .hmo-ref{
+    background:rgba(61,107,90,.7);border:1px solid rgba(255,255,255,.18);
+    border-radius:8px;padding:.7rem .9rem;
+    font-size:.75rem;color:rgba(255,255,255,.85);line-height:1.55;
+    margin-bottom:1.1rem;
+    opacity:0;animation:hmoUp .6s ease .55s forwards;
+    backdrop-filter:blur(6px);
+  }
+  .hmo-cta{opacity:0;animation:hmoUp .6s ease .68s forwards}
+  .hmo-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+    width:100%;background:#25d366;color:#fff;
+    padding:.78rem 1.4rem;border-radius:8px;
+    font-size:.85rem;font-weight:700;
+    box-shadow:0 4px 18px rgba(37,211,102,.4);
+  }
+  .hmo-btn svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+  @keyframes hmoUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  .nav-back span{display:none}
+  .hamburger{display:flex}
+  .areas-grid{grid-template-columns:1fr}
+  .pubs-list .pub{grid-template-columns:1fr}
+  .pub-n{display:none}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .section{padding:3.5rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://mental.eutimya.org/" class="nav-logo" aria-label="Eutimya">
+      <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png" alt="Eutimya" height="30" loading="eager"/>
+      <span class="nav-logo-sep"></span>
+      <span class="nav-logo-name">Colega de confianza</span>
+    </a>
+    <div class="nav-right">
+      <a href="https://mental.eutimya.org/" class="nav-back" aria-label="Regresar a Eutimya">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <span>Regresar a Eutimya</span>
+      </a>
+      <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias." class="nav-cta" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Contactar
+      </a>
+      <button class="hamburger" id="hbg" type="button" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mnav">
+  <ul>
+    <li><a href="#perfil">Perfil profesional</a></li>
+    <li><a href="#areas">Áreas de atención</a></li>
+    <li><a href="#publicaciones">Publicaciones</a></li>
+    <li><a href="#certificaciones">Formación</a></li>
+    <li>
+      <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias."
+         style="color:#25d366;font-weight:700">📲 Contactar por WhatsApp</a>
+    </li>
+    <li><a href="https://mental.eutimya.org/" style="color:var(--ink-light)">← Regresar a Eutimya</a></li>
+  </ul>
+</div>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias."
+   class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-tag"><span></span>Psiquiatra · Eutimya · CDMX</div>
+    <h1 class="hero-name">Dra. Natalia<br/>Brochet Castilla</h1>
+    <p class="hero-role">Médico Psiquiatra egresada del CMN&nbsp;20&nbsp;de&nbsp;Noviembre (UNAM) · En formación como Paidopsiquiatra · Maestría en Terapia Cognitivo-Conductual</p>
+
+    <div class="hero-referral">
+      <span class="hero-referral-ic">🔗</span>
+      <p>
+        <strong>Colega de confianza del Dr. Moya · Eutimya</strong>
+        Referida directamente por el Dr. Deldhy Moya Sánchez. Al contactarla, el mensaje ya incluye la referencia para que sepa que vienes de parte del equipo Eutimya.
+      </p>
+    </div>
+
+    <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias."
+       class="hero-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Contactar por WhatsApp
+    </a>
+
+    <div class="hero-creds">
+      <span class="cred"><span class="cred-dot"></span>CMN 20 de Noviembre · UNAM</span>
+      <span class="cred"><span class="cred-dot"></span>Psiquiatra Egresada 2026</span>
+      <span class="cred"><span class="cred-dot"></span>Paidopsiquiatría en formación</span>
+      <span class="cred"><span class="cred-dot"></span>Maestría TCC · En curso</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="https://raw.githubusercontent.com/moymaa/eutimya/959ad882b940626515441bb74db5080d64274899/image.png"
+         alt="Dra. Natalia Brochet Castilla — Psiquiatra" loading="eager"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">🌿 Colega de confianza · Eutimya</div>
+    <div class="hero-badge-top">Psiquiatra · CDMX</div>
+
+    <!-- Mobile overlay -->
+    <div class="hero-mobile-overlay">
+      <p class="hmo-tag">Psiquiatra · Colega Eutimya</p>
+      <div class="hmo-name">
+        <span class="n1">Dra. Natalia</span>
+        <span class="n2">Brochet Castilla</span>
+      </div>
+      <p class="hmo-role">Médico Psiquiatra · CMN 20 de Noviembre, UNAM · Paidopsiquiatría en formación · TCC</p>
+      <div class="hmo-ref">
+        🔗 Referida por el <strong style="color:#fff">Dr. Moya Sánchez · Eutimya</strong> — el mensaje de WhatsApp ya incluye la referencia automáticamente.
+      </div>
+      <div class="hmo-cta">
+        <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias."
+           class="hmo-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Contactar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section class="section section-alt" id="perfil">
+  <div class="wrap">
+    <p class="eyebrow">Perfil profesional</p>
+    <h2 class="section-h">Formación clínica sólida,<br/>con enfoque en psiquiatría infanto-juvenil</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;margin-top:2rem">
+      <div>
+        <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.85;margin-bottom:1rem">
+          La Dra. Natalia Brochet Castilla es médico psiquiatra egresada del CMN "20 de Noviembre", ISSSTE–UNAM, con formación en psiquiatría de adultos, psiquiatría de enlace y trastornos de la conducta alimentaria. Actualmente cursa la subespecialidad en <strong>Psiquiatría Infantil y de la Adolescencia (Paidopsiquiatría)</strong>.
+        </p>
+        <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.85;margin-bottom:1rem">
+          Cuenta con Maestría en Terapia Cognitivo-Conductual en curso (Centro de Psicoterapia Cognitiva), entrenamiento especializado en imagen corporal (ASI México) y publicaciones científicas en revistas indexadas internacionales. Durante su residencia fue <strong>Representante de Residentes Extranjeros</strong> (2024–2025) y ponente en el 24.° Congreso Mundial de Psiquiatría.
+        </p>
+        <p style="font-size:.92rem;color:var(--ink-mid);line-height:1.85">
+          Médica de pregrado egresada con honores de la Universidad del Rosario (2013–2018).
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.3rem 1.5rem">
+          <p style="font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.6rem">Formación</p>
+          <div style="display:flex;flex-direction:column;gap:.55rem">
+            <div style="display:flex;align-items:flex-start;gap:.65rem">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:.45rem"></span>
+              <div>
+                <p style="font-size:.84rem;font-weight:600;color:var(--ink)">Residencia en Psiquiatría</p>
+                <p style="font-size:.76rem;color:var(--ink-light)">CMN 20 de Noviembre · ISSSTE–UNAM · 2022–2026</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.65rem">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:.45rem"></span>
+              <div>
+                <p style="font-size:.84rem;font-weight:600;color:var(--ink)">Paidopsiquiatría (subespecialidad en formación)</p>
+                <p style="font-size:.76rem;color:var(--ink-light)">Psiquiatría Infantil y de la Adolescencia · En curso</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.65rem">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:.45rem"></span>
+              <div>
+                <p style="font-size:.84rem;font-weight:600;color:var(--ink)">Maestría en TCC</p>
+                <p style="font-size:.76rem;color:var(--ink-light)">Centro de Psicoterapia Cognitiva · Enero 2024 – presente</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.65rem">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:.45rem"></span>
+              <div>
+                <p style="font-size:.84rem;font-weight:600;color:var(--ink)">Leader Training in Body Image Program</p>
+                <p style="font-size:.76rem;color:var(--ink-light)">ASI México · Octubre 2025</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.65rem">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:.45rem"></span>
+              <div>
+                <p style="font-size:.84rem;font-weight:600;color:var(--ink)">Doctor en Medicina (MD)</p>
+                <p style="font-size:.76rem;color:var(--ink-light)">Universidad del Rosario · 2013–2018 · Graduada con honores</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--sage);border-radius:var(--r);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem">
+          <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png" alt="Eutimya" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85;flex-shrink:0"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:600;color:#fff">Colega de confianza de Eutimya</p>
+            <p style="font-size:.75rem;color:rgba(255,255,255,.7);line-height:1.4">Referida por el Dr. Deldhy Moya Sánchez para pacientes de confianza</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section class="section" id="areas">
+  <div class="wrap">
+    <p class="eyebrow">Áreas de atención</p>
+    <h2 class="section-h">Especialidades y enfoque clínico</h2>
+    <p class="section-sub">Atención psiquiátrica basada en evidencia, con énfasis en diagnóstico, psicofarmacología y abordaje cognitivo-conductual.</p>
+    <div class="areas-grid">
+      <div class="area">
+        <div class="area-ic">👶</div>
+        <h3>Psiquiatría Infanto-Juvenil</h3>
+        <p>Evaluación y tratamiento de trastornos mentales en niños y adolescentes. Subespecialidad en Paidopsiquiatría actualmente en formación.</p>
+      </div>
+      <div class="area">
+        <div class="area-ic">🧩</div>
+        <h3>TDAH</h3>
+        <p>Diagnóstico y manejo de TDAH con publicaciones científicas indexadas en el campo. Escalas validadas y abordaje multimodal.</p>
+      </div>
+      <div class="area">
+        <div class="area-ic">🍃</div>
+        <h3>Trastornos Alimentarios</h3>
+        <p>Rotación clínica especializada en conducta alimentaria. Entrenamiento certificado en imagen corporal (ASI México, 2025).</p>
+      </div>
+      <div class="area">
+        <div class="area-ic">💊</div>
+        <h3>Psicofarmacología</h3>
+        <p>Diagnóstico diferencial riguroso con DSM-5 / CIE-10, prescripción y seguimiento farmacológico en adultos y población pediátrica.</p>
+      </div>
+      <div class="area">
+        <div class="area-ic">🧠</div>
+        <h3>Terapia Cognitivo-Conductual</h3>
+        <p>Planes de tratamiento estructurados por fases con técnicas de reestructuración cognitiva, experimentos conductuales y prevención de recaídas.</p>
+      </div>
+      <div class="area">
+        <div class="area-ic">🔗</div>
+        <h3>Psiquiatría de Enlace</h3>
+        <p>Experiencia en interconsulta hospitalaria y manejo de comorbilidades psiquiátricas en pacientes con enfermedades médicas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICACIONES -->
+<section class="section section-alt" id="publicaciones">
+  <div class="wrap">
+    <p class="eyebrow">Investigación científica</p>
+    <h2 class="section-h">Publicaciones en revistas indexadas</h2>
+    <div class="pubs-list">
+      <div class="pub">
+        <div class="pub-n">1</div>
+        <div>
+          <div class="pub-title">Diagnosis and treatment decisions in ADHD</div>
+          <div class="pub-journal">Innoscience Journal · Vol. 1(1) · 2023</div>
+          <div class="pub-doi">Article A14 · Muñoz-Fernández, S.I. & Brochet-Castilla, N.M.</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-n">2</div>
+        <div>
+          <div class="pub-title">Childhood and Transsexuality</div>
+          <div class="pub-journal">Innoscience Journal · Vol. 1(1) · 2023</div>
+          <div class="pub-doi">Article A15 · Martínez-Cabrera, D. & Brochet-Castilla, N.M.</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-n">3</div>
+        <div>
+          <div class="pub-title">Dietary Strategies for the Prevention and Management of Mental Health Disorders</div>
+          <div class="pub-journal">24th World Congress of Psychiatry · 2024</div>
+          <div class="pub-doi">Presentación en congreso internacional</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICACIONES -->
+<section class="section" id="certificaciones">
+  <div class="wrap">
+    <p class="eyebrow">Certificaciones y membresías</p>
+    <h2 class="section-h">Formación adicional y actividad académica</h2>
+    <div class="cert-wrap">
+      <span class="cert">Trastorno Bipolar · INPRF Ramón de la Fuente · 2025</span>
+      <span class="cert">Gottman Level 1 Couples Therapy · The Gottman Institute · 2025</span>
+      <span class="cert">mhGAP Humanitarian Training · OPS · 2025</span>
+      <span class="cert">Leader Training Body Image · ASI México · 2025</span>
+      <span class="cert">24th World Congress of Psychiatry</span>
+      <span class="cert">Representante Residentes Extranjeros 2024–2025</span>
+      <span class="cert">Dolor crónico · trastornos del ánimo · TLP</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2>¿Te refirió el Dr. Moya?</h2>
+    <p>Al hacer clic, el mensaje ya incluye automáticamente que vienes de parte del Dr. Moya Sánchez y Eutimya para que la Dra. Natalia te identifique de inmediato.</p>
+    <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias."
+       class="btn-sage" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Contactar a la Dra. Natalia →
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png" alt="Eutimya" loading="lazy"/>
+      <div class="footer-brand-text">
+        <strong>Eutimya · Red de colegas de confianza</strong>
+        Psiquiatría privada · Dr. Moya Sánchez · Del Valle, CDMX
+      </div>
+    </div>
+    <a href="https://mental.eutimya.org/" class="footer-back">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Regresar a Eutimya
+    </a>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Eutimya · Página de referencia interna</span>
+    <span>Dra. Natalia Brochet Castilla · nataliabrochetc@gmail.com · +52 999 646 6075</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Hamburger
+  var hbg  = document.getElementById('hbg');
+  var mnav = document.getElementById('mnav');
+  if(hbg && mnav){
+    hbg.addEventListener('click', function(e){
+      e.stopPropagation();
+      mnav.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(mnav.classList.contains('open') && !mnav.contains(e.target) && e.target !== hbg && !hbg.contains(e.target)){
+        mnav.classList.remove('open');
+      }
+    });
+    mnav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ mnav.classList.remove('open'); });
+    });
+  }
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+  // Scroll reveal
+  var items = document.querySelectorAll('.area, .pub');
+  items.forEach(function(el){
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .55s ease, transform .55s ease';
+  });
+  function check(){
+    items.forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight - 60){
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    });
+  }
+  window.addEventListener('scroll', check, {passive:true});
+  check();
+})();
+</script>
+</body>
+</html>
