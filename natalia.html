@@ -389,6 +389,80 @@ a{color:inherit;text-decoration:none}
 @media(max-width:480px){
   .section{padding:3.5rem 1.2rem}
 }
+
+/* ═══ MODAL ═══ */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(13,27,42,.55);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:1rem;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:#fff;border-radius:16px;
+  width:100%;max-width:440px;
+  box-shadow:0 24px 80px rgba(13,27,42,.22);
+  overflow:hidden;animation:modalIn .28s cubic-bezier(.25,.8,.25,1);
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.modal-head{
+  padding:1.5rem 1.5rem 1.2rem;
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+}
+.modal-head-text h3{
+  font-family:var(--serif);font-size:1.15rem;font-weight:700;
+  color:var(--ink);margin-bottom:.2rem;
+}
+.modal-head-text p{font-size:.78rem;color:var(--ink-light);line-height:1.5}
+.modal-close{
+  background:none;border:none;cursor:pointer;
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-light);flex-shrink:0;
+  transition:background .15s,color .15s;
+}
+.modal-close:hover{background:var(--canvas);color:var(--ink)}
+.modal-body{padding:1.4rem 1.5rem}
+.form-group{margin-bottom:1rem}
+.form-group label{
+  display:block;font-size:.75rem;font-weight:600;
+  color:var(--ink-mid);margin-bottom:.35rem;letter-spacing:.02em;
+}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:.65rem .85rem;
+  border:1px solid var(--rule);border-radius:8px;
+  font-family:var(--sans);font-size:.88rem;color:var(--ink);
+  background:#fff;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:var(--sage);
+  box-shadow:0 0 0 3px rgba(61,107,90,.1);
+}
+.form-group textarea{resize:vertical;min-height:80px;line-height:1.5}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;padding-right:2.2rem}
+.modal-foot{
+  padding:1rem 1.5rem 1.4rem;
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.btn-submit{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  width:100%;background:#25d366;color:#fff;
+  padding:.8rem;border-radius:8px;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:.9rem;font-weight:700;
+  box-shadow:0 4px 16px rgba(37,211,102,.3);
+  transition:filter .2s,transform .15s;
+}
+.btn-submit:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-submit svg{width:17px;height:17px;fill:#fff;flex-shrink:0}
+.modal-note{font-size:.7rem;color:var(--ink-light);text-align:center;line-height:1.5}
+.form-msg{
+  font-size:.78rem;text-align:center;padding:.45rem;
+  border-radius:6px;display:none;
+}
+.form-msg.ok{background:#e8f5e9;color:#2e7d32;display:block}
+.form-msg.err{background:#fdecea;color:#c62828;display:block}
 </style>
 </head>
 <body>
@@ -431,7 +505,58 @@ a{color:inherit;text-decoration:none}
   </ul>
 </div>
 
-<!-- WA FLOAT -->
+<!-- MODAL CONTACTO -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-head-text">
+        <h3 id="modalTitle">Un dato rápido antes de continuar</h3>
+        <p>Para poder darte seguimiento y que la Dra. Natalia te identifique de inmediato.</p>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="f-nombre">Nombre completo <span style="color:#c62828">*</span></label>
+        <input type="text" id="f-nombre" placeholder="Tu nombre" autocomplete="name" required/>
+      </div>
+      <div class="form-group">
+        <label for="f-celular">Número de celular <span style="color:#c62828">*</span></label>
+        <input type="tel" id="f-celular" placeholder="10 dígitos" autocomplete="tel" required/>
+      </div>
+      <div class="form-group">
+        <label for="f-correo">Correo electrónico</label>
+        <input type="email" id="f-correo" placeholder="opcional" autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label for="f-motivo">Motivo de consulta <span style="color:#c62828">*</span></label>
+        <select id="f-motivo" required>
+          <option value="">— Selecciona —</option>
+          <option>Ansiedad</option>
+          <option>Depresión</option>
+          <option>TDAH</option>
+          <option>Trastorno alimentario</option>
+          <option>Psiquiatría infantil / adolescente</option>
+          <option>Terapia de pareja (Gottman)</option>
+          <option>Trastorno del ánimo</option>
+          <option>Otro / Primera vez</option>
+        </select>
+      </div>
+      <div class="form-msg" id="formMsg"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-submit" id="btnSubmit" type="button">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Enviar y abrir WhatsApp
+      </button>
+      <p class="modal-note">📋 Tus datos solo se usan para que la Dra. Natalia te identifique y pueda darte seguimiento.</p>
+    </div>
+  </div>
+</div>
+
+
 <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias."
    class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -693,7 +818,100 @@ a{color:inherit;text-decoration:none}
 
 <script>
 (function(){
-  // Hamburger
+  // ── CONFIGURACIÓN ────────────────────────────────────────────────
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybJpoE6vrEhUnrqRnbEInQDWpupsGkp6IBQ7VFH-UNxodx5FOErrHCmUzHnJBjHlk/exec";
+  var WA_MSG     = "Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20me%20coment%C3%B3%20que%20usted%20es%20colega%20suya%20de%20confianza%20en%20Eutimya.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta%20lo%20m%C3%A1s%20pronto%20posible.%20Muchas%20gracias.";
+  var WA_NUMBER  = "529996466075";
+  var WA_LINK    = "https://wa.me/" + WA_NUMBER + "?text=" + WA_MSG;
+
+  // ── ELEMENTOS ────────────────────────────────────────────────────
+  var overlay  = document.getElementById('modalOverlay');
+  var closeBtn = document.getElementById('modalClose');
+  var submit   = document.getElementById('btnSubmit');
+  var msgBox   = document.getElementById('formMsg');
+
+  // ── INTERCEPTAR TODOS LOS LINKS DE WHATSAPP ─────────────────────
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  function openModal(){
+    overlay.classList.add('open');
+    document.getElementById('f-nombre').focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    msgBox.className = 'form-msg';
+    msgBox.textContent = '';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+
+  // ── ENVÍO ────────────────────────────────────────────────────────
+  submit.addEventListener('click', function(){
+    var nombre  = document.getElementById('f-nombre').value.trim();
+    var celular = document.getElementById('f-celular').value.trim();
+    var correo  = document.getElementById('f-correo').value.trim();
+    var motivo  = document.getElementById('f-motivo').value;
+
+    if(!nombre || !celular || !motivo){
+      showMsg('Por favor llena los campos obligatorios (*).', 'err');
+      return;
+    }
+
+    submit.disabled   = true;
+    submit.textContent = 'Enviando…';
+
+    // Construir mensaje WhatsApp personalizado
+    var waPersonal = "Hola%20Dra.%20Natalia%2C%20el%20Dr.%20Moya%20me%20refiri%C3%B3%20y%20soy%20" +
+      encodeURIComponent(nombre) + ".%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20consulta%20por%20" +
+      encodeURIComponent(motivo) + ".%20Muchas%20gracias.";
+
+    // Intentar guardar en Sheets
+    if(SCRIPT_URL && SCRIPT_URL !== "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT"){
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({nombre:nombre, celular:celular, correo:correo, motivo:motivo})
+      }).catch(function(){/* no-cors siempre rechaza, ignorar */});
+    }
+
+    // Pequeño delay visual y abrir WA
+    setTimeout(function(){
+      window.open("https://wa.me/" + WA_NUMBER + "?text=" + waPersonal, '_blank');
+      closeModal();
+      resetForm();
+    }, 600);
+  });
+
+  function showMsg(txt, type){
+    msgBox.textContent = txt;
+    msgBox.className = 'form-msg ' + type;
+  }
+
+  function resetForm(){
+    ['f-nombre','f-celular','f-correo'].forEach(function(id){
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('f-motivo').value = '';
+    submit.disabled = false;
+    submit.innerHTML = '<svg viewBox="0 0 24 24" width="17" height="17" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Enviar y abrir WhatsApp';
+  }
+
+  // ── HAMBURGER ────────────────────────────────────────────────────
   var hbg  = document.getElementById('hbg');
   var mnav = document.getElementById('mnav');
   if(hbg && mnav){
@@ -710,14 +928,16 @@ a{color:inherit;text-decoration:none}
       a.addEventListener('click', function(){ mnav.classList.remove('open'); });
     });
   }
-  // Smooth scroll
+
+  // ── SMOOTH SCROLL ────────────────────────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var t = document.querySelector(a.getAttribute('href'));
       if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
     });
   });
-  // Scroll reveal
+
+  // ── SCROLL REVEAL ────────────────────────────────────────────────
   var items = document.querySelectorAll('.area, .pub');
   items.forEach(function(el){
     el.style.opacity = '0';
