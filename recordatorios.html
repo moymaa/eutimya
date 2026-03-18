@@ -114,19 +114,16 @@ header{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap
 <div id="screen-setup" class="screen active">
 <div class="screen-card">
   <div class="screen-title">Configuración inicial</div>
-  <p class="screen-sub">Configura tu acceso. Solo se hace una vez.</p>
-  <label class="field-label" for="input-allowed-email">Tu correo de Google (único autorizado)</label>
-  <input id="input-allowed-email" class="text-input" type="email" placeholder="tucorreo@gmail.com" autocomplete="off" spellcheck="false" style="margin-bottom:14px">
+  <p class="screen-sub">Solo se hace una vez en este dispositivo.</p>
   <label class="field-label" for="input-password">Contraseña de acceso</label>
   <input id="input-password" class="text-input" type="password" placeholder="Contraseña" autocomplete="new-password" style="margin-bottom:14px"
-    onkeydown="if(event.key==='Enter')saveClientId()">
+    onkeydown="if(event.key==='Enter')saveConfig()">
   <label class="field-label" for="input-client-id">Google OAuth Client ID</label>
   <input id="input-client-id" class="text-input" type="text" placeholder="xxxxx.apps.googleusercontent.com" autocomplete="off" spellcheck="false">
-  <button class="btn-primary" onclick="saveClientId()">Guardar y continuar</button>
+  <button class="btn-primary" onclick="saveConfig()">Guardar y continuar</button>
   <p class="hint">
-    ¿Cómo obtener el Client ID? <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a> → Crear proyecto → APIs y servicios → Credenciales → Crear credencial → ID de cliente OAuth 2.0 → Aplicación web.<br><br>
-    En <strong>Orígenes autorizados</strong> agrega la URL de tu GitHub Pages (ej: <code>https://tu-usuario.github.io</code>).<br><br>
-    Activa la <strong>Google Calendar API</strong> en "Biblioteca".
+    Client ID: <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a> → Credenciales → Crear credencial → ID de cliente OAuth 2.0 → Aplicación web → agrega tu dominio en Orígenes autorizados.<br><br>
+    Activa <strong>Google Calendar API</strong> en Biblioteca.
   </p>
   <div id="setup-error" class="error-box" style="display:none"></div>
 </div>
@@ -153,7 +150,6 @@ header{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap
 <header>
   <div class="logo">Eutimya <span>·</span> Recordatorios</div>
   <div class="header-right">
-    <span class="user-badge" id="user-email"></span>
     <button class="btn-header" onclick="openSettings()">⚙</button>
     <button class="btn-header" onclick="signOut()">Salir</button>
   </div>
@@ -174,9 +170,7 @@ header{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap
 <div class="modal">
   <button class="modal-close" onclick="closeSettings()">×</button>
   <h3>Configuración</h3>
-  <label class="field-label" for="settings-allowed-email">Correo autorizado</label>
-  <input id="settings-allowed-email" class="text-input" type="email" autocomplete="off" spellcheck="false" style="margin-bottom:12px">
-  <label class="field-label" for="settings-password">Nueva contraseña <span style="font-weight:400;color:var(--text-3)">(dejar vacío para no cambiar)</span></label>
+  <label class="field-label" for="settings-password">Nueva contraseña <span style="font-weight:400;color:var(--text-3)">(vacío = no cambiar)</span></label>
   <input id="settings-password" class="text-input" type="password" placeholder="Nueva contraseña" autocomplete="new-password" style="margin-bottom:12px">
   <label class="field-label" for="settings-client-id">Google OAuth Client ID</label>
   <input id="settings-client-id" class="text-input" type="text" autocomplete="off" spellcheck="false">
@@ -201,7 +195,7 @@ const CFG = {
   FORM_EXP:  'https://forms.gle/Htg8nJtY78mtHfHbA',
   FORM_BARI: 'https://forms.gle/tcQpRYGz7UpEsUPo8',
   TZ:        'America/Mexico_City',
-  SCOPE:     'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.email',
+  SCOPE:     'https://www.googleapis.com/auth/calendar.readonly',
 };
 
 const DAYS_ES   = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -409,40 +403,34 @@ function initGIS() {
   tokenClient = google.accounts.oauth2.initTokenClient({
     client_id: clientId,
     scope: CFG.SCOPE,
-    callback: async (resp) => {
-      if (resp.error) { showLoginError('Error de autenticación: ' + resp.error); return; }
+    callback: (resp) => {
+      if (resp.error) {
+        showLoginError('Error al conectar con Google: ' + resp.error);
+        return;
+      }
       accessToken = resp.access_token;
       tokenExpiry = Date.now() + (resp.expires_in - 60) * 1000;
-      try {
-        await fetchUserEmail(); // throws if unauthorized
-        showApp();
-        loadReminders();
-      } catch(e) {
-        // fetchUserEmail already handled the error display
-      }
+      showApp();
+      loadReminders();
     },
   });
 }
 
 function signIn() {
   clearError('login-error');
-  if (!tokenClient) { showLoginError('No se encontró configuración. Recarga la página.'); return; }
-  tokenClient.requestAccessToken({ prompt: 'consent' });
+  if (!tokenClient) { showLoginError('Recarga la página e intenta de nuevo.'); return; }
+  // Try silent first; popup only if needed
+  tokenClient.requestAccessToken({ prompt: '' });
 }
 
 function signOut() {
-  if (accessToken) {
-    google.accounts.oauth2.revoke(accessToken, () => {});
-    accessToken = null;
-  }
-  document.getElementById('user-email').textContent = '';
+  if (accessToken) { google.accounts.oauth2.revoke(accessToken, () => {}); accessToken = null; }
   showLogin();
 }
 
 function ensureToken() {
   return new Promise((resolve, reject) => {
     if (accessToken && Date.now() < tokenExpiry) { resolve(); return; }
-    // Need new token silently
     const prev = tokenClient.callback;
     tokenClient.callback = (resp) => {
       tokenClient.callback = prev;
@@ -463,21 +451,6 @@ async function gcalFetch(url) {
     throw new Error(err.error?.message || 'HTTP ' + r.status);
   }
   return r.json();
-}
-
-async function fetchUserEmail() {
-  const d = await gcalFetch('https://www.googleapis.com/oauth2/v1/userinfo?alt=json');
-  const email = (d.email || '').toLowerCase().trim();
-  const allowed = (LS.get('allowed_email') || '').toLowerCase().trim();
-  if (allowed && email !== allowed) {
-    // Unauthorized — revoke token immediately and block
-    google.accounts.oauth2.revoke(accessToken, () => {});
-    accessToken = null;
-    showLogin();
-    showLoginError('Acceso denegado. Esta app solo puede usarla ' + allowed + '.');
-    throw new Error('Acceso no autorizado');
-  }
-  document.getElementById('user-email').textContent = d.email || '';
 }
 
 async function findCalendarId() {
@@ -663,22 +636,16 @@ function showLogin()  { showScreen('login');  }
 function showApp()    { showScreen('app');    }
 
 // ── SETUP ──────────────────────────────────────────────────────────────────
-async function saveClientId() {
-  const email    = document.getElementById('input-allowed-email').value.trim().toLowerCase();
+async function saveConfig() {
   const password = document.getElementById('input-password').value;
   const clientId = document.getElementById('input-client-id').value.trim();
-  if (!email || !email.includes('@')) {
-    showError('setup-error', 'Ingresa tu correo de Google.'); return;
-  }
   if (!password || password.length < 4) {
     showError('setup-error', 'Ingresa una contraseña de al menos 4 caracteres.'); return;
   }
   if (!clientId || !clientId.includes('.apps.googleusercontent.com')) {
-    showError('setup-error', 'Ingresa un Client ID válido (debe terminar en .apps.googleusercontent.com).'); return;
+    showError('setup-error', 'Client ID inválido (debe terminar en .apps.googleusercontent.com).'); return;
   }
-  const hash = await sha256(password);
-  LS.set('allowed_email', email);
-  LS.set('pw_hash', hash);
+  LS.set('pw_hash', await sha256(password));
   LS.set('client_id', clientId);
   LS.del('cal_id');
   clearError('setup-error');
@@ -709,17 +676,15 @@ function clearError(id) { const el = document.getElementById(id); if (el) { el.t
 
 // ── SETTINGS MODAL ─────────────────────────────────────────────────────────
 function openSettings() {
-  document.getElementById('settings-allowed-email').value = LS.get('allowed_email') || '';
+  document.getElementById('settings-password').value = '';
   document.getElementById('settings-client-id').value = getClientId();
   document.getElementById('settings-modal').classList.add('open');
 }
 function closeSettings() { document.getElementById('settings-modal').classList.remove('open'); }
 async function saveSettings() {
-  const email    = document.getElementById('settings-allowed-email').value.trim().toLowerCase();
   const clientId = document.getElementById('settings-client-id').value.trim();
   const newPw    = document.getElementById('settings-password').value;
-  if (!email || !clientId) return;
-  LS.set('allowed_email', email);
+  if (!clientId) return;
   LS.set('client_id', clientId);
   if (newPw) { LS.set('pw_hash', await sha256(newPw)); }
   LS.del('cal_id');
@@ -734,9 +699,7 @@ function resetApp() {
 
 // ── INIT ───────────────────────────────────────────────────────────────────
 function onGISLoad() {
-  const clientId = getClientId();
-  const hasPw    = !!LS.get('pw_hash');
-  if (!clientId || !hasPw) { showSetup(); return; }
+  if (!getClientId() || !LS.get('pw_hash')) { showSetup(); return; }
   initGIS();
   showLogin();
 }
