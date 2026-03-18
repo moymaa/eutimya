@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eutimya · Recordatorios</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;--navy-mid:#122040;--blue-lt:#2563c4;--accent:#1d6fa4;--accent-lt:#e8f2fa;
+  --bg:#f4f5f7;--card:#fff;--border:#dde1e7;
+  --text:#111827;--text-2:#4b5563;--text-3:#9ca3af;
+  --radius:8px;--shadow:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 12px rgba(0,0,0,.1);
+  --online-bg:#fef9c3;--online-bd:#fde047;--online-tx:#854d0e;
+  --pres-bg:#dcfce7;--pres-bd:#86efac;--pres-tx:#14532d;
+  --bari-bg:#e0f2fe;--bari-bd:#7dd3fc;--bari-tx:#0c4a6e;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;min-height:100vh}
+
+/* HEADER */
+header{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap:16px;height:50px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.logo{font-size:14px;font-weight:600;color:#fff;white-space:nowrap}.logo span{color:#7cb3f0}
+.header-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.btn-header{background:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);font-size:11px;font-weight:600;padding:4px 11px;border-radius:5px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.btn-header:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+.user-badge{font-size:11px;color:rgba(255,255,255,.45);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* MAIN */
+.main{padding:20px;max-width:720px;margin:0 auto}
+.rem-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.rem-controls h2{font-size:15px;font-weight:700;flex:1;color:var(--text)}
+.btn-refresh{background:var(--card);border:1px solid var(--border);color:var(--text-2);font-size:12px;font-weight:600;padding:6px 13px;border-radius:6px;cursor:pointer;transition:all .15s}
+.btn-refresh:hover{border-color:var(--blue-lt);color:var(--blue-lt)}
+.btn-refresh:disabled{opacity:.5;cursor:default}
+
+/* STATES */
+.screen{display:none;padding:20px;max-width:460px;margin:0 auto}
+.screen.active{display:block}
+.screen-card{background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:var(--shadow-md);padding:32px 28px;margin-top:40px}
+.screen-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.screen-sub{color:var(--text-2);font-size:13px;margin-bottom:24px;line-height:1.55}
+.field-label{font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:5px;display:block}
+.text-input{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;color:var(--text);outline:none;transition:border-color .15s;font-family:inherit}
+.text-input:focus{border-color:var(--blue-lt);box-shadow:0 0 0 3px rgba(37,99,196,.1)}
+.btn-primary{width:100%;background:var(--blue-lt);color:#fff;border:none;font-size:13px;font-weight:600;padding:10px;border-radius:7px;cursor:pointer;margin-top:14px;transition:background .15s}
+.btn-primary:hover{background:#1d52a0}
+.btn-google{width:100%;background:#fff;color:var(--text);border:1.5px solid var(--border);font-size:13px;font-weight:600;padding:10px;border-radius:7px;cursor:pointer;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:10px;transition:border-color .15s,box-shadow .15s}
+.btn-google:hover{border-color:#aaa;box-shadow:var(--shadow)}
+.hint{font-size:11px;color:var(--text-3);margin-top:10px;line-height:1.5}
+.hint a{color:var(--accent);text-decoration:none}
+.hint a:hover{text-decoration:underline}
+.error-box{background:#fef2f2;border:1px solid #fca5a5;border-radius:7px;padding:11px 14px;color:#991b1b;font-size:12px;margin-top:12px}
+.loading-state{padding:50px 20px;text-align:center;color:var(--text-3)}
+.loading-spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--blue-lt);border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* REMINDER CARDS */
+.rem-day-group{margin-bottom:20px}
+.rem-day-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.rem-week-divider{border:none;border-top:2px dashed #cbd5e1;margin:20px 0 16px;position:relative}
+.rem-week-divider::after{content:'siguiente semana';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 10px;font-size:10px;color:var(--text-3);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.rem-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:13px 14px;margin-bottom:8px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;transition:border-color .2s,background .2s}
+.rem-card.copied{border-color:#86efac;background:#f0fdf4}
+.rem-patient{font-weight:600;font-size:14px;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.rem-check{color:#16a34a;display:none}
+.rem-card.copied .rem-check{display:inline}
+.rem-meta{font-size:12px;color:var(--text-2);margin-bottom:2px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rem-time-row{font-size:12px;color:var(--text-2);margin-bottom:6px}
+.rem-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.badge-pres{background:var(--pres-bg);color:var(--pres-tx)}
+.badge-online{background:var(--online-bg);color:var(--online-tx)}
+.badge-bari{background:var(--bari-bg);color:var(--bari-tx)}
+.rem-msg{font-size:11.5px;color:var(--text-2);background:var(--bg);border-radius:5px;padding:8px 10px;white-space:pre-wrap;max-height:70px;overflow:hidden;position:relative;cursor:pointer;transition:max-height .3s;line-height:1.5}
+.rem-msg.expanded{max-height:800px}
+.rem-msg:not(.expanded)::after{content:'';position:absolute;bottom:0;left:0;right:0;height:20px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.rem-actions{display:flex;flex-direction:column;gap:5px;align-items:stretch;min-width:90px}
+.btn-copy{background:var(--bg);border:1px solid var(--border);color:var(--text-2);font-size:11px;font-weight:600;padding:7px 12px;border-radius:5px;cursor:pointer;transition:all .15s;text-align:center}
+.btn-copy:hover{border-color:var(--blue-lt);color:var(--blue-lt)}
+.btn-wa{background:#075e54;color:#fff;border:none;font-size:11px;font-weight:600;padding:7px 12px;border-radius:5px;cursor:pointer;transition:background .15s;text-align:center}
+.btn-wa:hover{background:#064940}
+.btn-wa.no-phone{background:var(--text-3);cursor:default;pointer-events:none}
+.empty-state{text-align:center;padding:48px 20px;color:var(--text-3)}
+.empty-state p{font-size:13px;margin-top:6px}
+
+/* TOAST */
+.toast{position:fixed;bottom:18px;right:18px;background:var(--navy);color:#fff;font-size:13px;padding:9px 16px;border-radius:7px;box-shadow:var(--shadow-md);z-index:999;opacity:0;transform:translateY(6px);transition:all .2s;pointer-events:none}
+.toast.show{opacity:1;transform:none}
+
+/* SETTINGS MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:10px;padding:24px;max-width:440px;width:100%}
+.modal h3{font-size:15px;font-weight:700;margin-bottom:14px;color:var(--navy)}
+.modal-close{float:right;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-3);margin-top:-4px;line-height:1}
+.modal-close:hover{color:var(--text)}
+.modal-actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end}
+.btn-sm{background:var(--bg);border:1px solid var(--border);color:var(--text-2);font-size:12px;font-weight:600;padding:7px 14px;border-radius:5px;cursor:pointer}
+.btn-sm:hover{border-color:var(--blue-lt);color:var(--blue-lt)}
+.btn-sm.danger{color:#dc2626;border-color:#fca5a5}
+.btn-sm.danger:hover{background:#fef2f2}
+
+@media(max-width:520px){
+  .main{padding:12px}
+  .rem-card{grid-template-columns:1fr}
+  .rem-actions{flex-direction:row;min-width:auto}
+  .rem-actions .btn-copy,.rem-actions .btn-wa{flex:1}
+  header{padding:0 14px}
+}
+</style>
+</head>
+<body>
+
+<!-- SETUP SCREEN (first time) -->
+<div id="screen-setup" class="screen active">
+<div class="screen-card">
+  <div class="screen-title">Configuración inicial</div>
+  <p class="screen-sub">Configura tu acceso. Solo se hace una vez.</p>
+  <label class="field-label" for="input-allowed-email">Tu correo de Google (único autorizado)</label>
+  <input id="input-allowed-email" class="text-input" type="email" placeholder="tucorreo@gmail.com" autocomplete="off" spellcheck="false" style="margin-bottom:14px">
+  <label class="field-label" for="input-password">Contraseña de acceso</label>
+  <input id="input-password" class="text-input" type="password" placeholder="Contraseña" autocomplete="new-password" style="margin-bottom:14px"
+    onkeydown="if(event.key==='Enter')saveClientId()">
+  <label class="field-label" for="input-client-id">Google OAuth Client ID</label>
+  <input id="input-client-id" class="text-input" type="text" placeholder="xxxxx.apps.googleusercontent.com" autocomplete="off" spellcheck="false">
+  <button class="btn-primary" onclick="saveClientId()">Guardar y continuar</button>
+  <p class="hint">
+    ¿Cómo obtener el Client ID? <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a> → Crear proyecto → APIs y servicios → Credenciales → Crear credencial → ID de cliente OAuth 2.0 → Aplicación web.<br><br>
+    En <strong>Orígenes autorizados</strong> agrega la URL de tu GitHub Pages (ej: <code>https://tu-usuario.github.io</code>).<br><br>
+    Activa la <strong>Google Calendar API</strong> en "Biblioteca".
+  </p>
+  <div id="setup-error" class="error-box" style="display:none"></div>
+</div>
+</div>
+
+<!-- LOGIN SCREEN -->
+<div id="screen-login" class="screen">
+<div class="screen-card">
+  <div class="screen-title">Eutimya · Recordatorios</div>
+  <p class="screen-sub">Ingresa tu contraseña para continuar.</p>
+  <label class="field-label" for="login-password">Contraseña</label>
+  <input id="login-password" class="text-input" type="password" placeholder="Contraseña" autocomplete="current-password"
+    onkeydown="if(event.key==='Enter')verifyPassword()">
+  <button class="btn-primary" onclick="verifyPassword()">Entrar</button>
+  <p class="hint" style="margin-top:14px">
+    <a href="#" onclick="showSetup();return false">⚙ Cambiar configuración</a>
+  </p>
+  <div id="login-error" class="error-box" style="display:none"></div>
+</div>
+</div>
+
+<!-- MAIN APP -->
+<div id="screen-app" class="screen" style="padding:0">
+<header>
+  <div class="logo">Eutimya <span>·</span> Recordatorios</div>
+  <div class="header-right">
+    <span class="user-badge" id="user-email"></span>
+    <button class="btn-header" onclick="openSettings()">⚙</button>
+    <button class="btn-header" onclick="signOut()">Salir</button>
+  </div>
+</header>
+<div class="main">
+  <div class="rem-controls">
+    <h2>Próximos 8 días</h2>
+    <button class="btn-refresh" id="btn-refresh" onclick="loadReminders()">Actualizar</button>
+  </div>
+  <div id="rem-area">
+    <div class="loading-state"><span class="loading-spinner"></span>Cargando agenda...</div>
+  </div>
+</div>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-overlay" id="settings-modal">
+<div class="modal">
+  <button class="modal-close" onclick="closeSettings()">×</button>
+  <h3>Configuración</h3>
+  <label class="field-label" for="settings-allowed-email">Correo autorizado</label>
+  <input id="settings-allowed-email" class="text-input" type="email" autocomplete="off" spellcheck="false" style="margin-bottom:12px">
+  <label class="field-label" for="settings-password">Nueva contraseña <span style="font-weight:400;color:var(--text-3)">(dejar vacío para no cambiar)</span></label>
+  <input id="settings-password" class="text-input" type="password" placeholder="Nueva contraseña" autocomplete="new-password" style="margin-bottom:12px">
+  <label class="field-label" for="settings-client-id">Google OAuth Client ID</label>
+  <input id="settings-client-id" class="text-input" type="text" autocomplete="off" spellcheck="false">
+  <div class="modal-actions">
+    <button class="btn-sm danger" onclick="resetApp()">Borrar todo y reiniciar</button>
+    <button class="btn-sm" onclick="closeSettings()">Cancelar</button>
+    <button class="btn-sm" onclick="saveSettings()" style="background:var(--blue-lt);color:#fff;border-color:var(--blue-lt)">Guardar</button>
+  </div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── CONSTANTS ──────────────────────────────────────────────────────────────
+const CFG = {
+  CAL_NAME:  'Sesiones - Dr. Moya',
+  ADDRESS:   'Moras 619, Col. del Valle Sur, Benito Juárez, CDMX',
+  MAP_LINK:  'https://share.google/qu7hiUCanp1MBXRTf',
+  MAP_PHOTO: 'https://maps.app.goo.gl/jguijGMyNAaqnEg27',
+  PARKING:   'https://maps.app.goo.gl/j8Q1LBZe58mmjusV6',
+  FORM_EXP:  'https://forms.gle/Htg8nJtY78mtHfHbA',
+  FORM_BARI: 'https://forms.gle/tcQpRYGz7UpEsUPo8',
+  TZ:        'America/Mexico_City',
+  SCOPE:     'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/userinfo.email',
+};
+
+const DAYS_ES   = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const MONTHS_ES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+const SKIP_RE = [
+  /^block/i, /vacaciones/i, /^junta/i, /módulo|modulo/i,
+  /autogestivo/i, /clase de enlace/i, /sesión zoom|sesion zoom/i,
+  /proyecto piloto/i, /^reunión$|^reunion$/i, /^crismar$/i,
+  /psiquiatr[ií]a de enlace/i, /inicia autogestivo/i,
+  /^sesión personal|^sesion personal/i, /^vacaciones block/i,
+  /enlace de zoom/i, /this is an event/i,
+  /^pre consulta/i, /^presencial\d/i, /pre.?consulta/i,
+  /cmn|20 de noviembre/i, /hospital.*noviembre/i,
+  /^psiquiatr/i, /enlace.*hospital/i,
+  /^sin celular/i, /^\s*presencial\s*\d/i,
+  /^cine$/i, /^comida/i, /^pendiente\s+de\s+pago/i,
+];
+
+// ── CRYPTO ─────────────────────────────────────────────────────────────────
+async function sha256(text) {
+  const buf  = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// ── STATE ──────────────────────────────────────────────────────────────────
+let tokenClient = null;
+let accessToken = null;
+let tokenExpiry = 0;
+
+// ── STORAGE ────────────────────────────────────────────────────────────────
+const LS = {
+  get: k => localStorage.getItem('eutimya_' + k),
+  set: (k, v) => localStorage.setItem('eutimya_' + k, v),
+  del: k => localStorage.removeItem('eutimya_' + k),
+};
+
+// ── UTILITY: Event parsing ─────────────────────────────────────────────────
+function norm(s) {
+  if (!s) return '';
+  return s.toString().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+
+function stripHtml(html) {
+  if (!html) return '';
+  return html
+    .replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')
+    .replace(/&quot;/g,'"').replace(/&#039;/g,"'").replace(/&nbsp;/g,' ')
+    .replace(/\n{3,}/g,'\n\n').trim();
+}
+
+function isAdminEvent(title) {
+  if (!title || title.trim() === '') return true;
+  const t = title.trim();
+  if (t.length < 5) return true;
+  return SKIP_RE.some(r => r.test(t));
+}
+
+function cleanTitle(title) {
+  if (!title) return '';
+  let t = title.replace(/^[\s\u{1F000}-\u{1FFFF}\u2600-\u27BF\uFE00-\uFE0F📍🛜🏥💪]+/gu, '').trim();
+  // "Type (Name)"
+  let m = t.match(/^(?:Online|Presencial|Binova|Bariatr[ií]a|DNMS|CMN)\s*\((.+)\)\s*$/i);
+  if (m) return m[1].trim();
+  m = t.match(/^(?:Online|Presencial|Binova|Bariatr[ií]a|DNMS|CMN)\s*\(([^)]+)\)/i);
+  if (m) return m[1].trim();
+  // "Name: Type..."
+  m = t.match(/^([^:]+?):\s+(?:Sesión|Valoración|Consulta|Cita|Bariatr)/i);
+  if (m) return m[1].replace(/^(pendiente\s+de\s+confirmar|reagendar)\s*/i, '').trim();
+  // "Consulta Online: Name"
+  m = t.match(/^(?:Consulta\s+)?(?:Online|Presencial)[:\s]+(.+)$/i);
+  if (m) return m[1].trim();
+  return t;
+}
+
+function getEventType(title, desc) {
+  const tn = norm(title || '');
+  if (tn.includes('bariatr') || tn.includes('binova')) return 'bariatrica';
+  if (tn.includes('online')) return 'online';
+  if (tn.includes('presencial')) return 'presencial';
+  if (getMeetLink(desc)) return 'online';
+  return 'presencial';
+}
+
+function getMeetLink(desc) {
+  if (!desc) return null;
+  const m = (desc || '').match(/https:\/\/meet\.google\.com\/[a-zA-Z0-9\-]+/);
+  return m ? m[0] : null;
+}
+
+function extractPhone(text) {
+  if (!text) return null;
+  const plain = stripHtml(text);
+  let m = plain.match(/wa\.me\/\+?52(\d{10})/);
+  if (m) return '52' + m[1];
+  m = plain.match(/wa\.me\/(\+?\d{10,15})/);
+  if (m) return m[1].replace(/\D/g, '');
+  m = plain.match(/Num(?:\.|ero|\.?\s+de\s+Contacto)\s*[:\-]?\s*\+?52\s*(\d[\d\s]{8,}\d)/i);
+  if (m) { const d = m[1].replace(/\D/g,''); return '52' + d.slice(-10); }
+  m = plain.match(/teléfono[:\s]+\+?52\s*(\d[\d\s]{8,}\d)/i);
+  if (m) { const d = m[1].replace(/\D/g,''); return '52' + d.slice(-10); }
+  m = plain.match(/\b(\d{10})\b/);
+  if (m) return '52' + m[1];
+  return null;
+}
+
+// ── UTILITY: Date / time ───────────────────────────────────────────────────
+function getMXParts(date) {
+  const f = new Intl.DateTimeFormat('en-US', {
+    timeZone: CFG.TZ,
+    weekday: 'long', year: 'numeric', month: '2-digit',
+    day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false,
+  });
+  const parts = {};
+  f.formatToParts(date).forEach(p => { parts[p.type] = p.value; });
+  const DOW_EN = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+  return {
+    dow:   DOW_EN.indexOf(parts.weekday.toLowerCase()),
+    month: parseInt(parts.month) - 1,
+    day:   parseInt(parts.day),
+    year:  parseInt(parts.year),
+    h:     parseInt(parts.hour) % 24,
+    m:     parseInt(parts.minute),
+  };
+}
+
+function getDateKey(date) {
+  return date.toLocaleDateString('en-CA', { timeZone: CFG.TZ }); // YYYY-MM-DD
+}
+
+function getTimeStr(date) {
+  return date.toLocaleTimeString('es-MX', {
+    timeZone: CFG.TZ, hour: '2-digit', minute: '2-digit', hour12: false,
+  });
+}
+
+// ── BUILD REMINDER ─────────────────────────────────────────────────────────
+function buildReminder(event) {
+  const raw   = event.summary || '';
+  if (isAdminEvent(raw)) return null;
+
+  const cleaned = cleanTitle(raw);
+  if (!cleaned || cleaned.length < 3) return null;
+
+  const desc  = event.description || '';
+  const start = event.start.dateTime ? new Date(event.start.dateTime)
+                                     : new Date(event.start.date + 'T00:00:00');
+  const end   = event.end.dateTime   ? new Date(event.end.dateTime)
+                                     : new Date(event.end.date   + 'T00:00:00');
+
+  const p       = getMXParts(start);
+  const dateKey = getDateKey(start);
+  const timeStr = getTimeStr(start);
+  const timeEnd = getTimeStr(end);
+  const dayFull = DAYS_ES[p.dow] + ' ' + p.day + ' de ' + MONTHS_ES[p.month];
+  const dayLabel= cap(DAYS_ES[p.dow]) + ' ' + String(p.day).padStart(2,'0') + '/' + String(p.month+1).padStart(2,'0');
+  const type    = getEventType(raw, desc);
+  const meetLink= getMeetLink(desc);
+  const phone   = extractPhone(desc);
+
+  // Build message
+  let message;
+  if (type === 'bariatrica') {
+    message =
+      'Hola qué tal! Tenemos consulta online para Binova por Google Meet, el ' + dayFull + ' a las ' + timeStr + ' hora de la CDMX.\n' +
+      'Favor de confirmar asistencia o inasistencia para la fecha y hora mencionada. Muchas gracias!!' +
+      (meetLink ? '\n\nVínculo a la videollamada: ' + meetLink : '') + '\n\n' +
+      '— Formularios previos a la cita —\n' +
+      '1. Expediente: ' + CFG.FORM_EXP + '\n' +
+      '2. Escalas Bariátrica: ' + CFG.FORM_BARI + '\n' +
+      '(Puede omitir si ya los llenó)';
+  } else if (type === 'online') {
+    message =
+      'Hola qué tal! Tenemos consulta online por Google Meet, el ' + dayFull + ' a las ' + timeStr + ' hora de la CDMX.\n' +
+      'Favor de confirmar asistencia o inasistencia para la fecha y hora mencionada. Muchas gracias!!' +
+      (meetLink ? '\n\nVínculo a la videollamada: ' + meetLink : '');
+  } else {
+    message =
+      'Hola qué tal! Tenemos consulta presencial en mi consultorio en Moras 619, el ' + dayFull + ' a las ' + timeStr + ' hora de la CDMX.\n' +
+      'Favor de confirmar asistencia o inasistencia para la fecha y hora mencionada. Muchas gracias!!\n\n' +
+      '📍 ' + CFG.ADDRESS + '\n' +
+      CFG.MAP_LINK + '\n' +
+      'Foto exterior: ' + CFG.MAP_PHOTO + '\n' +
+      'Estacionamiento: ' + CFG.PARKING;
+  }
+
+  return {
+    title: cleaned, raw, type, dateKey, dayLabel, dayFull,
+    timeStr, timeEnd, phone, message, st: start.getTime(),
+    isWeekend: (p.dow === 0 || p.dow === 6),
+  };
+}
+
+// ── GOOGLE API ─────────────────────────────────────────────────────────────
+function getClientId() { return LS.get('client_id') || ''; }
+
+function initGIS() {
+  const clientId = getClientId();
+  if (!clientId) return;
+  tokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: clientId,
+    scope: CFG.SCOPE,
+    callback: async (resp) => {
+      if (resp.error) { showLoginError('Error de autenticación: ' + resp.error); return; }
+      accessToken = resp.access_token;
+      tokenExpiry = Date.now() + (resp.expires_in - 60) * 1000;
+      try {
+        await fetchUserEmail(); // throws if unauthorized
+        showApp();
+        loadReminders();
+      } catch(e) {
+        // fetchUserEmail already handled the error display
+      }
+    },
+  });
+}
+
+function signIn() {
+  clearError('login-error');
+  if (!tokenClient) { showLoginError('No se encontró configuración. Recarga la página.'); return; }
+  tokenClient.requestAccessToken({ prompt: 'consent' });
+}
+
+function signOut() {
+  if (accessToken) {
+    google.accounts.oauth2.revoke(accessToken, () => {});
+    accessToken = null;
+  }
+  document.getElementById('user-email').textContent = '';
+  showLogin();
+}
+
+function ensureToken() {
+  return new Promise((resolve, reject) => {
+    if (accessToken && Date.now() < tokenExpiry) { resolve(); return; }
+    // Need new token silently
+    const prev = tokenClient.callback;
+    tokenClient.callback = (resp) => {
+      tokenClient.callback = prev;
+      if (resp.error) { reject(new Error(resp.error)); return; }
+      accessToken = resp.access_token;
+      tokenExpiry = Date.now() + (resp.expires_in - 60) * 1000;
+      resolve();
+    };
+    tokenClient.requestAccessToken({ prompt: '' });
+  });
+}
+
+async function gcalFetch(url) {
+  await ensureToken();
+  const r = await fetch(url, { headers: { Authorization: 'Bearer ' + accessToken } });
+  if (!r.ok) {
+    const err = await r.json().catch(() => ({}));
+    throw new Error(err.error?.message || 'HTTP ' + r.status);
+  }
+  return r.json();
+}
+
+async function fetchUserEmail() {
+  const d = await gcalFetch('https://www.googleapis.com/oauth2/v1/userinfo?alt=json');
+  const email = (d.email || '').toLowerCase().trim();
+  const allowed = (LS.get('allowed_email') || '').toLowerCase().trim();
+  if (allowed && email !== allowed) {
+    // Unauthorized — revoke token immediately and block
+    google.accounts.oauth2.revoke(accessToken, () => {});
+    accessToken = null;
+    showLogin();
+    showLoginError('Acceso denegado. Esta app solo puede usarla ' + allowed + '.');
+    throw new Error('Acceso no autorizado');
+  }
+  document.getElementById('user-email').textContent = d.email || '';
+}
+
+async function findCalendarId() {
+  const cached = LS.get('cal_id');
+  if (cached) return cached;
+  const data = await gcalFetch('https://www.googleapis.com/calendar/v3/users/me/calendarList?maxResults=100');
+  const cal = (data.items || []).find(c => c.summary === CFG.CAL_NAME);
+  if (!cal) throw new Error('No se encontró el calendario "' + CFG.CAL_NAME + '".\nVerifica que exista en tu cuenta de Google.');
+  LS.set('cal_id', cal.id);
+  return cal.id;
+}
+
+async function fetchEvents(calId, timeMin, timeMax) {
+  const params = new URLSearchParams({
+    timeMin: timeMin.toISOString(),
+    timeMax: timeMax.toISOString(),
+    singleEvents: 'true',
+    orderBy: 'startTime',
+    maxResults: '150',
+  });
+  const data = await gcalFetch(
+    'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(calId) + '/events?' + params
+  );
+  return data.items || [];
+}
+
+// ── LOAD REMINDERS ─────────────────────────────────────────────────────────
+async function loadReminders() {
+  const area = document.getElementById('rem-area');
+  const btn  = document.getElementById('btn-refresh');
+  area.innerHTML = '<div class="loading-state"><span class="loading-spinner"></span>Cargando agenda...</div>';
+  btn.disabled = true;
+
+  try {
+    const calId = await findCalendarId();
+    const now   = new Date();
+    const end   = new Date(now);
+    end.setDate(end.getDate() + 8);
+    end.setHours(23, 59, 59, 999);
+
+    const events    = await fetchEvents(calId, now, end);
+    const reminders = events.map(buildReminder).filter(Boolean);
+    reminders.sort((a, b) => a.st - b.st);
+
+    // Find Sunday→Monday boundary
+    let sundayBoundary = null;
+    const d = new Date(now);
+    for (let i = 0; i <= 8; i++) {
+      if (d.getDay() === 0) {
+        const monday = new Date(d);
+        monday.setDate(monday.getDate() + 1);
+        if (monday <= end) {
+          sundayBoundary = monday.toLocaleDateString('en-CA', { timeZone: CFG.TZ });
+        }
+        break;
+      }
+      d.setDate(d.getDate() + 1);
+    }
+
+    renderReminders(reminders, sundayBoundary);
+  } catch(e) {
+    area.innerHTML = '<div class="error-box" style="margin-top:0"><strong>Error al cargar</strong><br>' + esc(e.message) + '</div>';
+    // If the error is auth-related, show login
+    if (e.message && (e.message.includes('401') || e.message.includes('autenticaci'))) {
+      accessToken = null;
+      showLogin();
+    }
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// ── RENDER ─────────────────────────────────────────────────────────────────
+function renderReminders(reminders, boundary) {
+  const area = document.getElementById('rem-area');
+  if (!reminders.length) {
+    area.innerHTML = '<div class="empty-state"><p>Sin citas de pacientes en los próximos 8 días.</p></div>';
+    return;
+  }
+
+  // Group by dateKey
+  const groups = {}, order = [];
+  reminders.forEach(r => {
+    if (!groups[r.dateKey]) { groups[r.dateKey] = { label: r.dayLabel, items: [] }; order.push(r.dateKey); }
+    groups[r.dateKey].items.push(r);
+  });
+
+  let html = '';
+  let dividerInserted = false;
+  order.forEach(dk => {
+    if (boundary && dk >= boundary && !dividerInserted) {
+      html += '<hr class="rem-week-divider">';
+      dividerInserted = true;
+    }
+    const grp = groups[dk];
+    html += '<div class="rem-day-group"><div class="rem-day-label">' + esc(grp.label) + '</div>';
+    grp.items.forEach((r, i) => {
+      const id       = 'r' + dk.replace(/-/g,'') + '_' + i;
+      const cardId   = 'c' + dk.replace(/-/g,'') + '_' + i;
+      const bClass   = r.type === 'online' ? 'badge-online' : r.type === 'bariatrica' ? 'badge-bari' : 'badge-pres';
+      const bLabel   = r.type === 'online' ? 'Online' : r.type === 'bariatrica' ? 'Binova' : 'Presencial';
+      const noPhone  = !r.phone;
+      const phoneFmt = r.phone ? fmtPhone(r.phone) : '';
+      html +=
+        '<div class="rem-card" id="' + cardId + '">' +
+          '<div>' +
+            '<div class="rem-patient"><span class="rem-check">✓</span>' + esc(r.title) + '</div>' +
+            '<div class="rem-meta"><span class="rem-badge ' + bClass + '">' + bLabel + '</span><span>' + esc(r.dayFull) + '</span></div>' +
+            '<div class="rem-time-row">' + r.timeStr + ' – ' + r.timeEnd +
+              (r.phone ? ' &nbsp;·&nbsp; <strong>' + esc(r.phone) + '</strong>' : ' &nbsp;<span style="color:#f59e0b;font-size:11px">Sin celular</span>') +
+            '</div>' +
+            '<div class="rem-msg" id="' + id + '" onclick="this.classList.toggle(\'expanded\')">' + esc(r.message) + '</div>' +
+          '</div>' +
+          '<div class="rem-actions">' +
+            '<button class="btn-copy" onclick="copyMsg(\'' + id + '\',\'' + cardId + '\')">Copiar</button>' +
+            (noPhone
+              ? '<button class="btn-wa no-phone" title="Sin número de teléfono">WhatsApp</button>'
+              : '<button class="btn-wa" onclick="openWA(\'' + phoneFmt + '\',\'' + id + '\',\'' + cardId + '\')">WhatsApp</button>') +
+          '</div>' +
+        '</div>';
+    });
+    html += '</div>';
+  });
+  area.innerHTML = html;
+}
+
+// ── ACTIONS ────────────────────────────────────────────────────────────────
+function copyMsg(msgId, cardId) {
+  const el = document.getElementById(msgId);
+  if (!el) return;
+  copyText(el.textContent, cardId);
+}
+
+function openWA(phone, msgId, cardId) {
+  const el  = document.getElementById(msgId);
+  const msg = el ? el.textContent : '';
+  copyText(msg, cardId);
+  window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function fmtPhone(p) {
+  if (!p) return '';
+  const d = p.replace(/\D/g, '');
+  if (d.startsWith('52') && d.length >= 12) return d;
+  if (d.length === 10) return '52' + d;
+  return d;
+}
+
+function copyText(text, cardId) {
+  const done = () => {
+    showToast('Copiado');
+    if (cardId) {
+      const card = document.getElementById(cardId);
+      if (card) { card.classList.add('copied'); setTimeout(() => card.classList.remove('copied'), 3000); }
+    }
+  };
+  navigator.clipboard.writeText(text).then(done).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta); done();
+  });
+}
+
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+function esc(s) {
+  if (s === null || s === undefined) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── SCREENS ────────────────────────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+}
+function showSetup()  { showScreen('setup');  }
+function showLogin()  { showScreen('login');  }
+function showApp()    { showScreen('app');    }
+
+// ── SETUP ──────────────────────────────────────────────────────────────────
+async function saveClientId() {
+  const email    = document.getElementById('input-allowed-email').value.trim().toLowerCase();
+  const password = document.getElementById('input-password').value;
+  const clientId = document.getElementById('input-client-id').value.trim();
+  if (!email || !email.includes('@')) {
+    showError('setup-error', 'Ingresa tu correo de Google.'); return;
+  }
+  if (!password || password.length < 4) {
+    showError('setup-error', 'Ingresa una contraseña de al menos 4 caracteres.'); return;
+  }
+  if (!clientId || !clientId.includes('.apps.googleusercontent.com')) {
+    showError('setup-error', 'Ingresa un Client ID válido (debe terminar en .apps.googleusercontent.com).'); return;
+  }
+  const hash = await sha256(password);
+  LS.set('allowed_email', email);
+  LS.set('pw_hash', hash);
+  LS.set('client_id', clientId);
+  LS.del('cal_id');
+  clearError('setup-error');
+  location.reload();
+}
+
+async function verifyPassword() {
+  const pw = document.getElementById('login-password').value;
+  if (!pw) { showLoginError('Ingresa tu contraseña.'); return; }
+  const storedHash = LS.get('pw_hash');
+  if (!storedHash) { showLoginError('No hay contraseña configurada. Haz la configuración inicial.'); return; }
+  const hash = await sha256(pw);
+  if (hash !== storedHash) {
+    showLoginError('Contraseña incorrecta.');
+    document.getElementById('login-password').value = '';
+    document.getElementById('login-password').focus();
+    return;
+  }
+  clearError('login-error');
+  document.getElementById('login-password').value = '';
+  // Password correct — now trigger Google OAuth
+  signIn();
+}
+
+function showLoginError(msg) { showError('login-error', msg); }
+function showError(id, msg) { const el = document.getElementById(id); if (el) { el.textContent = msg; el.style.display = 'block'; } }
+function clearError(id) { const el = document.getElementById(id); if (el) { el.textContent = ''; el.style.display = 'none'; } }
+
+// ── SETTINGS MODAL ─────────────────────────────────────────────────────────
+function openSettings() {
+  document.getElementById('settings-allowed-email').value = LS.get('allowed_email') || '';
+  document.getElementById('settings-client-id').value = getClientId();
+  document.getElementById('settings-modal').classList.add('open');
+}
+function closeSettings() { document.getElementById('settings-modal').classList.remove('open'); }
+async function saveSettings() {
+  const email    = document.getElementById('settings-allowed-email').value.trim().toLowerCase();
+  const clientId = document.getElementById('settings-client-id').value.trim();
+  const newPw    = document.getElementById('settings-password').value;
+  if (!email || !clientId) return;
+  LS.set('allowed_email', email);
+  LS.set('client_id', clientId);
+  if (newPw) { LS.set('pw_hash', await sha256(newPw)); }
+  LS.del('cal_id');
+  closeSettings();
+  location.reload();
+}
+function resetApp() {
+  if (!confirm('¿Borrar toda la configuración y reiniciar?')) return;
+  localStorage.clear();
+  location.reload();
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+function onGISLoad() {
+  const clientId = getClientId();
+  const hasPw    = !!LS.get('pw_hash');
+  if (!clientId || !hasPw) { showSetup(); return; }
+  initGIS();
+  showLogin();
+}
+
+// GIS library calls this when ready
+window.onload = () => {
+  // GIS loads asynchronously; wait for it
+  const poll = setInterval(() => {
+    if (window.google && google.accounts && google.accounts.oauth2) {
+      clearInterval(poll);
+      onGISLoad();
+    }
+  }, 100);
+};
+</script>
+<script src="https://accounts.google.com/gsi/client" async></script>
+</body>
+</html>
