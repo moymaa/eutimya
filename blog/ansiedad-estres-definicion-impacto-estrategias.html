@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" href="https://psiquiatra-cdmx.eutimya.org/favicon.png" type="image/png"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ansiedad y estrés: definición, impacto y estrategias de manejo · Eutimya</title>
+<meta name="description" content="Descubre qué es la ansiedad, cómo se diferencia del estrés, su impacto en la salud física y mental, y qué estrategias basadas en evidencia existen para manejarlos."/>
+<link rel="canonical" href="https://mental.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://mental.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias"/>
+<meta property="og:title" content="Ansiedad y estrés: definición, impacto y estrategias de manejo · Eutimya"/>
+<meta property="og:description" content="Descubre qué es la ansiedad, cómo se diferencia del estrés, su impacto en la salud física y mental, y qué estrategias basadas en evidencia existen para manejarlos."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1499988921418-b7df40ff03f9?w=1200&q=85&auto=format&fit=crop"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Ansiedad y estrés: definición, impacto y estrategias de manejo",
+  "description":"Descubre qué es la ansiedad, cómo se diferencia del estrés, su impacto en la salud física y mental, y qué estrategias basadas en evidencia existen para manejarlos.",
+  "author":{"@type":"Person","name":"Dr. Deldhy Nicolás Moya Sánchez","url":"https://psiquiatra-cdmx.eutimya.org/"},
+  "publisher":{"@type":"Organization","name":"Eutimya","url":"https://mental.eutimya.org/"},
+  "datePublished":"2025-05-12",
+  "image":"https://images.unsplash.com/photo-1499988921418-b7df40ff03f9?w=1200&q=85",
+  "mainEntityOfPage":"https://mental.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias",
+  "keywords":"ansiedad, estrés, trastorno de ansiedad, manejo del estrés, salud mental, psiquiatría, CDMX"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --ink: #0d1b2a;
+  --ink-mid: #334155;
+  --ink-light: #64748b;
+  --gold: #b8893a;
+  --gold-pale: #f5ecd7;
+  --white: #ffffff;
+  --canvas: #fafaf8;
+  --rule: #e8e6e1;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --shadow: 0 2px 12px rgba(13,27,42,.07);
+  --shadow-lg: 0 8px 40px rgba(13,27,42,.12);
+  --r: 10px;
+  --max-prose: 680px;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 2rem; gap: 1rem;
+}
+.nav-logo img { height: 30px; width: auto; }
+.nav-links { display: flex; gap: 1.8rem; list-style: none; }
+.nav-links a {
+  font-size: .78rem; font-weight: 500; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-mid); transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--ink); color: #fff;
+  padding: .5rem 1.2rem; border-radius: 980px;
+  font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; white-space: nowrap;
+  transition: background .2s;
+}
+.nav-btn:hover { background: #000; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+.mobile-nav {
+  display: none; position: fixed; top: 60px; left: 0; right: 0;
+  background: rgba(255,255,255,.96); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.2rem 2rem; z-index: 99;
+  box-shadow: 0 20px 60px rgba(0,0,0,.12);
+}
+.mobile-nav.open { display: block; }
+.mobile-nav ul { list-style: none; }
+.mobile-nav li { padding: .65rem 0; border-bottom: 1px solid var(--rule); }
+.mobile-nav li:last-child { border: none; }
+.mobile-nav a { font-size: .95rem; font-weight: 500; color: var(--ink); }
+
+/* ── COVER ── */
+.article-cover {
+  position: relative; height: 72vh; min-height: 480px; max-height: 680px;
+  display: flex; align-items: flex-end;
+  overflow: hidden; margin-top: 60px;
+}
+.article-cover img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+.cover-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,27,42,.88) 0%, rgba(13,27,42,.3) 55%, transparent 100%);
+}
+.cover-content {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 860px; margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+.cover-breadcrumb {
+  display: flex; align-items: center; gap: .4rem;
+  font-size: .72rem; color: rgba(255,255,255,.45);
+  margin-bottom: 1rem;
+}
+.cover-breadcrumb a { transition: color .2s; }
+.cover-breadcrumb a:hover { color: rgba(255,255,255,.8); }
+.cover-breadcrumb .sep { opacity: .35; }
+.cover-tag {
+  font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .8rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.cover-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.cover-content h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 4vw, 3.1rem);
+  font-weight: 700; color: #fff;
+  line-height: 1.1; letter-spacing: -.02em;
+  max-width: 780px; margin-bottom: 1.4rem;
+}
+.cover-byline {
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  font-size: .78rem; color: rgba(255,255,255,.55);
+}
+.cover-avatar { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid rgba(255,255,255,.2); }
+.cover-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.cover-byline-info { display: flex; flex-direction: column; gap: 1px; }
+.cover-byline-info strong { color: rgba(255,255,255,.85); font-size: .82rem; }
+.cover-reading-time {
+  display: inline-flex; align-items: center; gap: .35rem;
+  margin-left: auto;
+  font-size: .72rem; color: rgba(255,255,255,.4);
+}
+
+/* ── ARTICLE WRAP ── */
+.article-wrap {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 300px;
+  gap: 4rem; padding: 3.5rem 2rem 5rem;
+  align-items: start;
+}
+
+/* ── PROSE ── */
+.prose { max-width: var(--max-prose); }
+.prose-lead {
+  font-size: 1.08rem; color: var(--ink-mid);
+  line-height: 1.85; margin-bottom: 2rem;
+}
+.prose p { font-size: .97rem; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.4rem; }
+.prose h2 {
+  font-family: var(--serif);
+  font-size: 1.45rem; font-weight: 700; color: var(--ink);
+  margin: 2.5rem 0 1rem; line-height: 1.2;
+  padding-top: 2rem; border-top: 1px solid var(--rule);
+}
+.prose h2:first-of-type { margin-top: 1.5rem; padding-top: 1.5rem; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose sup a {
+  font-size: .68rem; color: var(--gold);
+  vertical-align: super; line-height: 0;
+  transition: color .15s;
+}
+.prose sup a:hover { color: var(--gold-dark); text-decoration: underline; }
+
+/* CALLOUT */
+.callout {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.4rem;
+  margin: 1.8rem 0;
+  font-size: .9rem; color: var(--ink-mid); line-height: 1.75;
+}
+.callout strong { color: var(--ink); display: block; margin-bottom: .35rem; }
+
+/* STRATEGY LIST */
+.strategy-list { list-style: none; margin: 1.4rem 0 1.8rem; display: flex; flex-direction: column; gap: 1rem; }
+.strategy-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  border: 1px solid var(--rule); border-radius: 12px;
+  padding: 1.2rem 1.4rem; background: var(--canvas);
+}
+.strategy-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+.strategy-body h3 {
+  font-family: var(--serif); font-size: 1rem; font-weight: 700;
+  color: var(--ink); margin-bottom: .35rem; line-height: 1.25;
+}
+.strategy-body p { font-size: .88rem; color: var(--ink-mid); line-height: 1.7; margin: 0; }
+
+/* WARNING BOX */
+.warning-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.8rem 0;
+  font-size: .92rem; color: var(--ink-mid); line-height: 1.75;
+}
+.warning-box strong { color: #9a3412; display: block; margin-bottom: .3rem; font-size: .92rem; }
+.warning-box ul { margin: .5rem 0 0 1.2rem; }
+.warning-box li { margin-bottom: .3rem; }
+
+/* CONCLUSION */
+.conclusion-box {
+  background: var(--ink);
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  margin: 2.5rem 0;
+}
+.conclusion-box h2 {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+  color: var(--gold); margin: 0 0 .7rem; padding: 0; border: none;
+  letter-spacing: .01em;
+}
+.conclusion-box p { font-size: .9rem; color: rgba(255,255,255,.7); line-height: 1.8; margin: 0; }
+
+/* REFERENCES */
+.references { margin-top: 2.5rem; padding-top: 1.8rem; border-top: 1px solid var(--rule); }
+.references-title {
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-light); margin-bottom: 1rem;
+}
+.ref-list { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+.ref-list li { display: flex; gap: .65rem; align-items: flex-start; }
+.ref-num {
+  font-size: .68rem; font-weight: 700; color: var(--gold);
+  background: var(--gold-pale); border-radius: 4px;
+  padding: .1rem .35rem; flex-shrink: 0; margin-top: .15rem;
+}
+.ref-list span:last-child { font-size: .78rem; color: var(--ink-light); line-height: 1.6; }
+.ref-list a { color: var(--gold); transition: color .15s; }
+.ref-list a:hover { color: var(--gold-dark); text-decoration: underline; }
+
+/* ── SIDEBAR ── */
+.article-sidebar {
+  position: sticky; top: 88px;
+  display: flex; flex-direction: column; gap: 1.2rem;
+}
+.sidebar-card {
+  border: 1px solid var(--rule); border-radius: 14px;
+  overflow: hidden; background: #fff;
+}
+.sidebar-head {
+  padding: .8rem 1.2rem;
+  font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-light);
+  border-bottom: 1px solid var(--rule); background: var(--canvas);
+}
+.sidebar-body { padding: 1rem 1.2rem; }
+
+/* Author */
+.author-card { display: flex; gap: 1rem; align-items: flex-start; }
+.author-avatar { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid var(--rule); }
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.author-info { flex: 1; }
+.author-badge { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .2rem; }
+.author-name { font-family: var(--serif); font-size: .95rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: .3rem; }
+.author-role { font-size: .73rem; color: var(--ink-light); line-height: 1.5; margin-bottom: .6rem; }
+.author-link { font-size: .73rem; font-weight: 600; color: var(--gold); transition: color .2s; }
+.author-link:hover { color: var(--gold-dark); }
+
+/* TOC */
+.toc-card { }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: .2rem; }
+.toc-item a {
+  display: flex; align-items: center; gap: .6rem;
+  font-size: .78rem; color: var(--ink-light);
+  padding: .4rem .5rem; border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+.toc-item a:hover { color: var(--ink); background: var(--canvas); }
+.toc-item.active a { color: var(--ink); font-weight: 600; background: var(--gold-pale); }
+.toc-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--rule); flex-shrink: 0;
+  transition: background .15s;
+}
+.toc-item.active .toc-dot { background: var(--gold); }
+
+/* CTA sidebar */
+.cta-sidebar {
+  background: var(--ink); border-radius: 14px;
+  padding: 1.6rem; border: 1px solid var(--ink);
+}
+.cta-sidebar-tag {
+  font-size: .62rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+}
+.cta-sidebar h4 {
+  font-family: var(--serif); font-size: 1rem; font-weight: 700;
+  color: #fff; margin-bottom: .5rem; line-height: 1.25;
+}
+.cta-sidebar p { font-size: .78rem; color: rgba(255,255,255,.45); line-height: 1.65; margin-bottom: 1.1rem; }
+.cta-sidebar-btn {
+  display: block; text-align: center;
+  background: var(--gold); color: #fff;
+  padding: .7rem; border-radius: 8px;
+  font-size: .82rem; font-weight: 700;
+  transition: filter .2s;
+}
+.cta-sidebar-btn:hover { filter: brightness(1.1); }
+.cta-sidebar-wa {
+  display: flex; align-items: center; justify-content: center; gap: .4rem;
+  margin-top: .6rem;
+  font-size: .75rem; color: rgba(255,255,255,.45);
+  padding: .55rem; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  transition: background .15s;
+}
+.cta-sidebar-wa:hover { background: rgba(255,255,255,.07); color: rgba(255,255,255,.7); }
+
+/* Share */
+.share-row { display: flex; gap: .5rem; flex-wrap: wrap; }
+.share-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .5rem .9rem; border-radius: 7px;
+  font-size: .75rem; font-weight: 600;
+  border: 1px solid var(--rule); color: var(--ink);
+  background: #fff; cursor: pointer;
+  transition: box-shadow .15s, border-color .15s;
+  font-family: var(--sans);
+}
+.share-btn:hover { box-shadow: var(--shadow); border-color: #aaa; }
+.share-btn.copied { background: #f0fdf4; border-color: #86efac; color: #15803d; }
+
+/* ── RELATED POSTS ── */
+.related-section {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+.related-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 1.8rem;
+  padding-top: 3rem; border-top: 1px solid var(--rule);
+}
+.related-head h2 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--ink); }
+.related-head a { font-size: .78rem; color: var(--ink-light); transition: color .2s; }
+.related-head a:hover { color: var(--ink); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+.related-card {
+  display: flex; gap: 1rem; align-items: flex-start;
+  border: 1px solid var(--rule); border-radius: 12px;
+  padding: 1.1rem; background: #fff;
+  transition: box-shadow .2s, transform .15s;
+}
+.related-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.related-img { width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; }
+.related-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.related-card:hover .related-img img { transform: scale(1.08); }
+.related-body { flex: 1; min-width: 0; }
+.related-tag { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: .3rem; }
+.related-body h3 { font-family: var(--serif); font-size: .9rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+/* ── FOOTER ── */
+.footer { background: var(--ink); padding: 3rem 2rem 2rem; }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2.5rem; margin-bottom: 2rem;
+}
+.footer-brand img { margin-bottom: .8rem; background:rgba(255,255,255,.92);padding:5px 10px;border-radius:7px; }
+.footer-brand p { font-size: .78rem; color: rgba(255,255,255,.4); line-height: 1.7; max-width: 240px; }
+.footer-col h4 { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; margin-bottom: .8rem; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: .35rem; }
+.footer-col a { font-size: .78rem; color: rgba(255,255,255,.4); transition: color .2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding-top: 1.2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .5rem;
+  font-size: .7rem; color: rgba(255,255,255,.28);
+}
+
+/* WA FLOAT */
+.wa-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90;
+  display: flex; align-items: center; gap: .55rem;
+  background: rgba(10,10,14,.52); color: #fff;
+  padding: .65rem 1.1rem; border-radius: 999px;
+  font-size: .82rem; font-weight: 700;
+  box-shadow: 0 6px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  transition: transform .15s, background .2s;
+}
+.wa-float:hover { transform: translateY(-2px); background: rgba(10,10,14,.75); }
+.wa-float svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
+
+/* PROGRESS BAR */
+.reading-progress {
+  position: fixed; top: 0; left: 0; z-index: 200;
+  height: 2px; background: var(--gold);
+  width: 0%; transition: width .1s linear;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cover-content > * { animation: fadeUp .65s ease both; }
+.cover-content > *:nth-child(1) { animation-delay: .1s; }
+.cover-content > *:nth-child(2) { animation-delay: .2s; }
+.cover-content > *:nth-child(3) { animation-delay: .3s; }
+.cover-content > *:nth-child(4) { animation-delay: .4s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .article-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .article-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+  .toc-card { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-btn { display: none; }
+  .hamburger { display: flex; }
+  .article-wrap { padding: 2.5rem 1.5rem 4rem; }
+  .related-section { padding: 0 1.5rem 4rem; }
+  .article-sidebar { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+  .cover-content { padding: 0 1.5rem 2.5rem; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .prose h2 { font-size: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="https://mental.eutimya.org/" class="nav-logo">
+      <img src="https://psiquiatra-cdmx.eutimya.org/eutimyafondoblanco.png" alt="Eutimya" height="30" loading="eager"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://mental.eutimya.org/#inicio">Inicio</a></li>
+      <li><a href="https://mental.eutimya.org/#agendar">Agendar</a></li>
+      <li><a href="https://mental.eutimya.org/#profesionales">Profesionales</a></li>
+      <li><a href="https://mental.eutimya.org/blog" class="active">Blog</a></li>
+      <li><a href="https://mental.eutimya.org/#nosotros">Nosotros</a></li>
+    </ul>
+    <a href="https://psiquiatra-cdmx.eutimya.org/cita" class="nav-btn">Agendar cita</a>
+    <button class="hamburger" type="button" id="hbg" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mnav">
+  <ul>
+    <li><a href="https://mental.eutimya.org/#inicio">Inicio</a></li>
+    <li><a href="https://mental.eutimya.org/#agendar">Agendar cita</a></li>
+    <li><a href="https://mental.eutimya.org/blog">Blog</a></li>
+    <li><a href="https://mental.eutimya.org/#nosotros">Nosotros</a></li>
+  </ul>
+</div>
+
+<a href="https://wa.me/526731205121?text=Hola%2C%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20ansiedad%20y%20estr%C3%A9s%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp
+</a>
+
+<!-- COVER -->
+<div class="article-cover">
+  <img src="https://images.unsplash.com/photo-1499988921418-b7df40ff03f9?w=1400&q=85&auto=format&fit=crop" alt="Ansiedad y estrés — manejo y bienestar" loading="eager"/>
+  <div class="cover-overlay"></div>
+  <div class="cover-content">
+    <div class="cover-breadcrumb">
+      <a href="https://mental.eutimya.org/">Eutimya</a>
+      <span class="sep">›</span>
+      <a href="https://mental.eutimya.org/blog">Blog</a>
+      <span class="sep">›</span>
+      <span>Ansiedad · Estrés</span>
+    </div>
+    <p class="cover-tag">Ansiedad · Estrés</p>
+    <h1>Ansiedad y estrés: definición, impacto y estrategias de manejo</h1>
+    <div class="cover-byline">
+      <div class="cover-avatar">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w200-h200-s-no-gm" alt="Dr. Moya"/>
+      </div>
+      <div class="cover-byline-info">
+        <strong>Dr. Deldhy Nicolás Moya Sánchez</strong>
+        Psiquiatra · Eutimya · 2025
+      </div>
+      <div class="cover-reading-time">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        6 min de lectura
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <!-- PROSE -->
+  <article class="prose" id="articleContent">
+
+    <p class="prose-lead">
+      La ansiedad y el estrés son dos de los problemas de salud mental más frecuentes a nivel mundial. La Organización Mundial de la Salud estima que <strong>uno de cada ocho habitantes del planeta vive con algún trastorno de ansiedad</strong>.<sup><a href="#ref1" id="cite1">[1]</a></sup> Aunque con frecuencia se usan como sinónimos en el lenguaje cotidiano, ansiedad y estrés son fenómenos distintos con causas, mecanismos y tratamientos propios. Entender esa diferencia es el primer paso para manejarlos con éxito.
+    </p>
+
+    <h2 id="diferencia">¿Qué es la ansiedad y en qué se diferencia del estrés?</h2>
+
+    <p>
+      El <strong>estrés</strong> es una respuesta adaptativa del organismo ante una demanda externa identificable: una fecha límite, un conflicto laboral, un examen. Es temporal por naturaleza: una vez que el estímulo desaparece, los síntomas ceden. En contraste, la <strong>ansiedad</strong> implica la anticipación de una amenaza futura, frecuentemente difusa o exagerada en proporción al riesgo real. Puede persistir incluso en ausencia de un detonante concreto y tiende a cronificarse.<sup><a href="#ref2" id="cite2">[2]</a></sup>
+    </p>
+
+    <p>
+      Desde la perspectiva clínica, el Manual Diagnóstico y Estadístico de los Trastornos Mentales (DSM-5) distingue varios trastornos de ansiedad: el trastorno de ansiedad generalizada (TAG), el trastorno de pánico, las fobias específicas y la ansiedad social, entre otros. La presencia de síntomas de ansiedad <strong>no siempre equivale a un trastorno</strong>, pero cuando la intensidad, la frecuencia o la duración interfieren con la vida diaria, es fundamental buscar evaluación profesional.
+    </p>
+
+    <div class="callout">
+      <strong>Dato clínico relevante</strong>
+      Para el diagnóstico de trastorno de ansiedad generalizada se requiere preocupación excesiva y difícil de controlar durante al menos seis meses, acompañada de al menos tres síntomas físicos o cognitivos como fatiga, dificultad para concentrarse, irritabilidad, tensión muscular o alteraciones del sueño.<sup><a href="#ref2">[2]</a></sup>
+    </div>
+
+    <h2 id="impacto">Impacto en la salud física y mental</h2>
+
+    <p>
+      La activación sostenida del eje hipotálamo-hipófisis-suprarrenal —la vía del estrés crónico— eleva de manera mantenida los niveles de cortisol. Este estado de alerta prolongado tiene consecuencias documentadas en múltiples sistemas del organismo:<sup><a href="#ref3" id="cite3">[3]</a></sup>
+    </p>
+
+    <ul class="strategy-list">
+      <li class="strategy-item">
+        <div class="strategy-icon">❤️</div>
+        <div class="strategy-body">
+          <h3>Sistema cardiovascular</h3>
+          <p>La ansiedad crónica se asocia con mayor riesgo de hipertensión arterial, arritmias y enfermedad coronaria. La activación simpática sostenida mantiene la frecuencia cardíaca y la presión arterial elevadas por encima de los valores de reposo.</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🧠</div>
+        <div class="strategy-body">
+          <h3>Función cognitiva</h3>
+          <p>El cortisol elevado de manera crónica afecta la memoria de trabajo, la concentración y la toma de decisiones. Las personas con ansiedad no tratada con frecuencia refieren "niebla mental" (brain fog) e incapacidad para terminar tareas cotidianas.<sup><a href="#ref3">[3]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">😴</div>
+        <div class="strategy-body">
+          <h3>Sueño y recuperación</h3>
+          <p>La hiperactivación fisiológica dificulta la conciliación y el mantenimiento del sueño. La privación crónica de sueño, a su vez, amplifica la respuesta de ansiedad, creando un ciclo difícil de romper sin intervención.<sup><a href="#ref7" id="cite7">[7]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🤝</div>
+        <div class="strategy-body">
+          <h3>Funcionamiento social y laboral</h3>
+          <p>La evitación de situaciones ansiógenas —presentaciones, reuniones sociales, espacios concurridos— puede limitar significativamente el desempeño académico, profesional y las relaciones interpersonales, y favorecer el desarrollo de <a href="https://mental.eutimya.org/blog/la-relaci%C3%B3n-entre-la-soledad-y-la-depresi%C3%B3n-c%C3%B3mo-romper-el-ciclo" style="color:var(--gold)">soledad y depresión</a>.</p>
+        </div>
+      </li>
+    </ul>
+
+    <h2 id="estrategias">Estrategias de manejo basadas en evidencia</h2>
+
+    <p>
+      El abordaje de la ansiedad y el estrés combina intervenciones psicológicas, cambios en el estilo de vida y, cuando está indicado, tratamiento farmacológico. A continuación se presentan las estrategias con mayor respaldo científico:
+    </p>
+
+    <ul class="strategy-list">
+      <li class="strategy-item">
+        <div class="strategy-icon">🧩</div>
+        <div class="strategy-body">
+          <h3>Terapia cognitivo-conductual (TCC)</h3>
+          <p>La TCC es la intervención psicológica con mayor evidencia para los trastornos de ansiedad. Incluye la reestructuración de pensamientos distorsionados, la exposición gradual a situaciones temidas y el entrenamiento en habilidades de afrontamiento.<sup><a href="#ref4" id="cite4">[4]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🌬️</div>
+        <div class="strategy-body">
+          <h3>Técnicas de respiración y relajación muscular progresiva</h3>
+          <p>La respiración diafragmática lenta (4-7-8 o coherencia cardíaca) activa el sistema nervioso parasimpático y reduce la frecuencia cardíaca en minutos. La relajación muscular progresiva de Jacobson trabaja de forma sistemática la tensión de cada grupo muscular del cuerpo.</p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🏃</div>
+        <div class="strategy-body">
+          <h3>Ejercicio aeróbico regular</h3>
+          <p>Al menos 150 minutos semanales de actividad aeróbica moderada reducen los marcadores biológicos de estrés y ansiedad. El ejercicio incrementa los niveles de BDNF (factor neurotrófico cerebral) y favorece la neuroplasticidad en regiones como el hipocampo y la corteza prefrontal.<sup><a href="#ref5" id="cite5">[5]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🧘</div>
+        <div class="strategy-body">
+          <h3>Mindfulness y meditación</h3>
+          <p>Las intervenciones basadas en mindfulness (MBSR, MBCT) han demostrado reducir significativamente los síntomas de ansiedad generalizada y prevenir recaídas en personas con trastornos del estado de ánimo. La práctica de 10 a 20 minutos diarios produce cambios medibles en la actividad de la amígdala cerebral.<sup><a href="#ref6" id="cite6">[6]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🌙</div>
+        <div class="strategy-body">
+          <h3>Higiene del sueño</h3>
+          <p>Mantener horarios regulares de sueño, evitar pantallas una hora antes de dormir, limitar la cafeína después del mediodía y crear un ambiente oscuro y fresco en el cuarto son medidas sencillas con impacto demostrado en la calidad del descanso y la regulación emocional.<sup><a href="#ref7">[7]</a></sup></p>
+        </div>
+      </li>
+    </ul>
+
+    <h2 id="cuando-buscar-ayuda">¿Cuándo buscar ayuda profesional?</h2>
+
+    <p>
+      Muchas personas normalizan la ansiedad crónica porque la experimentan desde hace tanto tiempo que la consideran parte de su personalidad. Sin embargo, existen señales de alerta que indican la necesidad de una evaluación psiquiátrica formal:
+    </p>
+
+    <div class="warning-box">
+      <strong>⚠️ Señales de alerta — consulta a un especialista si experimentas:</strong>
+      <ul>
+        <li>Preocupación constante que no puedes controlar durante semanas o meses</li>
+        <li>Ataques de pánico (sensación repentina de terror, palpitaciones, dificultad para respirar)</li>
+        <li>Evitación de situaciones que antes realizabas con normalidad</li>
+        <li>Síntomas físicos sin causa médica (dolor de pecho, temblores, mareos frecuentes)</li>
+        <li>Interferencia significativa en el trabajo, los estudios o las relaciones</li>
+        <li>Uso de alcohol u otras sustancias para "calmar" la ansiedad</li>
+      </ul>
+    </div>
+
+    <p>
+      El tratamiento psiquiátrico de los trastornos de ansiedad combina, cuando es necesario, psicoterapia y medicación (inhibidores selectivos de la recaptación de serotonina, pregabalina u otras opciones según el cuadro clínico). El diagnóstico oportuno cambia el pronóstico: la mayoría de las personas con ansiedad tratada logran una recuperación funcional completa.
+    </p>
+
+    <div class="conclusion-box">
+      <h2>Conclusión</h2>
+      <p>La ansiedad y el estrés son respuestas normales del organismo que se convierten en problema cuando se cronifican e interfieren con la vida diaria. Identificar la diferencia entre ambos, reconocer su impacto multisistémico y aplicar estrategias basadas en evidencia —o buscar apoyo profesional cuando sea necesario— es la ruta más eficaz hacia el bienestar emocional sostenido.</p>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="references" id="referencias">
+      <p class="references-title">Referencias</p>
+      <ol class="ref-list">
+        <li id="ref1"><span class="ref-num">1</span><span>World Health Organization. Mental disorders. WHO Fact Sheets. 2022. <a href="https://www.who.int/news-room/fact-sheets/detail/mental-disorders" target="_blank" rel="noopener">who.int/news-room/fact-sheets/detail/mental-disorders</a></span></li>
+        <li id="ref2"><span class="ref-num">2</span><span>Craske MG, Stein MB. Anxiety. <em>Lancet</em>. 2016;388(10063):3048–3059. <a href="https://pubmed.ncbi.nlm.nih.gov/27349358/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/27349358</a></span></li>
+        <li id="ref3"><span class="ref-num">3</span><span>McEwen BS. Neurobiological and systemic effects of chronic stress. <em>Chronic Stress</em>. 2017;1:2470547017692328. <a href="https://pubmed.ncbi.nlm.nih.gov/28856337/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/28856337</a></span></li>
+        <li id="ref4"><span class="ref-num">4</span><span>Hofmann SG, Asnaani A, Vonk IJJ, et al. The efficacy of cognitive behavioral therapy: a review of meta-analyses. <em>Cognit Ther Res</em>. 2012;36(5):427–440. <a href="https://pubmed.ncbi.nlm.nih.gov/23459093/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/23459093</a></span></li>
+        <li id="ref5"><span class="ref-num">5</span><span>Stubbs B, Vancampfort D, Rosenbaum S, et al. An examination of the anxiolytic effects of exercise for people with anxiety and stress-related disorders. <em>Psychiatry Res</em>. 2017;249:102–108. <a href="https://pubmed.ncbi.nlm.nih.gov/28088704/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/28088704</a></span></li>
+        <li id="ref6"><span class="ref-num">6</span><span>Hofmann SG, Sawyer AT, Witt AA, Oh D. The effect of mindfulness-based therapy on anxiety and depression. <em>J Consult Clin Psychol</em>. 2010;78(2):169–183. <a href="https://pubmed.ncbi.nlm.nih.gov/20350028/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/20350028</a></span></li>
+        <li id="ref7"><span class="ref-num">7</span><span>Buysse DJ. Sleep health: can we define it? Does it matter? <em>Sleep</em>. 2014;37(1):9–17. <a href="https://pubmed.ncbi.nlm.nih.gov/24470692/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/24470692</a></span></li>
+      </ol>
+    </div>
+
+    <!-- SHARE -->
+    <div style="margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid var(--rule)">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.9rem">Compartir artículo</p>
+      <div class="share-row">
+        <button class="share-btn" onclick="shareWhatsApp()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </button>
+        <button class="share-btn" id="copyBtn" onclick="copyLink()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar enlace
+        </button>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+
+    <!-- AUTHOR -->
+    <div class="sidebar-card">
+      <div class="author-card" style="padding:1.2rem">
+        <div class="author-avatar">
+          <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w200-h200-s-no-gm" alt="Dr. Moya"/>
+        </div>
+        <div class="author-info">
+          <p class="author-badge">Autor</p>
+          <p class="author-name">Dr. Deldhy N.<br/>Moya Sánchez</p>
+          <p class="author-role">Psiquiatra y Psiquiatría de Enlace, UNAM · Mención Honorífica · CE 14788885</p>
+          <a href="https://psiquiatra-cdmx.eutimya.org/" class="author-link">Ver perfil →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOC -->
+    <div class="sidebar-card toc-card">
+      <div class="sidebar-head">Contenido</div>
+      <div class="sidebar-body">
+        <ul class="toc-list" id="tocList">
+          <li class="toc-item" id="toc-diferencia">
+            <a href="#diferencia"><span class="toc-dot"></span>Ansiedad vs estrés: diferencia clave</a>
+          </li>
+          <li class="toc-item" id="toc-impacto">
+            <a href="#impacto"><span class="toc-dot"></span>Impacto en la salud</a>
+          </li>
+          <li class="toc-item" id="toc-estrategias">
+            <a href="#estrategias"><span class="toc-dot"></span>Estrategias de manejo</a>
+          </li>
+          <li class="toc-item" id="toc-cuando">
+            <a href="#cuando-buscar-ayuda"><span class="toc-dot"></span>¿Cuándo buscar ayuda?</a>
+          </li>
+          <li class="toc-item" id="toc-referencias">
+            <a href="#referencias"><span class="toc-dot"></span>Referencias</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-sidebar">
+      <p class="cta-sidebar-tag">¿Necesitas atención?</p>
+      <h4>Agenda tu primera consulta psiquiátrica</h4>
+      <p>Atención presencial en Col. Del Valle, CDMX o en línea desde donde estés.</p>
+      <a href="https://psiquiatra-cdmx.eutimya.org/cita" class="cta-sidebar-btn">Agendar consulta →</a>
+      <a href="https://wa.me/526731205121?text=Hola%2C%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20ansiedad%20y%20estr%C3%A9s%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." class="cta-sidebar-wa">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+
+  </aside>
+
+</div><!-- /article-wrap -->
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-head">
+    <h2>También te puede interesar</h2>
+    <a href="https://mental.eutimya.org/blog">Ver todos →</a>
+  </div>
+  <div class="related-grid">
+    <a href="https://mental.eutimya.org/blog/burnout-diagnostico" class="related-card">
+      <div class="related-img">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=200&q=80&auto=format&fit=crop" alt="Burnout" loading="lazy"/>
+      </div>
+      <div class="related-body">
+        <span class="related-tag">Ansiedad · Estrés</span>
+        <h3>Burnout: más allá del cansancio. Cuándo el estrés laboral se convierte en diagnóstico</h3>
+      </div>
+    </a>
+    <a href="https://mental.eutimya.org/blog/la-relaci%C3%B3n-entre-la-soledad-y-la-depresi%C3%B3n-c%C3%B3mo-romper-el-ciclo" class="related-card">
+      <div class="related-img">
+        <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=200&q=80&auto=format&fit=crop" alt="Soledad y depresión" loading="lazy"/>
+      </div>
+      <div class="related-body">
+        <span class="related-tag">Depresión · Bienestar</span>
+        <h3>La relación entre la soledad y la depresión: cómo romper el ciclo</h3>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://psiquiatra-cdmx.eutimya.org/eutimyafondoblanco.png" alt="Eutimya" height="28" loading="lazy"/>
+      <p>Práctica psiquiátrica privada en Ciudad de México. Información confiable y basada en evidencia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Blog</h4>
+      <ul>
+        <li><a href="https://mental.eutimya.org/blog">Todos los artículos</a></li>
+        <li><a href="https://mental.eutimya.org/blog/la-relaci%C3%B3n-entre-la-soledad-y-la-depresi%C3%B3n-c%C3%B3mo-romper-el-ciclo">Depresión</a></li>
+        <li><a href="https://mental.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias">Ansiedad &amp; Estrés</a></li>
+        <li><a href="https://mental.eutimya.org/blog/que-es-la-psiquiatria">Psiquiatría</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Eutimya</h4>
+      <ul>
+        <li><a href="https://mental.eutimya.org/">Inicio</a></li>
+        <li><a href="https://psiquiatra-cdmx.eutimya.org/cita">Agendar cita</a></li>
+        <li><a href="https://eutimya.org/factura">Facturación</a></li>
+        <li><a href="https://wa.me/526731205121">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Eutimya · Blog de Salud Mental</span>
+    <span>mental.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias</span>
+  </div>
+</footer>
+
+<script>
+// ── HAMBURGER ──
+var hbg = document.getElementById('hbg');
+var mnav = document.getElementById('mnav');
+if (hbg && mnav) {
+  hbg.addEventListener('click', function(e) { e.stopPropagation(); mnav.classList.toggle('open'); });
+  document.addEventListener('click', function(e) {
+    if (mnav.classList.contains('open') && !mnav.contains(e.target) && e.target !== hbg)
+      mnav.classList.remove('open');
+  });
+}
+
+// ── READING PROGRESS ──
+window.addEventListener('scroll', function() {
+  var article = document.getElementById('articleContent');
+  if (!article) return;
+  var top = article.getBoundingClientRect().top + window.scrollY - 80;
+  var bottom = top + article.offsetHeight;
+  var scrolled = window.scrollY - top;
+  var total = bottom - top - window.innerHeight;
+  var pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+  document.getElementById('readingProgress').style.width = pct + '%';
+}, { passive: true });
+
+// ── TOC ACTIVE ──
+var tocSections = [
+  { id: 'diferencia',        toc: 'toc-diferencia' },
+  { id: 'impacto',           toc: 'toc-impacto' },
+  { id: 'estrategias',       toc: 'toc-estrategias' },
+  { id: 'cuando-buscar-ayuda', toc: 'toc-cuando' },
+  { id: 'referencias',       toc: 'toc-referencias' }
+];
+window.addEventListener('scroll', function() {
+  var y = window.scrollY + 140;
+  var active = null;
+  tocSections.forEach(function(s) {
+    var el = document.getElementById(s.id);
+    if (el && el.offsetTop <= y) active = s.toc;
+  });
+  tocSections.forEach(function(s) {
+    var el = document.getElementById(s.toc);
+    if (el) el.classList.toggle('active', s.toc === active);
+  });
+}, { passive: true });
+
+// ── SHARE ──
+function shareWhatsApp() {
+  var url = encodeURIComponent('https://mental.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias');
+  var text = encodeURIComponent('Ansiedad y estrés: definición, impacto y estrategias de manejo — Eutimya');
+  window.open('https://wa.me/?text=' + text + '%20' + url, '_blank');
+}
+function copyLink() {
+  var url = 'https://mental.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias';
+  var btn = document.getElementById('copyBtn');
+  function done() {
+    btn.textContent = '✓ Enlace copiado';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar enlace'; btn.classList.remove('copied'); }, 2500);
+  }
+  if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done).catch(function() { done(); }); }
+  else { done(); }
+}
+</script>
+</body>
+</html>
