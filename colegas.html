@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Red de Colegas · Eutimya | Psiquiatría CDMX</title>
+<meta name="description" content="Red de colegas de confianza de Eutimya. Psiquiatras certificados con formación en el CMN 20 de Noviembre, UNAM, para referencia y colaboración clínica."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://mental.eutimya.org/colegas/"/>
+<meta property="og:title" content="Red de Colegas · Eutimya"/>
+<meta property="og:description" content="Psiquiatras de confianza para referencia y colaboración clínica en la red Eutimya."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/moymaa/drmoyapsiq/main/unnamed.png"/>
+<meta property="og:url" content="https://mental.eutimya.org/colegas/"/>
+<link rel="icon" type="image/png" href="https://psiquiatra-cdmx.eutimya.org/favicon.png"/>
+<link rel="apple-touch-icon" href="https://psiquiatra-cdmx.eutimya.org/favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══ TOKENS ═══ */
+:root{
+  --navy:    #0F2942;
+  --navy2:   #1a3d5c;
+  --teal:    #0EA5A0;
+  --teal-d:  #0C9490;
+  --teal-p:  rgba(14,165,160,.08);
+  --gold:    #B8893A;
+  --gold-p:  rgba(184,137,58,.09);
+  --canvas:  #FAFBFD;
+  --warm:    #F0EBE3;
+  --white:   #FFFFFF;
+  --rule:    rgba(15,41,66,.1);
+  --ink:     #0d1b2a;
+  --mid:     #334155;
+  --light:   #64748b;
+  --serif:   'Playfair Display',Georgia,serif;
+  --sans:    'DM Sans','Helvetica Neue',sans-serif;
+  --ease:    cubic-bezier(.25,.1,.25,1);
+  --shadow:  0 2px 12px rgba(15,41,66,.07);
+  --shadow-lg: 0 20px 60px rgba(15,41,66,.12),0 8px 24px rgba(15,41,66,.08);
+  --nav-h:   64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ═══ NAV ═══ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);
+  background:rgba(250,251,253,.94);
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;height:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;gap:1rem;
+}
+.nav-brand{display:flex;align-items:center;gap:.65rem}
+.nav-brand img{height:28px;width:auto}
+.nav-sep{width:1px;height:20px;background:var(--rule)}
+.nav-label{font-size:.8rem;font-weight:600;color:var(--mid);letter-spacing:.01em}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.nav-back{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.74rem;font-weight:500;color:var(--light);
+  border:1px solid var(--rule);border-radius:6px;
+  padding:.38rem .85rem;transition:all .2s;white-space:nowrap;
+}
+.nav-back:hover{color:var(--ink);border-color:var(--mid)}
+.nav-back svg{width:12px;height:12px}
+
+/* ═══ HERO ═══ */
+.hero{
+  padding:calc(var(--nav-h) + 4.5rem) 2rem 4rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(14,165,160,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1.1rem;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';width:20px;height:1.5px;background:var(--teal);
+}
+.hero-h{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:700;color:var(--navy);line-height:1.1;
+  margin-bottom:.8rem;
+}
+.hero-sub{
+  font-size:.97rem;color:var(--mid);max-width:560px;
+  margin:0 auto 1.8rem;line-height:1.8;
+}
+.hero-ref{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.78rem;color:var(--teal);font-weight:600;
+  background:var(--teal-p);border:1px solid rgba(14,165,160,.2);
+  border-radius:100px;padding:.35rem 1rem;
+}
+.hero-ref svg{width:13px;height:13px;flex-shrink:0}
+
+/* ═══ GRID ═══ */
+.grid-wrap{max-width:1100px;margin:0 auto;padding:1rem 2rem 5rem}
+.colegas-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;
+  align-items:start;
+}
+
+/* ═══ CARD ═══ */
+.card{
+  background:var(--white);
+  border:1px solid var(--rule);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  transition:box-shadow .3s var(--ease),transform .25s var(--ease),border-color .3s;
+  position:relative;
+}
+.card:hover{
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-4px);
+  border-color:rgba(14,165,160,.25);
+}
+.card.open{
+  box-shadow:var(--shadow-lg);
+  border-color:rgba(14,165,160,.3);
+  transform:none;
+}
+
+/* Photo */
+.card-photo{
+  height:280px;overflow:hidden;position:relative;
+  background:var(--warm);
+}
+.card-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center 10%;
+  transition:transform .55s var(--ease);
+}
+.card:hover .card-photo img,.card.open .card-photo img{transform:scale(1.04)}
+.card-photo-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(15,41,66,.65) 0%,transparent 55%);
+  padding:1.1rem;
+}
+.card-badge{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(8px);
+  color:#fff;padding:.3rem .75rem;border-radius:5px;
+  font-size:.67rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+}
+
+/* Body */
+.card-body{padding:1.5rem}
+.card-name{
+  font-family:var(--serif);font-size:1.2rem;font-weight:700;
+  color:var(--navy);line-height:1.15;margin-bottom:.3rem;
+}
+.card-role{font-size:.8rem;color:var(--mid);line-height:1.5;margin-bottom:1rem}
+.card-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.1rem}
+.chip{
+  font-size:.67rem;font-weight:600;
+  border:1px solid var(--rule);border-radius:100px;
+  padding:.2rem .65rem;color:var(--mid);background:var(--canvas);
+}
+.card-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:.76rem;font-weight:600;color:var(--teal);
+  padding-top:.9rem;border-top:1px solid var(--rule);
+  user-select:none;
+}
+.toggle-icon{
+  width:22px;height:22px;border-radius:50%;
+  border:1.5px solid rgba(14,165,160,.35);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .3s var(--ease);
+}
+.toggle-icon svg{width:11px;height:11px;stroke:var(--teal);stroke-width:2.5;fill:none;transition:transform .3s var(--ease)}
+.card.open .toggle-icon{background:var(--teal);border-color:var(--teal)}
+.card.open .toggle-icon svg{stroke:#fff;transform:rotate(45deg)}
+
+/* Expand panel */
+.card-expand{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s var(--ease),opacity .4s ease;
+  opacity:0;
+}
+.card.open .card-expand{max-height:900px;opacity:1}
+.expand-inner{
+  padding:0 1.5rem 1.5rem;
+  border-top:1px solid var(--rule);
+  background:var(--canvas);
+}
+.expand-section{margin-top:1.2rem}
+.expand-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--light);margin-bottom:.5rem;
+}
+.expand-text{font-size:.83rem;color:var(--mid);line-height:1.8}
+.expand-creds{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.6rem}
+.cred-pill{
+  background:var(--white);border:1px solid var(--rule);border-radius:8px;
+  padding:.55rem .75rem;
+}
+.cred-pill-label{font-size:.62rem;font-weight:700;color:var(--light);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.15rem}
+.cred-pill-value{font-size:.78rem;font-weight:700;color:var(--navy);font-family:var(--serif)}
+.expand-actions{display:flex;flex-direction:column;gap:.6rem;margin-top:1.3rem}
+.btn-profile{
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+  background:var(--navy);color:#fff;
+  padding:.72rem 1.2rem;border-radius:8px;
+  font-size:.82rem;font-weight:700;
+  transition:background .2s,transform .15s;
+}
+.btn-profile:hover{background:var(--navy2);transform:translateY(-1px)}
+.btn-wa{
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+  background:#25d366;color:#fff;
+  padding:.68rem 1.2rem;border-radius:8px;
+  font-size:.82rem;font-weight:700;
+  transition:filter .2s;
+}
+.btn-wa:hover{filter:brightness(1.08)}
+.btn-wa svg,.btn-profile svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+
+/* ═══ BAND ═══ */
+.band{
+  background:var(--navy);padding:3.5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 90% at center,rgba(14,165,160,.1) 0%,transparent 70%);
+}
+.band-inner{position:relative;max-width:540px;margin:0 auto}
+.band-h{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:#fff;margin-bottom:.7rem}
+.band-p{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:1.5rem}
+.btn-band{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--teal);color:#fff;
+  padding:.8rem 2rem;border-radius:8px;
+  font-size:.88rem;font-weight:700;
+  box-shadow:0 4px 18px rgba(14,165,160,.35);
+  transition:filter .2s,transform .15s;
+}
+.btn-band:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+/* ═══ FOOTER ═══ */
+.footer{background:#0a1e30;padding:2rem 2rem 1.5rem}
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  padding-bottom:1.4rem;margin-bottom:1.2rem;
+}
+.footer-brand{display:flex;align-items:center;gap:.8rem}
+.footer-brand img{height:24px;filter:brightness(0) invert(1);opacity:.7}
+.footer-brand-text{font-size:.74rem;color:rgba(255,255,255,.4);line-height:1.6}
+.footer-bottom{
+  max-width:1100px;margin:0 auto;
+  font-size:.68rem;color:rgba(255,255,255,.25);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
+}
+
+/* ═══ WA FLOAT ═══ */
+.wa-float{
+  position:fixed;bottom:1.8rem;right:1.8rem;z-index:90;
+  width:50px;height:50px;border-radius:50%;
+  background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  transition:transform .15s,filter .2s;
+}
+.wa-float:hover{transform:scale(1.1);filter:brightness(1.08)}
+.wa-float svg{width:20px;height:20px;fill:#fff}
+
+/* ═══ REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.05s} .d2{transition-delay:.15s} .d3{transition-delay:.25s}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .colegas-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .colegas-grid{grid-template-columns:1fr}
+  .grid-wrap{padding:1rem 1.2rem 4rem}
+  .hero{padding-bottom:2.5rem}
+  .nav-label{display:none}
+  .nav-sep{display:none}
+  .expand-creds{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://mental.eutimya.org/" class="nav-brand" aria-label="Eutimya">
+      <img src="https://psiquiatra-cdmx.eutimya.org/eutimyafondoblanco.png" alt="Eutimya" height="28" loading="eager"/>
+      <span class="nav-sep"></span>
+      <span class="nav-label">Red de colegas</span>
+    </a>
+    <div class="nav-right">
+      <a href="https://mental.eutimya.org/" class="nav-back" aria-label="Regresar a Eutimya">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Regresar a Eutimya
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- WA float -->
+<a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20los%20colegas%20de%20Eutimya." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp Eutimya">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Eutimya · CDMX</p>
+  <h1 class="hero-h">Red de colegas<br/><em style="color:var(--teal)">de confianza</em></h1>
+  <p class="hero-sub">Psiquiatras con formación en el CMN "20 de Noviembre", ISSSTE–UNAM, a quienes referimos con plena confianza. Haz clic en cada tarjeta para conocer más.</p>
+  <span class="hero-ref">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    Referencia avalada por el equipo Eutimya
+  </span>
+</section>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="colegas-grid">
+
+    <!-- ─── CARD 1: Dr. Salvador ─── -->
+    <div class="card reveal d1" id="card-salvador" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
+      <div class="card-photo">
+        <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
+             alt="Dr. Salvador Josaet Cervantes Barriga — Psiquiatra Eutimya"
+             loading="lazy"/>
+        <div class="card-photo-overlay">
+          <span class="card-badge">Psiquiatra · Bioética</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Dr. Salvador Josaet<br/>Cervantes Barriga</h2>
+        <p class="card-role">Médico Especialista en Psiquiatría · CMN "20 de Noviembre" ISSSTE/UNAM · Docente de Bioética Clínica</p>
+        <div class="card-chips">
+          <span class="chip">CMN 20 Nov · UNAM</span>
+          <span class="chip">Bioética clínica</span>
+          <span class="chip">Infectología</span>
+          <span class="chip">ORCID verificado</span>
+        </div>
+        <div class="card-toggle">
+          <span>Ver perfil</span>
+          <span class="toggle-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-inner">
+          <div class="expand-section">
+            <p class="expand-label">Perfil</p>
+            <p class="expand-text">Psiquiatra egresado del CMN "20 de Noviembre" del ISSSTE con aval UNAM (2022–2026). Médico General egresado de la UABC. Docente titular de Bioética Clínica en la Universidad de Mexicali. Servicio social con plaza de investigación en el Dpto. de Infectología de la UABC, con participación en vigilancia epidemiológica fronteriza México–EE.UU.</p>
+          </div>
+          <div class="expand-section">
+            <p class="expand-label">Credenciales</p>
+            <div class="expand-creds">
+              <div class="cred-pill">
+                <div class="cred-pill-label">Cédula Especialidad</div>
+                <div class="cred-pill-value">15519360</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Cédula Profesional</div>
+                <div class="cred-pill-value">12081727</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">ORCID</div>
+                <div class="cred-pill-value" style="font-size:.7rem">0009-0009-4349-4091</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Institución</div>
+                <div class="cred-pill-value" style="font-size:.72rem">CMN "20 de Nov." · UNAM</div>
+              </div>
+            </div>
+          </div>
+          <div class="expand-section">
+            <p class="expand-label">Áreas de interés</p>
+            <p class="expand-text">Psiquiatría general · Psiquiatría de enlace · Bioética médica · Infectología · Epidemiología · Investigación clínica · Docencia médica · Urgencias psiquiátricas</p>
+          </div>
+          <div class="expand-actions" onclick="event.stopPropagation()">
+            <a href="https://mental.eutimya.org/salvador/" target="_blank" rel="noopener" class="btn-profile">
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              Ver perfil completo
+            </a>
+            <a href="https://wa.me/5216862403531?text=Hola%20Dr.%20Salvador%2C%20me%20comunicaron%20de%20parte%20del%20equipo%20Eutimya.%20Quisiera%20informaci%C3%B3n%20sobre%20consulta." target="_blank" rel="noopener" class="btn-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 2: Dra. Natalia ─── -->
+    <div class="card reveal d2" id="card-natalia" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
+      <div class="card-photo">
+        <img src="https://raw.githubusercontent.com/moymaa/eutimya/959ad882b940626515441bb74db5080d64274899/image.png"
+             alt="Dra. Natalia Brochet Castilla — Psiquiatra Paidopsiquiatría Eutimya"
+             loading="lazy"/>
+        <div class="card-photo-overlay">
+          <span class="card-badge">Psiquiatra · Paidopsiquiatría</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Dra. Natalia<br/>Brochet Castilla</h2>
+        <p class="card-role">Médico Psiquiatra · CMN "20 de Noviembre" UNAM · Paidopsiquiatría en formación · Maestría TCC</p>
+        <div class="card-chips">
+          <span class="chip">CMN 20 Nov · UNAM</span>
+          <span class="chip">Paidopsiquiatría</span>
+          <span class="chip">TCC · Maestría</span>
+          <span class="chip">Imagen corporal</span>
+        </div>
+        <div class="card-toggle">
+          <span>Ver perfil</span>
+          <span class="toggle-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-inner">
+          <div class="expand-section">
+            <p class="expand-label">Perfil</p>
+            <p class="expand-text">Psiquiatra egresada del CMN "20 de Noviembre", ISSSTE–UNAM (2022–2026), con formación en psiquiatría de adultos, psiquiatría de enlace y trastornos de la conducta alimentaria. Actualmente en formación como Paidopsiquiatra. Maestría en TCC (Centro de Psicoterapia Cognitiva). Certificación en imagen corporal por ASI México (2025). Representante de Residentes Extranjeros 2024–2025. Ponente en el 24.° Congreso Mundial de Psiquiatría. Médica graduada con honores de la Universidad del Rosario, Colombia.</p>
+          </div>
+          <div class="expand-section">
+            <p class="expand-label">Credenciales</p>
+            <div class="expand-creds">
+              <div class="cred-pill">
+                <div class="cred-pill-label">Egreso residencia</div>
+                <div class="cred-pill-value">2026</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Aval académico</div>
+                <div class="cred-pill-value" style="font-size:.72rem">ISSSTE · UNAM</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Publicaciones</div>
+                <div class="cred-pill-value">Innoscience Journal</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Congreso</div>
+                <div class="cred-pill-value" style="font-size:.68rem">WPA 2024 · Ponente</div>
+              </div>
+            </div>
+          </div>
+          <div class="expand-section">
+            <p class="expand-label">Áreas clínicas</p>
+            <p class="expand-text">Psiquiatría infanto-juvenil · TDAH · Trastornos alimentarios · Psicofarmacología · TCC · Psiquiatría de enlace · Terapia Gottman (parejas) · Imagen corporal</p>
+          </div>
+          <div class="expand-actions" onclick="event.stopPropagation()">
+            <a href="https://mental.eutimya.org/natalia" target="_blank" rel="noopener" class="btn-profile">
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              Ver perfil completo
+            </a>
+            <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20equipo%20Eutimya%20me%20comparti%C3%B3%20su%20perfil.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta.%20Muchas%20gracias." target="_blank" rel="noopener" class="btn-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 3: Dr. Alejandro ─── -->
+    <div class="card reveal d3" id="card-alejandro" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
+      <div class="card-photo">
+        <img src="https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpg?raw=true"
+             alt="Dr. Alejandro Salazar Rodríguez — Psiquiatra TCC CDMX"
+             loading="lazy"
+             onerror="this.src='https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpeg?raw=true'"/>
+        <div class="card-photo-overlay">
+          <span class="card-badge">Psiquiatra · TCC · ACT</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-name">Dr. Alejandro<br/>Salazar Rodríguez</h2>
+        <p class="card-role">Médico Psiquiatra · Maestría en TCC · CMN "20 de Noviembre" · Bilingüe ES/EN</p>
+        <div class="card-chips">
+          <span class="chip">CMN 20 Nov · UNAM</span>
+          <span class="chip">Maestría TCC</span>
+          <span class="chip">ACT · 3ª gen.</span>
+          <span class="chip">Bilingüe</span>
+        </div>
+        <div class="card-toggle">
+          <span>Ver perfil</span>
+          <span class="toggle-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-inner">
+          <div class="expand-section">
+            <p class="expand-label">Perfil</p>
+            <p class="expand-text">Psiquiatra con Maestría en Terapia Cognitivo-Conductual (TCC) y Diplomado en Terapias Contextuales de 3.ª generación (ACT). Formado en el CMN "20 de Noviembre" del ISSSTE con experiencia en psiquiatría de enlace, urgencias, psiquiatría infanto-juvenil y cuidados paliativos. Práctica bilingüe (español/inglés). Publicaciones en revistas europeas indexadas. Consultorio presencial en Del Valle Centro, CDMX.</p>
+          </div>
+          <div class="expand-section">
+            <p class="expand-label">Credenciales</p>
+            <div class="expand-creds">
+              <div class="cred-pill">
+                <div class="cred-pill-label">Cédula Profesional</div>
+                <div class="cred-pill-value">15145882</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Cédula Especialidad</div>
+                <div class="cred-pill-value">12195155</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Publicación</div>
+                <div class="cred-pill-value" style="font-size:.68rem">European Psychiatry 2024</div>
+              </div>
+              <div class="cred-pill">
+                <div class="cred-pill-label">Reseñas Doctoralia</div>
+                <div class="cred-pill-value">46 verificadas ★★★★★</div>
+              </div>
+            </div>
+          </div>
+          <div class="expand-section">
+            <p class="expand-label">Áreas clínicas</p>
+            <p class="expand-text">Depresión · Ansiedad · TDAH · TCC · ACT · Psiquiatría de enlace · Psiquiatría infanto-juvenil · Cuidados paliativos · Consulta en inglés · Certificado ESA · Del Valle Centro CDMX</p>
+          </div>
+          <div class="expand-actions" onclick="event.stopPropagation()">
+            <a href="https://www.salazarpsiq.com/" target="_blank" rel="noopener" class="btn-profile">
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              Ver perfil completo
+            </a>
+            <a href="https://wa.me/525548687128?text=Hola%20Dr.%20Alejandro%2C%20el%20equipo%20Eutimya%20me%20comparti%C3%B3%20su%20perfil.%20Me%20gustar%C3%ADa%20informes%20para%20agendar%20consulta." target="_blank" rel="noopener" class="btn-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</div><!-- /grid-wrap -->
+
+<!-- BAND -->
+<div class="band">
+  <div class="band-inner">
+    <h2 class="band-h">¿Buscas atención en Eutimya?</h2>
+    <p class="band-p">Para consultas con el Dr. Moya Sánchez o la Dra. Sharon Venecia, visita el sitio principal y agenda directamente.</p>
+    <a href="https://mental.eutimya.org/#agendar" class="btn-band">
+      Agendar en Eutimya →
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://psiquiatra-cdmx.eutimya.org/eutimyafondoblanco.png" alt="Eutimya" loading="lazy"/>
+      <div class="footer-brand-text">
+        Red de colegas de confianza · Eutimya<br/>
+        Psiquiatría privada · Del Valle Sur, CDMX
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Eutimya · Página de referencia</span>
+    <span>mental.eutimya.org/colegas</span>
+  </div>
+</footer>
+
+<script>
+// ── Toggle card expand ──────────────────────────────────────
+function toggleCard(card){
+  var wasOpen = card.classList.contains('open');
+  // Cierra todos
+  document.querySelectorAll('.card.open').forEach(function(c){
+    c.classList.remove('open');
+    c.setAttribute('aria-expanded','false');
+  });
+  // Si no estaba abierto, abre este
+  if(!wasOpen){
+    card.classList.add('open');
+    card.setAttribute('aria-expanded','true');
+    // Scroll suave para que el panel sea visible
+    setTimeout(function(){
+      var rect = card.getBoundingClientRect();
+      var offset = rect.top + window.scrollY - 80;
+      if(rect.top < 90) window.scrollTo({top: offset, behavior:'smooth'});
+    }, 80);
+  }
+}
+
+// ── Keyboard accessibility ──────────────────────────────────
+document.querySelectorAll('.card').forEach(function(card){
+  card.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      toggleCard(card);
+    }
+  });
+});
+
+// ── Scroll reveal ───────────────────────────────────────────
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
+    });
+  },{threshold:.1});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
