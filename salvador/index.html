@@ -3,21 +3,24 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Dr. Salvador Cervantes Barriga · Psiquiatra · Paidopsiquiatría · Eutimya</title>
-<meta name="description" content="Dr. Salvador Josaet Cervantes Barriga. Psiquiatra egresado CMN 20 de Noviembre ISSSTE/UNAM. Subespecialidad en Paidopsiquiatría. TCC. Ponente WPA 2024. Cédula especialidad 15519360. Agenda por WhatsApp."/>
+<title>Dr. Salvador Cervantes Barriga · Psiquiatra · Paidopsiquiatría · Bioética · Eutimya</title>
+<meta name="description" content="Dr. Salvador Josaet Cervantes Barriga. Psiquiatra egresado CMN 20 de Noviembre ISSSTE/UNAM. Subespecialidad en Paidopsiquiatría. TCC. Bioética clínica. Ponente WPA 2024. Cédula especialidad 15519360. Agenda por WhatsApp."/>
 <meta name="author" content="Dr. Salvador Josaet Cervantes Barriga"/>
 <meta name="robots" content="index,follow"/>
 <meta name="GPTBot" content="index, follow"/>
 <meta name="ClaudeBot" content="index, follow"/>
 <link rel="author" href="https://orcid.org/0009-0009-4349-4091"/>
 <link rel="canonical" href="https://mental.eutimya.org/salvador/"/>
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="https://psiquiatra-cdmx.eutimya.org/favicon.png"/>
+<link rel="apple-touch-icon" href="https://psiquiatra-cdmx.eutimya.org/favicon.png"/>
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content="https://mental.eutimya.org/salvador/"/>
-<meta property="og:title" content="Dr. Salvador Cervantes Barriga · Psiquiatra · Paidopsiquiatría · Eutimya"/>
-<meta property="og:description" content="Psiquiatra egresado CMN 20 de Noviembre ISSSTE/UNAM. Subespecialidad Paidopsiquiatría. TCC. Ponente WPA CDMX 2024."/>
+<meta property="og:title" content="Dr. Salvador Cervantes Barriga · Psiquiatra · Paidopsiquiatría · Bioética · Eutimya"/>
+<meta property="og:description" content="Psiquiatra egresado CMN 20 de Noviembre ISSSTE/UNAM. Subespecialidad Paidopsiquiatría. TCC. Bioética clínica. Ponente WPA CDMX 2024."/>
 <meta property="og:image" content="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Dr. Salvador Cervantes Barriga · Psiquiatra · Eutimya"/>
+<meta name="twitter:title" content="Dr. Salvador Cervantes Barriga · Psiquiatra · Paidopsiquiatría · Bioética · Eutimya"/>
 <meta name="twitter:image" content="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -29,8 +32,8 @@
   "@id":"https://mental.eutimya.org/salvador/#physician",
   "name":"Dr. Salvador Josaet Cervantes Barriga",
   "honorificPrefix":"Dr.",
-  "jobTitle":"Médico Especialista en Psiquiatría · Subespecialidad en Paidopsiquiatría · CMN 20 de Noviembre, ISSSTE/UNAM",
-  "description":"Psiquiatra egresado del CMN 20 de Noviembre, ISSSTE/UNAM. Subespecialidad en Psiquiatría Infantil y de la Adolescencia en formación. Maestría en TCC. Ponente en el 24° Congreso Mundial de Psiquiatría (WPA 2024). Publicaciones en revistas indexadas. Cédula de Especialidad 15519360.",
+  "jobTitle":"Médico Especialista en Psiquiatría · Subespecialidad en Paidopsiquiatría · Bioética Clínica · CMN 20 de Noviembre, ISSSTE/UNAM",
+  "description":"Psiquiatra egresado del CMN 20 de Noviembre, ISSSTE/UNAM. Subespecialidad en Psiquiatría Infantil y de la Adolescencia en formación. Maestría en TCC. Docente de Bioética Clínica. Ponente en el 24° Congreso Mundial de Psiquiatría (WPA 2024). Publicaciones en revistas indexadas. Cédula de Especialidad 15519360.",
   "image":"https://mental.eutimya.org/salvador/perfildrsalvador.jpeg",
   "url":"https://mental.eutimya.org/salvador/",
   "telephone":"+52-686-240-3531",
@@ -60,6 +63,7 @@
   --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
   --apple-ease:cubic-bezier(.25,.1,.25,1);
   --teal:#0EA5A0;--navy:#0F2942;
+  --bio:#5B3E8A;--bio-pale:rgba(91,62,138,.08);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -82,7 +86,14 @@ img{display:block;max-width:100%}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1.2rem}
 .hero-tag span{display:inline-block;width:22px;height:1.5px;background:var(--teal)}
 .hero-name{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:.8rem}
-.hero-role{font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.6rem}
+.hero-role{font-size:.9rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem}
+/* specialty pills row */
+.hero-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.4rem}
+.hero-pill{display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:700;letter-spacing:.04em;border-radius:100px;padding:.28rem .8rem}
+.hero-pill.paido{background:rgba(14,165,160,.1);color:var(--teal);border:1px solid rgba(14,165,160,.25)}
+.hero-pill.bio{background:var(--bio-pale);color:var(--bio);border:1px solid rgba(91,62,138,.2)}
+.hero-pill.tcc{background:var(--gold-pale);color:var(--gold);border:1px solid rgba(184,137,58,.25)}
+.hero-pill.wpa{background:rgba(29,29,31,.06);color:var(--ink);border:1px solid var(--rule)}
 .hero-desc{font-size:.9rem;color:var(--ink-mid);line-height:1.85;margin-bottom:2rem}
 .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}
 .btn-main{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:#fff;padding:.75rem 1.6rem;border-radius:980px;font-size:.84rem;font-weight:700;transition:filter .2s,transform .2s}
@@ -102,10 +113,23 @@ img{display:block;max-width:100%}
 .section-sub{font-size:.92rem;color:var(--ink-mid);line-height:1.75;max-width:62ch}
 /* STATS */
 .stats-bar{background:var(--ink);padding:2rem 0}
-.stats-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.stat-item{text-align:center;padding:1rem}
-.stat-num{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:#fff;line-height:1}
-.stat-label{font-size:.69rem;font-weight:500;color:rgba(255,255,255,.52);margin-top:.35rem;letter-spacing:.04em;text-transform:uppercase}
+.stats-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.stat-item{text-align:center;padding:.8rem}
+.stat-num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:#fff;line-height:1}
+.stat-num.accent-teal{color:var(--teal)}
+.stat-num.accent-gold{color:var(--gold)}
+.stat-num.accent-bio{color:#b89fd4}
+.stat-label{font-size:.67rem;font-weight:500;color:rgba(255,255,255,.5);margin-top:.35rem;letter-spacing:.04em;text-transform:uppercase}
+/* SPECIALTY BANNER */
+.specialty-banner{background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);padding:2.5rem 0;border-top:1px solid rgba(255,255,255,.05)}
+.specialty-banner-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.spec-item{display:flex;gap:1rem;align-items:flex-start}
+.spec-icon-wrap{width:46px;height:46px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.spec-icon-wrap.teal{background:rgba(14,165,160,.15);border:1px solid rgba(14,165,160,.3)}
+.spec-icon-wrap.bio{background:rgba(91,62,138,.2);border:1px solid rgba(91,62,138,.3)}
+.spec-icon-wrap.gold{background:rgba(184,137,58,.15);border:1px solid rgba(184,137,58,.3)}
+.spec-title{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.spec-sub{font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.45}
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2.5rem}
 .about-text p{font-size:.92rem;color:var(--ink-mid);line-height:1.85;margin-bottom:1rem}
@@ -123,10 +147,15 @@ img{display:block;max-width:100%}
 .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:2.5rem}
 .svc-card{border:1px solid var(--rule);border-radius:var(--r);padding:1.6rem;background:#fff;transition:box-shadow .2s,transform .2s}
 .svc-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.svc-card.featured-paido{border-color:rgba(14,165,160,.35);background:linear-gradient(135deg,rgba(14,165,160,.04) 0%,#fff 60%)}
+.svc-card.featured-bio{border-color:rgba(91,62,138,.3);background:linear-gradient(135deg,var(--bio-pale) 0%,#fff 60%)}
 .svc-icon{font-size:1.5rem;margin-bottom:.8rem}
 .svc-title{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.4rem}
 .svc-desc{font-size:.82rem;color:var(--ink-mid);line-height:1.6}
-.svc-badge{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--gold-pale);color:var(--gold);border-radius:4px;padding:.18rem .55rem;margin-bottom:.65rem}
+.svc-badge{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:.18rem .55rem;margin-bottom:.65rem}
+.svc-badge.gold{background:var(--gold-pale);color:var(--gold)}
+.svc-badge.teal{background:rgba(14,165,160,.1);color:var(--teal)}
+.svc-badge.bio{background:var(--bio-pale);color:var(--bio)}
 /* TIMELINE */
 .timeline{margin-top:2rem;display:flex;flex-direction:column;gap:0}
 .tl-item{display:flex;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--rule)}
@@ -134,11 +163,13 @@ img{display:block;max-width:100%}
 .tl-dot-col{display:flex;flex-direction:column;align-items:center;padding-top:.35rem}
 .tl-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0}
 .tl-dot.teal{background:var(--teal)}
+.tl-dot.bio{background:var(--bio)}
 .tl-line{flex:1;width:1px;background:var(--rule);margin-top:6px}
 .tl-year{font-size:.72rem;font-weight:700;color:var(--ink-light);white-space:nowrap;padding-top:.3rem;min-width:95px}
 .tl-content{flex:1}
 .tl-title{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
 .tl-place{font-size:.82rem;color:var(--teal);font-weight:600;margin-bottom:.3rem}
+.tl-place.bio{color:var(--bio)}
 .tl-desc{font-size:.82rem;color:var(--ink-mid);line-height:1.55}
 /* PUBS */
 .pub-card{border:1px solid var(--rule);border-radius:var(--r);padding:1.5rem 1.7rem;background:#fff;margin-top:1.2rem;transition:box-shadow .2s,transform .2s}
@@ -193,16 +224,17 @@ img{display:block;max-width:100%}
 .hero-left>*{opacity:0;transform:translateY(20px);animation:fadeUp .65s ease forwards}
 .hero-left>*:nth-child(1){animation-delay:.05s}
 .hero-left>*:nth-child(2){animation-delay:.15s}
-.hero-left>*:nth-child(3){animation-delay:.25s}
-.hero-left>*:nth-child(4){animation-delay:.35s}
-.hero-left>*:nth-child(5){animation-delay:.45s}
+.hero-left>*:nth-child(3){animation-delay:.22s}
+.hero-left>*:nth-child(4){animation-delay:.3s}
+.hero-left>*:nth-child(5){animation-delay:.38s}
+.hero-left>*:nth-child(6){animation-delay:.46s}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 .hero-right{clip-path:inset(100% 0 0 0);animation:revealDown .75s cubic-bezier(.25,.8,.25,1) .1s forwards}
 @keyframes revealDown{to{clip-path:inset(0% 0 0 0)}}
 .scroll-reveal{opacity:0;transform:translateY(24px);transition:opacity .55s var(--apple-ease),transform .55s var(--apple-ease)}
 .scroll-reveal.visible{opacity:1;transform:translateY(0)}
 /* RESPONSIVE */
-@media(max-width:1024px){.hero{grid-template-columns:1fr 380px}.about-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:1024px){.hero{grid-template-columns:1fr 380px}.about-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr 1fr}.stats-inner{grid-template-columns:repeat(3,1fr)}.specialty-banner-inner{grid-template-columns:1fr}}
 @media(max-width:768px){
   .hero{display:block;padding-top:64px;min-height:0}.hero-left{display:none!important}
   .hero-right{position:relative;height:calc(100svh - 64px);min-height:480px}
@@ -210,9 +242,13 @@ img{display:block;max-width:100%}
   .hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(15,41,66,1) 0%,rgba(15,41,66,.82) 28%,rgba(15,41,66,.35) 58%,transparent 85%);z-index:1}
   .hero-right-overlay,.hero-right-bottom{display:none}
   .hero-mobile{display:flex!important;flex-direction:column;justify-content:flex-end;position:absolute;inset:0;z-index:2;padding:0 1.5rem 2.2rem}
-  .hm-tag{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.68);margin-bottom:.75rem}
-  .hm-name{font-family:var(--serif);font-size:clamp(2.2rem,9vw,3rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:.65rem}
-  .hm-role{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:1.1rem}
+  .hm-tag{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.68);margin-bottom:.6rem}
+  .hm-name{font-family:var(--serif);font-size:clamp(2.2rem,9vw,3rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:.5rem}
+  .hm-role{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:.65rem}
+  .hm-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+  .hm-pill{font-size:.64rem;font-weight:700;border-radius:100px;padding:.2rem .65rem}
+  .hm-pill.paido{background:rgba(14,165,160,.25);color:rgba(255,255,255,.9);border:1px solid rgba(14,165,160,.4)}
+  .hm-pill.bio{background:rgba(91,62,138,.3);color:rgba(255,255,255,.9);border:1px solid rgba(91,62,138,.4)}
   .hm-actions{display:flex;gap:.65rem}
   .hm-btn-wa{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;background:#25D366;color:#fff;padding:.72rem 1.1rem;border-radius:980px;font-size:.8rem;font-weight:700}
   .hm-btn-mail{display:flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid rgba(255,255,255,.2);color:#fff;padding:.72rem 1.1rem;border-radius:980px;font-size:.8rem;font-weight:600;backdrop-filter:blur(8px);background:rgba(15,41,66,.35)}
@@ -242,10 +278,19 @@ img{display:block;max-width:100%}
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-left">
-    <span class="hero-tag"><span></span>Psiquiatra · Paidopsiquiatría · TCC · Eutimya</span>
+    <span class="hero-tag"><span></span>Psiquiatra · Paidopsiquiatría · Bioética · Eutimya</span>
     <h1 class="hero-name">Dr. Salvador Josaet<br/>Cervantes Barriga</h1>
-    <p class="hero-role">Médico Especialista en Psiquiatría · CMN "20 de Noviembre" ISSSTE/UNAM · Subespecialidad en Paidopsiquiatría · Maestría en TCC · Ponente WPA 2024</p>
-    <p class="hero-desc">Psiquiatra egresado del Centro Médico Nacional "20 de Noviembre" del ISSSTE, con aval de la UNAM. Actualmente en formación en la subespecialidad de <strong>Psiquiatría Infantil y de la Adolescencia</strong> y en la Maestría en TCC. Ponente en el 24.° Congreso Mundial de Psiquiatría (WPA 2024, CDMX). Publicaciones en revistas indexadas. Colaborador de <strong>Eutimya · Salud Mental</strong>.</p>
+    <p class="hero-role">Médico Especialista en Psiquiatría · CMN "20 de Noviembre" ISSSTE/UNAM</p>
+
+    <!-- Specialty pills — visually prominent -->
+    <div class="hero-pills">
+      <span class="hero-pill paido">🧒 Paidopsiquiatría</span>
+      <span class="hero-pill bio">⚖️ Bioética Clínica</span>
+      <span class="hero-pill tcc">🧠 TCC</span>
+      <span class="hero-pill wpa">🌎 WPA 2024</span>
+    </div>
+
+    <p class="hero-desc">Psiquiatra egresado del Centro Médico Nacional "20 de Noviembre" del ISSSTE/UNAM, con <strong>subespecialidad en Psiquiatría Infantil y de la Adolescencia (Paidopsiquiatría)</strong>. Maestría en TCC en curso. <strong>Docente titular de Bioética Clínica</strong> (Universidad de Mexicali) desde 2020. Ponente en el 24.° Congreso Mundial de Psiquiatría (WPA 2024, CDMX). Colaborador de <strong>Eutimya · Salud Mental</strong>.</p>
     <div class="hero-actions">
       <a href="https://wa.me/5216862403531?text=Hola%20Dr.%20Salvador%2C%20quiero%20información%20sobre%20la%20consulta." class="btn-wa" target="_blank" rel="noopener">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -258,9 +303,13 @@ img{display:block;max-width:100%}
     </div>
   </div>
   <div class="hero-mobile" aria-hidden="true">
-    <div class="hm-tag">Psiquiatra · Paidopsiquiatría · WPA 2024 · Eutimya</div>
+    <div class="hm-tag">Psiquiatra · CMN 20 Nov ISSSTE/UNAM · WPA 2024 · Eutimya</div>
     <div class="hm-name">Dr. Salvador<br/>Cervantes Barriga</div>
-    <div class="hm-role">Psiquiatra · CMN 20 Nov ISSSTE/UNAM · Paidopsiquiatría · TCC</div>
+    <div class="hm-role">Médico Especialista en Psiquiatría</div>
+    <div class="hm-pills">
+      <span class="hm-pill paido">🧒 Paidopsiquiatría</span>
+      <span class="hm-pill bio">⚖️ Bioética Clínica</span>
+    </div>
     <div class="hm-actions">
       <a href="https://wa.me/5216862403531?text=Hola%20Dr.%20Salvador%2C%20quiero%20información%20sobre%20la%20consulta." class="hm-btn-wa" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -270,7 +319,7 @@ img{display:block;max-width:100%}
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg" alt="Dr. Salvador Josaet Cervantes Barriga — Psiquiatra Eutimya" loading="eager"/>
+    <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg" alt="Dr. Salvador Josaet Cervantes Barriga — Psiquiatra Paidopsiquiatra Eutimya" loading="eager"/>
     <div class="hero-right-overlay"></div>
     <div class="hero-right-bottom"></div>
   </div>
@@ -279,10 +328,38 @@ img{display:block;max-width:100%}
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num">WPA 2024</div><div class="stat-label">Congreso Mundial Psiquiatría</div></div>
+    <div class="stat-item"><div class="stat-num accent-teal">Paidopsiquiatría</div><div class="stat-label">Subespecialidad en formación</div></div>
+    <div class="stat-item"><div class="stat-num accent-bio">Bioética</div><div class="stat-label">Docente Titular desde 2020</div></div>
+    <div class="stat-item"><div class="stat-num accent-gold">WPA 2024</div><div class="stat-label">Congreso Mundial Psiquiatría</div></div>
     <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Publicaciones / Congresos</div></div>
-    <div class="stat-item"><div class="stat-num">15519360</div><div class="stat-label">Cédula Especialidad</div></div>
     <div class="stat-item"><div class="stat-num">UNAM</div><div class="stat-label">CMN "20 de Noviembre"</div></div>
+  </div>
+</div>
+
+<!-- SPECIALTY BANNER -->
+<div class="specialty-banner">
+  <div class="specialty-banner-inner">
+    <div class="spec-item">
+      <div class="spec-icon-wrap teal">🧒</div>
+      <div>
+        <div class="spec-title">Psiquiatría Infantil y de la Adolescencia</div>
+        <div class="spec-sub">Subespecialidad (Paidopsiquiatría) en formación · Trastornos del neurodesarrollo, TEA, TDAH, salud mental infanto-juvenil</div>
+      </div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-icon-wrap bio">⚖️</div>
+      <div>
+        <div class="spec-title">Bioética Clínica</div>
+        <div class="spec-sub">Docente Titular · Universidad de Mexicali · Carrera de Odontología · Desde 2020 · Ciencias de la salud</div>
+      </div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-icon-wrap gold">🧠</div>
+      <div>
+        <div class="spec-title">Terapia Cognitivo-Conductual</div>
+        <div class="spec-sub">Maestría en TCC en curso · Centro de Psicoterapia Cognitiva · Diplomado concluido</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -294,8 +371,8 @@ img{display:block;max-width:100%}
     <div class="about-grid">
       <div class="about-text scroll-reveal">
         <p>El <strong>Dr. Salvador Josaet Cervantes Barriga</strong> es Médico Especialista en Psiquiatría egresado del Centro Médico Nacional "20 de Noviembre" del ISSSTE, con aval académico de la UNAM. Su formación psiquiátrica incluye psiquiatría de adultos e intrahospitalaria, con experiencia en evaluación e interconsulta en contexto hospitalario.</p>
-        <p>Actualmente cursa la <strong>subespecialidad en Psiquiatría Infantil y de la Adolescencia (Paidopsiquiatría)</strong> y la <strong>Maestría en Terapia Cognitivo-Conductual</strong> en el Centro de Psicoterapia Cognitiva (inicio enero 2024), con Diplomado en TCC previamente concluido.</p>
-        <p>Ha participado como ponente en el <strong>24.° Congreso Mundial de Psiquiatría (WPA 2024, Ciudad de México)</strong>, con presentación oral sobre encefalitis anti-NMDA y cartel sobre psicosis inducida por esteroides. Cuenta con publicaciones como primer autor y coautor en revistas indexadas, incluyendo colaboración con el equipo del CMN "20 de Noviembre" en investigación sobre tDCS en depresión mayor (Cureus, 2024).</p>
+        <p>Actualmente cursa la <strong>subespecialidad en Psiquiatría Infantil y de la Adolescencia (Paidopsiquiatría)</strong>, con enfoque en trastornos del neurodesarrollo, TEA, TDAH y salud mental infanto-juvenil, así como la <strong>Maestría en Terapia Cognitivo-Conductual</strong> en el Centro de Psicoterapia Cognitiva (enero 2024–presente).</p>
+        <p>Es <strong>Docente Titular de Bioética Clínica</strong> en la Universidad de Mexicali para la carrera de Odontología desde 2020, integrando la dimensión ética al ejercicio de las ciencias de la salud. Ha participado como ponente en el <strong>24.° Congreso Mundial de Psiquiatría (WPA 2024, Ciudad de México)</strong>, con presentación oral sobre encefalitis anti-NMDA y cartel sobre psicosis inducida por esteroides. Cuenta con publicaciones como primer autor y coautor en revistas indexadas.</p>
         <div class="dark-block">
           <div class="dark-label">🏛️ CMN "20 de Noviembre" · ISSSTE / UNAM</div>
           <div class="dark-h3">Sede de alta especialidad</div>
@@ -304,6 +381,8 @@ img{display:block;max-width:100%}
             <span class="dark-pill">🏥 CMN "20 de Noviembre"</span>
             <span class="dark-pill">🎓 UNAM / ISSSTE</span>
             <span class="dark-pill">🏅 #4 México · Newsweek 2026</span>
+            <span class="dark-pill">🧒 Paidopsiquiatría</span>
+            <span class="dark-pill">⚖️ Bioética Clínica</span>
             <span class="dark-pill">🌎 WPA 2024 Ponente</span>
             <span class="dark-pill">📄 Publicaciones indexadas</span>
           </div>
@@ -330,16 +409,16 @@ img{display:block;max-width:100%}
             <div class="cred-sub">Identificador investigador</div>
             <a href="https://orcid.org/0009-0009-4349-4091" target="_blank" rel="noopener" class="cred-verify">Ver perfil ORCID</a>
           </div>
-          <div class="cred-card">
-            <div class="cred-label">En formación</div>
-            <div class="cred-value" style="font-size:.82rem">Paidopsiquiatría</div>
-            <div class="cred-sub">Subespecialidad Psiquiatría Infantil y de la Adolescencia</div>
+          <div class="cred-card" style="border-color:rgba(91,62,138,.25);background:var(--bio-pale)">
+            <div class="cred-label" style="color:var(--bio)">Docencia activa</div>
+            <div class="cred-value" style="font-size:.82rem;color:var(--bio)">Bioética Clínica</div>
+            <div class="cred-sub">Docente Titular · Univ. de Mexicali · Desde 2020</div>
           </div>
         </div>
         <div style="margin-top:1.5rem">
           <p class="eyebrow" style="margin-bottom:.8rem">Formación adicional</p>
           <div class="chip-row">
-            <span class="chip">Diplomado TCC</span><span class="chip">Maestría en TCC</span><span class="chip">Paidopsiquiatría</span><span class="chip">Psiquiatría de Enlace</span><span class="chip">Investigación clínica</span><span class="chip">Inglés B2</span><span class="chip">Bioética clínica</span>
+            <span class="chip">Paidopsiquiatría</span><span class="chip">Bioética Clínica</span><span class="chip">Diplomado TCC</span><span class="chip">Maestría en TCC</span><span class="chip">Psiquiatría de Enlace</span><span class="chip">Investigación clínica</span><span class="chip">Inglés B2</span>
           </div>
         </div>
       </div>
@@ -352,32 +431,46 @@ img{display:block;max-width:100%}
   <div class="wrap">
     <p class="eyebrow scroll-reveal">Especialidades y enfoque clínico</p>
     <h2 class="section-h scroll-reveal">Áreas de atención</h2>
-    <p class="section-sub scroll-reveal">Formación en psiquiatría general con orientación creciente hacia psiquiatría infantil, psicofarmacología, TCC y enlace hospitalario.</p>
+    <p class="section-sub scroll-reveal">Psiquiatría general con orientación hacia psiquiatría infantil, paidopsiquiatría, bioética clínica, psicofarmacología, TCC y enlace hospitalario.</p>
     <div class="services-grid">
-      <div class="svc-card scroll-reveal">
+
+      <!-- PAIDOPSIQUIATRÍA — featured -->
+      <div class="svc-card featured-paido scroll-reveal">
         <div class="svc-icon">🧒</div>
-        <div class="svc-badge">Subespecialidad en formación</div>
+        <div class="svc-badge teal">Subespecialidad en formación</div>
         <div class="svc-title">Psiquiatría Infantil y de la Adolescencia</div>
-        <div class="svc-desc">Evaluación y tratamiento de trastornos mentales en niños y adolescentes. En formación en Paidopsiquiatría. Experiencia en trastornos del neurodesarrollo, TEA, trastornos del sueño en infancia y comorbilidades psiquiátricas pediátricas.</div>
+        <div class="svc-desc">Evaluación y tratamiento de trastornos mentales en niños y adolescentes. Formación en Paidopsiquiatría con enfoque en trastornos del neurodesarrollo, TEA, TDAH, trastornos del sueño en infancia y comorbilidades psiquiátricas pediátricas. Atención integral al paciente y su familia.</div>
       </div>
+
+      <!-- BIOÉTICA — featured -->
+      <div class="svc-card featured-bio scroll-reveal">
+        <div class="svc-icon">⚖️</div>
+        <div class="svc-badge bio">Docente Titular desde 2020</div>
+        <div class="svc-title">Bioética Clínica</div>
+        <div class="svc-desc">Docente Titular de Bioética Clínica en la Universidad de Mexicali (Carrera de Odontología). Integración de principios éticos en la práctica clínica: autonomía, beneficencia, no maleficencia y justicia. Orientación bioética en la consulta psiquiátrica, consentimiento informado y toma de decisiones compartida.</div>
+      </div>
+
       <div class="svc-card scroll-reveal">
         <div class="svc-icon">💊</div>
-        <div class="svc-badge">Adultos y población infantil</div>
+        <div class="svc-badge gold">Adultos y población infantil</div>
         <div class="svc-title">Psicofarmacología</div>
         <div class="svc-desc">Valoración diagnóstica y diagnóstico diferencial conforme a DSM-5 y CIE-10. Prescripción y monitoreo de tratamiento psicofarmacológico en adultos y niños. Formación en el CMN "20 de Noviembre".</div>
       </div>
+
       <div class="svc-card scroll-reveal">
         <div class="svc-icon">🧠</div>
-        <div class="svc-badge">Maestría en curso</div>
+        <div class="svc-badge gold">Maestría en curso</div>
         <div class="svc-title">Terapia Cognitivo-Conductual</div>
         <div class="svc-desc">Diplomado en TCC concluido. Maestría en TCC en el Centro de Psicoterapia Cognitiva (enero 2024–presente). Planes de tratamiento estructurados: reestructuración cognitiva, experimentos conductuales y prevención de recaídas.</div>
       </div>
-      <div class="svc-card scroll-reveal">
+
+      <div class="svc-card scroll-reveal" style="grid-column:1/-1">
         <div class="svc-icon">🏥</div>
-        <div class="svc-badge">Contexto hospitalario</div>
+        <div class="svc-badge gold">Contexto hospitalario</div>
         <div class="svc-title">Psiquiatría de Enlace</div>
         <div class="svc-desc">Experiencia en evaluación psiquiátrica mediante interconsulta hospitalaria en el CMN "20 de Noviembre". Diagnóstico y manejo de comorbilidades psiquiátricas en enfermedades médicas, en coordinación con equipos interdisciplinarios.</div>
       </div>
+
     </div>
   </div>
 </section>
@@ -417,11 +510,11 @@ img{display:block;max-width:100%}
       </div>
       <div class="tl-item scroll-reveal">
         <div class="tl-year">2020 – actual</div>
-        <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot bio"></div><div class="tl-line"></div></div>
         <div class="tl-content">
           <div class="tl-title">Docente Titular — Bioética Clínica</div>
-          <div class="tl-place">Universidad de Mexicali · Carrera de Odontología</div>
-          <div class="tl-desc">Profesor de bioética clínica para ciencias de la salud.</div>
+          <div class="tl-place bio">Universidad de Mexicali · Carrera de Odontología</div>
+          <div class="tl-desc">Profesor de bioética clínica para ciencias de la salud. Formación en principios éticos, consentimiento informado y dilemas clínicos aplicados al ejercicio de la odontología y las profesiones sanitarias.</div>
         </div>
       </div>
       <div class="tl-item scroll-reveal">
@@ -572,7 +665,7 @@ img{display:block;max-width:100%}
   <div class="footer-inner">
     <div>
       <div class="footer-brand">Dr. Salvador Cervantes Barriga</div>
-      <div class="footer-sub">Médico Especialista en Psiquiatría<br/>CMN "20 de Noviembre" · ISSSTE/UNAM<br/>Cédula Especialidad 15519360 · ORCID 0009-0009-4349-4091</div>
+      <div class="footer-sub">Médico Especialista en Psiquiatría<br/>Paidopsiquiatría · Bioética Clínica · TCC<br/>CMN "20 de Noviembre" · ISSSTE/UNAM<br/>Cédula Especialidad 15519360 · ORCID 0009-0009-4349-4091</div>
     </div>
     <div>
       <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.8rem">Verificación</div>
@@ -593,7 +686,7 @@ img{display:block;max-width:100%}
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Dr. Salvador Josaet Cervantes Barriga · Eutimya · Todos los derechos reservados</span>
+    <span class="footer-copy">© 2026 Dr. Salvador Josaet Cervantes Barriga · Psiquiatra · Paidopsiquiatría · Bioética · Eutimya</span>
     <span class="footer-copy">Cédula Prof. 12081727 · Especialidad 15519360</span>
   </div>
 </footer>
