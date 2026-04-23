@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" href="https://psiquiatra-cdmx.eutimya.org/favicon.png" type="image/png"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>La relación entre la soledad y la depresión: cómo romper el ciclo · Eutimya</title>
+<meta name="description" content="La soledad prolongada incrementa hasta cinco veces el riesgo de desarrollar depresión. Aprende cómo la rumiación refuerza este ciclo y qué estrategias existen para romperlo."/>
+<link rel="canonical" href="https://mental.eutimya.org/blog/soledad-depresion"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://mental.eutimya.org/blog/soledad-depresion"/>
+<meta property="og:title" content="La relación entre la soledad y la depresión: cómo romper el ciclo · Eutimya"/>
+<meta property="og:description" content="La soledad prolongada incrementa hasta cinco veces el riesgo de desarrollar depresión. Estrategias basadas en evidencia para romper el ciclo."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=1200&q=85&auto=format&fit=crop"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"La relación entre la soledad y la depresión: cómo romper el ciclo",
+  "description":"La soledad prolongada incrementa hasta cinco veces el riesgo de desarrollar depresión.",
+  "author":{"@type":"Person","name":"Dr. Deldhy Nicolás Moya Sánchez","url":"https://psiquiatra-cdmx.eutimya.org/"},
+  "publisher":{"@type":"Organization","name":"Eutimya","url":"https://mental.eutimya.org/"},
+  "datePublished":"2025-03-10",
+  "image":"https://images.unsplash.com/photo-1541199249251-f713e6145474?w=1200&q=85",
+  "mainEntityOfPage":"https://mental.eutimya.org/blog/soledad-depresion"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --ink: #0d1b2a;
+  --ink-mid: #334155;
+  --ink-light: #64748b;
+  --gold: #b8893a;
+  --gold-pale: #f5ecd7;
+  --white: #ffffff;
+  --canvas: #fafaf8;
+  --rule: #e8e6e1;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --shadow: 0 2px 12px rgba(13,27,42,.07);
+  --shadow-lg: 0 8px 40px rgba(13,27,42,.12);
+  --r: 10px;
+  --max-prose: 680px;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem 2rem; gap: 1rem;
+}
+.nav-logo img { height: 30px; width: auto; }
+.nav-links { display: flex; gap: 1.8rem; list-style: none; }
+.nav-links a {
+  font-size: .78rem; font-weight: 500; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-mid); transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--ink); color: #fff;
+  padding: .5rem 1.2rem; border-radius: 980px;
+  font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; white-space: nowrap;
+  transition: background .2s;
+}
+.nav-btn:hover { background: #000; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+.mobile-nav {
+  display: none; position: fixed; top: 60px; left: 0; right: 0;
+  background: rgba(255,255,255,.96); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.2rem 2rem; z-index: 99;
+  box-shadow: 0 20px 60px rgba(0,0,0,.12);
+}
+.mobile-nav.open { display: block; }
+.mobile-nav ul { list-style: none; }
+.mobile-nav li { padding: .65rem 0; border-bottom: 1px solid var(--rule); }
+.mobile-nav li:last-child { border: none; }
+.mobile-nav a { font-size: .95rem; font-weight: 500; color: var(--ink); }
+
+/* ── HERO / COVER ── */
+.article-cover {
+  margin-top: 60px;
+  position: relative;
+  height: clamp(380px, 55vw, 560px);
+  overflow: hidden;
+  background: var(--ink);
+}
+.article-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 30%;
+  opacity: .55;
+  transition: transform 8s ease;
+}
+.article-cover:hover img { transform: scale(1.04); }
+.cover-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(13,27,42,.1) 0%, rgba(13,27,42,.7) 60%, rgba(13,27,42,.95) 100%);
+}
+.cover-content {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  max-width: 860px; margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+.cover-breadcrumb {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .72rem; color: rgba(255,255,255,.5);
+  margin-bottom: 1rem;
+}
+.cover-breadcrumb a { color: rgba(255,255,255,.5); transition: color .2s; }
+.cover-breadcrumb a:hover { color: rgba(255,255,255,.85); }
+.cover-breadcrumb .sep { opacity: .4; }
+.cover-tag {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .9rem;
+}
+.cover-tag::before { content: ''; width: 16px; height: 1px; background: var(--gold); }
+.cover-content h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.5vw, 2.8rem);
+  font-weight: 700; color: #fff;
+  line-height: 1.15; letter-spacing: -.02em;
+  max-width: 700px; margin-bottom: 1.2rem;
+}
+.cover-byline {
+  display: flex; align-items: center; gap: .85rem;
+  flex-wrap: wrap;
+}
+.cover-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  overflow: hidden; border: 2px solid rgba(255,255,255,.3);
+  flex-shrink: 0;
+}
+.cover-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.cover-byline-info { font-size: .78rem; color: rgba(255,255,255,.65); }
+.cover-byline-info strong { display: block; color: #fff; font-size: .82rem; margin-bottom: 1px; }
+.cover-reading-time {
+  margin-left: auto;
+  font-size: .72rem; color: rgba(255,255,255,.45);
+  display: flex; align-items: center; gap: .35rem;
+}
+
+/* ── ARTICLE LAYOUT ── */
+.article-wrap {
+  max-width: 1100px; margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ── PROSE ── */
+.prose { max-width: var(--max-prose); }
+.prose-lead {
+  font-size: 1.05rem; color: var(--ink-mid);
+  line-height: 1.85;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+.prose-lead strong { color: var(--ink); font-weight: 600; }
+
+.prose h2 {
+  font-family: var(--serif);
+  font-size: 1.45rem; font-weight: 700;
+  color: var(--ink); letter-spacing: -.01em;
+  line-height: 1.25;
+  margin: 2.8rem 0 1rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+.prose h2::before {
+  content: '';
+  position: absolute; left: 0; top: .25em; bottom: .25em;
+  width: 3px; border-radius: 2px;
+  background: linear-gradient(180deg, var(--gold), rgba(184,137,58,.3));
+}
+
+.prose p {
+  font-size: .97rem; color: var(--ink-mid);
+  line-height: 1.85; margin-bottom: 1.3rem;
+}
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; color: var(--ink); }
+
+/* Superscript references */
+.prose sup a {
+  font-size: .65rem; font-weight: 700;
+  color: var(--gold); vertical-align: super;
+  line-height: 0; transition: color .2s;
+}
+.prose sup a:hover { color: #8a6228; }
+
+/* Strategy cards */
+.strategy-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 1rem;
+  margin: 1.5rem 0 1.5rem;
+}
+.strategy-item {
+  display: flex; gap: 1.1rem; align-items: flex-start;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  background: var(--white);
+  transition: box-shadow .2s, transform .15s;
+}
+.strategy-item:hover { box-shadow: var(--shadow); transform: translateX(3px); }
+.strategy-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border-radius: 9px; background: var(--gold-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; margin-top: 1px;
+}
+.strategy-body h3 {
+  font-size: .92rem; font-weight: 700; color: var(--ink);
+  margin-bottom: .3rem; line-height: 1.3;
+}
+.strategy-body p {
+  font-size: .84rem; color: var(--ink-mid);
+  line-height: 1.65; margin: 0;
+}
+
+/* Callout box */
+.callout {
+  background: var(--gold-pale);
+  border: 1px solid rgba(184,137,58,.3);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+  font-size: .9rem; color: var(--ink-mid); line-height: 1.75;
+}
+.callout strong { color: var(--ink); display: block; margin-bottom: .3rem; font-size: .95rem; }
+
+/* Conclusion */
+.conclusion-box {
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 2rem 2.2rem;
+  margin: 2.5rem 0;
+  position: relative; overflow: hidden;
+}
+.conclusion-box::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,137,58,.15), transparent 70%);
+}
+.conclusion-box h2 {
+  font-family: var(--serif);
+  font-size: 1.15rem; color: #fff; font-weight: 700;
+  margin-bottom: .75rem; padding: 0; letter-spacing: 0;
+}
+.conclusion-box h2::before { display: none; }
+.conclusion-box p {
+  font-size: .9rem; color: rgba(255,255,255,.65);
+  line-height: 1.8; margin: 0;
+}
+
+/* References */
+.references {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.references-title {
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink-light); margin-bottom: 1rem;
+}
+.ref-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+.ref-list li {
+  display: flex; gap: .6rem;
+  font-size: .75rem; color: var(--ink-light); line-height: 1.6;
+}
+.ref-num {
+  flex-shrink: 0;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--canvas); border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; font-weight: 700; color: var(--ink-light);
+  margin-top: 1px;
+}
+.ref-list a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+.ref-list a:hover { color: #8a6228; }
+
+/* ── SIDEBAR ── */
+.article-sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 90px; }
+.sidebar-card {
+  border: 1px solid var(--rule); border-radius: 14px;
+  background: #fff; overflow: hidden;
+}
+.sidebar-head {
+  padding: 1rem 1.3rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-light); background: var(--canvas);
+}
+.sidebar-body { padding: 1.2rem 1.3rem; }
+
+/* Author card */
+.author-card {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.3rem;
+}
+.author-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  overflow: hidden; flex-shrink: 0;
+  border: 2px solid var(--rule);
+}
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.author-info { flex: 1; min-width: 0; }
+.author-badge {
+  font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .25rem; display: flex; align-items: center; gap: .3rem;
+}
+.author-badge::before { content: ''; width: 10px; height: 1px; background: var(--gold); }
+.author-name { font-family: var(--serif); font-size: .97rem; font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: .25rem; }
+.author-role { font-size: .73rem; color: var(--ink-light); line-height: 1.5; margin-bottom: .75rem; }
+.author-link {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .73rem; font-weight: 600; color: var(--gold);
+  border: 1px solid rgba(184,137,58,.35); border-radius: 6px;
+  padding: .3rem .75rem; transition: background .15s;
+}
+.author-link:hover { background: var(--gold-pale); }
+
+/* TOC */
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: .1rem; }
+.toc-item a {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .5rem .4rem;
+  font-size: .82rem; color: var(--ink-mid); font-weight: 500;
+  border-radius: 6px; transition: background .15s, color .15s;
+}
+.toc-item a:hover { background: var(--canvas); color: var(--ink); }
+.toc-item.active a { color: var(--ink); font-weight: 600; background: var(--gold-pale); }
+.toc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rule); flex-shrink: 0; transition: background .2s; }
+.toc-item.active .toc-dot { background: var(--gold); }
+
+/* CTA sidebar */
+.cta-sidebar {
+  background: var(--ink); border-radius: 14px;
+  padding: 1.6rem; border: 1px solid var(--ink);
+  position: relative; overflow: hidden;
+}
+.cta-sidebar::before {
+  content: '';
+  position: absolute; bottom: -30px; right: -30px;
+  width: 120px; height: 120px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,137,58,.2), transparent 70%);
+}
+.cta-sidebar > * { position: relative; z-index: 1; }
+.cta-sidebar-tag {
+  font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .6rem;
+}
+.cta-sidebar h4 {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 700;
+  color: #fff; line-height: 1.25; margin-bottom: .5rem;
+}
+.cta-sidebar p { font-size: .78rem; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 1.2rem; }
+.cta-sidebar-btn {
+  display: block; text-align: center;
+  background: var(--gold); color: #fff;
+  padding: .7rem; border-radius: 8px;
+  font-size: .82rem; font-weight: 700;
+  transition: filter .2s, transform .15s;
+}
+.cta-sidebar-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.cta-sidebar-wa {
+  display: flex; align-items: center; justify-content: center; gap: .4rem;
+  margin-top: .6rem;
+  font-size: .75rem; color: rgba(255,255,255,.45);
+  padding: .55rem; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  transition: background .15s;
+}
+.cta-sidebar-wa:hover { background: rgba(255,255,255,.07); color: rgba(255,255,255,.7); }
+
+/* Share */
+.share-row { display: flex; gap: .5rem; flex-wrap: wrap; }
+.share-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .5rem .9rem; border-radius: 7px;
+  font-size: .75rem; font-weight: 600;
+  border: 1px solid var(--rule); color: var(--ink);
+  background: #fff; cursor: pointer;
+  transition: box-shadow .15s, border-color .15s;
+  font-family: var(--sans);
+}
+.share-btn:hover { box-shadow: var(--shadow); border-color: #aaa; }
+.share-btn.copied { background: #f0fdf4; border-color: #86efac; color: #15803d; }
+
+/* ── RELATED POSTS ── */
+.related-section {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+.related-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 1.8rem;
+  padding-top: 3rem; border-top: 1px solid var(--rule);
+}
+.related-head h2 {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--ink);
+}
+.related-head a { font-size: .78rem; color: var(--ink-light); transition: color .2s; }
+.related-head a:hover { color: var(--ink); }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+.related-card {
+  display: flex; gap: 1rem; align-items: flex-start;
+  border: 1px solid var(--rule); border-radius: 12px;
+  padding: 1.1rem; background: #fff;
+  transition: box-shadow .2s, transform .15s;
+}
+.related-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.related-img {
+  width: 80px; height: 80px; flex-shrink: 0;
+  border-radius: 8px; overflow: hidden;
+}
+.related-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.related-card:hover .related-img img { transform: scale(1.08); }
+.related-body { flex: 1; min-width: 0; }
+.related-tag {
+  font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: .3rem;
+}
+.related-body h3 {
+  font-family: var(--serif); font-size: .9rem; font-weight: 600;
+  color: var(--ink); line-height: 1.3;
+}
+
+/* ── FOOTER ── */
+.footer { background: var(--ink); padding: 3rem 2rem 2rem; }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2.5rem; margin-bottom: 2rem;
+}
+.footer-brand img { margin-bottom: .8rem; background:rgba(255,255,255,.92);padding:5px 10px;border-radius:7px; }
+.footer-brand p { font-size: .78rem; color: rgba(255,255,255,.4); line-height: 1.7; max-width: 240px; }
+.footer-col h4 { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; margin-bottom: .8rem; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: .35rem; }
+.footer-col a { font-size: .78rem; color: rgba(255,255,255,.4); transition: color .2s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding-top: 1.2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .5rem;
+  font-size: .7rem; color: rgba(255,255,255,.28);
+}
+
+/* WA FLOAT */
+.wa-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90;
+  display: flex; align-items: center; gap: .55rem;
+  background: rgba(10,10,14,.52); color: #fff;
+  padding: .65rem 1.1rem; border-radius: 999px;
+  font-size: .82rem; font-weight: 700;
+  box-shadow: 0 6px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  transition: transform .15s, background .2s;
+}
+.wa-float:hover { transform: translateY(-2px); background: rgba(10,10,14,.75); }
+.wa-float svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
+
+/* PROGRESS BAR */
+.reading-progress {
+  position: fixed; top: 0; left: 0; z-index: 200;
+  height: 2px; background: var(--gold);
+  width: 0%; transition: width .1s linear;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cover-content > * {
+  animation: fadeUp .65s ease both;
+}
+.cover-content > *:nth-child(1) { animation-delay: .1s; }
+.cover-content > *:nth-child(2) { animation-delay: .2s; }
+.cover-content > *:nth-child(3) { animation-delay: .3s; }
+.cover-content > *:nth-child(4) { animation-delay: .4s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .article-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .article-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+  .toc-card { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-btn { display: none; }
+  .hamburger { display: flex; }
+  .article-wrap { padding: 2.5rem 1.5rem 4rem; }
+  .related-section { padding: 0 1.5rem 4rem; }
+  .article-sidebar { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+  .cover-content { padding: 0 1.5rem 2.5rem; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .prose h2 { font-size: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="https://mental.eutimya.org/" class="nav-logo">
+      <img src="https://psiquiatra-cdmx.eutimya.org/eutimyafondoblanco.png" alt="Eutimya" height="30" loading="eager"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://mental.eutimya.org/#inicio">Inicio</a></li>
+      <li><a href="https://mental.eutimya.org/#agendar">Agendar</a></li>
+      <li><a href="https://mental.eutimya.org/#profesionales">Profesionales</a></li>
+      <li><a href="https://mental.eutimya.org/blog" class="active">Blog</a></li>
+      <li><a href="https://mental.eutimya.org/#nosotros">Nosotros</a></li>
+    </ul>
+    <a href="https://psiquiatra-cdmx.eutimya.org/cita" class="nav-btn">Agendar cita</a>
+    <button class="hamburger" type="button" id="hbg" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mnav">
+  <ul>
+    <li><a href="https://mental.eutimya.org/#inicio">Inicio</a></li>
+    <li><a href="https://mental.eutimya.org/#agendar">Agendar cita</a></li>
+    <li><a href="https://mental.eutimya.org/blog">Blog</a></li>
+    <li><a href="https://mental.eutimya.org/#nosotros">Nosotros</a></li>
+  </ul>
+</div>
+
+<a href="https://wa.me/526731205121?text=Hola%2C%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20soledad%20y%20depresi%C3%B3n%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp
+</a>
+
+<!-- COVER -->
+<div class="article-cover">
+  <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=1400&q=85&auto=format&fit=crop" alt="Soledad y depresión" loading="eager"/>
+  <div class="cover-overlay"></div>
+  <div class="cover-content">
+    <div class="cover-breadcrumb">
+      <a href="https://mental.eutimya.org/">Eutimya</a>
+      <span class="sep">›</span>
+      <a href="https://mental.eutimya.org/blog">Blog</a>
+      <span class="sep">›</span>
+      <span>Depresión · Bienestar</span>
+    </div>
+    <p class="cover-tag">Depresión · Bienestar</p>
+    <h1>La relación entre la soledad y la depresión: cómo romper el ciclo</h1>
+    <div class="cover-byline">
+      <div class="cover-avatar">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w200-h200-s-no-gm" alt="Dr. Moya"/>
+      </div>
+      <div class="cover-byline-info">
+        <strong>Dr. Deldhy Nicolás Moya Sánchez</strong>
+        Psiquiatra · Eutimya · 2025
+      </div>
+      <div class="cover-reading-time">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        4 min de lectura
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <!-- PROSE -->
+  <article class="prose" id="articleContent">
+
+    <p class="prose-lead">
+      La soledad no deseada es una experiencia cada vez más frecuente y se ha convertido en un factor de riesgo significativo para la salud mental. Estudios recientes indican que la soledad prolongada incrementa <strong>hasta cinco veces el riesgo de desarrollar depresión</strong>.<sup><a href="#ref1" id="cite1">[1]</a></sup> Más allá del simple aislamiento social, la percepción subjetiva de soledad y la rumiación constante de pensamientos negativos juegan un papel clave en este vínculo.
+    </p>
+
+    <h2 id="rumiacion">La rumiación: el enemigo silencioso</h2>
+
+    <p>
+      Uno de los principales mecanismos que relacionan la soledad con la depresión es la <strong>rumiación</strong>, es decir, la tendencia a obsesionarse con pensamientos negativos sobre la propia soledad. Este patrón cognitivo potencia sentimientos de desesperanza, reduce la motivación para socializar y puede reforzar el aislamiento social.<sup><a href="#ref2" id="cite2">[2]</a></sup>
+    </p>
+
+    <div class="callout">
+      <strong>¿Sabías que?</strong>
+      Las personas que experimentan soledad prolongada suelen presentar niveles elevados de cortisol, la hormona del estrés, lo que contribuye a un estado de alerta constante y a una mayor vulnerabilidad a trastornos del estado de ánimo.<sup><a href="#ref3" id="cite3">[3]</a></sup>
+    </div>
+
+    <h2 id="estrategias">Estrategias para romper el ciclo</h2>
+
+    <p>
+      Para prevenir que la soledad desemboque en depresión, es esencial implementar estrategias que aborden tanto la conexión social como la gestión de pensamientos negativos:
+    </p>
+
+    <ul class="strategy-list">
+      <li class="strategy-item">
+        <div class="strategy-icon">🤝</div>
+        <div class="strategy-body">
+          <h3>Fomentar conexiones significativas</h3>
+          <p>Participar en actividades comunitarias, grupos de interés o voluntariado puede ampliar la red social y proporcionar un sentido de pertenencia.<sup><a href="#ref4">[4]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🧘</div>
+        <div class="strategy-body">
+          <h3>Practicar mindfulness y técnicas de relajación</h3>
+          <p>Estas herramientas ayudan a gestionar la rumiación y a centrarse en el presente, reduciendo la ansiedad asociada a la soledad.<sup><a href="#ref5">[5]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🩺</div>
+        <div class="strategy-body">
+          <h3>Buscar apoyo profesional</h3>
+          <p>La terapia cognitivo-conductual es eficaz para identificar y modificar patrones de pensamiento negativos relacionados con la soledad y la depresión.<sup><a href="#ref6">[6]</a></sup></p>
+        </div>
+      </li>
+      <li class="strategy-item">
+        <div class="strategy-icon">🏃</div>
+        <div class="strategy-body">
+          <h3>Establecer rutinas saludables</h3>
+          <p>El ejercicio regular, una alimentación equilibrada y un sueño adecuado contribuyen al bienestar mental y físico, reduciendo los efectos negativos de la soledad.<sup><a href="#ref7">[7]</a></sup></p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="conclusion-box">
+      <h2>Conclusión</h2>
+      <p>La soledad y la depresión están estrechamente vinculadas, especialmente cuando la primera se acompaña de rumiación constante. Reconocer este vínculo y adoptar estrategias proactivas puede ser clave para mantener una buena salud mental y mejorar la calidad de vida.</p>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="references" id="referencias">
+      <p class="references-title">Referencias</p>
+      <ol class="ref-list">
+        <li id="ref1"><span class="ref-num">1</span><span>Cacioppo JT, Cacioppo S. The growing problem of loneliness. <em>Lancet</em>. 2018;391(10119):426. <a href="https://pubmed.ncbi.nlm.nih.gov/29395266/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/29395266</a></span></li>
+        <li id="ref2"><span class="ref-num">2</span><span>Kross E, et al. Social rejection shares somatosensory representations with physical pain. <em>PNAS</em>. 2011;108(15):6270–6275. <a href="https://pubmed.ncbi.nlm.nih.gov/21444827/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/21444827</a></span></li>
+        <li id="ref3"><span class="ref-num">3</span><span>Hawkley LC, Cacioppo JT. Loneliness matters: a theoretical and empirical review. <em>Ann Behav Med</em>. 2010;40(2):218–227. <a href="https://pubmed.ncbi.nlm.nih.gov/20652462/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/20652462</a></span></li>
+        <li id="ref4"><span class="ref-num">4</span><span>Holt-Lunstad J, Smith TB, Layton JB. Social relationships and mortality risk: a meta-analytic review. <em>PLoS Med</em>. 2010;7(7):e1000316. <a href="https://pubmed.ncbi.nlm.nih.gov/20668659/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/20668659</a></span></li>
+        <li id="ref5"><span class="ref-num">5</span><span>Creswell JD, Lindsay EK. How mindfulness training promotes resilience. <em>Ann N Y Acad Sci</em>. 2014;1303:87–98. <a href="https://pubmed.ncbi.nlm.nih.gov/24844177/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/24844177</a></span></li>
+        <li id="ref6"><span class="ref-num">6</span><span>Cuijpers P, et al. The effects of psychotherapies for major depression in adults. <em>J Affect Disord</em>. 2014;159:118–126. <a href="https://pubmed.ncbi.nlm.nih.gov/24331779/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/24331779</a></span></li>
+        <li id="ref7"><span class="ref-num">7</span><span>Kandola A, et al. Physical activity and depression: Towards understanding the antidepressant mechanisms. <em>Neurosci Biobehav Rev</em>. 2019;107:525–539. <a href="https://pubmed.ncbi.nlm.nih.gov/31330135/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/31330135</a></span></li>
+      </ol>
+    </div>
+
+    <!-- SHARE -->
+    <div style="margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid var(--rule)">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.9rem">Compartir artículo</p>
+      <div class="share-row">
+        <button class="share-btn" onclick="shareWhatsApp()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </button>
+        <button class="share-btn" id="copyBtn" onclick="copyLink()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar enlace
+        </button>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+
+    <!-- AUTHOR -->
+    <div class="sidebar-card">
+      <div class="author-card">
+        <div class="author-avatar">
+          <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w200-h200-s-no-gm" alt="Dr. Moya"/>
+        </div>
+        <div class="author-info">
+          <p class="author-badge">Autor</p>
+          <p class="author-name">Dr. Deldhy N.<br/>Moya Sánchez</p>
+          <p class="author-role">Psiquiatra y Psiquiatría de Enlace, UNAM · Mención Honorífica · CE 14788885</p>
+          <a href="https://psiquiatra-cdmx.eutimya.org/" class="author-link">Ver perfil →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOC -->
+    <div class="sidebar-card toc-card">
+      <div class="sidebar-head">Contenido</div>
+      <div class="sidebar-body">
+        <ul class="toc-list" id="tocList">
+          <li class="toc-item" id="toc-rumiacion">
+            <a href="#rumiacion"><span class="toc-dot"></span>La rumiación: el enemigo silencioso</a>
+          </li>
+          <li class="toc-item" id="toc-estrategias">
+            <a href="#estrategias"><span class="toc-dot"></span>Estrategias para romper el ciclo</a>
+          </li>
+          <li class="toc-item" id="toc-referencias">
+            <a href="#referencias"><span class="toc-dot"></span>Referencias</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-sidebar">
+      <p class="cta-sidebar-tag">¿Necesitas atención?</p>
+      <h4>Agenda tu primera consulta psiquiátrica</h4>
+      <p>Atención presencial en Col. Del Valle, CDMX o en línea desde donde estés.</p>
+      <a href="https://psiquiatra-cdmx.eutimya.org/cita" class="cta-sidebar-btn">Agendar consulta →</a>
+      <a href="https://wa.me/526731205121?text=Hola%2C%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20soledad%20y%20depresi%C3%B3n%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." class="cta-sidebar-wa">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+
+  </aside>
+
+</div><!-- /article-wrap -->
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-head">
+    <h2>También te puede interesar</h2>
+    <a href="https://mental.eutimya.org/blog">Ver todos →</a>
+  </div>
+  <div class="related-grid">
+    <a href="https://mental.eutimya.org/blog/que-es-la-psiquiatria" class="related-card">
+      <div class="related-img">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop" alt="Psiquiatría" loading="lazy"/>
+      </div>
+      <div class="related-body">
+        <span class="related-tag">Psiquiatría · Educación</span>
+        <h3>¿Qué es la psiquiatría y por qué es importante la salud mental?</h3>
+      </div>
+    </a>
+    <a href="https://mental.eutimya.org/blog/burnout-diagnostico" class="related-card">
+      <div class="related-img">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=200&q=80&auto=format&fit=crop" alt="Burnout" loading="lazy"/>
+      </div>
+      <div class="related-body">
+        <span class="related-tag">Ansiedad · Estrés</span>
+        <h3>Burnout: más allá del cansancio. Cuándo el estrés laboral se convierte en diagnóstico</h3>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://psiquiatra-cdmx.eutimya.org/eutimyafondoblanco.png" alt="Eutimya" height="28" loading="lazy"/>
+      <p>Práctica psiquiátrica privada en Ciudad de México. Información confiable y basada en evidencia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Blog</h4>
+      <ul>
+        <li><a href="https://mental.eutimya.org/blog">Todos los artículos</a></li>
+        <li><a href="#">Depresión</a></li>
+        <li><a href="#">Ansiedad &amp; Estrés</a></li>
+        <li><a href="#">Psiquiatría</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Eutimya</h4>
+      <ul>
+        <li><a href="https://mental.eutimya.org/">Inicio</a></li>
+        <li><a href="https://psiquiatra-cdmx.eutimya.org/cita">Agendar cita</a></li>
+        <li><a href="https://eutimya.org/factura">Facturación</a></li>
+        <li><a href="https://wa.me/526731205121">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Eutimya · Blog de Salud Mental</span>
+    <span>mental.eutimya.org/blog/soledad-depresion</span>
+  </div>
+</footer>
+
+<script>
+// ── HAMBURGER ──
+var hbg = document.getElementById('hbg');
+var mnav = document.getElementById('mnav');
+if (hbg && mnav) {
+  hbg.addEventListener('click', function(e) { e.stopPropagation(); mnav.classList.toggle('open'); });
+  document.addEventListener('click', function(e) {
+    if (mnav.classList.contains('open') && !mnav.contains(e.target) && e.target !== hbg)
+      mnav.classList.remove('open');
+  });
+}
+
+// ── READING PROGRESS ──
+window.addEventListener('scroll', function() {
+  var article = document.getElementById('articleContent');
+  if (!article) return;
+  var top = article.getBoundingClientRect().top + window.scrollY - 80;
+  var bottom = top + article.offsetHeight;
+  var scrolled = window.scrollY - top;
+  var total = bottom - top - window.innerHeight;
+  var pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+  document.getElementById('readingProgress').style.width = pct + '%';
+}, { passive: true });
+
+// ── TOC ACTIVE ──
+var tocSections = [
+  { id: 'rumiacion',   toc: 'toc-rumiacion' },
+  { id: 'estrategias', toc: 'toc-estrategias' },
+  { id: 'referencias', toc: 'toc-referencias' }
+];
+window.addEventListener('scroll', function() {
+  var y = window.scrollY + 140;
+  var active = null;
+  tocSections.forEach(function(s) {
+    var el = document.getElementById(s.id);
+    if (el && el.offsetTop <= y) active = s.toc;
+  });
+  tocSections.forEach(function(s) {
+    var el = document.getElementById(s.toc);
+    if (el) el.classList.toggle('active', s.toc === active);
+  });
+}, { passive: true });
+
+// ── SHARE ──
+function shareWhatsApp() {
+  var url = encodeURIComponent('https://mental.eutimya.org/blog/soledad-depresion');
+  var text = encodeURIComponent('La relación entre la soledad y la depresión: cómo romper el ciclo — Eutimya');
+  window.open('https://wa.me/?text=' + text + '%20' + url, '_blank');
+}
+function copyLink() {
+  var url = 'https://mental.eutimya.org/blog/soledad-depresion';
+  var btn = document.getElementById('copyBtn');
+  function done() {
+    btn.textContent = '✓ Enlace copiado';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar enlace'; btn.classList.remove('copied'); }, 2500);
+  }
+  if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done).catch(function() { done(); }); }
+  else { done(); }
+}
+</script>
+</body>
+</html>
