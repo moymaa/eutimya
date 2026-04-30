@@ -216,27 +216,144 @@ a{color:inherit;text-decoration:none}
   position:fixed;
   bottom:0;left:0;right:0;
   z-index:95;
-  background:rgba(250,250,248,.9);
-  backdrop-filter:blur(24px) saturate(180%);
-  -webkit-backdrop-filter:blur(24px) saturate(180%);
-  border-top:1px solid rgba(232,230,225,.7);
-  padding:.5rem 0;
-  padding-bottom:calc(.5rem + env(safe-area-inset-bottom));
-  box-shadow:0 -4px 20px rgba(13,27,42,.06);
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(15px) saturate(160%);
+  -webkit-backdrop-filter:blur(15px) saturate(160%);
+  border-top:1px solid rgba(0,0,0,.05);
+  box-shadow:0 -1px 0 rgba(0,0,0,.04);
 }
 .bottom-tab-bar-inner{
-  display:flex;justify-content:space-around;align-items:center;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  height:50px;
+  padding-bottom:env(safe-area-inset-bottom);
 }
 .bottom-tab{
-  display:flex;flex-direction:column;align-items:center;gap:.22rem;
-  color:var(--ink-mid);text-decoration:none;
-  padding:.3rem .8rem;border-radius:var(--r);
-  transition:color .2s,background .2s;
-  flex:1;max-width:120px;
+  display:flex;flex-direction:column;align-items:center;gap:.18rem;
+  color:var(--ink-light);text-decoration:none;
+  padding:.3rem 1.2rem;
+  transition:color .18s;
+  flex:1;
 }
-.bottom-tab:hover,.bottom-tab:active{color:var(--ink);background:rgba(13,27,42,.05)}
-.bottom-tab svg{width:22px;height:22px;flex-shrink:0}
-.bottom-tab span{font-size:.68rem;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.bottom-tab:hover,.bottom-tab:active{color:var(--ink)}
+.bottom-tab svg{width:18px;height:18px;flex-shrink:0}
+.bottom-tab span{font-size:.65rem;font-weight:500;letter-spacing:.01em;white-space:nowrap}
+
+/* ═══ AGENDAR — Director Hero & Specialists Grid ═══ */
+.ag-director-card{
+  display:block;
+  background:#fff;
+  border:1px solid var(--rule);
+  border-radius:24px;
+  overflow:hidden;
+  margin-bottom:2rem;
+  box-shadow:var(--shadow);
+  text-decoration:none;
+  transition:box-shadow .25s,transform .2s;
+  position:relative;
+}
+.ag-director-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.ag-director-badge{
+  position:absolute;top:1.2rem;right:1.4rem;
+  background:var(--gold);color:#fff;
+  font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  padding:.3rem .85rem;border-radius:100px;z-index:2;
+}
+.ag-director-inner{
+  display:grid;grid-template-columns:260px 1fr;
+  min-height:300px;
+}
+.ag-director-photo{overflow:hidden;position:relative}
+.ag-director-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  transition:transform .55s var(--ease);
+}
+.ag-director-card:hover .ag-director-photo img{transform:scale(1.04)}
+.ag-director-body{
+  padding:2.8rem 3rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.ag-director-specialty{
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.6rem;
+}
+.ag-director-name{
+  font-family:var(--serif);font-size:1.9rem;font-weight:700;
+  color:var(--ink);line-height:1.15;margin-bottom:.8rem;
+}
+.ag-director-desc{
+  font-size:.875rem;color:var(--ink-mid);line-height:1.75;margin-bottom:1.6rem;max-width:420px;
+}
+.ag-director-btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:var(--ink);color:#fff;
+  padding:.65rem 1.6rem;border-radius:100px;
+  font-size:.8rem;font-weight:700;letter-spacing:.02em;
+  width:fit-content;
+  transition:background .2s,transform .15s;
+  box-shadow:0 4px 14px rgba(13,27,42,.2);
+}
+.ag-director-card:hover .ag-director-btn{background:#1e3a5f;transform:translateY(-1px)}
+
+/* Specialists grid */
+.ag-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-bottom:1rem;
+}
+.ag-card{
+  display:flex;flex-direction:column;
+  background:#fff;
+  border:1px solid var(--rule);
+  border-radius:20px;
+  overflow:hidden;
+  text-decoration:none;
+  transition:box-shadow .2s,transform .18s,border-color .2s;
+  cursor:pointer;
+}
+.ag-card:hover{box-shadow:0 8px 32px rgba(13,27,42,.1);transform:translateY(-3px);border-color:rgba(13,27,42,.18)}
+.ag-photo{
+  width:100%;aspect-ratio:1/1;
+  object-fit:cover;object-position:center top;
+  display:block;
+  transition:transform .45s var(--ease);
+}
+.ag-card:hover .ag-photo{transform:scale(1.04)}
+.ag-info{padding:1rem 1.2rem .4rem}
+.ag-name{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:.25rem}
+.ag-spec{font-size:.73rem;color:var(--ink-light);font-weight:400;line-height:1.4}
+.ag-cta{
+  display:block;
+  padding:.75rem 1.2rem;
+  font-size:.75rem;font-weight:600;
+  color:var(--ink-mid);
+  letter-spacing:.01em;
+  border-top:1px solid var(--rule);
+  margin-top:.8rem;
+  transition:color .2s;
+}
+.ag-card:hover .ag-cta{color:var(--ink)}
+
+/* Responsive agendar */
+@media(max-width:900px){
+  .ag-director-inner{grid-template-columns:220px 1fr}
+  .ag-director-body{padding:2rem 2.2rem}
+  .ag-director-name{font-size:1.6rem}
+  .ag-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .ag-director-inner{grid-template-columns:1fr;min-height:auto}
+  .ag-director-photo{height:240px}
+  .ag-director-body{padding:1.6rem 1.4rem}
+  .ag-director-name{font-size:1.4rem}
+  .ag-director-desc{font-size:.83rem;margin-bottom:1.2rem}
+  .ag-director-badge{top:.9rem;right:1rem}
+  .ag-grid{grid-template-columns:1fr}
+  .ag-photo{aspect-ratio:3/2}
+}
 
 /* ═══ HERO ═══ */
 .hero{
@@ -834,7 +951,7 @@ a{color:inherit;text-decoration:none}
   .bottom-tab-bar{display:block}
 
   /* WA float sube encima del bottom tab bar */
-  .wa-float{bottom:calc(4.5rem + env(safe-area-inset-bottom));right:1rem}
+  .wa-float{bottom:calc(50px + .75rem + env(safe-area-inset-bottom));right:1rem}
   .wa-float span{display:none}
   .wa-float{padding:.75rem 1rem}
 
@@ -856,7 +973,7 @@ a{color:inherit;text-decoration:none}
   .footer-inner{grid-template-columns:1fr 1fr}
 
   /* Padding para que el footer no quede oculto por el bottom bar */
-  footer{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
+  footer{padding-bottom:calc(50px + env(safe-area-inset-bottom))}
 }
 @media(max-width:480px){
   .services-grid{grid-template-columns:1fr}
@@ -1831,130 +1948,119 @@ class="wa-float" aria-label="WhatsApp Eutimya">
 <!-- ═══ ROUTE: /#agendar /?agendar ═══ -->
 
 <div id="route-agendar" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
-  <div class="wrap" style="max-width:820px;padding:4rem 2rem">
-    <p class="eyebrow">Reservar cita</p>
-    <h1 class="section-h">Tu primera cita en 3 pasos</h1>
-    <p class="section-sub" style="margin-bottom:3rem">Un proceso claro, sin complicaciones.</p>
+  <div class="wrap" style="max-width:900px;padding:3.5rem 2rem 6rem">
 
 ```
-<!-- Paso 1 -->
-<div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
-  <div style="display:flex;gap:1.2rem;align-items:flex-start">
-    <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">1</div>
-    <div style="flex:1">
-      <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Elige tu especialista</h3>
-      <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">Selecciona al profesional que mejor se adapte a tu necesidad. Haz clic en su nombre para ver su perfil completo y agendar directamente.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem">
-        <!-- Moya -->
-        <a href="https://psiquiatra-cdmx.eutimya.org/cita" target="_blank"
-           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--gold);border-radius:8px;background:var(--gold-pale);transition:all .2s"
-           onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform=''">
-          <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w800-h800-s-no-gm"
-               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Moya"/>
-          <div>
-            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Moya Sánchez</p>
-            <p style="font-size:.7rem;color:var(--gold);font-weight:600">Director · Psiquiatra adultos</p>
-          </div>
-        </a>
-        <!-- Sharon -->
-        <a href="https://paido.eutimya.org/cita" target="_blank"
-           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-          <img src="https://github.com/moymaa/paido/blob/main/WhatsApp%20Image%202026-02-22%20at%2023.19.43.jpeg?raw=true"
-               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Sharon"/>
-          <div>
-            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Sharon Venecia</p>
-            <p style="font-size:.7rem;color:var(--ink-light)">Paidopsiquiatra · Niños y adultos</p>
-          </div>
-        </a>
-        <!-- Doris -->
-        <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank"
-           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-          <img src="https://github.com/moymaa/eutimya/blob/main/image%20(1).png?raw=true"
-               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Doris"/>
-          <div>
-            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Doris Carmona</p>
-            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Género y Sexualidad</p>
-          </div>
-        </a>
-        <!-- Johanna -->
-        <a href="https://wa.me/525549835710?text=Hola%20Psic.%20Johanna%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank"
-           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-          <img src="https://i.imgur.com/avg6bg3.jpeg"
-               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Psic. Johanna"/>
-          <div>
-            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Psic. Johanna Pichardo</p>
-            <p style="font-size:.7rem;color:var(--ink-light)">TCC · Solo en línea</p>
-          </div>
-        </a>
-        <!-- Salvador -->
-        <a href="https://mental.eutimya.org/salvador/" target="_blank"
-           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-          <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
-               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Salvador"/>
-          <div>
-            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Salvador Cervantes</p>
-            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Bioética</p>
-          </div>
-        </a>
-        <!-- Alejandro -->
-        <a href="https://www.salazarpsiq.com/" target="_blank"
-           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-          <img src="https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpg?raw=true"
-               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Alejandro"
-               onerror="this.src='https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpeg?raw=true'"/>
-          <div>
-            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Alejandro Salazar</p>
-            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · TCC · ACT</p>
-          </div>
-        </a>
-        <!-- Natalia -->
-        <a href="https://mental.eutimya.org/natalia" target="_blank"
-           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-          <img src="https://raw.githubusercontent.com/moymaa/eutimya/959ad882b940626515441bb74db5080d64274899/image.png"
-               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Natalia"/>
-          <div>
-            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Natalia Brochet</p>
-            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Paidopsiquiatría</p>
-          </div>
-        </a>
+<p class="eyebrow">Reservar cita</p>
+<h1 class="section-h" style="margin-bottom:.5rem">¿Con quién quieres agendar?</h1>
+<p class="section-sub" style="margin-bottom:2.8rem">Selecciona al especialista y llega directo a tu cita.</p>
+
+<!-- ── DIRECTOR HERO CARD ── -->
+<a href="https://psiquiatra-cdmx.eutimya.org/cita" target="_blank" class="ag-director-card">
+  <div class="ag-director-badge">Director &amp; Fundador</div>
+  <div class="ag-director-inner">
+    <div class="ag-director-photo">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w800-h800-s-no-gm"
+           alt="Dr. D. N. Moya Sánchez" loading="lazy"/>
+    </div>
+    <div class="ag-director-body">
+      <p class="ag-director-specialty">Psiquiatría de Enlace · Adultos</p>
+      <h2 class="ag-director-name">Dr. D. N. Moya Sánchez</h2>
+      <p class="ag-director-desc">Alta especialidad en Psiquiatría de Enlace, CMN "20 de Noviembre" ISSSTE · UNAM. Farmacoterapia, neuromodulación y diagnóstico integral de adultos.</p>
+      <div class="ag-director-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Agendar con Director
       </div>
     </div>
   </div>
-</div>
+</a>
 
-<!-- Paso 2 -->
-<div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
-  <div style="display:flex;gap:1.2rem;align-items:flex-start">
-    <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">2</div>
-    <div>
-      <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Pago de honorarios</h3>
-      <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1rem">Realiza el pago y envía tu comprobante al médico vía WhatsApp. Se acepta transferencia, tarjeta y efectivo.</p>
-      <a href="/?pagos" class="btn-main" style="font-size:.82rem;padding:.6rem 1.4rem;display:inline-flex">Ver formas de pago →</a>
+<!-- ── SPECIALISTS GRID ── -->
+<p style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:1.2rem">Equipo especialista</p>
+<div class="ag-grid">
+
+  <!-- Sharon -->
+  <a href="https://paido.eutimya.org/cita" target="_blank" class="ag-card">
+    <img src="https://github.com/moymaa/paido/blob/main/WhatsApp%20Image%202026-02-22%20at%2023.19.43.jpeg?raw=true"
+         class="ag-photo" alt="Dra. Sharon Venecia" loading="lazy"/>
+    <div class="ag-info">
+      <p class="ag-name">Dra. Sharon Venecia</p>
+      <p class="ag-spec">Paidopsiquiatría · Niños y adolescentes</p>
     </div>
-  </div>
-</div>
+    <span class="ag-cta">Agendar cita →</span>
+  </a>
 
-<!-- Paso 3 -->
-<div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:2rem">
-  <div style="display:flex;gap:1.2rem;align-items:flex-start">
-    <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">3</div>
-    <div>
-      <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Registro de expediente</h3>
-      <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1rem">Completa tu expediente para brindarte atención personalizada desde la primera cita.</p>
-      <a href="https://mental.eutimya.org/#agendar" target="_blank" class="btn-main" style="font-size:.82rem;padding:.6rem 1.4rem;display:inline-flex">Completar registro →</a>
+  <!-- Doris -->
+  <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank" class="ag-card">
+    <img src="https://github.com/moymaa/eutimya/blob/main/image%20(1).png?raw=true"
+         class="ag-photo" alt="Dra. Doris Carmona" loading="lazy"/>
+    <div class="ag-info">
+      <p class="ag-name">Dra. Doris Carmona</p>
+      <p class="ag-spec">Psiquiatría · Género y Sexualidad</p>
     </div>
-  </div>
+    <span class="ag-cta">Agendar cita →</span>
+  </a>
+
+  <!-- Johanna -->
+  <a href="https://wa.me/525549835710?text=Hola%20Psic.%20Johanna%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank" class="ag-card">
+    <img src="https://i.imgur.com/avg6bg3.jpeg"
+         class="ag-photo" alt="Psic. Johanna Pichardo" loading="lazy"/>
+    <div class="ag-info">
+      <p class="ag-name">Psic. Johanna Pichardo</p>
+      <p class="ag-spec">TCC · Solo en línea</p>
+    </div>
+    <span class="ag-cta">Agendar cita →</span>
+  </a>
+
+  <!-- Salvador -->
+  <a href="https://mental.eutimya.org/salvador/" target="_blank" class="ag-card">
+    <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
+         class="ag-photo" alt="Dr. Salvador Cervantes" loading="lazy"/>
+    <div class="ag-info">
+      <p class="ag-name">Dr. Salvador Cervantes</p>
+      <p class="ag-spec">Psiquiatría · Bioética</p>
+    </div>
+    <span class="ag-cta">Agendar cita →</span>
+  </a>
+
+  <!-- Alejandro -->
+  <a href="https://www.salazarpsiq.com/" target="_blank" class="ag-card">
+    <img src="https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpg?raw=true"
+         class="ag-photo" alt="Dr. Alejandro Salazar" loading="lazy"
+         onerror="this.src='https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpeg?raw=true'"/>
+    <div class="ag-info">
+      <p class="ag-name">Dr. Alejandro Salazar</p>
+      <p class="ag-spec">Psiquiatría · TCC · ACT</p>
+    </div>
+    <span class="ag-cta">Agendar cita →</span>
+  </a>
+
+  <!-- Natalia -->
+  <a href="https://mental.eutimya.org/natalia" target="_blank" class="ag-card">
+    <img src="https://raw.githubusercontent.com/moymaa/eutimya/959ad882b940626515441bb74db5080d64274899/image.png"
+         class="ag-photo" alt="Dra. Natalia Brochet" loading="lazy"/>
+    <div class="ag-info">
+      <p class="ag-name">Dra. Natalia Brochet</p>
+      <p class="ag-spec">Psiquiatría · Paidopsiquiatría</p>
+    </div>
+    <span class="ag-cta">Agendar cita →</span>
+  </a>
+
 </div>
 
-<div style="padding:1.4rem 1.8rem;background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal)">
-  <p style="font-size:.88rem;color:var(--teal);font-weight:600;margin-bottom:.3rem">¿Tienes dudas? Escríbenos</p>
-  <p style="font-size:.85rem;color:var(--ink-mid)">Dr. Moya: <a href="https://wa.me/526731205121" style="color:var(--teal);font-weight:600">+52 673 120 5121</a> &nbsp;·&nbsp; Dra. Sharon: <a href="https://wa.me/525513580092" style="color:var(--teal);font-weight:600">+52 55 1358 0092</a></p>
+<!-- Dudas -->
+<div style="margin-top:2.5rem;padding:1.2rem 1.6rem;background:#fff;border-radius:var(--r);border:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem">
+  <p style="font-size:.85rem;color:var(--ink-mid)">¿Tienes dudas antes de agendar?</p>
+  <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+    <a href="https://wa.me/526731205121" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;color:#25d366;border:1.5px solid rgba(37,211,102,.3);border-radius:100px;padding:.35rem .9rem;transition:background .2s" onmouseover="this.style.background='rgba(37,211,102,.06)'" onmouseout="this.style.background=''">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Dr. Moya
+    </a>
+    <a href="https://wa.me/525513580092" target="_blank" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;color:#25d366;border:1.5px solid rgba(37,211,102,.3);border-radius:100px;padding:.35rem .9rem;transition:background .2s" onmouseover="this.style.background='rgba(37,211,102,.06)'" onmouseout="this.style.background=''">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Dra. Sharon
+    </a>
+  </div>
 </div>
 ```
 
