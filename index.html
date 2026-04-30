@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es-MX">
 <head>
 <meta charset="UTF-8"/>
@@ -148,30 +149,94 @@ a{color:inherit;text-decoration:none}
   transition:color .2s;
 }
 .nav-search:hover{color:var(--ink)}
+/* ═══ UTILITY ═══ */
+.hide-on-mobile{display:block}
+.show-only-mobile{display:none}
+
+/* ═══ HAMBURGER ═══ */
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem;flex-direction:column;gap:5px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.25s var(--ease)}
+.hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.is-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ═══ MOBILE NAV — fullscreen overlay ═══ */
 .mobile-nav{
-  display:none;position:fixed;top:58px;left:0;right:0;
-  background:rgba(250,250,248,.97);
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-bottom:1px solid rgba(232,230,225,.7);
-  padding:1.4rem 1.8rem 1.8rem;z-index:99;
-  box-shadow:0 12px 40px rgba(13,27,42,.10);
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(250,250,248,.96);
+  backdrop-filter:blur(40px) saturate(200%);
+  -webkit-backdrop-filter:blur(40px) saturate(200%);
+  z-index:98;
+  padding:0;
+  opacity:0;
+  transform:translateY(-8px);
+  transition:opacity .28s var(--ease),transform .28s var(--ease);
+  pointer-events:none;
 }
-.mobile-nav.open{display:block}
-.mobile-nav ul{list-style:none}
-.mobile-nav li{padding:.7rem 0;border-bottom:1px solid rgba(232,230,225,.7)}
+.mobile-nav.open{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:all;
+}
+.mobile-nav ul{
+  list-style:none;
+  text-align:center;
+  width:100%;
+  padding:0 2rem;
+}
+.mobile-nav li{
+  padding:1rem 0;
+  border-bottom:1px solid rgba(232,230,225,.55);
+}
 .mobile-nav li:last-child{border:none}
-.mobile-nav a{font-size:.95rem;font-weight:500;color:var(--ink)}
-/* Mobile agendar button */
-.mobile-nav .mobile-agendar{
-  display:inline-flex;align-items:center;gap:.4rem;
-  background:var(--ink);color:#fff;
-  padding:.65rem 1.5rem;border-radius:100px;
-  font-size:.85rem;font-weight:700;margin-top:.4rem;
-  box-shadow:0 2px 8px rgba(13,27,42,.2);
+.mobile-nav a{
+  font-size:1.25rem;font-weight:500;
+  color:var(--ink);letter-spacing:-.01em;
+  display:block;transition:color .2s,opacity .2s;
 }
+.mobile-nav a:hover{color:var(--gold)}
+.mobile-nav .mobile-agendar{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--ink);color:#fff;
+  padding:.75rem 2rem;border-radius:100px;
+  font-size:1rem;font-weight:700;margin-top:.5rem;
+  box-shadow:0 4px 16px rgba(13,27,42,.25);
+  transition:background .2s,transform .15s;
+}
+.mobile-nav .mobile-agendar:hover{background:#1e3a5f;transform:translateY(-1px)}
+
+/* ═══ BOTTOM TAB BAR — solo móvil ═══ */
+.bottom-tab-bar{
+  display:none;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:95;
+  background:rgba(250,250,248,.9);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-top:1px solid rgba(232,230,225,.7);
+  padding:.5rem 0;
+  padding-bottom:calc(.5rem + env(safe-area-inset-bottom));
+  box-shadow:0 -4px 20px rgba(13,27,42,.06);
+}
+.bottom-tab-bar-inner{
+  display:flex;justify-content:space-around;align-items:center;
+}
+.bottom-tab{
+  display:flex;flex-direction:column;align-items:center;gap:.22rem;
+  color:var(--ink-mid);text-decoration:none;
+  padding:.3rem .8rem;border-radius:var(--r);
+  transition:color .2s,background .2s;
+  flex:1;max-width:120px;
+}
+.bottom-tab:hover,.bottom-tab:active{color:var(--ink);background:rgba(13,27,42,.05)}
+.bottom-tab svg{width:22px;height:22px;flex-shrink:0}
+.bottom-tab span{font-size:.68rem;font-weight:600;letter-spacing:.02em;white-space:nowrap}
 
 /* ═══ HERO ═══ */
 .hero{
@@ -746,6 +811,11 @@ a{color:inherit;text-decoration:none}
   .pros-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
+  /* Utility classes */
+  .hide-on-mobile{display:none !important}
+  .show-only-mobile{display:flex !important}
+
+  /* Navbar */
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{padding:3rem 1.5rem;order:1}
   .hero-left::after{display:none}
@@ -753,24 +823,22 @@ a{color:inherit;text-decoration:none}
   .nav-links{display:none}
   .hamburger{display:flex}
   .nav-btn{font-size:.7rem;padding:.42rem 1rem;background:#000 !important}
-  .nav-dr-moya{
-    font-size:.72rem;font-weight:600;opacity:1;
-    background:rgba(13,27,42,.04);
-    border:1px solid rgba(13,27,42,.10);
-    border-radius:100px;
-    padding:.28rem .65rem;
-    line-height:1;
-    gap:.28rem;
-  }
-  .nav-esa{
-    padding:.28rem .65rem;font-size:.72rem;
-    border-radius:100px;
-    gap:.28rem;
-  }
+  .nav-esa{display:none !important}
+  .nav-dr-moya{display:none !important}
   .nav-esa-sep{display:none}
   .nav-sep{display:none}
   .nav-search{display:none}
-  .nav-right{gap:.4rem;align-items:center}
+  .nav-right{gap:.5rem;align-items:center}
+
+  /* Bottom tab bar visible */
+  .bottom-tab-bar{display:block}
+
+  /* WA float sube encima del bottom tab bar */
+  .wa-float{bottom:calc(4.5rem + env(safe-area-inset-bottom));right:1rem}
+  .wa-float span{display:none}
+  .wa-float{padding:.75rem 1rem}
+
+  /* Content sections */
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .services-grid{grid-template-columns:1fr 1fr}
   .cond-grid{grid-template-columns:1fr 1fr}
@@ -786,8 +854,9 @@ a{color:inherit;text-decoration:none}
   .neuro-img{display:none}
   .contacto-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr 1fr}
-  .wa-float span{display:none}
-  .wa-float{padding:.75rem 1rem}
+
+  /* Padding para que el footer no quede oculto por el bottom bar */
+  footer{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
 }
 @media(max-width:480px){
   .services-grid{grid-template-columns:1fr}
@@ -801,10 +870,12 @@ a{color:inherit;text-decoration:none}
   .director-btn-primary,.director-btn-gold,.director-btn-wa{justify-content:center;text-align:center}
 }
 </style>
+
 </head>
 <body>
 
 <!-- NAV -->
+
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Eutimya — Inicio">
@@ -821,17 +892,17 @@ a{color:inherit;text-decoration:none}
       <li><a href="/validar">Validar</a></li>
     </ul>
     <div class="nav-right">
-      <!-- Mascota pill -->
-      <a href="https://www.eutimya.org/blog/certificado-apoyo-emocional" target="_blank" rel="noopener" class="nav-esa" title="Certificado mascota de apoyo emocional">
+      <!-- Mascota pill — hidden on mobile, moved to bottom tab bar -->
+      <a href="https://www.eutimya.org/blog/certificado-apoyo-emocional" target="_blank" rel="noopener" class="nav-esa hide-on-mobile" title="Certificado mascota de apoyo emocional">
         <!-- airplane icon -->
         <svg class="nav-pill-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
         </svg>
         <span>Mascota</span>
       </a>
-      <div class="nav-sep"></div>
-      <!-- Dr. Moya pill -->
-      <a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank" rel="noopener" class="nav-dr-moya" title="Dr. Moya — Psiquiatra">
+      <div class="nav-sep hide-on-mobile"></div>
+      <!-- Dr. Moya pill — hidden on mobile, moved to bottom tab bar -->
+      <a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank" rel="noopener" class="nav-dr-moya hide-on-mobile" title="Dr. Moya — Psiquiatra">
         <!-- stethoscope icon -->
         <svg class="nav-pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.3.3 0 1 0 .2.3"/>
@@ -840,7 +911,7 @@ a{color:inherit;text-decoration:none}
         </svg>
         Dr. Moya
       </a>
-      <div class="nav-sep"></div>
+      <div class="nav-sep hide-on-mobile"></div>
       <!-- Agendar (CTA principal) -->
       <a href="/#agendar" class="nav-btn" style="background:#000">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -872,17 +943,43 @@ a{color:inherit;text-decoration:none}
   </ul>
 </div>
 
+<!-- ═══ BOTTOM TAB BAR — solo móvil ═══ -->
+
+<div class="bottom-tab-bar" id="bottom-tab-bar" aria-label="Accesos rápidos">
+  <div class="bottom-tab-bar-inner">
+    <a href="https://www.eutimya.org/blog/certificado-apoyo-emocional" target="_blank" rel="noopener" class="bottom-tab" title="Certificado ESA para mascotas">
+      <!-- airplane icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+      </svg>
+      <span>ESA Mascota</span>
+    </a>
+    <a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank" rel="noopener" class="bottom-tab" title="Dr. Moya — Psiquiatra de Enlace">
+      <!-- stethoscope icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.3.3 0 1 0 .2.3"/>
+        <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+        <circle cx="20" cy="10" r="2"/>
+      </svg>
+      <span>Dr. Moya</span>
+    </a>
+  </div>
+</div>
+
 <!-- WhatsApp float -->
+
 <a href="https://wa.me/526731205121?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta%20en%20Eutimya."
-   class="wa-float" aria-label="WhatsApp Eutimya">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-  <span>WhatsApp</span>
+class="wa-float" aria-label="WhatsApp Eutimya">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<span>WhatsApp</span>
 </a>
 
 <!-- ═══ MAIN CONTENT ═══ -->
+
 <div id="main-content">
 
 <!-- HERO -->
+
 <section class="hero" id="inicio">
   <div class="hero-left">
     <div class="hero-tag">
@@ -925,6 +1022,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- ACCESOS RÁPIDOS -->
+
 <div class="stats-bar">
   <div class="stats-inner">
     <a href="/#agendar" style="text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
@@ -951,6 +1049,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- NOSOTROS -->
+
 <section class="section section-alt" id="nosotros">
   <div class="wrap">
     <div class="services-intro">
@@ -994,6 +1093,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- CUÁNDO CONSULTAR -->
+
 <section class="section" id="cuando">
   <div class="wrap">
     <p class="eyebrow">¿Cuándo acudir?</p>
@@ -1035,6 +1135,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- SERVICIOS -->
+
 <section class="section section-alt" id="servicios">
   <div class="wrap">
     <div class="services-intro">
@@ -1109,6 +1210,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- PADECIMIENTOS -->
+
 <section class="section" id="padecimientos">
   <div class="wrap">
     <p class="eyebrow">Condiciones que atendemos</p>
@@ -1136,6 +1238,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- NEUROMODULACIÓN -->
+
 <div class="neuro-band" id="neuromodulacion">
   <div class="neuro-inner">
     <div>
@@ -1164,6 +1267,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- ═══ PROFESIONALES ═══ -->
+
 <section class="section section-alt" id="profesionales">
   <div class="wrap">
     <p class="eyebrow">Nuestro equipo</p>
@@ -1173,254 +1277,258 @@ a{color:inherit;text-decoration:none}
       Haz clic en el perfil que más se adapte a tu necesidad.
     </p>
 
-    <!-- Dr. Moya — Director (tarjeta oscura premium) -->
-    <div class="director-section">
-      <div class="director-card">
-        <div class="director-img">
-          <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w800-h800-s-no-gm"
-               alt="Dr. Deldhy Nicolás Moya Sánchez — Director Eutimya"/>
+```
+<!-- Dr. Moya — Director (tarjeta oscura premium) -->
+<div class="director-section">
+  <div class="director-card">
+    <div class="director-img">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w800-h800-s-no-gm"
+           alt="Dr. Deldhy Nicolás Moya Sánchez — Director Eutimya"/>
+    </div>
+    <div class="director-body">
+      <p class="director-eyebrow">Director &amp; Fundador · Eutimya</p>
+      <h3 class="director-name">Dr. Deldhy Nicolás<br>Moya Sánchez</h3>
+      <p class="director-role">Psiquiatra · Psiquiatría de Enlace, UNAM · Neuromodulación TMS/tDCS · Evaluación Bariátrica</p>
+      <p class="director-desc">
+        Médico psiquiatra egresado con Mención Honorífica del CMN 20 de Noviembre (UNAM), ex Jefe de Médicos Residentes.
+        Maestría en administración de clínicas y hospitales. Certificado en TCC. Fellow de la Alta Especialidad en
+        Psiquiatría de Enlace. Más de 9 publicaciones científicas. Atención de adultos, psiquiatría de enlace,
+        neuromodulación y evaluación bariátrica. Consultas en español e inglés.
+      </p>
+      <div class="director-meta">
+        <div class="director-meta-item">
+          <p class="director-meta-k">Formación</p>
+          <p class="director-meta-v">CMN 20 Nov · UNAM · Mención Honorífica</p>
         </div>
-        <div class="director-body">
-          <p class="director-eyebrow">Director &amp; Fundador · Eutimya</p>
-          <h3 class="director-name">Dr. Deldhy Nicolás<br>Moya Sánchez</h3>
-          <p class="director-role">Psiquiatra · Psiquiatría de Enlace, UNAM · Neuromodulación TMS/tDCS · Evaluación Bariátrica</p>
-          <p class="director-desc">
-            Médico psiquiatra egresado con Mención Honorífica del CMN 20 de Noviembre (UNAM), ex Jefe de Médicos Residentes.
-            Maestría en administración de clínicas y hospitales. Certificado en TCC. Fellow de la Alta Especialidad en
-            Psiquiatría de Enlace. Más de 9 publicaciones científicas. Atención de adultos, psiquiatría de enlace,
-            neuromodulación y evaluación bariátrica. Consultas en español e inglés.
-          </p>
-          <div class="director-meta">
-            <div class="director-meta-item">
-              <p class="director-meta-k">Formación</p>
-              <p class="director-meta-v">CMN 20 Nov · UNAM · Mención Honorífica</p>
-            </div>
-            <div class="director-meta-item">
-              <p class="director-meta-k">Alta Especialidad</p>
-              <p class="director-meta-v">Psiquiatría de Enlace · Fellow</p>
-            </div>
-            <div class="director-meta-item">
-              <p class="director-meta-k">Publicaciones</p>
-              <p class="director-meta-v">+9 artículos científicos</p>
-            </div>
-            <div class="director-meta-item">
-              <p class="director-meta-k">Modalidades</p>
-              <p class="director-meta-v">Presencial · En línea · Inglés</p>
-            </div>
-          </div>
-          <div class="director-chips-dark">
-            <span class="director-chip-dark">UNAM Mención Honorífica</span>
-            <span class="director-chip-dark">CMP Certificado</span>
-            <span class="director-chip-dark">TMS · tDCS</span>
-            <span class="director-chip-dark">TDAH adultos</span>
-            <span class="director-chip-dark">Bariátrica</span>
-            <span class="director-chip-dark">English</span>
-          </div>
-          <p class="director-ceds">CE 14788885 · CP 12152669 · CMP 24803862 · COFEPRIS 2609142002A00043</p>
-          <div class="director-btns">
-            <a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank" class="director-btn-primary">Ver perfil completo →</a>
-            <a href="https://psiquiatra-cdmx.eutimya.org/cita" target="_blank" class="director-btn-gold">Agendar cita</a>
-            <a href="https://wa.me/526731205121?text=Hola%20Dr.%20Moya%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta." target="_blank" class="director-btn-wa">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              WhatsApp
-            </a>
-          </div>
+        <div class="director-meta-item">
+          <p class="director-meta-k">Alta Especialidad</p>
+          <p class="director-meta-v">Psiquiatría de Enlace · Fellow</p>
         </div>
+        <div class="director-meta-item">
+          <p class="director-meta-k">Publicaciones</p>
+          <p class="director-meta-v">+9 artículos científicos</p>
+        </div>
+        <div class="director-meta-item">
+          <p class="director-meta-k">Modalidades</p>
+          <p class="director-meta-v">Presencial · En línea · Inglés</p>
+        </div>
+      </div>
+      <div class="director-chips-dark">
+        <span class="director-chip-dark">UNAM Mención Honorífica</span>
+        <span class="director-chip-dark">CMP Certificado</span>
+        <span class="director-chip-dark">TMS · tDCS</span>
+        <span class="director-chip-dark">TDAH adultos</span>
+        <span class="director-chip-dark">Bariátrica</span>
+        <span class="director-chip-dark">English</span>
+      </div>
+      <p class="director-ceds">CE 14788885 · CP 12152669 · CMP 24803862 · COFEPRIS 2609142002A00043</p>
+      <div class="director-btns">
+        <a href="https://psiquiatra-cdmx.eutimya.org/" target="_blank" class="director-btn-primary">Ver perfil completo →</a>
+        <a href="https://psiquiatra-cdmx.eutimya.org/cita" target="_blank" class="director-btn-gold">Agendar cita</a>
+        <a href="https://wa.me/526731205121?text=Hola%20Dr.%20Moya%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta." target="_blank" class="director-btn-wa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Resto del equipo -->
-    <p style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem">
-      <span style="flex:1;height:1px;background:var(--rule);display:block"></span>
-      Equipo de especialistas
-      <span style="flex:1;height:1px;background:var(--rule);display:block"></span>
-    </p>
-    <div class="pros-grid">
+<!-- Resto del equipo -->
+<p style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem">
+  <span style="flex:1;height:1px;background:var(--rule);display:block"></span>
+  Equipo de especialistas
+  <span style="flex:1;height:1px;background:var(--rule);display:block"></span>
+</p>
+<div class="pros-grid">
 
-      <!-- Dra. Sharon -->
-      <div class="pro-card">
-        <div class="pro-img">
-          <img src="https://github.com/moymaa/paido/blob/main/WhatsApp%20Image%202026-02-22%20at%2023.19.43.jpeg?raw=true"
-               alt="Dra. Sharon Venecia Núñez Pichardo — Paidopsiquiatra"/>
-          <div class="pro-img-overlay">
-            <span class="pro-specialty-badge">Paidopsiquiatra · Psiquiatra Adultos</span>
-          </div>
-        </div>
-        <div class="pro-body">
-          <h3 class="pro-name">Dra. Sharon Venecia N. Pichardo</h3>
-          <p class="pro-role">Psiquiatra, UNAM · En formación como Paidopsiquiatra · TCC</p>
-          <div class="pro-chips">
-            <span class="pro-chip">UNAM Mención Honorífica</span>
-            <span class="pro-chip">Paidopsiquiatría</span>
-            <span class="pro-chip">TDAH infantil · TEA</span>
-            <span class="pro-chip">Adolescentes</span>
-          </div>
-          <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CE 14788927 · CP 12045376 · CMP 24803869</p>
-          <div class="pro-ctas">
-            <a href="https://paido.eutimya.org/" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
-            <a href="https://paido.eutimya.org/cita" target="_blank" class="pro-cta pro-cta-light">Agendar</a>
-            <a href="https://wa.me/525513580092?text=Hola%20Dra.%20Sharon%2C%20quisiera%20informaci%C3%B3n%20sobre%20consulta." target="_blank" class="pro-cta pro-cta-wa">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              WA
-            </a>
-          </div>
-        </div>
+  <!-- Dra. Sharon -->
+  <div class="pro-card">
+    <div class="pro-img">
+      <img src="https://github.com/moymaa/paido/blob/main/WhatsApp%20Image%202026-02-22%20at%2023.19.43.jpeg?raw=true"
+           alt="Dra. Sharon Venecia Núñez Pichardo — Paidopsiquiatra"/>
+      <div class="pro-img-overlay">
+        <span class="pro-specialty-badge">Paidopsiquiatra · Psiquiatra Adultos</span>
       </div>
-
-      <!-- Dra. Doris -->
-      <div class="pro-card">
-        <div class="pro-img">
-          <img src="https://github.com/moymaa/eutimya/blob/main/image%20(1).png?raw=true"
-               alt="Dra. Doris Darlene Carmona H. — Psiquiatra Género y Sexualidad"/>
-          <div class="pro-img-overlay">
-            <span class="pro-specialty-badge">Psiquiatra · Género y Sexualidad</span>
-          </div>
-        </div>
-        <div class="pro-body">
-          <h3 class="pro-name">Dra. Doris Darlene Carmona H.</h3>
-          <p class="pro-role">Psiquiatra, UNAM · Alta Especialidad en Género y Sexualidad (INPRF) · TCC</p>
-          <div class="pro-chips">
-            <span class="pro-chip">UNAM · CMP Certificada</span>
-            <span class="pro-chip">Género y Sexualidad</span>
-            <span class="pro-chip">TCC</span>
-          </div>
-          <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CE 14789179 · CP 10364179 · CMP 24803742</p>
-          <div class="pro-ctas">
-            <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta." target="_blank" class="pro-cta pro-cta-dark">Agendar cita</a>
-            <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta." target="_blank" class="pro-cta pro-cta-wa">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              WA
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Psic. Johanna -->
-      <div class="pro-card">
-        <div class="pro-img">
-          <img src="https://i.imgur.com/avg6bg3.jpeg"
-               alt="Psic. Johanna Ivonne Pichardo — Psicóloga TCC"/>
-          <div class="pro-img-overlay">
-            <span class="pro-specialty-badge">Psicóloga Clínica · TCC · Solo en línea</span>
-          </div>
-        </div>
-        <div class="pro-body">
-          <h3 class="pro-name">Psic. Johanna Ivonne P. Cárdenas</h3>
-          <p class="pro-role">Psicóloga clínica, UVM · Maestría TCC · 9 años de experiencia · <strong>Solo en línea</strong></p>
-          <div class="pro-chips">
-            <span class="pro-chip">TCC — Maestría</span>
-            <span class="pro-chip">9 años exp.</span>
-            <span class="pro-chip">Adultos</span>
-            <span class="pro-chip">Solo en línea</span>
-          </div>
-          <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CP 10039603</p>
-          <div class="pro-ctas">
-            <a href="https://www.eutimya.org/joys" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
-            <a href="https://wa.me/525549835710?text=Hola%20Psic.%20Johanna%2C%20quisiera%20informaci%C3%B3n%20sobre%20consulta." target="_blank" class="pro-cta pro-cta-wa">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              WA
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dr. Salvador -->
-      <div class="pro-card">
-        <div class="pro-img">
-          <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
-               alt="Dr. Salvador Josaet Cervantes Barriga — Psiquiatra"/>
-          <div class="pro-img-overlay">
-            <span class="pro-specialty-badge">Psiquiatra · Bioética</span>
-          </div>
-        </div>
-        <div class="pro-body">
-          <h3 class="pro-name">Dr. Salvador Josaet Cervantes Barriga</h3>
-          <p class="pro-role">Psiquiatra · CMN "20 de Noviembre" UNAM · Docente Bioética Clínica</p>
-          <div class="pro-chips">
-            <span class="pro-chip">CMN 20 Nov · UNAM</span>
-            <span class="pro-chip">Bioética clínica</span>
-            <span class="pro-chip">ORCID verificado</span>
-          </div>
-          <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CE 15519360 · CP 12081727</p>
-          <div class="pro-ctas">
-            <a href="https://mental.eutimya.org/salvador/" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
-            <a href="https://wa.me/5216862403531?text=Hola%20Dr.%20Salvador%2C%20me%20comunicaron%20de%20Eutimya.%20Quisiera%20informes." target="_blank" class="pro-cta pro-cta-wa">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              WA
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dr. Alejandro -->
-      <div class="pro-card">
-        <div class="pro-img">
-          <img src="https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpg?raw=true"
-               alt="Dr. Alejandro Salazar Rodríguez — Psiquiatra TCC ACT"
-               onerror="this.src='https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpeg?raw=true'"/>
-          <div class="pro-img-overlay">
-            <span class="pro-specialty-badge">Psiquiatra · TCC · ACT · Bilingüe</span>
-          </div>
-        </div>
-        <div class="pro-body">
-          <h3 class="pro-name">Dr. Alejandro Salazar Rodríguez</h3>
-          <p class="pro-role">Psiquiatra · Maestría TCC · CMN "20 de Nov." · Bilingüe ES/EN</p>
-          <div class="pro-chips">
-            <span class="pro-chip">CMN 20 Nov · UNAM</span>
-            <span class="pro-chip">TCC · ACT</span>
-            <span class="pro-chip">Bilingüe</span>
-            <span class="pro-chip">Del Valle Centro</span>
-          </div>
-          <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CP 15145882 · CE 12195155</p>
-          <div class="pro-ctas">
-            <a href="https://www.salazarpsiq.com/" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
-            <a href="https://wa.me/525548687128?text=Hola%20Dr.%20Alejandro%2C%20el%20equipo%20Eutimya%20me%20comparti%C3%B3%20su%20perfil.%20Quisiera%20informes." target="_blank" class="pro-cta pro-cta-wa">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              WA
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dra. Natalia -->
-      <div class="pro-card">
-        <div class="pro-img">
-          <img src="https://www.eutimya.org/nataliaperfil.jpg"
-               alt="Dra. Natalia Brochet Castilla — Psiquiatra Paidopsiquiatría"/>
-          <div class="pro-img-overlay">
-            <span class="pro-specialty-badge">Psiquiatra · Paidopsiquiatría</span>
-          </div>
-        </div>
-        <div class="pro-body">
-          <h3 class="pro-name">Dra. Natalia Brochet Castilla</h3>
-          <p class="pro-role">Psiquiatra · CMN "20 de Nov." UNAM · Paidopsiquiatría en formación · Maestría TCC</p>
-          <div class="pro-chips">
-            <span class="pro-chip">CMN 20 Nov · UNAM</span>
-            <span class="pro-chip">Paidopsiquiatría</span>
-            <span class="pro-chip">TCC · Maestría</span>
-            <span class="pro-chip">Trastornos alimentarios</span>
-          </div>
-          <div class="pro-ctas">
-            <a href="https://mental.eutimya.org/natalia" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
-            <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20equipo%20Eutimya%20me%20comparti%C3%B3%20su%20perfil.%20Quisiera%20informes." target="_blank" class="pro-cta pro-cta-wa">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              WA
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /pros-grid -->
-
-    <div style="text-align:center;margin-top:2.5rem">
-      <a href="https://www.eutimya.org/colegas" target="_blank" class="btn-ghost">
-        Ver red completa de colegas →
-      </a>
     </div>
+    <div class="pro-body">
+      <h3 class="pro-name">Dra. Sharon Venecia N. Pichardo</h3>
+      <p class="pro-role">Psiquiatra, UNAM · En formación como Paidopsiquiatra · TCC</p>
+      <div class="pro-chips">
+        <span class="pro-chip">UNAM Mención Honorífica</span>
+        <span class="pro-chip">Paidopsiquiatría</span>
+        <span class="pro-chip">TDAH infantil · TEA</span>
+        <span class="pro-chip">Adolescentes</span>
+      </div>
+      <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CE 14788927 · CP 12045376 · CMP 24803869</p>
+      <div class="pro-ctas">
+        <a href="https://paido.eutimya.org/" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
+        <a href="https://paido.eutimya.org/cita" target="_blank" class="pro-cta pro-cta-light">Agendar</a>
+        <a href="https://wa.me/525513580092?text=Hola%20Dra.%20Sharon%2C%20quisiera%20informaci%C3%B3n%20sobre%20consulta." target="_blank" class="pro-cta pro-cta-wa">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WA
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dra. Doris -->
+  <div class="pro-card">
+    <div class="pro-img">
+      <img src="https://github.com/moymaa/eutimya/blob/main/image%20(1).png?raw=true"
+           alt="Dra. Doris Darlene Carmona H. — Psiquiatra Género y Sexualidad"/>
+      <div class="pro-img-overlay">
+        <span class="pro-specialty-badge">Psiquiatra · Género y Sexualidad</span>
+      </div>
+    </div>
+    <div class="pro-body">
+      <h3 class="pro-name">Dra. Doris Darlene Carmona H.</h3>
+      <p class="pro-role">Psiquiatra, UNAM · Alta Especialidad en Género y Sexualidad (INPRF) · TCC</p>
+      <div class="pro-chips">
+        <span class="pro-chip">UNAM · CMP Certificada</span>
+        <span class="pro-chip">Género y Sexualidad</span>
+        <span class="pro-chip">TCC</span>
+      </div>
+      <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CE 14789179 · CP 10364179 · CMP 24803742</p>
+      <div class="pro-ctas">
+        <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta." target="_blank" class="pro-cta pro-cta-dark">Agendar cita</a>
+        <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20sobre%20una%20consulta." target="_blank" class="pro-cta pro-cta-wa">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WA
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Psic. Johanna -->
+  <div class="pro-card">
+    <div class="pro-img">
+      <img src="https://i.imgur.com/avg6bg3.jpeg"
+           alt="Psic. Johanna Ivonne Pichardo — Psicóloga TCC"/>
+      <div class="pro-img-overlay">
+        <span class="pro-specialty-badge">Psicóloga Clínica · TCC · Solo en línea</span>
+      </div>
+    </div>
+    <div class="pro-body">
+      <h3 class="pro-name">Psic. Johanna Ivonne P. Cárdenas</h3>
+      <p class="pro-role">Psicóloga clínica, UVM · Maestría TCC · 9 años de experiencia · <strong>Solo en línea</strong></p>
+      <div class="pro-chips">
+        <span class="pro-chip">TCC — Maestría</span>
+        <span class="pro-chip">9 años exp.</span>
+        <span class="pro-chip">Adultos</span>
+        <span class="pro-chip">Solo en línea</span>
+      </div>
+      <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CP 10039603</p>
+      <div class="pro-ctas">
+        <a href="https://www.eutimya.org/joys" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
+        <a href="https://wa.me/525549835710?text=Hola%20Psic.%20Johanna%2C%20quisiera%20informaci%C3%B3n%20sobre%20consulta." target="_blank" class="pro-cta pro-cta-wa">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WA
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dr. Salvador -->
+  <div class="pro-card">
+    <div class="pro-img">
+      <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
+           alt="Dr. Salvador Josaet Cervantes Barriga — Psiquiatra"/>
+      <div class="pro-img-overlay">
+        <span class="pro-specialty-badge">Psiquiatra · Bioética</span>
+      </div>
+    </div>
+    <div class="pro-body">
+      <h3 class="pro-name">Dr. Salvador Josaet Cervantes Barriga</h3>
+      <p class="pro-role">Psiquiatra · CMN "20 de Noviembre" UNAM · Docente Bioética Clínica</p>
+      <div class="pro-chips">
+        <span class="pro-chip">CMN 20 Nov · UNAM</span>
+        <span class="pro-chip">Bioética clínica</span>
+        <span class="pro-chip">ORCID verificado</span>
+      </div>
+      <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CE 15519360 · CP 12081727</p>
+      <div class="pro-ctas">
+        <a href="https://mental.eutimya.org/salvador/" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
+        <a href="https://wa.me/5216862403531?text=Hola%20Dr.%20Salvador%2C%20me%20comunicaron%20de%20Eutimya.%20Quisiera%20informes." target="_blank" class="pro-cta pro-cta-wa">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WA
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dr. Alejandro -->
+  <div class="pro-card">
+    <div class="pro-img">
+      <img src="https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpg?raw=true"
+           alt="Dr. Alejandro Salazar Rodríguez — Psiquiatra TCC ACT"
+           onerror="this.src='https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpeg?raw=true'"/>
+      <div class="pro-img-overlay">
+        <span class="pro-specialty-badge">Psiquiatra · TCC · ACT · Bilingüe</span>
+      </div>
+    </div>
+    <div class="pro-body">
+      <h3 class="pro-name">Dr. Alejandro Salazar Rodríguez</h3>
+      <p class="pro-role">Psiquiatra · Maestría TCC · CMN "20 de Nov." · Bilingüe ES/EN</p>
+      <div class="pro-chips">
+        <span class="pro-chip">CMN 20 Nov · UNAM</span>
+        <span class="pro-chip">TCC · ACT</span>
+        <span class="pro-chip">Bilingüe</span>
+        <span class="pro-chip">Del Valle Centro</span>
+      </div>
+      <p style="font-size:.67rem;color:var(--ink-light);margin-bottom:1rem">CP 15145882 · CE 12195155</p>
+      <div class="pro-ctas">
+        <a href="https://www.salazarpsiq.com/" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
+        <a href="https://wa.me/525548687128?text=Hola%20Dr.%20Alejandro%2C%20el%20equipo%20Eutimya%20me%20comparti%C3%B3%20su%20perfil.%20Quisiera%20informes." target="_blank" class="pro-cta pro-cta-wa">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WA
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dra. Natalia -->
+  <div class="pro-card">
+    <div class="pro-img">
+      <img src="https://www.eutimya.org/nataliaperfil.jpg"
+           alt="Dra. Natalia Brochet Castilla — Psiquiatra Paidopsiquiatría"/>
+      <div class="pro-img-overlay">
+        <span class="pro-specialty-badge">Psiquiatra · Paidopsiquiatría</span>
+      </div>
+    </div>
+    <div class="pro-body">
+      <h3 class="pro-name">Dra. Natalia Brochet Castilla</h3>
+      <p class="pro-role">Psiquiatra · CMN "20 de Nov." UNAM · Paidopsiquiatría en formación · Maestría TCC</p>
+      <div class="pro-chips">
+        <span class="pro-chip">CMN 20 Nov · UNAM</span>
+        <span class="pro-chip">Paidopsiquiatría</span>
+        <span class="pro-chip">TCC · Maestría</span>
+        <span class="pro-chip">Trastornos alimentarios</span>
+      </div>
+      <div class="pro-ctas">
+        <a href="https://mental.eutimya.org/natalia" target="_blank" class="pro-cta pro-cta-dark">Ver perfil</a>
+        <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20equipo%20Eutimya%20me%20comparti%C3%B3%20su%20perfil.%20Quisiera%20informes." target="_blank" class="pro-cta pro-cta-wa">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WA
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pros-grid -->
+
+<div style="text-align:center;margin-top:2.5rem">
+  <a href="https://www.eutimya.org/colegas" target="_blank" class="btn-ghost">
+    Ver red completa de colegas →
+  </a>
+</div>
+```
+
   </div>
 </section>
 
 <!-- BLOG -->
+
 <section class="section" id="blog">
   <div class="wrap">
     <p class="eyebrow">Blog de salud mental</p>
@@ -1470,6 +1578,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- CERTIFICADO ESA / CMAE -->
+
 <section class="section section-alt" id="certificado">
   <div class="wrap">
     <div class="services-intro">
@@ -1525,6 +1634,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- FAQ -->
+
 <section class="section" id="faq">
   <div class="wrap">
     <p class="eyebrow">Preguntas frecuentes</p>
@@ -1577,6 +1687,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- CTA BAND -->
+
 <div class="cta-band">
   <div class="cta-inner">
     <h2>Da el primer paso hacia tu bienestar mental</h2>
@@ -1589,6 +1700,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- CONTACTO -->
+
 <section class="section section-alt" id="contacto">
   <div class="wrap">
     <p class="eyebrow">Contacto</p>
@@ -1647,6 +1759,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- FACTURACIÓN -->
+
 <section class="section" id="facturacion">
   <div class="wrap">
     <p class="eyebrow">Facturación</p>
@@ -1662,6 +1775,7 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- FOOTER -->
+
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -1714,138 +1828,141 @@ a{color:inherit;text-decoration:none}
 
 </div><!-- /main-content -->
 
-
 <!-- ═══ ROUTE: /#agendar /?agendar ═══ -->
+
 <div id="route-agendar" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
   <div class="wrap" style="max-width:820px;padding:4rem 2rem">
     <p class="eyebrow">Reservar cita</p>
     <h1 class="section-h">Tu primera cita en 3 pasos</h1>
     <p class="section-sub" style="margin-bottom:3rem">Un proceso claro, sin complicaciones.</p>
 
-    <!-- Paso 1 -->
-    <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
-      <div style="display:flex;gap:1.2rem;align-items:flex-start">
-        <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">1</div>
-        <div style="flex:1">
-          <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Elige tu especialista</h3>
-          <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">Selecciona al profesional que mejor se adapte a tu necesidad. Haz clic en su nombre para ver su perfil completo y agendar directamente.</p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem">
-            <!-- Moya -->
-            <a href="https://psiquiatra-cdmx.eutimya.org/cita" target="_blank"
-               style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--gold);border-radius:8px;background:var(--gold-pale);transition:all .2s"
-               onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform=''">
-              <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w800-h800-s-no-gm"
-                   style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Moya"/>
-              <div>
-                <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Moya Sánchez</p>
-                <p style="font-size:.7rem;color:var(--gold);font-weight:600">Director · Psiquiatra adultos</p>
-              </div>
-            </a>
-            <!-- Sharon -->
-            <a href="https://paido.eutimya.org/cita" target="_blank"
-               style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-               onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-              <img src="https://github.com/moymaa/paido/blob/main/WhatsApp%20Image%202026-02-22%20at%2023.19.43.jpeg?raw=true"
-                   style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Sharon"/>
-              <div>
-                <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Sharon Venecia</p>
-                <p style="font-size:.7rem;color:var(--ink-light)">Paidopsiquiatra · Niños y adultos</p>
-              </div>
-            </a>
-            <!-- Doris -->
-            <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank"
-               style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-               onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-              <img src="https://github.com/moymaa/eutimya/blob/main/image%20(1).png?raw=true"
-                   style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Doris"/>
-              <div>
-                <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Doris Carmona</p>
-                <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Género y Sexualidad</p>
-              </div>
-            </a>
-            <!-- Johanna -->
-            <a href="https://wa.me/525549835710?text=Hola%20Psic.%20Johanna%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank"
-               style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-               onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-              <img src="https://i.imgur.com/avg6bg3.jpeg"
-                   style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Psic. Johanna"/>
-              <div>
-                <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Psic. Johanna Pichardo</p>
-                <p style="font-size:.7rem;color:var(--ink-light)">TCC · Solo en línea</p>
-              </div>
-            </a>
-            <!-- Salvador -->
-            <a href="https://mental.eutimya.org/salvador/" target="_blank"
-               style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-               onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-              <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
-                   style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Salvador"/>
-              <div>
-                <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Salvador Cervantes</p>
-                <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Bioética</p>
-              </div>
-            </a>
-            <!-- Alejandro -->
-            <a href="https://www.salazarpsiq.com/" target="_blank"
-               style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-               onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-              <img src="https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpg?raw=true"
-                   style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Alejandro"
-                   onerror="this.src='https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpeg?raw=true'"/>
-              <div>
-                <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Alejandro Salazar</p>
-                <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · TCC · ACT</p>
-              </div>
-            </a>
-            <!-- Natalia -->
-            <a href="https://mental.eutimya.org/natalia" target="_blank"
-               style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
-               onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
-              <img src="https://raw.githubusercontent.com/moymaa/eutimya/959ad882b940626515441bb74db5080d64274899/image.png"
-                   style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Natalia"/>
-              <div>
-                <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Natalia Brochet</p>
-                <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Paidopsiquiatría</p>
-              </div>
-            </a>
+```
+<!-- Paso 1 -->
+<div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
+  <div style="display:flex;gap:1.2rem;align-items:flex-start">
+    <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">1</div>
+    <div style="flex:1">
+      <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Elige tu especialista</h3>
+      <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1.2rem">Selecciona al profesional que mejor se adapte a tu necesidad. Haz clic en su nombre para ver su perfil completo y agendar directamente.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem">
+        <!-- Moya -->
+        <a href="https://psiquiatra-cdmx.eutimya.org/cita" target="_blank"
+           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--gold);border-radius:8px;background:var(--gold-pale);transition:all .2s"
+           onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform=''">
+          <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w800-h800-s-no-gm"
+               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Moya"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Moya Sánchez</p>
+            <p style="font-size:.7rem;color:var(--gold);font-weight:600">Director · Psiquiatra adultos</p>
           </div>
-        </div>
+        </a>
+        <!-- Sharon -->
+        <a href="https://paido.eutimya.org/cita" target="_blank"
+           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
+           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
+          <img src="https://github.com/moymaa/paido/blob/main/WhatsApp%20Image%202026-02-22%20at%2023.19.43.jpeg?raw=true"
+               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Sharon"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Sharon Venecia</p>
+            <p style="font-size:.7rem;color:var(--ink-light)">Paidopsiquiatra · Niños y adultos</p>
+          </div>
+        </a>
+        <!-- Doris -->
+        <a href="https://wa.me/525539940527?text=Hola%20Dra.%20Doris%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank"
+           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
+           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
+          <img src="https://github.com/moymaa/eutimya/blob/main/image%20(1).png?raw=true"
+               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Doris"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Doris Carmona</p>
+            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Género y Sexualidad</p>
+          </div>
+        </a>
+        <!-- Johanna -->
+        <a href="https://wa.me/525549835710?text=Hola%20Psic.%20Johanna%2C%20quisiera%20informaci%C3%B3n%20para%20agendar%20consulta." target="_blank"
+           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
+           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
+          <img src="https://i.imgur.com/avg6bg3.jpeg"
+               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Psic. Johanna"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Psic. Johanna Pichardo</p>
+            <p style="font-size:.7rem;color:var(--ink-light)">TCC · Solo en línea</p>
+          </div>
+        </a>
+        <!-- Salvador -->
+        <a href="https://mental.eutimya.org/salvador/" target="_blank"
+           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
+           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
+          <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
+               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Salvador"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Salvador Cervantes</p>
+            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Bioética</p>
+          </div>
+        </a>
+        <!-- Alejandro -->
+        <a href="https://www.salazarpsiq.com/" target="_blank"
+           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
+           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
+          <img src="https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpg?raw=true"
+               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dr. Alejandro"
+               onerror="this.src='https://github.com/asalazar961-hub/salazar/blob/main/fotoperfil.jpeg?raw=true'"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dr. Alejandro Salazar</p>
+            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · TCC · ACT</p>
+          </div>
+        </a>
+        <!-- Natalia -->
+        <a href="https://mental.eutimya.org/natalia" target="_blank"
+           style="display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border:1.5px solid var(--rule);border-radius:8px;background:#fff;transition:all .2s"
+           onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform=''">
+          <img src="https://raw.githubusercontent.com/moymaa/eutimya/959ad882b940626515441bb74db5080d64274899/image.png"
+               style="width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0" alt="Dra. Natalia"/>
+          <div>
+            <p style="font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.2">Dra. Natalia Brochet</p>
+            <p style="font-size:.7rem;color:var(--ink-light)">Psiquiatra · Paidopsiquiatría</p>
+          </div>
+        </a>
       </div>
-    </div>
-
-    <!-- Paso 2 -->
-    <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
-      <div style="display:flex;gap:1.2rem;align-items:flex-start">
-        <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">2</div>
-        <div>
-          <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Pago de honorarios</h3>
-          <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1rem">Realiza el pago y envía tu comprobante al médico vía WhatsApp. Se acepta transferencia, tarjeta y efectivo.</p>
-          <a href="/?pagos" class="btn-main" style="font-size:.82rem;padding:.6rem 1.4rem;display:inline-flex">Ver formas de pago →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Paso 3 -->
-    <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:2rem">
-      <div style="display:flex;gap:1.2rem;align-items:flex-start">
-        <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">3</div>
-        <div>
-          <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Registro de expediente</h3>
-          <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1rem">Completa tu expediente para brindarte atención personalizada desde la primera cita.</p>
-          <a href="https://mental.eutimya.org/#agendar" target="_blank" class="btn-main" style="font-size:.82rem;padding:.6rem 1.4rem;display:inline-flex">Completar registro →</a>
-        </div>
-      </div>
-    </div>
-
-    <div style="padding:1.4rem 1.8rem;background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal)">
-      <p style="font-size:.88rem;color:var(--teal);font-weight:600;margin-bottom:.3rem">¿Tienes dudas? Escríbenos</p>
-      <p style="font-size:.85rem;color:var(--ink-mid)">Dr. Moya: <a href="https://wa.me/526731205121" style="color:var(--teal);font-weight:600">+52 673 120 5121</a> &nbsp;·&nbsp; Dra. Sharon: <a href="https://wa.me/525513580092" style="color:var(--teal);font-weight:600">+52 55 1358 0092</a></p>
     </div>
   </div>
 </div>
 
+<!-- Paso 2 -->
+<div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:1.5rem">
+  <div style="display:flex;gap:1.2rem;align-items:flex-start">
+    <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">2</div>
+    <div>
+      <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Pago de honorarios</h3>
+      <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1rem">Realiza el pago y envía tu comprobante al médico vía WhatsApp. Se acepta transferencia, tarjeta y efectivo.</p>
+      <a href="/?pagos" class="btn-main" style="font-size:.82rem;padding:.6rem 1.4rem;display:inline-flex">Ver formas de pago →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Paso 3 -->
+<div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:1.8rem 2rem;box-shadow:var(--shadow);margin-bottom:2rem">
+  <div style="display:flex;gap:1.2rem;align-items:flex-start">
+    <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700">3</div>
+    <div>
+      <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.35rem">Registro de expediente</h3>
+      <p style="font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin-bottom:1rem">Completa tu expediente para brindarte atención personalizada desde la primera cita.</p>
+      <a href="https://mental.eutimya.org/#agendar" target="_blank" class="btn-main" style="font-size:.82rem;padding:.6rem 1.4rem;display:inline-flex">Completar registro →</a>
+    </div>
+  </div>
+</div>
+
+<div style="padding:1.4rem 1.8rem;background:var(--teal-light);border-radius:var(--r);border:1px solid var(--teal)">
+  <p style="font-size:.88rem;color:var(--teal);font-weight:600;margin-bottom:.3rem">¿Tienes dudas? Escríbenos</p>
+  <p style="font-size:.85rem;color:var(--ink-mid)">Dr. Moya: <a href="https://wa.me/526731205121" style="color:var(--teal);font-weight:600">+52 673 120 5121</a> &nbsp;·&nbsp; Dra. Sharon: <a href="https://wa.me/525513580092" style="color:var(--teal);font-weight:600">+52 55 1358 0092</a></p>
+</div>
+```
+
+  </div>
+</div>
 
 <!-- ═══ ROUTE: /?pagos ═══ -->
+
 <div id="route-pagos" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
   <div class="wrap" style="max-width:860px;padding:4rem 2rem">
     <p class="eyebrow">Honorarios</p>
@@ -1938,8 +2055,8 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
-
 <!-- ═══ ROUTE: /?certificados /?mascota ═══ -->
+
 <div id="route-certificados" class="route-page" style="display:none;padding-top:80px;min-height:100vh;background:var(--canvas)">
   <div class="wrap" style="max-width:860px;padding:4rem 2rem">
     <p class="eyebrow">Certificado ESA</p>
@@ -1969,50 +2086,53 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
 
-      <!-- ── CMAE ── -->
-      <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow);margin-top:2.5rem">
-        <p style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0EA5A0;margin-bottom:.5rem">También emitimos</p>
-        <h2 style="font-family:var(--serif);font-size:1.35rem;margin-bottom:.5rem;color:var(--ink)">Certificado Médico de Apoyo Emocional <span style="opacity:.5">(CMAE)</span></h2>
-        <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.75;margin-bottom:1.3rem">La carta que exigen Volaris, Aeroméxico y otras aerolíneas para que tu perro o gato suba a la cabina <strong>sin costo de boleto adicional</strong>. La emite el Dr. Moya en papel membretado con cédula profesional — válida 1 año.</p>
-        <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-bottom:1.5rem">
-          <div style="background:#f0fdfc;border-radius:10px;padding:1.1rem 1.2rem;border:1px solid #99e6e3">
-            <p style="font-size:.75rem;font-weight:700;color:#0EA5A0;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em">¿Qué debe decir?</p>
-            <ul style="font-size:.86rem;color:var(--ink-mid);line-height:2;list-style:none;padding:0;margin:0">
-              <li>✔ Que el paciente está bajo cuidado profesional</li>
-              <li>✔ Que requiere el animal para volar</li>
-              <li>✔ Cédula profesional del psiquiatra</li>
-              <li>✔ Emitida en hoja membretada</li>
-              <li>✔ Vigencia máxima 1 año</li>
-            </ul>
-          </div>
-          <div style="background:#f0fdfc;border-radius:10px;padding:1.1rem 1.2rem;border:1px solid #99e6e3">
-            <p style="font-size:.75rem;font-weight:700;color:#0EA5A0;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em">Aerolíneas que la aceptan</p>
-            <ul style="font-size:.86rem;color:var(--ink-mid);line-height:2;list-style:none;padding:0;margin:0">
-              <li>✈️ Volaris — rutas nacionales e internacionales</li>
-              <li>✈️ Aeroméxico — misma política, sin cargo extra</li>
-              <li>📋 PROFECO avala el derecho a viajar en cabina</li>
-              <li>🐾 Perros y gatos, máx. 12 kg con transportadora</li>
-            </ul>
-          </div>
-        </div>
-        <div style="display:flex;gap:.8rem;flex-wrap:wrap;align-items:center">
-          <a href="http://psiquiatra-cdmx.eutimya.org/cmae" target="_blank"
-             style="display:inline-flex;align-items:center;gap:.5rem;background:#0EA5A0;color:#fff;font-weight:700;font-size:.95rem;padding:.8rem 2rem;border-radius:8px;text-decoration:none;transition:background .15s,transform .15s,box-shadow .15s"
-             onmouseover="this.style.background='#0C9490';this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 14px rgba(14,165,160,.4)'"
-             onmouseout="this.style.background='#0EA5A0';this.style.transform='';this.style.boxShadow=''">
-            Solicitar
-          </a>
-          <a href="https://www.eutimya.org/blog/certificado-apoyo-emocional" target="_blank" rel="noopener" class="btn-outline" style="font-size:.85rem">
-            Leer artículo del blog →
-          </a>
-        </div>
+```
+  <!-- ── CMAE ── -->
+  <div style="background:#fff;border-radius:var(--r);border:1px solid var(--rule);padding:2rem;box-shadow:var(--shadow);margin-top:2.5rem">
+    <p style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0EA5A0;margin-bottom:.5rem">También emitimos</p>
+    <h2 style="font-family:var(--serif);font-size:1.35rem;margin-bottom:.5rem;color:var(--ink)">Certificado Médico de Apoyo Emocional <span style="opacity:.5">(CMAE)</span></h2>
+    <p style="font-size:.9rem;color:var(--ink-mid);line-height:1.75;margin-bottom:1.3rem">La carta que exigen Volaris, Aeroméxico y otras aerolíneas para que tu perro o gato suba a la cabina <strong>sin costo de boleto adicional</strong>. La emite el Dr. Moya en papel membretado con cédula profesional — válida 1 año.</p>
+    <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-bottom:1.5rem">
+      <div style="background:#f0fdfc;border-radius:10px;padding:1.1rem 1.2rem;border:1px solid #99e6e3">
+        <p style="font-size:.75rem;font-weight:700;color:#0EA5A0;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em">¿Qué debe decir?</p>
+        <ul style="font-size:.86rem;color:var(--ink-mid);line-height:2;list-style:none;padding:0;margin:0">
+          <li>✔ Que el paciente está bajo cuidado profesional</li>
+          <li>✔ Que requiere el animal para volar</li>
+          <li>✔ Cédula profesional del psiquiatra</li>
+          <li>✔ Emitida en hoja membretada</li>
+          <li>✔ Vigencia máxima 1 año</li>
+        </ul>
       </div>
+      <div style="background:#f0fdfc;border-radius:10px;padding:1.1rem 1.2rem;border:1px solid #99e6e3">
+        <p style="font-size:.75rem;font-weight:700;color:#0EA5A0;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em">Aerolíneas que la aceptan</p>
+        <ul style="font-size:.86rem;color:var(--ink-mid);line-height:2;list-style:none;padding:0;margin:0">
+          <li>✈️ Volaris — rutas nacionales e internacionales</li>
+          <li>✈️ Aeroméxico — misma política, sin cargo extra</li>
+          <li>📋 PROFECO avala el derecho a viajar en cabina</li>
+          <li>🐾 Perros y gatos, máx. 12 kg con transportadora</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;align-items:center">
+      <a href="http://psiquiatra-cdmx.eutimya.org/cmae" target="_blank"
+         style="display:inline-flex;align-items:center;gap:.5rem;background:#0EA5A0;color:#fff;font-weight:700;font-size:.95rem;padding:.8rem 2rem;border-radius:8px;text-decoration:none;transition:background .15s,transform .15s,box-shadow .15s"
+         onmouseover="this.style.background='#0C9490';this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 14px rgba(14,165,160,.4)'"
+         onmouseout="this.style.background='#0EA5A0';this.style.transform='';this.style.boxShadow=''">
+        Solicitar
+      </a>
+      <a href="https://www.eutimya.org/blog/certificado-apoyo-emocional" target="_blank" rel="noopener" class="btn-outline" style="font-size:.85rem">
+        Leer artículo del blog →
+      </a>
     </div>
   </div>
 </div>
+```
 
+  </div>
+</div>
 
 <!-- SCRIPTS -->
+
 <script>
 (function(){
   var ROUTES = {
@@ -2087,7 +2207,9 @@ a{color:inherit;text-decoration:none}
   if(hbg && mnav){
     hbg.addEventListener('click', function(e){
       e.stopPropagation();
-      mnav.classList.toggle('open');
+      var isOpen = mnav.classList.toggle('open');
+      hbg.classList.toggle('is-open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
     document.addEventListener('click', function(e){
       if(mnav.classList.contains('open') &&
@@ -2095,15 +2217,20 @@ a{color:inherit;text-decoration:none}
          e.target !== hbg &&
          !hbg.contains(e.target)){
         mnav.classList.remove('open');
+        hbg.classList.remove('is-open');
+        document.body.style.overflow = '';
       }
     });
     mnav.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', function(){
         mnav.classList.remove('open');
+        hbg.classList.remove('is-open');
+        document.body.style.overflow = '';
       });
     });
   }
 })();
 </script>
+
 </body>
 </html>
