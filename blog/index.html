@@ -564,6 +564,10 @@ a { color: inherit; text-decoration: none; }
       <span class="filter-dot" style="background:#a855f7"></span>
       Paidopsiquiatría
     </button>
+    <button class="filter-btn" onclick="filterPosts('tdah', this)">
+      <span class="filter-dot" style="background:#0EA5A0"></span>
+      TDAH
+    </button>
     <button class="filter-btn" onclick="filterPosts('guias', this)">
       <span class="filter-dot" style="background:#b8893a"></span>
       Guías Clínicas
@@ -579,23 +583,23 @@ a { color: inherit; text-decoration: none; }
     <div>
 
       <!-- FEATURED -->
-      <a href="https://mental.eutimya.org/blog/la-relaci%C3%B3n-entre-la-soledad-y-la-depresi%C3%B3n-c%C3%B3mo-romper-el-ciclo" class="featured-post" data-categories="depresion bienestar">
+      <a href="https://mental.eutimya.org/blog/tdah-en-adultos" class="featured-post" data-categories="ansiedad psiquiatria">
         <div class="featured-img">
-          <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=800&q=85&auto=format&fit=crop" alt="Soledad y depresión" loading="eager"/>
+          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=85&auto=format&fit=crop" alt="TDAH en adultos — concentración y funciones ejecutivas" loading="eager"/>
           <div class="featured-img-overlay"></div>
           <span class="featured-img-badge">⭐ Artículo destacado</span>
         </div>
         <div class="featured-body">
-          <p class="featured-tag">Depresión · Bienestar</p>
-          <h2>La relación entre la soledad y la depresión: cómo romper el ciclo</h2>
-          <p>La soledad no deseada incrementa hasta cinco veces el riesgo de desarrollar depresión. Más allá del aislamiento social, la rumiación constante juega un papel clave en este vínculo. Descubre cómo romper el ciclo y mejorar tu bienestar emocional.</p>
+          <p class="featured-tag">Psiquiatría · Ansiedad</p>
+          <h2>TDAH en adultos: cuando la ansiedad es solo la punta del iceberg</h2>
+          <p>Muchos adultos tratados por ansiedad crónica tienen TDAH no diagnosticado como causa subyacente. Síntomas frecuentes, cómo se realiza el diagnóstico formal y qué opciones de tratamiento existen en México.</p>
           <div class="featured-meta">
             <div class="featured-meta-avatar">
               <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w200-h200-s-no-gm" alt="Dr. Moya" referrerpolicy="no-referrer"/>
             </div>
             <div class="featured-meta-info">
               <strong>Dr. Deldhy N. Moya Sánchez</strong>
-              <span>Psiquiatra · Eutimya · 2025</span>
+              <span>Psiquiatría de Enlace · Eutimya · Mayo 2026</span>
             </div>
           </div>
           <span class="featured-read-link">Leer artículo &nbsp;</span>
@@ -605,10 +609,30 @@ a { color: inherit; text-decoration: none; }
       <!-- GRID -->
       <div class="posts-section-head">
         <h3>Todos los artículos</h3>
-        <span style="font-size:.78rem;color:var(--ink-light)">8 artículos</span>
+        <span style="font-size:.78rem;color:var(--ink-light)">9 artículos</span>
       </div>
 
       <div class="posts-grid" id="postsGrid">
+
+        <!-- Card TDAH — NEW FEATURED -->
+        <a href="https://mental.eutimya.org/blog/tdah-en-adultos" class="post-card" data-categories="ansiedad psiquiatria tdah">
+          <div class="post-img">
+            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80&auto=format&fit=crop" alt="TDAH en adultos: síntomas y diagnóstico" loading="lazy"/>
+            <span class="post-tag-overlay" style="background:rgba(14,165,160,.80)">Psiquiatría · Ansiedad</span>
+          </div>
+          <div class="post-body">
+            <span class="post-tag">Psiquiatría · Ansiedad</span>
+            <h3>TDAH en adultos: cuando la ansiedad es solo la punta del iceberg</h3>
+            <p>Síntomas, diagnóstico formal y opciones de tratamiento para el TDAH en adultos. Por qué el diagnóstico diferencial cambia el pronóstico.</p>
+            <div class="post-footer">
+              <div class="post-footer-author">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMhQ6m9BOG6lddqce7vog3-dLP4_oifP2GShaWc1kbQsxyFwuxyweYIykWCzKl49n2yeeyuUfcq0CgMb0GxyAwyIYHLhg2T0wvQRXcQSMnMNY23HN21WoiiRFHgzEcq9zp-rdpo9dmaZmmy7XMgizvYOA=w200-h200-s-no-gm" alt="Dr. Moya" referrerpolicy="no-referrer"/>
+                Dr. Moya · May 2026
+              </div>
+              <span class="post-read-link">Leer <span>→</span></span>
+            </div>
+          </div>
+        </a>
 
         <!-- Card 1 -->
         <a href="https://mental.eutimya.org/blog/la-relaci%C3%B3n-entre-la-soledad-y-la-depresi%C3%B3n-c%C3%B3mo-romper-el-ciclo" class="post-card" data-categories="depresion bienestar">
@@ -811,7 +835,7 @@ a { color: inherit; text-decoration: none; }
                   <span class="topic-dot" style="background:#0d1b2a"></span>
                   Todos los artículos
                 </span>
-                <span class="topic-count">8</span>
+                <span class="topic-count">9</span>
               </a>
             </li>
             <li class="topic-item">
@@ -829,7 +853,7 @@ a { color: inherit; text-decoration: none; }
                   <span class="topic-dot" style="background:#f59e0b"></span>
                   Ansiedad &amp; Estrés
                 </span>
-                <span class="topic-count">2</span>
+                <span class="topic-count">3</span>
               </a>
             </li>
             <li class="topic-item">
@@ -838,7 +862,16 @@ a { color: inherit; text-decoration: none; }
                   <span class="topic-dot" style="background:#0ea5e9"></span>
                   Psiquiatría
                 </span>
-                <span class="topic-count">3</span>
+                <span class="topic-count">4</span>
+              </a>
+            </li>
+            <li class="topic-item">
+              <a href="#" onclick="filterPosts('tdah', null); return false;">
+                <span style="display:flex;align-items:center;gap:.55rem">
+                  <span class="topic-dot" style="background:#0EA5A0"></span>
+                  TDAH
+                </span>
+                <span class="topic-count">1</span>
               </a>
             </li>
             <li class="topic-item">
@@ -929,7 +962,7 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Eutimya · Blog de Salud Mental · CDMX</span>
+    <span>© 2026 Eutimya · Blog de Salud Mental · CDMX</span>
     <span>mental.eutimya.org/blog</span>
   </div>
 </footer>
