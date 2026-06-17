@@ -142,6 +142,53 @@ a{color:inherit;text-decoration:none}
   transform:none;
 }
 
+/* ═══ FEATURED · RECOMENDADO (tarjeta principal, grande y a todo lo ancho) ═══ */
+.card.featured{
+  grid-column:1 / -1;
+  display:grid;
+  grid-template-columns:340px 1fr;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
+  border:2px solid var(--gold);
+  box-shadow:0 24px 64px rgba(15,41,66,.30),0 8px 24px rgba(184,137,58,.18);
+}
+.card.featured:hover{
+  transform:none;
+  border-color:var(--gold);
+  box-shadow:0 30px 76px rgba(15,41,66,.36),0 10px 28px rgba(184,137,58,.22);
+}
+.card.featured .card-photo{height:100%;min-height:360px}
+.card.featured .card-body{padding:2.1rem 2.3rem;display:flex;flex-direction:column;justify-content:center}
+.card.featured .card-name{color:#fff;font-size:1.7rem;margin-bottom:.4rem}
+.card.featured .card-role{color:rgba(255,255,255,.78);font-size:.92rem;margin-bottom:1rem}
+.card.featured .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.85)}
+.card.featured .card-toggle{color:#fff;border-top-color:rgba(255,255,255,.16)}
+.card.featured .toggle-icon{border-color:rgba(255,255,255,.4)}
+.card.featured .toggle-icon svg{stroke:#fff}
+.card.featured.open .toggle-icon{background:var(--gold);border-color:var(--gold)}
+.card.featured.open .toggle-icon svg{stroke:#fff}
+.card.featured .card-expand{grid-column:1 / -1}
+.ribbon-rec{
+  position:absolute;top:18px;left:-1px;z-index:6;
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--gold);color:#fff;
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:.48rem 1rem .48rem .8rem;
+  border-radius:0 8px 8px 0;
+  box-shadow:0 5px 14px rgba(184,137,58,.5);
+}
+.ribbon-rec svg{width:13px;height:13px;fill:currentColor;flex-shrink:0}
+.avail-pill{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-size:.74rem;font-weight:700;color:#fff;
+  background:rgba(22,163,74,.22);border:1px solid rgba(22,163,74,.5);
+  border-radius:100px;padding:.34rem .85rem;margin-bottom:1.05rem;
+  align-self:flex-start;
+}
+.avail-pill .dot{
+  width:7px;height:7px;border-radius:50%;background:#34d399;
+  box-shadow:0 0 0 3px rgba(52,211,153,.25);flex-shrink:0;
+}
+
 /* Photo */
 .card-photo{
   height:280px;overflow:hidden;position:relative;
@@ -299,9 +346,13 @@ a{color:inherit;text-decoration:none}
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:900px){
   .colegas-grid{grid-template-columns:1fr 1fr}
+  .card.featured{grid-template-columns:280px 1fr}
 }
 @media(max-width:600px){
   .colegas-grid{grid-template-columns:1fr}
+  .card.featured{grid-template-columns:1fr}
+  .card.featured .card-photo{min-height:260px}
+  .card.featured .card-name{font-size:1.45rem}
   .grid-wrap{padding:1rem 1.2rem 4rem}
   .hero{padding-bottom:2.5rem}
   .nav-label{display:none}
@@ -354,9 +405,12 @@ a{color:inherit;text-decoration:none}
 <div class="grid-wrap">
   <div class="colegas-grid">
 
-```
-<!-- ─── CARD 1: Dr. Salvador ─── -->
-<div class="card reveal d1" id="card-salvador" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
+<!-- ─── CARD 1: Dr. Salvador · RECOMENDADO ─── -->
+<div class="card featured reveal d1" id="card-salvador" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
+  <div class="ribbon-rec">
+    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg>
+    Recomendado
+  </div>
   <div class="card-photo">
     <img src="https://mental.eutimya.org/salvador/perfildrsalvador.jpeg"
          alt="Dr. Salvador Josaet Cervantes Barriga — Psiquiatra Eutimya"
@@ -368,6 +422,7 @@ a{color:inherit;text-decoration:none}
   <div class="card-body">
     <h2 class="card-name">Dr. Salvador Josaet<br/>Cervantes Barriga</h2>
     <p class="card-role">Médico Especialista en Psiquiatría · CMN "20 de Noviembre" ISSSTE/UNAM · Docente de Bioética Clínica</p>
+    <span class="avail-pill"><span class="dot"></span>Cita más cercana · disponibilidad esta semana</span>
     <div class="card-chips">
       <span class="chip">CMN 20 Nov · UNAM</span>
       <span class="chip">Bioética clínica</span>
@@ -418,6 +473,77 @@ a{color:inherit;text-decoration:none}
           Ver perfil completo
         </a>
         <a href="https://wa.me/5216862403531?text=Hola%20Dr.%20Salvador%2C%20me%20comunicaron%20de%20parte%20del%20equipo%20Eutimya.%20Quisiera%20informaci%C3%B3n%20sobre%20consulta." target="_blank" rel="noopener" class="btn-wa">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CARD 2: Dra. Natalia ─── -->
+<div class="card reveal d2" id="card-natalia" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
+  <div class="card-photo">
+    <img src="https://www.eutimya.org/nataliaperfil.jpg"
+         alt="Dra. Natalia Brochet Castilla — Psiquiatra Paidopsiquiatría Eutimya"
+         loading="lazy"/>
+    <div class="card-photo-overlay">
+      <span class="card-badge">Psiquiatra · Paidopsiquiatría</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h2 class="card-name">Dra. Natalia<br/>Brochet Castilla</h2>
+    <p class="card-role">Médico Psiquiatra · CMN "20 de Noviembre" UNAM · Paidopsiquiatría en formación · Maestría TCC</p>
+    <div class="card-chips">
+      <span class="chip">CMN 20 Nov · UNAM</span>
+      <span class="chip">Paidopsiquiatría</span>
+      <span class="chip">TCC · Maestría</span>
+      <span class="chip">Imagen corporal</span>
+    </div>
+    <div class="card-toggle">
+      <span>Ver perfil</span>
+      <span class="toggle-icon">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </span>
+    </div>
+  </div>
+  <div class="card-expand">
+    <div class="expand-inner">
+      <div class="expand-section">
+        <p class="expand-label">Perfil</p>
+        <p class="expand-text">Psiquiatra egresada del CMN "20 de Noviembre", ISSSTE–UNAM (2022–2026), con formación en psiquiatría de adultos, psiquiatría de enlace y trastornos de la conducta alimentaria. Actualmente en formación como Paidopsiquiatra. Maestría en TCC (Centro de Psicoterapia Cognitiva). Certificación en imagen corporal por ASI México (2025). Representante de Residentes Extranjeros 2024–2025. Ponente en el 24.° Congreso Mundial de Psiquiatría. Médica graduada con honores de la Universidad del Rosario, Colombia.</p>
+      </div>
+      <div class="expand-section">
+        <p class="expand-label">Credenciales</p>
+        <div class="expand-creds">
+          <div class="cred-pill">
+            <div class="cred-pill-label">Egreso residencia</div>
+            <div class="cred-pill-value">2026</div>
+          </div>
+          <div class="cred-pill">
+            <div class="cred-pill-label">Aval académico</div>
+            <div class="cred-pill-value" style="font-size:.72rem">ISSSTE · UNAM</div>
+          </div>
+          <div class="cred-pill">
+            <div class="cred-pill-label">Publicaciones</div>
+            <div class="cred-pill-value">Innoscience Journal</div>
+          </div>
+          <div class="cred-pill">
+            <div class="cred-pill-label">Congreso</div>
+            <div class="cred-pill-value" style="font-size:.68rem">WPA 2024 · Ponente</div>
+          </div>
+        </div>
+      </div>
+      <div class="expand-section">
+        <p class="expand-label">Áreas clínicas</p>
+        <p class="expand-text">Psiquiatría infanto-juvenil · TDAH · Trastornos alimentarios · Psicofarmacología · TCC · Psiquiatría de enlace · Terapia Gottman (parejas) · Imagen corporal</p>
+      </div>
+      <div class="expand-actions" onclick="event.stopPropagation()">
+        <a href="https://mental.eutimya.org/natalia" target="_blank" rel="noopener" class="btn-profile">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          Ver perfil completo
+        </a>
+        <a href="https://wa.me/529996466075?text=Hola%20Dra.%20Natalia%2C%20el%20equipo%20Eutimya%20me%20comparti%C3%B3%20su%20perfil.%20Me%20gustar%C3%ADa%20pedir%20informes%20para%20agendar%20una%20consulta.%20Muchas%20gracias." target="_blank" rel="noopener" class="btn-wa">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           WhatsApp
         </a>
@@ -706,7 +832,6 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 </div>
-```
 
   </div><!-- /grid -->
 </div><!-- /grid-wrap -->
