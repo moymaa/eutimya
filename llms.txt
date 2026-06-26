@@ -1,0 +1,70 @@
+# Eutimya — Salud Mental y Psiquiatría en Ciudad de México
+
+> Eutimya es una práctica psiquiátrica privada en la Ciudad de México que reúne a un
+> equipo de psiquiatras y psicólogos para atender a niños, adolescentes y adultos con
+> base en evidencia científica. Ofrece diagnóstico, farmacoterapia, psicoterapia y
+> neuromodulación (TMS/tDCS), en modalidad presencial (Col. Del Valle Sur, CDMX) y en
+> línea para toda la República Mexicana y el extranjero.
+
+- Sitio oficial: https://www.eutimya.org/
+- Última actualización: 2026-06-26
+- Idiomas: español, inglés
+
+## Qué es Eutimya
+Eutimya (del griego *euthymia*, "estado de ánimo en equilibrio") es una red de
+profesionales de la salud mental fundada y dirigida por el Dr. Deldhy Nicolás Moya
+Sánchez, psiquiatra adscrito al Centro Médico Nacional "20 de Noviembre" (ISSSTE) y
+profesor de la Facultad de Medicina de la UNAM. Cada profesional mantiene su propia
+consulta y subsitio; Eutimya funciona como la plataforma común de agendado, pagos,
+facturación y contenido de psicoeducación.
+
+## Equipo de profesionales
+- **Dr. Deldhy Nicolás Moya Sánchez** — Director · Psiquiatra de adultos y Psiquiatría de Enlace · certificado CONACEM, Alta Especialidad UNAM. Sitio: https://psiquiatra-cdmx.eutimya.org/
+- **Dra. Sharon Venecia Núñez Pichardo** — Paidopsiquiatra (niños y adolescentes) y psiquiatra de adultos. Sitio: https://paido.eutimya.org/
+- **Dra. Natalia Brochet Castilla** — Psiquiatra egresada del CMN "20 de Noviembre" (UNAM), en formación como paidopsiquiatra. Perfil: https://www.eutimya.org/natalia
+- **Dr. Salvador Josaet Cervantes Barriga** — Psiquiatra · Bioética. Perfil: https://www.eutimya.org/salvador
+- **Dra. Doris Darlene Carmona H.** — Psiquiatra · Género y Sexualidad.
+- **Dr. Alejandro Salazar Rodríguez** — Psiquiatra · TCC · ACT · bilingüe (ES/EN).
+- **Psic. Johanna Ivonne P. Cárdenas** — Psicóloga Clínica · Terapia Cognitivo-Conductual (solo en línea).
+
+## Padecimientos que se atienden
+Depresión mayor y distimia, trastorno bipolar I y II, trastorno de ansiedad generalizada,
+ataques de pánico, TDAH en adultos y en la infancia, insomnio crónico y trastornos del
+sueño, trastorno obsesivo-compulsivo (TOC), esquizofrenia y primeros episodios psicóticos,
+burnout, trastornos adaptativos, adicciones y patología dual, trastornos de personalidad,
+trastornos de la conducta alimentaria, delirium, evaluación psiquiátrica para cirugía
+bariátrica, y psiquiatría infanto-juvenil.
+
+## Servicios
+- Evaluación psiquiátrica y diagnóstico (primera consulta).
+- Seguimiento y manejo farmacológico.
+- Psicoterapia (TCC, ACT).
+- Neuromodulación: estimulación magnética transcraneal (TMS) y estimulación transcraneal por corriente directa (tDCS).
+- Psiquiatría infantil y del adolescente (paidopsiquiatría).
+- Evaluación psiquiátrica prequirúrgica para cirugía bariátrica.
+- Consulta en línea por Google Meet para toda la República Mexicana y el extranjero.
+
+## Consulta, contacto y pagos
+- Modalidad: presencial y en línea (mismo precio).
+- Dirección: Calle Moras 619, Colonia Del Valle Sur, Alcaldía Benito Juárez, Ciudad de México, C.P. 03104.
+- Teléfono / WhatsApp: +52 673 120 5121
+- Email: contacto@eutimya.org
+- Honorarios de referencia (Dr. Moya): primera consulta $2,000 MXN · consulta subsecuente $1,600 MXN · sesión de 50 min. Los honorarios pueden variar según el profesional.
+- Formas de pago: transferencia SPEI, tarjeta de crédito/débito, MercadoPago, PayPal, CoDi, efectivo.
+- Facturación (CFDI): https://www.eutimya.org/factura
+
+## Páginas clave
+- Inicio: https://www.eutimya.org/
+- Red de colegas / profesionales: https://www.eutimya.org/colegas
+- Blog de salud mental: https://www.eutimya.org/blog/
+- Validación de documentos: https://www.eutimya.org/validar
+- Aviso de privacidad y consentimiento informado: https://www.eutimya.org/priv
+- Subsitio Dr. Moya (adultos): https://psiquiatra-cdmx.eutimya.org/ · contexto: https://psiquiatra-cdmx.eutimya.org/llms.txt
+- Subsitio Paidopsiquiatría (Dra. Sharon Venecia): https://paido.eutimya.org/
+
+## Blog (psicoeducación)
+- ¿Qué es la psiquiatría?: https://www.eutimya.org/blog/que-es-la-psiquiatria
+- ¿Qué es la paidopsiquiatría?: https://www.eutimya.org/blog/que-es-la-paidopsiquiatria
+- Burnout: diagnóstico: https://www.eutimya.org/blog/burnout-diagnostico
+- Ansiedad y estrés: definición, impacto y estrategias: https://www.eutimya.org/blog/ansiedad-estres-definicion-impacto-estrategias
+- Soledad y depresión: https://www.eutimya.org/blog/soledad-depresion

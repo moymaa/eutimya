@@ -1,0 +1,64 @@
+# robots.txt — www.eutimya.org
+# Actualizado: 2026-06-26
+
+User-agent: *
+Allow: /
+
+# Crawlers de buscadores principales
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Crawlers de motores de IA generativa — acceso explícito (necesario para ser citado)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+# Sitemap
+Sitemap: https://www.eutimya.org/sitemap.xml
+
+# llms.txt — contexto estructurado para modelos de lenguaje
+# https://www.eutimya.org/llms.txt
