@@ -44,9 +44,11 @@
   "email":"joysval1@gmail.com",
   "alumniOf":[
     {"@type":"CollegeOrUniversity","name":"Universidad del Valle de México"},
-    {"@type":"CollegeOrUniversity","name":"Universidad Católica de Valencia San Vicente Mártir"}
+    {"@type":"CollegeOrUniversity","name":"Universidad Católica de Valencia San Vicente Mártir"},
+    {"@type":"EducationalOrganization","name":"Instituto de Psicoterapia Cognitivo-Conductual"}
   ],
-  "knowsAbout":["Bienestar emocional","Mindfulness","Atención plena","Gestión del estrés","Desarrollo personal","Cambio de hábitos","Orientación familiar","Prevención"],
+  "knowsLanguage":["es","en"],
+  "knowsAbout":["Bienestar emocional","Mindfulness","Atención plena","Gestión del estrés","Desarrollo personal","Cambio de hábitos","Orientación familiar","Inteligencia emocional","Prevención"],
   "worksFor":{"@type":"Organization","name":"Eutimya"},
   "sameAs":["https://www.eutimya.org/"]
 }
@@ -86,7 +88,10 @@
     {"@type":"Question","name":"¿Cuánto cuesta una sesión?","acceptedAnswer":{"@type":"Answer","text":"La sesión individual de orientación de 60 minutos cuesta 50 €. La orientación familiar cuesta 120 € por encargo. Los impuestos aplicables se calculan y muestran automáticamente al pagar."}},
     {"@type":"Question","name":"¿Cómo agendo una sesión?","acceptedAnswer":{"@type":"Answer","text":"Desde la propia página: eliges el tipo de sesión, el día y la hora disponibles, dejas tus datos y confirmas el pago. Verás el horario tanto en hora de México (CDMX) como de España (Madrid)."}},
     {"@type":"Question","name":"¿Ofreces sesiones de mindfulness?","acceptedAnswer":{"@type":"Answer","text":"Sí. Las sesiones de mindfulness (atención plena) son un acompañamiento educativo y práctico para gestionar el estrés cotidiano, mejorar la concentración y descansar mejor, con ejercicios de respiración y meditación guiada aptos para principiantes. Tienen carácter formativo y de bienestar; no son un tratamiento clínico."}},
-    {"@type":"Question","name":"¿Qué formación tiene Johanna Pichardo?","acceptedAnswer":{"@type":"Answer","text":"Es Licenciada en Psicología por la Universidad del Valle de México y cursa el Máster en Educación y Rehabilitación en Conductas Adictivas en la Universidad Católica de Valencia (España). Su labor se enmarca en el ámbito educativo y de orientación."}}
+    {"@type":"Question","name":"¿En qué idioma y horario son las sesiones?","acceptedAnswer":{"@type":"Answer","text":"Las sesiones son en español. La agenda se muestra en hora de México (CDMX) y de España (Madrid) a la vez. También es posible atender en inglés a nivel intermedio."}},
+    {"@type":"Question","name":"¿Puedo cambiar o cancelar mi cita?","acceptedAnswer":{"@type":"Answer","text":"Sí. Para reprogramar o cancelar, basta con escribir por correo (joysval1@gmail.com) o WhatsApp con la mayor antelación posible."}},
+    {"@type":"Question","name":"¿Necesito algo especial para la videollamada?","acceptedAnswer":{"@type":"Answer","text":"Solo un dispositivo con cámara y conexión a internet. La sesión es por Google Meet: recibes un enlace por correo y entras con un clic, sin instalar nada."}},
+    {"@type":"Question","name":"¿Qué formación tiene Johanna Pichardo?","acceptedAnswer":{"@type":"Answer","text":"Es Licenciada en Psicología por la Universidad del Valle de México, con posgrado en Terapia Cognitivo-Conductual, y cursa el Máster en Educación y Rehabilitación en Conductas Adictivas en la Universidad Católica de Valencia (España). Su labor se enmarca en el ámbito educativo y de orientación."}}
   ]
 }
 </script>
@@ -238,6 +243,28 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
 .tl-title{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
 .tl-place{font-size:.82rem;color:var(--teal);font-weight:600;margin-bottom:.3rem}
 .tl-desc{font-size:.82rem;color:var(--ink-mid);line-height:1.55}
+
+/* PARA QUIÉN */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
+.who-card{border:var(--glass-border-subtle);border-radius:var(--r);background:var(--glass);padding:1.3rem;box-shadow:var(--shadow)}
+.who-ico{width:38px;height:38px;border-radius:10px;background:var(--teal-pale);color:var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:.7rem}
+.who-ico svg{width:19px;height:19px}
+.who-title{font-weight:700;font-size:.95rem;margin-bottom:.3rem;color:var(--ink)}
+.who-desc{font-size:.83rem;color:var(--ink-mid);line-height:1.55}
+/* CÓMO FUNCIONA */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.2rem}
+.stp-n{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--serif);margin-bottom:.7rem}
+.stp-t{font-weight:700;font-size:.93rem;margin-bottom:.3rem;color:var(--ink)}
+.stp-d{font-size:.82rem;color:var(--ink-mid);line-height:1.55}
+/* RECURSOS */
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.rec-card{display:block;border:var(--glass-border-subtle);border-radius:var(--r);background:var(--glass);padding:1.3rem;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.rec-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.rec-tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--teal);margin-bottom:.5rem}
+.rec-title{font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:.4rem}
+.rec-more{font-size:.8rem;font-weight:700;color:var(--gold)}
+@media(max-width:900px){.who-grid,.steps,.rec-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.who-grid,.steps,.rec-grid{grid-template-columns:1fr}}
 
 /* FAQ */
 .faq{display:flex;flex-direction:column;gap:.7rem;max-width:820px}
@@ -553,6 +580,18 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
             <span class="chip">Bienestar cotidiano</span>
           </div>
         </div>
+        <div style="margin-top:1.4rem">
+          <p class="eyebrow teal" style="margin-bottom:.7rem">Formación complementaria e idiomas</p>
+          <div class="chip-row">
+            <span class="chip">Mindfulness</span>
+            <span class="chip">Inteligencia emocional</span>
+            <span class="chip">Aceptación y compromiso (ACT)</span>
+            <span class="chip">Habilidades de comunicación</span>
+            <span class="chip">Equidad e igualdad de género</span>
+            <span class="chip">Español (nativo)</span>
+            <span class="chip">Inglés (intermedio)</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -605,6 +644,47 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
   </div>
 </section>
 
+<!-- PARA QUIÉN -->
+<section class="section" id="para-quien">
+  <div class="wrap">
+    <p class="eyebrow scroll-reveal">¿Es para ti?</p>
+    <h2 class="section-h scroll-reveal">A quién acompaño</h2>
+    <p class="section-sub scroll-reveal">Personas adultas y familias que quieren sentirse mejor en su día a día, sin necesariamente atravesar un problema de salud. Si te reconoces en alguna de estas situaciones, encajas.</p>
+    <div class="who-grid">
+      <div class="who-card scroll-reveal">
+        <div class="who-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="who-title">Vives con prisa y estrés constante</div>
+        <div class="who-desc">Sientes que vas siempre un paso por detrás y quieres herramientas para gestionar el estrés cotidiano.</div>
+      </div>
+      <div class="who-card scroll-reveal">
+        <div class="who-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <div class="who-title">Estás en una transición vital</div>
+        <div class="who-desc">Un cambio de etapa, de país o de rumbo. Quieres claridad para tomar decisiones y ordenar prioridades.</div>
+      </div>
+      <div class="who-card scroll-reveal">
+        <div class="who-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+        <div class="who-title">Buscáis mejorar en familia</div>
+        <div class="who-desc">Queréis comunicaros mejor y herramientas de convivencia y hábitos para casa.</div>
+      </div>
+      <div class="who-card scroll-reveal">
+        <div class="who-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 3c0 3-2 4-2 7a2 2 0 004 0c0-3-2-4-2-7z"/><path d="M12 13v8"/></svg></div>
+        <div class="who-title">Quieres empezar con el mindfulness</div>
+        <div class="who-desc">Te llama la atención plena para calmar la mente y concentrarte, pero no sabes por dónde empezar.</div>
+      </div>
+      <div class="who-card scroll-reveal">
+        <div class="who-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="who-title">Te cuesta sostener hábitos</div>
+        <div class="who-desc">Empiezas con ganas y a los días lo dejas. Quieres un método realista y con seguimiento.</div>
+      </div>
+      <div class="who-card scroll-reveal">
+        <div class="who-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M2.5 12h19M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
+        <div class="who-title">Vives fuera de tu país</div>
+        <div class="who-desc">Quieres acompañamiento en tu idioma, sin importar dónde estés. Todo es online.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LIMITES / ENFOQUE -->
 <section class="section" id="limites">
   <div class="wrap">
@@ -637,8 +717,39 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
   </div>
 </section>
 
+<!-- COMO FUNCIONA -->
+<section class="section" id="como-funciona" style="background:var(--glass);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="wrap">
+    <p class="eyebrow scroll-reveal">Cómo son las sesiones</p>
+    <h2 class="section-h scroll-reveal">Sencillo, online y a tu ritmo</h2>
+    <p class="section-sub scroll-reveal">Todo ocurre por videollamada, en español, sin instalar nada complicado. Así funciona de principio a fin.</p>
+    <div class="steps">
+      <div class="scroll-reveal">
+        <div class="stp-n">1</div>
+        <div class="stp-t">Reservas y pagas</div>
+        <div class="stp-d">Eliges día y hora en el calendario (verás la disponibilidad real) y confirmas con pago seguro por Stripe. En un minuto.</div>
+      </div>
+      <div class="scroll-reveal">
+        <div class="stp-n">2</div>
+        <div class="stp-t">Recibes tu enlace</div>
+        <div class="stp-d">Te llega la confirmación por correo con el enlace de Google Meet para tu sesión. Sin apps ni registros.</div>
+      </div>
+      <div class="scroll-reveal">
+        <div class="stp-n">3</div>
+        <div class="stp-t">Nos vemos (60 min)</div>
+        <div class="stp-d">Un espacio de escucha y reflexión guiada, enfocado en tus objetivos: estrés, hábitos, mindfulness o la decisión que tengas entre manos.</div>
+      </div>
+      <div class="scroll-reveal">
+        <div class="stp-n">4</div>
+        <div class="stp-t">Sales con un plan</div>
+        <div class="stp-d">Te llevas pasos concretos y, si lo necesitas, seguimiento entre sesiones para sostener el cambio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FORMACIÓN -->
-<section class="section" id="formacion" style="background:var(--glass);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+<section class="section" id="formacion">
   <div class="wrap">
     <p class="eyebrow scroll-reveal">Trayectoria</p>
     <h2 class="section-h scroll-reveal">Formación y experiencia</h2>
@@ -652,30 +763,65 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
         </div>
       </div>
       <div class="tl-item scroll-reveal">
-        <div class="tl-year">Experiencia</div>
+        <div class="tl-year">2022 – 2024</div>
         <div>
-          <div class="tl-title">Orientación y acompañamiento en bienestar emocional</div>
+          <div class="tl-title">Posgrado en Terapia Cognitivo-Conductual (TCC)</div>
+          <div class="tl-place">Instituto de Psicoterapia Cognitivo-Conductual · Ciudad de México</div>
+          <div class="tl-desc">Formación de posgrado que sustenta un enfoque estructurado, práctico y basado en evidencia, aplicado a la orientación y el bienestar. Formación complementaria en inteligencia emocional, terapias contextuales (ACT) y habilidades de comunicación.</div>
+        </div>
+      </div>
+      <div class="tl-item scroll-reveal">
+        <div class="tl-year">9 años · actual</div>
+        <div>
+          <div class="tl-title">Acompañamiento y bienestar emocional</div>
           <div class="tl-place">Online · España, México y Latinoamérica</div>
-          <div class="tl-desc">Acompañamiento educativo a personas adultas y familias en gestión del estrés, hábitos saludables, comunicación familiar y transiciones vitales.</div>
+          <div class="tl-desc">Nueve años de experiencia acompañando a personas adultas y familias, hoy enfocada en orientación educativa: gestión del estrés cotidiano, mindfulness, hábitos saludables, comunicación familiar y transiciones vitales.</div>
         </div>
       </div>
       <div class="tl-item scroll-reveal">
         <div class="tl-year">2010 – actual</div>
         <div>
-          <div class="tl-title">Bienestar y clima laboral · Equidad e Igualdad de Género</div>
+          <div class="tl-title">Bienestar, clima laboral e igualdad de género</div>
           <div class="tl-place">INFONAVIT · México</div>
-          <div class="tl-desc">Talleres de manejo del estrés y bienestar para más de 120 colaboradores. Mindfulness, técnicas de relajación y estrategias de convivencia y clima laboral.</div>
+          <div class="tl-desc">Diseño e impartición de talleres de manejo del estrés y bienestar para más de 120 colaboradores: <strong>mindfulness, técnicas de relajación y ejercicios de respiración</strong>, resiliencia, gestión del tiempo y productividad. Materiales de psicoeducación en procesos de duelo, mediación de conflictos y estrategias de clima laboral e igualdad de género.</div>
         </div>
       </div>
       <div class="tl-item scroll-reveal">
-        <div class="tl-year">Licenciatura</div>
+        <div class="tl-year">2012 – 2015</div>
         <div>
           <div class="tl-title">Licenciatura en Psicología</div>
           <div class="tl-place">Universidad del Valle de México</div>
-          <div class="tl-desc">Formación en fundamentos del comportamiento humano y del acompañamiento.</div>
+          <div class="tl-desc">Formación en los fundamentos del comportamiento humano y del acompañamiento.</div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- RECURSOS -->
+<section class="section" id="recursos" style="background:var(--glass);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="wrap">
+    <p class="eyebrow scroll-reveal">Recursos gratuitos</p>
+    <h2 class="section-h scroll-reveal">Empieza hoy, por tu cuenta</h2>
+    <p class="section-sub scroll-reveal">Guías prácticas de bienestar, mindfulness y hábitos. Léelas gratis y aplica algo hoy mismo, antes incluso de agendar.</p>
+    <div class="rec-grid">
+      <a class="rec-card scroll-reveal" href="blog/que-es-el-mindfulness.html">
+        <div class="rec-tag">Mindfulness · Principiantes</div>
+        <div class="rec-title">Qué es el mindfulness y cómo empezar hoy</div>
+        <div class="rec-more">Leer artículo →</div>
+      </a>
+      <a class="rec-card scroll-reveal" href="blog/ejercicios-de-mindfulness-para-el-estres.html">
+        <div class="rec-tag">Estrés · Práctica</div>
+        <div class="rec-title">5 ejercicios de mindfulness para el estrés cotidiano</div>
+        <div class="rec-more">Leer artículo →</div>
+      </a>
+      <a class="rec-card scroll-reveal" href="blog/como-crear-habitos-saludables.html">
+        <div class="rec-tag">Hábitos · Desarrollo personal</div>
+        <div class="rec-title">Cómo crear hábitos saludables que sí duran</div>
+        <div class="rec-more">Leer artículo →</div>
+      </a>
+    </div>
+    <p style="text-align:center;margin-top:1.6rem"><a href="blog/" style="font-size:.9rem;font-weight:700;color:var(--gold)">Ver todos los artículos →</a></p>
   </div>
 </section>
 
@@ -691,6 +837,9 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
       <details class="faq-item scroll-reveal"><summary>¿Cuánto cuesta una sesión?<span class="faq-chev">⌄</span></summary><div class="faq-a">La sesión individual de orientación de 60 minutos cuesta <strong>50 €</strong>. La orientación familiar cuesta <strong>120 €</strong> por encargo. Los impuestos aplicables se calculan y muestran automáticamente en el pago seguro de Stripe según tu país.</div></details>
       <details class="faq-item scroll-reveal"><summary>¿Cómo agendo una sesión?<span class="faq-chev">⌄</span></summary><div class="faq-a">Desde esta misma página: eliges el tipo de sesión, el día y la hora disponibles, dejas tus datos y confirmas el pago. Verás cada horario tanto en hora de México (CDMX) como de España (Madrid).</div></details>
       <details class="faq-item scroll-reveal"><summary>¿Ofreces sesiones de mindfulness?<span class="faq-chev">⌄</span></summary><div class="faq-a">Sí. Las sesiones de <strong>mindfulness (atención plena)</strong> son un acompañamiento educativo y práctico para gestionar el estrés cotidiano, mejorar la concentración y descansar mejor, con ejercicios de respiración y meditación guiada aptos para principiantes. Tienen carácter formativo y de bienestar; no son un tratamiento clínico.</div></details>
+      <details class="faq-item scroll-reveal"><summary>¿En qué idioma y horario son las sesiones?<span class="faq-chev">⌄</span></summary><div class="faq-a">Las sesiones son en <strong>español</strong>. La agenda se muestra en hora de <strong>México (CDMX)</strong> y de <strong>España (Madrid)</strong> a la vez, para que reserves sin confusiones estés donde estés. También puedo atender en inglés a nivel intermedio si lo prefieres.</div></details>
+      <details class="faq-item scroll-reveal"><summary>¿Puedo cambiar o cancelar mi cita?<span class="faq-chev">⌄</span></summary><div class="faq-a">Sí. Si necesitas reprogramar o cancelar, escríbeme por correo (<a href="mailto:joysval1@gmail.com">joysval1@gmail.com</a>) o WhatsApp con la mayor antelación posible y buscamos otro hueco que te venga bien.</div></details>
+      <details class="faq-item scroll-reveal"><summary>¿Necesito algo especial para la videollamada?<span class="faq-chev">⌄</span></summary><div class="faq-a">Solo un dispositivo con cámara y conexión a internet. La sesión es por Google Meet: recibes un enlace por correo y entras con un clic, sin instalar nada ni crear cuentas.</div></details>
       <details class="faq-item scroll-reveal"><summary>¿Qué formación tiene Johanna Pichardo?<span class="faq-chev">⌄</span></summary><div class="faq-a">Es Licenciada en Psicología por la Universidad del Valle de México y cursa el Máster en Educación y Rehabilitación en Conductas Adictivas en la Universidad Católica de Valencia (España). Su labor se enmarca en el ámbito educativo y de orientación.</div></details>
     </div>
   </div>
