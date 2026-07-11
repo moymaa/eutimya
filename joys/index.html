@@ -786,9 +786,13 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
             <textarea id="tnMotivo" placeholder=" " oninput="tnVal('motivo')"></textarea>
             <label>¿Qué te gustaría trabajar? (opcional)</label>
           </div>
+          <label class="tn-chkrow" id="tnPrivRow">
+            <input type="checkbox" id="tnPriv" onchange="tnVal('priv')"/>
+            <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y el <a href="privacidad.html#aviso-legal" target="_blank" rel="noopener">Aviso Legal</a>, y consiento el tratamiento de mis datos (RGPD).</span>
+          </label>
           <label class="tn-chkrow" id="tnConsentRow">
             <input type="checkbox" id="tnConsent" onchange="tnVal('consent')"/>
-            <span>He leído y acepto que estas sesiones son de <strong>orientación y bienestar educativo</strong> (IAE 799) y <strong>no constituyen psicoterapia, diagnóstico ni tratamiento sanitario</strong>. <a href="#limites" target="_blank">Ver enfoque y límites</a>.</span>
+            <span>He leído y acepto el <a href="consentimiento.html" target="_blank" rel="noopener">Consentimiento Informado</a>: entiendo que es <strong>orientación y bienestar educativo</strong> (IAE 799) y <strong>no psicoterapia, diagnóstico ni tratamiento sanitario</strong>.</span>
           </label>
         </div>
 
@@ -887,7 +891,11 @@ h1,h2,h3,h4{letter-spacing:-.018em;font-weight:700}
   </div>
   <div class="footer-bottom">
     <span>© 2026 Johanna Ivonne Pichardo Cárdenas · Orientación en bienestar emocional</span>
-    <span>Online · España · México · LATAM</span>
+    <span style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="privacidad.html" style="color:rgba(255,255,255,.55)">Política de privacidad</a>
+      <a href="privacidad.html#aviso-legal" style="color:rgba(255,255,255,.55)">Aviso legal</a>
+      <a href="consentimiento.html" style="color:rgba(255,255,255,.55)">Consentimiento</a>
+    </span>
   </div>
 </footer>
 
@@ -950,7 +958,7 @@ function toast(msg){
   var calY=NOW.getFullYear(), calM=NOW.getMonth();
   var cur=1, TOTAL=4;
   var srvSched=null;
-  var st={ tipo:'individual', selDate:null, selTime:null, nom:'', eml:'', dial:'52', tel:'', motivo:'', consent:false, busy:{}, paid:false };
+  var st={ tipo:'individual', selDate:null, selTime:null, nom:'', eml:'', dial:'52', tel:'', motivo:'', consent:false, priv:false, busy:{}, paid:false };
 
   function cdow(d){return (d.getDay()+6)%7;}
   function mxUtc(y,m,d,hh,mm){return Date.UTC(y,m,d,hh+6,mm,0);} /* CDMX = UTC-6 */
@@ -1075,12 +1083,14 @@ function toast(msg){
     else if(f==='tel'){var d=$('tnTel').value.replace(/\D/g,'').slice(0,15);$('tnTel').value=d;st.tel=d;fgBad('tel',st.tel.length>0&&!vTel(st.tel));}
     else if(f==='motivo'){st.motivo=$('tnMotivo').value;}
     else if(f==='consent'){st.consent=$('tnConsent').checked;$('tnConsentRow').classList.toggle('tn-bad',!st.consent);}
+    else if(f==='priv'){st.priv=$('tnPriv').checked;$('tnPrivRow').classList.toggle('tn-bad',!st.priv);}
   };
   function validarDatos(){
     var ok=true;
     if(!vNom(st.nom)){fgBad('nom',true);ok=false;}
     if(!vEml(st.eml)){fgBad('eml',true);ok=false;}
     if(!vTel(st.tel)){fgBad('tel',true);ok=false;}
+    if(!st.priv){$('tnPrivRow').classList.add('tn-bad');ok=false;}
     if(!st.consent){$('tnConsentRow').classList.add('tn-bad');ok=false;}
     return ok;
   }
@@ -1113,6 +1123,7 @@ function toast(msg){
     var d=st.selDate, p=st.selTime.split(':').map(Number);
     var payload={action:'crearCita',tipo:st.tipo,servicio:LABELS[st.tipo],monto:PRICES[st.tipo],
       nombre:st.nom,correo:st.eml,celular:'+'+st.dial+st.tel,motivo:st.motivo,
+      consentimiento:(st.priv&&st.consent),consentTs:new Date().toISOString(),
       y:d.getFullYear(),m:d.getMonth()+1,dia:d.getDate(),h:p[0],min:p[1],dur:DURATION};
     fetch(GAS_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)})
       .then(function(r){return r.json();})
@@ -1191,9 +1202,9 @@ function toast(msg){
     $('tnOkWa').href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(txt);
   }
   window.tnReset=function(){
-    st={ tipo:'individual', selDate:null, selTime:null, nom:'', eml:'', dial:'52', tel:'', motivo:'', consent:false, busy:{}, paid:false };
+    st={ tipo:'individual', selDate:null, selTime:null, nom:'', eml:'', dial:'52', tel:'', motivo:'', consent:false, priv:false, busy:{}, paid:false };
     ['tnNom','tnEml','tnTel','tnMotivo'].forEach(function(id){var e=$(id);if(e)e.value='';});
-    $('tnConsent').checked=false; $('tnCC').value='52';
+    $('tnConsent').checked=false; var pv=$('tnPriv'); if(pv) pv.checked=false; $('tnCC').value='52';
     document.querySelectorAll('#tn1 .tn-mo').forEach(function(o,i){o.classList.toggle('tn-on',i===0);});
     try{ _resetPayStep(); }catch(e){}
     goto(1,'back');
