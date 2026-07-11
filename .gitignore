@@ -1,0 +1,10 @@
+# Sistema
+.DS_Store
+**/.DS_Store
+
+# Config local del entorno (no publicar)
+.claude/
+
+# Backend Google Apps Script — NUNCA en el sitio público (se despliega aparte)
+**/gas/
+*.gs

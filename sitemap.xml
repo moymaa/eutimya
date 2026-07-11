@@ -131,6 +131,40 @@
   </url>
 
   <url>
+    <loc>https://www.eutimya.org/joys/blog/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.eutimya.org/joys/blog/que-es-el-mindfulness.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.eutimya.org/joys/blog/que-es-el-mindfulness.html"/>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://www.eutimya.org/joys/blog/que-es-el-mindfulness.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.eutimya.org/joys/blog/ejercicios-de-mindfulness-para-el-estres.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.eutimya.org/joys/blog/ejercicios-de-mindfulness-para-el-estres.html"/>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://www.eutimya.org/joys/blog/ejercicios-de-mindfulness-para-el-estres.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.eutimya.org/joys/blog/como-crear-habitos-saludables.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://www.eutimya.org/joys/blog/como-crear-habitos-saludables.html"/>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://www.eutimya.org/joys/blog/como-crear-habitos-saludables.html"/>
+  </url>
+
+  <url>
     <loc>https://www.eutimya.org/salvador</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
