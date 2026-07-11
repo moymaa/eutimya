@@ -74,6 +74,15 @@ article li{margin-bottom:.5rem;color:#26374a}
 .related a span{color:var(--gold)}
 .disc{max-width:720px;margin:0 auto;padding:1.5rem 1.4rem 3rem;font-size:.78rem;color:var(--ink-light);line-height:1.65;border-top:1px solid var(--rule)}
 .disc strong{color:var(--ink-mid)}
+.author{max-width:720px;margin:1.6rem auto;padding:0 1.4rem}
+.author-card{display:flex;gap:1.3rem;align-items:center;background:#fff;border:1px solid var(--rule);border-radius:18px;padding:1.5rem;box-shadow:0 6px 28px rgba(13,27,42,.06)}
+.author-photo{width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:center 12%;flex-shrink:0;border:3px solid var(--gold-pale)}
+.author-eyebrow{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--gold);margin-bottom:.25rem}
+.author-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:.15rem}
+.author-role{font-size:.84rem;color:var(--teal);font-weight:600;margin-bottom:.55rem}
+.author-bio{font-size:.88rem;color:var(--ink-mid);line-height:1.6;margin-bottom:.9rem}
+.author-cta{display:inline-flex;align-items:center;gap:.4rem;background:var(--gold);color:#fff;padding:.55rem 1.2rem;border-radius:999px;font-weight:700;font-size:.84rem}
+@media(max-width:560px){.author-card{flex-direction:column;text-align:center}}
 footer{background:var(--ink);color:rgba(255,255,255,.6);text-align:center;padding:2rem 1.4rem;font-size:.8rem}
 footer a{color:var(--gold)}
 </style>
@@ -139,6 +148,19 @@ footer a{color:var(--gold)}
     <a href="https://www.eutimya.org/joys/#agendar">Agendar sesión online →</a>
   </div>
 </article>
+
+<div class="author">
+  <div class="author-card">
+    <img class="author-photo" src="https://www.eutimya.org/joys/perfiljoy.jpeg" alt="Johanna Ivonne Pichardo Cárdenas, orientadora en bienestar emocional"/>
+    <div>
+      <div class="author-eyebrow">Sobre la autora</div>
+      <div class="author-name">Johanna Pichardo</div>
+      <div class="author-role">Orientadora en bienestar emocional · Online</div>
+      <p class="author-bio">Licenciada en Psicología (Universidad del Valle de México) y cursando el Máster en Educación y Rehabilitación en Conductas Adictivas (Universidad Católica de Valencia). Acompaño a adultos y familias en la gestión del estrés, el mindfulness y los hábitos saludables, con un enfoque cercano, práctico y educativo. Sesiones online para España, México y Latinoamérica.</p>
+      <a class="author-cta" href="https://www.eutimya.org/joys/#agendar">Agendar sesión online →</a>
+    </div>
+  </div>
+</div>
 
 <div class="related">
   <h4>Sigue leyendo</h4>

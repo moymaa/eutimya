@@ -48,9 +48,17 @@ h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.9rem);font-weight:800;lin
 .card.wide{grid-column:1/-1;background:linear-gradient(135deg,var(--gold-pale),#fff)}
 .disc{max-width:860px;margin:0 auto;padding:1.5rem 1.4rem 3rem;font-size:.78rem;color:var(--ink-light);line-height:1.65;border-top:1px solid var(--rule)}
 .disc strong{color:var(--ink-mid)}
+.about{max-width:860px;margin:1rem auto 0;padding:0 1.4rem}
+.about-card{display:flex;gap:1.6rem;align-items:center;background:linear-gradient(135deg,var(--ink),#153048);border-radius:20px;padding:1.8rem 2rem;box-shadow:0 12px 40px rgba(13,27,42,.14)}
+.about-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 12%;flex-shrink:0;border:3px solid rgba(184,137,58,.55)}
+.about-eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--gold);margin-bottom:.35rem}
+.about-name{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:.2rem}
+.about-role{font-size:.9rem;color:rgba(255,255,255,.72);font-weight:500;margin-bottom:.7rem}
+.about-bio{font-size:.92rem;color:rgba(255,255,255,.82);line-height:1.65;margin-bottom:1rem}
+.about-cta{display:inline-flex;align-items:center;gap:.45rem;background:var(--gold);color:#fff;padding:.65rem 1.5rem;border-radius:999px;font-weight:700;font-size:.88rem}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.about-card{flex-direction:column;text-align:center;padding:1.8rem 1.4rem}}
 footer{background:var(--ink);color:rgba(255,255,255,.6);text-align:center;padding:2rem 1.4rem;font-size:.8rem}
 footer a{color:var(--gold)}
-@media(max-width:640px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -85,6 +93,19 @@ footer a{color:var(--gold)}
     <span class="more">Leer artículo →</span>
   </a>
 </div>
+
+<section class="about" id="sobre-mi">
+  <div class="about-card">
+    <img class="about-photo" src="https://www.eutimya.org/joys/perfiljoy.jpeg" alt="Johanna Ivonne Pichardo Cárdenas, orientadora en bienestar emocional"/>
+    <div>
+      <div class="about-eyebrow">Sobre mí</div>
+      <div class="about-name">Johanna Ivonne Pichardo Cárdenas</div>
+      <div class="about-role">Orientadora en bienestar emocional y desarrollo personal · Online</div>
+      <p class="about-bio">Soy Licenciada en Psicología por la Universidad del Valle de México y curso el Máster en Educación y Rehabilitación en Conductas Adictivas en la Universidad Católica de Valencia. Acompaño a personas adultas y familias en la gestión del estrés cotidiano, el mindfulness, los hábitos saludables y las transiciones vitales, siempre desde un enfoque educativo, cercano y orientado a la acción. Atiendo de forma íntegramente online para España, México y Latinoamérica.</p>
+      <a class="about-cta" href="https://www.eutimya.org/joys/#agendar">Agendar sesión conmigo →</a>
+    </div>
+  </div>
+</section>
 
 <div class="disc">
   <strong>Aviso.</strong> Los contenidos de esta sección son de carácter educativo y de bienestar (actividad IAE 799) y no constituyen psicoterapia, diagnóstico ni tratamiento sanitario.
